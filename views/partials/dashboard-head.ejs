@@ -1,0 +1,326 @@
+<%- include('head') %>
+<head>
+  <link rel="stylesheet" href="/styles/dashboard.css">
+</head>
+<div class="mc-hd mc-hd__en-th mc-hd_line mc-hd_theme_white mc-hd-single_row">
+    <div class="mc-hd__inner">
+        <div class="mc-hd__flex-con clear-float">
+            <div class="mc-hd__logo-con mc-hd__logo-con-en-TH mc-hd__logo-layout-0"><a class="mc-hd__logo mc-hd__logo-en-th" href="/?locale=en-TH&amp;curr=USD"></a></div>
+            <div class="mc-hd__nav-single-row">
+                <div class="mc-hd__nav-con 3010" id="ibuHeaderChannels">
+                    <ul class="mc-hd__nav">
+                        <li class="mc-hd__nav-item"><a id="header_action_nav_hotels" class="mc-hd__nav-lnk" href="/search/" title="Hotels">Hotels</a>
+                          <ul class="mc-hd__nav-item-sub">
+                            <li><a href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Pattaya<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Pattaya</a></li>
+                            <li><a class="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Bangkok<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Bangkok</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Phuket<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phuket</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Chataburi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Chataburi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Chiang mai<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Chiang mai</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Krabi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Krabi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Phang Nga<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phang Nga</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Kho samui<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Kho samui</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Surat thani<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Surat thani</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Huahin<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Huahin</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Udon thani<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Udon thani</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Phatthalung<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phatthalung</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Nakhon Phanom<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Nakhon Phanom</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Korat<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Korat</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Si Racha<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Si Racha</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Sattahip<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Sattahip</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Khao Yai<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Khao Yai</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Rayong<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Rayong</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Koh Smed<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Koh Smed</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Ayutthaya<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Ayutthaya</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Kanchanaburi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Kanchanaburi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/search?query=Samut Prakan<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Samut Prakan</a></li>
+                        </ul>
+                      </li>
+                        
+                        <li class="mc-hd__nav-item"><a id="header_action_nav_flights" class="mc-hd__nav-lnk" href="/golf/courses" title="Flights">Golf</a>
+                          <ul class="mc-hd__nav-item-sub">
+                            <li><a href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query==Pattaya<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Pattaya</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Bangkok<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Bangkok</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Phuket<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phuket</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Chataburi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Chataburi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Chiang mai<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Chiang mai</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Krabi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Krabi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Phang Nga<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phang Nga</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Kho samui<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Kho samui</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Surat thani<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Surat thani</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Huahin<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Huahin</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Udon thani<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Udon thani</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Phatthalung<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phatthalung</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Nakhon Phanom<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Nakhon Phanom</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Korat<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Korat</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Si Racha<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Si Racha</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Sattahip<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Sattahip</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/earch?query=Khao Yai<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Khao Yai</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Rayong<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Rayong</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Koh Smed<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Koh Smed</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Ayutthaya<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Ayutthaya</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Kanchanaburi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Kanchanaburi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/golf/search?query=Samut Prakan<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Samut Prakan</a></li>
+                        </ul>
+                        </li>
+                        
+                        <li class="mc-hd__nav-item"><a id="header_action_nav_trains" class="mc-hd__nav-lnk" href="/package/list" title="Trains">Hotels&Golf</a>
+                          <ul class="mc-hd__nav-item-sub">
+                            <li><a href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Pattaya<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Pattaya</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Bangkok<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Bangkok</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Phuket<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phuket</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Chataburi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Chataburi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Chiang mai<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Chiang mai</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Krabi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Krabi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Phang Nga<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phang Nga</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Kho samui<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Kho samui</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Surat thani<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Surat thani</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Huahin<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Huahin</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Udon thani<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Udon thani</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Phatthalung<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Phatthalung</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Nakhon Phanom<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Nakhon Phanom</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Korat<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Korat</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Si Racha<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Si Racha</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Sattahip<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Sattahip</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Khao Yai<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Khao Yai</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Rayong<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Rayong</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Koh Smed<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Koh Smed</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Ayutthaya<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Ayutthaya</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Kanchanaburi<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Kanchanaburi</a></li>
+                            <li><a iclass="mc-hd__sub-nav-lnk" href="<% if (typeof user !== 'undefined' && user) { %>/package/search?query=Samut Prakan<% } else { %>#<% } %>" <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required'); return false;"<% } %>>Samut Prakan</a></li>
+                        </ul>
+                        </li>
+                        <li class="mc-hd__nav-item mc-hd__nav-item-wth-sub"><a  class="mc-hd__nav-lnk" href="https://www.skyscanner.co.th/?currency=THB&locale=en-US&market=TH&_gl=1*1u6gsfk*_gcl_au*MTIwOTM5NjkxOS4xNzMwMjY2NjI4" >Flights</a></li>
+                        <li class="mc-hd__nav-item mc-hd__nav-item-wth-sub"><a id="header_action_nav_ttd" class="mc-hd__nav-lnk" href="/pages/contact-us" >Contacts</a>
+                            
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="mc-hd__func-con" id="ibuHeaderMenu">
+                <div class="mc-hd__func">
+                     
+                
+                    <div class="mc-hd__option">
+                        <div class="mc-hd__help"><a  class="mc-hd__nav-lnk" target="_blank" href="http://139.180.211.209/" >Individual customer</a><i class="fi fi-bangzhu"></i></div>
+                    </div>
+                      <div class="mc-hd__option mc-hd__option__locale">
+                          <div class="mc-hd__country mc-hd__dropdown-con">
+                              <div class="mc-hd__country-cur mc-hd__dropdown-cur"><span class="mc-hd__country-icon"><i class="ic-flagicon flag-en-US" style="background-position: 0px 0px; background-image: url(&quot;https://ak-d.tripcdn.com/images/05E1v12000dgqkhtf5799.png&quot;);"></i></span></div>
+                          </div>
+                      </div>
+                      <div class="mc-hd__option mc-hd__option__currency">
+                          <div class="mc-hd__currency mc-hd__dropdown-con">
+                              <div class="mc-hd__dropdown-cur mc-hd__currency-cur">USD</div>
+                          </div>
+                      </div>
+                      <div class="mc-hd__account mc-hd__dropdown-con" style="display: block;">
+                        <div class="mc-hd__account-cur"><span class="mc-hd__avatar"><i class="fi fi-ic_user"></i></span>
+                                <% if (typeof user !== 'undefined' && user) { %>
+                                    <button class="button-text-h" onclick="toggleUserMenu()">
+                                      <i class="button-text-h"></i> <%= user.email %>
+                                    </button>
+                                    <div class="user-menu" id="userMenu">
+                                         <ul class="mc-hd__nav-item-sub">
+                                      <% if (user.role === 'Admin' || user.role === 'SuperAdmin') { %>
+                                        <li><a class=" linc"  href="/dashboard" <% if (!user.isVerified) { %>onclick="alert('Please verify your account to access the dashboard.'); return false;"<% } %>>Dashboard</a></li>
+                                        <li><a class="linc"  href="/admin/dashboard">Admin Dashboard</a></li>
+                                        <li><a class="linc"  href="/auth/logout">Logout</a></li>
+                                      <% } else { %>
+                                        <li><a class="mc-hd__sub-nav-lnk" href="/dashboard" <% if (!user.isVerified) { %>onclick="alert('Please verify your account to access the dashboard.'); return false;"<% } %>>Dashboard</a></li>
+                                        <li><a class="mc-hd__sub-nav-lnk"href="/auth/logout">Logout</a></li>
+                                      <% } %>
+                                      </ul>
+                                    </div>
+                                <% } else { %>
+                                  <button class="button-text-h" onclick="showAuthPopup()">Sign in / Register</button>
+                                <% } %>
+                             
+                        </div>
+                    </div>
+                    <div id="authPopup" class="popup" style="display: none;"> 
+                      <div class="modal_content no_right_ad">
+                        <a onclick="closePopup()"><div id="ibu_login_close" class="close_btn ibu_login_c_iconfont ibu_login_c_icon_close " role="presentation"></div></a>
+                        <div class="content_wrapper textAlignLeft">
+                          <% if (messages.error) { %>
+                            <div class="alert alert-danger">
+                              <%= messages.error %>
+                            </div>
+                          <% } %>
+                            <form id="authForm" action="/auth/register" method="post">
+                                <div class="form_wrapper">
+                                    <div class="ibu_title top_title">Sign in / Register</div>
+                                    <div class="ibu_desc top_content">Manage your bookings with ease and enjoy member-only benefits</div>
+                                    <div class="input_wrapper">
+                                        <div class="input-module__ibu_input_item__EQTLR   ">
+                                            <p class="input-module__label__3QCyf input-module__common_label__Ygu4-" style="display: none;">Email</p>
+                                            <div >
+                                                <input type="email" id="email" name="email" placeholder="Email Address" required class="input-module__r_input__-Yspv">
+                                          
+                                            
+                                                <input type="password" id="password" name="password" placeholder="Password" style="display:none;" required class="input-module__r_input__-Yspv">
+                                                <div class="input-module__right_btn__-GXAu"></div>
+                                            </div>
+                                        </div>
+                                    </div>ßß
+                                    <div class="ibu-account-slider">
+                                        <div id="ibu-online-account-sliderPubHeader"></div>
+                                    </div><button  type="submit" id="authButton" class="tripui-online-btn tripui-online-btn-large tripui-online-btn-solid-primary tripui-online-btn-solid-primary-disabled tripui-online-btn-block  ibu-login-btn ibu-button-submit-class ibu-login-btn-primary ibu-v3-submit_btn " >
+                                        <div class="tripui-online-btn-content" ><span class="tripui-online-btn-content-children "><span class="ibu-button-link-text" id="authButton">Continue</span></span></div>
+                                        
+                                      </button>
+                                </div>
+                            </form>
+                            <div class="form_wrapper ibu-simple-slider">
+                                <div id="ibu-online-account-simple-sliderPubHeader"></div>
+                            </div>
+                            <div class="other_login_way">
+                                <div class="other_title other_title_thirdparty"><i class="left-line"></i>
+                                    <div class="other_title_txt">More Sign In Methods</div><i class="right-line"></i>
+                                </div>
+                                <div class="thirdparty-login-wrapper  ">
+                                    <div class="ibu_thirdpartlogin_online_wrapper_v3">
+                                        <div class="login_way_list">
+                                            <div class="way_wrapper way_wrapper_01 ">
+                                                <div class="way_list_container ">
+                                                    <div class="way_list">
+                                                        <div class="way_item" role="presentation">
+                                                            <div class="way_icon way_icon_gl_bg">
+                                                                <div class="way_icon_item way_icon_gl"></div>
+                                                            </div>
+                                                            <div class="way_name">Google</div>
+                                                        </div>
+                                                        <div class="way_item" role="presentation">
+                                                            <div class="way_icon way_icon_ap_bg">
+                                                                <div class="way_icon_item way_icon_ap"></div>
+                                                            </div>
+                                                            <div class="way_name">Apple</div>
+                                                        </div>
+                                                        <div class="way_item" role="presentation">
+                                                            <div class="way_icon way_icon_fb_bg">
+                                                                <div class="way_icon_item way_icon_fb"></div>
+                                                            </div>
+                                                            <div class="way_name">Facebook</div>
+                                                        </div>
+                                                        <div class="way_item" role="presentation">
+                                                            <div class="way_icon way_icon_wx_bg">
+                                                                <div class="way_icon_item way_icon_wx"></div>
+                                                            </div>
+                                                            <div class="way_name">Wechat</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_bottom_area">
+                                <div class="agreement_wrapper">
+                                    <style></style>
+                                    <div class="bbz-accounts-gdpr-wrapper agreement_txt">
+                                        <div class="ibu_login_c_check_pro " id="ibu_login_c_check_pro">
+                                            <div class="ibu_login_c_desc"><span>By signing in or registering, you are deemed to have agreed to the Trip.com <a href="https://pages.trip.com/service-guideline/terms-en-us.html" class="ibu_login_c_link privacy_policy_link_txt" target="_blank">Terms and Conditions</a> and <a href="https://pages.trip.com/service-guideline/privacy-policy-en-us.html" class="ibu_login_c_link privacy_policy_link_txt" target="_blank">Privacy Statement</a>.</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    <!--
+                        <div class="popup-content">
+                          
+                          <h2 id="popupTitle">Sign In / Register</h2>
+                      
+                          <% if (messages.error) { %>
+                            <div class="alert alert-danger">
+                              <%= messages.error %>
+                            </div>
+                          <% } %>
+                      
+                          <form id="authForm" action="/auth/register" method="post">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            <input type="password" id="password" name="password" placeholder="Password" style="display:none;">
+                            
+                            <div class="button-row">
+                              <button type="submit" id="authButton">Submit</button>
+                              <button type="button" onclick="closePopup()">Close</button>
+                            </div>
+                          </form>
+                        </div>
+                        -->
+                    </div>
+                     
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div> <script src="/scripts/auth.js"></script>
+<script>
+  function toggleUserMenu() {
+    var menu = document.getElementById("userMenu");
+    menu.classList.toggle("show");
+  }
+  
+  function showHotelsList() {
+    var list = document.getElementById("hotelsList");
+    list.classList.add("show");
+  }
+
+  function hideHotelsList() {
+    var list = document.getElementById("hotelsList");
+    list.classList.remove("show");
+  }
+
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.button-text-h')) {
+      var dropdowns = document.getElementsByClassName("user-menu");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  // Show/hide scroll navigation and banner
+  window.onscroll = function() {
+    var scrollNav = document.getElementById("scrollNav");
+    var scrollBanner = document.getElementById("scrollBanner");
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollNav.style.display = "flex";
+      scrollBanner.style.display = "flex";
+    } else {
+      scrollNav.style.display = "none";
+      scrollBanner.style.display = "none";
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function scrollToCart() {
+    // Implement this function to scroll to the cart section
+  }
+
+  function scrollToBestSellers() {
+    // Implement this function to scroll to the Best Sellers section
+  }
+
+  function scrollToFireSales() {
+    // Implement this function to scroll to the Fire Sales section
+  }
+
+  function scrollToEarlyBird() {
+    // Implement this function to scroll to the Early Bird section
+  }
+
+  function scrollToPolicies() {
+    // Implement this function to scroll to the Policies section
+  }
+</script>

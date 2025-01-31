@@ -1,0 +1,30 @@
+<% 
+  const checkboxId = typeof id !== 'undefined' ? id : ''; 
+  const checkboxName = typeof name !== 'undefined' ? name : ''; 
+  const checkboxValue = typeof value !== 'undefined' ? value : ''; 
+  const checkboxLabel = typeof label !== 'undefined' ? label : ''; 
+  const checkboxIsChecked = typeof isChecked !== 'undefined' ? isChecked : false; 
+%>
+
+<div class="flex items-center">
+  <input 
+    id="<%= checkboxId %>" 
+    type="checkbox" 
+    name="<%= checkboxName %>" 
+    value="<%= checkboxValue %>" 
+    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600  focus:ring-2 " 
+    <%= checkboxIsChecked ? 'checked' : '' %> 
+  />
+  <label for="<%= checkboxId %>" class="ms-2 text-sm font-medium text-gray-900">
+    <%= checkboxLabel %>
+  </label>
+</div>
+
+<!-- %- include('../../partials/ui/inputCheckbox', { 
+    id: 'default-checkbox', 
+    name: 'exampleCheckbox', 
+    value: '1', 
+    label: 'Default checkbox', 
+    isChecked: true 
+  }) %> -->
+  

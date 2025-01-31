@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/contact-head') %>
+<link rel="stylesheet" href="/css/contact-us.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<body>
+
+  <div class="onlineCS-body">
+    <div class="onlineCS-body__inner">
+       
+        <div class="onlineCS-preSale">
+            <div class="onlineCS-preSale-head">
+                <div id="animate-icon"><span></span></div>
+                <h3 class="wow-outer"><span class="wow slideInDown">Contact Us</span></h3>
+            </div>
+            <div class="section-lg">
+                      
+              
+              <!-- RD Mailform-->
+              <form id="contactForm" class="rd-form rd-mailform" method="post" action="/pages/contact-us">
+                <div class="row row-10">
+                  <div class="col-md-6 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-first-name">First Name</label>
+                      <input class="form-input" id="contact-first-name" type="text" name="firstName" required>
+                      <div class="error-message" id="firstName-error">Please enter your first name</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-last-name">Last Name</label>
+                      <input class="form-input" id="contact-last-name" type="text" name="lastName" required>
+                      <div class="error-message" id="lastName-error">Please enter your last name</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-email">E-mail</label>
+                      <input class="form-input" id="contact-email" type="email" name="email" required>
+                      <div class="error-message" id="email-error">Please enter a valid email address</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-phone">Phone</label>
+                      <input class="form-input" id="contact-phone" type="text" name="phone">
+                    </div>
+                  </div>
+                  <div class="col-12 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-message">Your Message</label>
+                      <textarea class="form-input" id="contact-message" name="message" required></textarea>
+                      <div class="error-message" id="message-error">Please enter your message</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="group group-middle">
+                  <div class="wow-outer"> 
+                    <button class="button button-primary button-winona wow slideInRight" type="submit">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+           
+        </div>
+        <div class="onlineCS-serviceChannel"><a href="#" rel="noreferrer" class="onlineCS-serviceChannel__cards" style="width: 33.3333%;">
+               
+          <div class="onlineCS-serviceChannel__cards__text"><h4>Company name:</h4><span> DI V-EXT CO.,LTD.</span></div>
+            </a><a href="#"  rel="noreferrer" class="onlineCS-serviceChannel__cards" style="width: 33.3333%;">
+                <div class="onlineCS-serviceChannel__cards__text"><h4>contact:</h4><span>+(66) 95 985 7744</span></div>
+            </a><a href="#" rel="noreferrer" class="onlineCS-serviceChannel__cards" style="width: 33.3333%;">
+                <div class="onlineCS-serviceChannel__cards__text"><h4>E-mail:</h4><span>contact@trip-day.com</span></div>
+            </a></div>
+        <div class="onlineCS-serviceGuarantee">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3888.722393322824!2d100.88225837522288!3d12.925555587385567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDU1JzMyLjAiTiAxMDDCsDUzJzA1LjQiRQ!5e0!3m2!1sen!2sth!4v1732258724026!5m2!1sen!2sth" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         
+        </div>
+        <div class="onlineCS-appDownload">
+            <div class="onlineCS-appDownload__img" style="background-image: url(&quot;https://ak-d.tripcdn.com/images/1nj1412000conufxs9BDC.png&quot;);"></div>
+            <div class="onlineCS-appDownload__text">
+                <h3 id="title">For fast and personalized support, download the app!</h3>
+                <div id="content">
+                    <div id="qr-code">
+                        <p><i></i>Easy Download</p>
+                        <div>
+                            <div class="tcp-online-newadq default">
+                                <div class="tcp-online-newadq__qrcode-wrapper"><img class="tcp-online-newadq__qrcode" src="data:image/png;base64,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" alt="qrcode"><img class="tcp-online-newadq__logo" src="https://pages.trip.com/images/app-download/qrcode/logo.png" alt="logo"></div>
+                            </div>
+                        </div>
+                        <p id="instruction">Scan the QR code</p>
+                    </div>
+                    <div id="description">
+                        <p><i class="iconfont ic_check"></i>Get help in one click</p>
+                        <p><i class="iconfont ic_check"></i>Effortless booking management</p>
+                        <p><i class="iconfont ic_check"></i>Free in-app calls</p><a href="/pages/appdownload?locale=en-TH&amp;curr=USD" target="_blank" rel="noreferrer">More Ways to Download for Free<i class="iconfont"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+ 
+
+
+      <!--Overview-->
+      <!-- Overview-->
+     
+   
+
+
+    <%- include('../partials/footer') %>
+
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Reset error messages
+        document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+        
+        // Get form values
+        const firstName = document.getElementById('contact-first-name').value.trim();
+        const lastName = document.getElementById('contact-last-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+        
+        // Validation flag
+        let isValid = true;
+        
+        // Check required fields
+        if (!firstName) {
+          document.getElementById('firstName-error').style.display = 'block';
+          isValid = false;
+        }
+        
+        if (!lastName) {
+          document.getElementById('lastName-error').style.display = 'block';
+          isValid = false;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) {
+          document.getElementById('email-error').style.display = 'block';
+          isValid = false;
+        }
+        
+        if (!message) {
+          document.getElementById('message-error').style.display = 'block';
+          isValid = false;
+        }
+        
+        // If validation passes, submit the form
+        if (isValid) {
+          const formData = new FormData(this);
+          const data = {};
+          formData.forEach((value, key) => data[key] = value);
+
+          fetch('/pages/contact-us', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+          .then(data => {
+            alert('Message sent successfully! We will contact you soon.');
+            this.reset();
+          });
+        }
+      });
+    </script>
+   
+</body>
+</html>

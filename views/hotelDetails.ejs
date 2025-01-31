@@ -1,0 +1,1438 @@
+<%- include('partials/hotel-head') %>
+    <div id="ibu_hotel_container">
+        <section>
+            <article>
+                <div class="hotel-list-page" dir="">
+                    <div class="searchBox-v8"
+                        data-exposure="{&quot;ubtKey&quot;:&quot;htl_ol_wcl_search_exposure&quot;,&quot;data&quot;:{&quot;channeltype&quot;:&quot;online&quot;,&quot;page&quot;:&quot;10320668148&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;adultnum&quot;:2,&quot;roomnum&quot;:1,&quot;childnum&quot;:0,&quot;searchDateList&quot;:[{&quot;checkin&quot;:&quot;2024/12/23&quot;,&quot;checkout&quot;:&quot;2024/12/24&quot;}],&quot;regionid&quot;:359,&quot;regionname&quot;:&quot;Bangkok&quot;}}">
+                        <div class="list-search-borderRadius" id="list-search-borderRadius">
+                        </div>
+                        <div id="hotel_searchBox"
+                            class="list-search-container list-search-container-dark searchBarVersionB short-search">
+                            <ul class="ul">
+                                <li class="list-item list-destination">
+                                    <div class="search-container-v8">
+                                        <div class="search-box" id="search-box-destination">
+                                            <label class="minNoise-destinationLabel"
+                                                for="hotels-destinationV8">Destination</label>
+                                            <div class="inputBarWidth">
+                                                <input type="text" id="hotels-destinationV8" class="show-hightlight"
+                                                    value="Bangkok" autocomplete="off"
+                                                    placeholder="City, airport, region, landmark or property name">
+                                                <div id="input-length-cacl">
+                                                    Bangkok
+                                                </div>
+                                            </div>
+                                            <label for="hotels-destinationV8"
+                                                class="searchBarVersionBLabel minNoise-searchBarVersionBLabel"
+                                                id="versionBValueLabel"></label>
+                                            <div class="searchClearIconContainer">
+                                                <i type="ic_bestir_clear"
+                                                    class="u-icon u-icon-ic_bestir_clear searchClearIcon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item list-calendar">
+                                    <div class="calendar-container-v8">
+                                        <div class="time-tab">
+                                            <label class="in minNoiseCalendarLabel" for="checkIn">Check-in</label><input
+                                                type="text" id="checkIn" class="focus-input show-hightlight in-time"
+                                                value="Mon, Dec 23" placeholder="Select date" readonly=""
+                                                data-key="2024/12/23">
+                                        </div>
+                                        <div id="preload-nights" class="nights minNoiseCalendarLabel">
+                                            <span>1 night</span>
+                                        </div>
+                                        <div class="time-tab">
+                                            <label class="out minNoiseCalendarLabel"
+                                                for="checkOut">Check-out</label><input type="text" id="checkOut"
+                                                class="focus-input show-hightlight out-time" value="Tue, Dec 24"
+                                                placeholder="Select date" readonly="" data-key="2024/12/24">
+                                        </div>
+                                        <div id="preload-nights" class="nights minNoiseCalendarLabel">
+                                            <span>1 night</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item list-roomguest">
+                                    <div class="room-guest-container-v8">
+                                        <div class="room-guest">
+                                            <label class="minNoise-roomGuestLabel">Rooms and Guests</label>
+                                            <p id="preload-room-guest" class="info show-hightlight">
+                                                <span>1 room</span>, <span>2 adults</span>, <span>0 children</span>
+                                            </p>
+                                            <i type="ic_new_dropdown_line"
+                                                class="u-icon u-icon-ic_new_dropdown_line icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item list-btn"><button
+                                        class="tripui-online-btn tripui-online-btn-large tripui-online-btn-wireframe-primary search-button-new"
+                                        type="button" dir="ltr">
+                                        <div class="tripui-online-btn-content">
+                                            <span class="tripui-online-btn-icon" style="transform:none"><i type="search"
+                                                    class="u-icon u-icon-search searchIcon"></i></span><span
+                                                class="tripui-online-btn-content-children "><span
+                                                    class="searbtn-txt">Search</span></span>
+                                        </div>
+                                    </button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </article>
+        </section>
+    </div>
+    <div class="page_detailMain__9AGj9">
+        <div class="hotelHeaderInfo_headInfo__s6DnB">
+            <div class="headInit_headInit__Z6g5X">
+                <div class="headInit_headInit_left__AfFyu">
+                    <div class="headInit_headInit-title__m3aAX">
+                        <h1 class="headInit_headInit-title_nameA__EE_LB"
+                            data-exposure="{&quot;ubtKey&quot;:&quot;hotel_trip_detail_module_load&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316,&quot;page&quot;:&quot;10320668147&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;module&quot;:&quot;hotel_name&quot;}}"
+                            data-send="devTrace">
+                            <%= hotel.title %>
+                        </h1>
+                        <div class="hotelTag_hotelTag_box__zvaUt"></div><span class="hotelLevel_hotelLevel__mhh3v">
+                            <% for( let index = 0; index < hotel.star_rate; index++ ) { %>
+                                <i class="smarticon u-icon u-icon-ic_new_star u-icon_ic_new_star hotelLevel_hotelLevel_icon__IjXS0"></i>
+                            <% } %>
+                            </span>
+                        <div class="hotelTag_hotelTag_box__zvaUt"></div>
+                    </div>
+                    <div>
+                        <div class="headInit_headInit-address_position__OZU_R"
+                            data-exposure="{&quot;ubtKey&quot;:&quot;hotel_trip_detail_module_load&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316,&quot;page&quot;:&quot;10320668147&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;module&quot;:&quot;hotel_address&quot;}}"
+                            data-send="devTrace"><span class="headInit_headInit-address_text__D_Atv"><i
+                                    class="smarticon u-icon u-icon-locate u-icon_locate headInit_headInit-address_locate__ZB1bU"></i><%-
+                                    hotel.address %></span>
+                            <div class="headInit_headInit-address_showmoregroup__Hgtra">
+                                <div class="headInit_headInit-address_showmoreA__3ygOE"><a href="<%= hotel.google_map %>"><span style="color: dodgerblue;">Show on Map</span></a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="headInit_headInit_right__XCEKz">
+                    <div class="headInit_headInit-leftSide__2bud1">
+                        <div>
+                            <div class="priceBox_priceBox__B2eNh"
+                                data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_detailpage_price_exposure&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316,&quot;locale&quot;:&quot;en-US&quot;,&quot;page&quot;:&quot;10320668147&quot;,&quot;masterhotelid_tracelogid&quot;:&quot;872f6ab85c4d3&quot;,&quot;rmlist_query_id&quot;:&quot;438436299739&quot;,&quot;deletePrice&quot;:&quot;$46&quot;,&quot;price&quot;:&quot;$23&quot;,&quot;displayLocation&quot;:&quot;header&quot;}}"
+                                data-send="devTrace">
+                                <div class="priceBox_priceBox-container__c71bq"><span
+                                        class="priceBox_priceBox-container_realPrice__4VuNW">THB <%= (hotel.sale_price
+                                            || hotel.price || 0).toLocaleString() %></span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="detailBrg_brgEntry__K3Dq3"
+                                data-exposure="{&quot;ubtKey&quot;:&quot;ibu_htl_c_online_brg_show&quot;,&quot;data&quot;:{&quot;page&quot;:&quot;10320668147&quot;,&quot;masterhotelid&quot;:95001316},&quot;type&quot;:&quot;trace&quot;}">
+                                <div class="detailBrg_brgEntry-icon__caore"></div><span
+                                    class="detailBrg_brgEntry-textA__dL2d_">We Price Match</span>
+                            </div>
+                        </div>
+                    </div><button class="tripui-online-btn tripui-online-btn-large tripui-online-btn-solid-primary    "
+                        type="button" style="padding:0 24px;height:56px;font-size:20px" dir="ltr">
+                        <div class="tripui-online-btn-content"><a href="#Select Room" style="color:#fff;"><span
+                                    class="tripui-online-btn-content-children ">Select Rooms</span></a></div>
+                    </button>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; max-height: 270px; overflow: hidden;">
+                <!-- ภาพหลัก -->
+                <div style="flex: 1; max-width: 40%;">
+                  <% if (hotel.banner_image_id) { %>
+                    <img 
+                      src="/uploads/<%= hotel.banner_image_id%>" 
+                      alt="<%= hotel.title %>"
+                      style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;"
+                    >
+                  <% } else { %>
+                    <p>No images available</p>
+                  <% } %>
+                </div>
+              
+                <!-- Grid รูปย่อย -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 10px; flex: 1; ">
+
+                  <% for(let i = 0; i < Math.min(hotel.gallery.length, 6); i++) { %>
+                    <div style="position: relative; width: 100%; height: 130px; display: flex; align-items: center; justify-content: center;">
+                      <img 
+                        src="/uploads/<%= hotel.gallery[i] %>" 
+                        alt="Gallery Image <%= i + 1 %>"
+                        style="width: 100%; height: 100%; object-fit: cover;  border-radius: 5px;"
+                      >
+                    </div>
+                  <% } %>
+              
+                  <% if(hotel.gallery.length < 6) { %>
+                    <div style="position: relative; width: 100%; height: 130px; display: flex; align-items: center; justify-content: center;">
+                        <img 
+                          src="/uploads/<%= hotel.image_id %>" 
+                          alt="Gallery Image "
+                          style="width: 100%; height: 100%; object-fit: cover;  border-radius: 5px;"
+                        >
+                      </div>
+                  <% } %>
+                </div>
+              </div>
+
+            <div>
+                <div dir="ltr" id="Select Room">
+
+                    <% if (hotel.rooms && hotel.rooms.length> 0) { %>
+                        <% hotel.rooms.forEach((room,index)=> { %>
+                            <div class="mainRoomList__UlISo" data-test-id="mainRoomList">
+
+                                <div class="commonRoomCard__BpNjl">
+
+                                    <div><span class="commonRoomCard-title__iYBn2">
+                                            <%= room.title%>
+                                        </span></div>
+
+                                    <div class="section room-lists-section">
+
+
+
+                                        <div class="commonRoomCard-content__lcrv6">
+
+                                            <div class="baseRoom__LPclO"
+                                                data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_rmlist_bsrmcard_exposure&quot;,&quot;data&quot;:{&quot;newBFF&quot;:&quot;T&quot;,&quot;masterhotelid&quot;:&quot;378815156&quot;,&quot;pictureNum&quot;:24,&quot;roomnum&quot;:1,&quot;has_cmt_pic&quot;:&quot;T&quot;,&quot;rm_taglist&quot;:[]}}">
+
+                                                <div class="baseRoom-imgBox__r4DLF" data-test-id="baseRoom-imgBox"
+                                                    style="text-align:center;">
+                                                    <% if (room.images && room.images.length> 0) { %>
+                                                        <img class="baseRoom-singleRoomImgBox_img__GxKWF"
+                                                            style="max-height:180px; ;"
+                                                            src="/uploads/<%= room.images[0] %>"
+                                                            alt="<%= room.title %>">
+                                                        <% } else { %>
+                                                            <img class="baseRoom-singleRoomImgBox_img__GxKWF"
+                                                                src="/images/placeholder-room.jpg"
+                                                                alt="Room image placeholder">
+                                                            <% } %>
+                                                </div>
+                                                <div style="height:30px; margin-left: 10px; font-size: larger; font-weight: bold;">
+                                                    <% if (room.bedType) { %>
+                                                        <% Object.entries(room.bedType).forEach(([bed, quantity], index, array) => { %>
+                                                            <%= quantity %> <%= bed %> bed <%= index < array.length - 1 ? ' / ' : '' %>
+                                                          <% }); %>
+                                                    <% } %>
+                                                    
+                                                </div>
+
+                                                <div class="baseRoom-facility__a54rp">
+                                                    <div class="baseRoom-facility_item__i8SOV"><i
+                                                        class="smarticon u-icon u-icon-ic_roomspace u-icon_ic_roomspace baseRoom-facility_icon__Nvqbh"></i><span
+                                                        class="baseRoom-facility_title__LU_LB">
+                                                        <%= room.size %>
+                                                            ㎡
+                                                    </span></div>
+                                                    <% if (room?.amenities?.length > 0) { %>
+                                                        <% room?.amenities?.forEach((amenity,index) => { %>
+                                                            <div class="baseRoom-facility_item__i8SOV"><i
+                                                                class="<%= room.amenitiesRoomIcon[index] %>"></i><span
+                                                                class="baseRoom-facility_title__LU_LB">
+                                                                <%= amenity %>
+                                                            </span></div>
+                                                        <% }) %>
+                                                    <% } %>
+                                                </div>
+
+                                            </div>
+                                            <div class="saleRoomB__ybE0h">
+                                                <div class="saleRoomItemBox-titleB__iS4hX">
+                                                    <div class="saleRoomItemBox-title_notesTitleB__lrAN0">Your Choices
+                                                    </div>
+                                                    <div class="saleRoomItemBox-title_guestsTitleB__vctsE">Bades<br>
+                                                        Number of people</div>
+                                                    <div class="saleRoomItemBox-title_guestsTitleB__vctsE">Sleeps</div>
+
+                                                    <% const amenities=Object.entries(room.room_details.Room_Amenities
+                                                        || {}) .filter(([key, value])=> value === true)
+                                                        .map(([key]) => key);
+                                                        const maxDisplayedAmenities = 15;
+                                                        const displayedAmenities = amenities.slice(0,
+                                                        maxDisplayedAmenities);
+                                                        %>
+                                                        <% displayedAmenities.forEach(amenity=> { %>
+                                                            <span class="amenity-tag">
+                                                                <%= amenity %>
+                                                            </span>
+                                                            <% }); %>
+                                                                <% if (amenities.length> maxDisplayedAmenities) { %>
+                                                                    <button class="room-details-btn"
+                                                                        data-amenities="<%= amenities.join(',') %>">+<%=
+                                                                            amenities.length - maxDisplayedAmenities %>
+                                                                            more</button>
+                                                                    <% } %>
+                                                </div>
+                                                <div class="saleRoomItemBox__orNIv">
+                                                    <div
+                                                        class="saleRoomItemBox-reservationNotesInfoBox__XUpOh saleRoomItemBox-reservationNotesInfoBoxB__q6_g0">
+                                                        <div class="saleRoomItemBox-reservationNotesInfo__kfXdv">
+
+                                                            <div
+                                                                class="saleRoomItemBox-reservationNotesInfo_basicSaleRoomBox__MvQZ_">
+                                                                <div class=<%=room.is_breakfast_included
+                                                                    ? "saleRoomItemBox-reservationNotesInfo_basicSaleRoomHightLightItem__OXVkY"
+                                                                    : "saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem__lfRfL"
+                                                                    %>>
+                                                                    <div
+                                                                        class="saleRoomItemBox-reservationNotesInfo_basicSaleRoomItemBox__wFLMD">
+                                                                        <i
+                                                                            class="smarticon u-icon u-icon-ic_new_breakfast u-icon_ic_new_breakfast saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem_icon__m5R61"></i>
+                                                                        <div>
+                                                                            <%= room.is_breakfast_included
+                                                                                ? "include Breakfast"
+                                                                                : "Great breakfast for THB ... (optional)"
+                                                                                %>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class=<%=room.is_refundable
+                                                                    ? "saleRoomItemBox-reservationNotesInfo_basicSaleRoomHightLightItem__OXVkY"
+                                                                    : "saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem__lfRfL"
+                                                                    %>>
+                                                                    <div
+                                                                        class="saleRoomItemBox-reservationNotesInfo_basicSaleRoomItemBox__wFLMD">
+                                                                        <i
+                                                                            class="smarticon u-icon u-icon-ic_new_nonrefundable u-icon_ic_new_nonrefundable saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem_icon__m5R61"></i>
+                                                                        <div>
+                                                                            <%= room.is_refundable ? "Free Cancellation"
+                                                                                : "Non-refundable" %>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class=<%=room.InstantConfirmation
+                                                                    ? "saleRoomItemBox-reservationNotesInfo_basicSaleRoomHightLightItem__OXVkY"
+                                                                    : "saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem__lfRfL"
+                                                                    %>>
+                                                                    <div
+                                                                        class="saleRoomItemBox-reservationNotesInfo_basicSaleRoomItemBox__wFLMD">
+                                                                        <i
+                                                                            class="smarticon u-icon u-icon-ic_new_quick u-icon_ic_new_quick saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem_icon__m5R61"></i>
+                                                                        <div>
+                                                                            <%= room.InstantConfirmation
+                                                                                ? "Instant Confirmation"
+                                                                                : "Confirm later" %>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class=<%=room.Prepayonline
+                                                                    ? "saleRoomItemBox-reservationNotesInfo_basicSaleRoomHightLightItem__OXVkY"
+                                                                    : "saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem__lfRfL"
+                                                                    %>>
+                                                                    <div
+                                                                        class="saleRoomItemBox-reservationNotesInfo_basicSaleRoomItemBox__wFLMD">
+                                                                        <i
+                                                                            class="smarticon u-icon u-icon-a-ico_prepayonline u-icon_a-ico_prepayonline saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem_icon__m5R61"></i>
+                                                                        <div>
+                                                                            <%= room.Prepayonline ? "Prepay online"
+                                                                                : "Prepay online" %>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="saleRoomItemBox-guestInfoBox__Syqdo saleRoomItemBox-guestInfoBoxB__EBifY">
+                                                        <div
+                                                            class="saleRoomItemBox-guestInfo__Qw0gK saleRoomItemBox-guestInfo_padding__NTNUL">
+                                                            Sleeps <br><br>
+                                                                <% for( let index=0; index < room.beds; index++ ) { %>
+                                                                    <span
+                                                                        class="saleRoomItemBox-guestInfo-adultBox__5QrYn"><i
+                                                                            class="hotel_desktop_trip- ic ic-adult ic_adult saleRoomItemBox-guestInfo-adultBox_adultIcon__K9f3Y"></i></span>
+                                                                    <% } %>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="saleRoomItemBox-priceInfoBox__WO4B7 saleRoomItemBox-priceInfoBoxB__AbKmt">
+                                                        <div class="saleRoomItemBox-priceInfoBox-mainContent__SmR0N">
+                                                            <div class="">
+                                                                <div class="saleRoomItemBox-priceAndPromotion__AenjM saleRoomItemBox-priceAndPromotionB__BLchc"
+                                                                    data-test-id="saleRoomItemBox-priceAndPromotion">
+
+                                                                    <div
+                                                                        class="saleRoomItemBox-priceBox__s9QKn saleRoomItemBox-priceBoxB__hg8hj">
+                                                                        <div class="section date-selection-section"
+                                                                            style="margin-bottom:50px;">
+                                                                            <div class="date-inputs">
+                                                                                <label for="nights">Quantity:</label>
+                                                                                <input type="number" id="nights"
+                                                                                    name="nights" min="1" value="1"
+                                                                                    class="Quantity-input">
+
+                                                                            </div>
+
+                                                                            <span class="price-label">Validity
+                                                                                period:</span>
+                                                                            <div class="saleRoomItemBox-priceBox-displayPrice__gWiOr saleRoomItemBox-priceBox-displayPriceB__sv9Zi"
+                                                                                style="font-size:16px;;">
+                                                                                <span id="">
+                                                                                    <%= period_start %>~<%= period_end
+                                                                                            %>
+                                                                                </span>
+
+                                                                            </div><br><br>
+                                                                            <br>
+
+                                                                            <span class="price-label">Price per
+                                                                                night:</span>
+                                                                            <div
+                                                                                class="saleRoomItemBox-priceBox-displayPrice__gWiOr saleRoomItemBox-priceBox-displayPriceB__sv9Zi">
+                                                                                <span>THB <%=
+                                                                                        room.price.toLocaleString() %>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                    <div class="saleRoomItemBox-BookAndLoginButtonB__P4Bpu"
+                                                                        data-test-id="saleRoomItemBox-BookAndLoginButton-0-0-A">
+                                                                        <button
+                                                                            class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary  tripui-online-btn-block reserve-btn "
+                                                                            data-room-id="<%= room._id %>"
+                                                                            data-hotel-id="<%= hotel._id %>"
+                                                                            data-room-price="<%= room.price %>"
+                                                                            data-period_start="<%= period_start %>"
+                                                                            data-period_end="<%= period_end %>">
+                                                                            <div class="tripui-online-btn-content"><span
+                                                                                    class="tripui-online-btn-content-children ">Reserve</span>
+                                                                            </div>
+                                                                        </button>
+                                                                        <div class="section date-selection-section">
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <% }); %>
+                                    <% } else { %>
+                                        <p>No rooms available for this hotel.</p>
+                                        <% } %>
+                            </div>
+
+                            <div>
+
+                                <div class="hotelFacilityNew_hotelFacilityNewA__SvdjV"
+                                    data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_bottom_facility_exposure&quot;,&quot;data&quot;:{&quot;locale&quot;:&quot;en-US&quot;,&quot;page&quot;:&quot;10320668147&quot;,&quot;masterhotelid&quot;:95001316,&quot;hotelId&quot;:95001316,&quot;isDrawer&quot;:false,&quot;fac_num&quot;:23,&quot;freefac_num&quot;:3,&quot;feefac_num&quot;:1,&quot;type&quot;:4,&quot;picfac_num&quot;:1,&quot;sceneid&quot;:&quot;[2]&quot;,&quot;pictype&quot;:&quot;&quot;,&quot;res_num&quot;:1}}">
+                                    <h2 class="hotelFacilityNew_hotelFacility-titleA___3PPA">Services &amp; Amenities
+                                    </h2>
+                                    <div class="hotelFacilityNew_hotelFacility-container___FM34">
+                                        <% if (hotel?.Services_textediter) { %>
+                                         <%- hotel.Services_textediter %>
+                                        <% } else{%>
+                                             <div class="hotelFacilityNew_hotelFacility-popular__YijiT">
+                                            <div class="hotelFacilityNew_hotelFacility-popular_titleA__1ZAHE"><i
+                                                    class="smarticon u-icon u-icon-ic_hot_outlined u-icon_ic_hot_outlined hotelFacilityNew_hotelFacility-popular_outerIcon__jOgHm"></i><span>Most
+                                                    popular business facilities</span></div>
+                                            <div class="hotelFacilityNew_hotelFacility-popular_list__jwA2a">
+                                                <div class="hotelFacilityNew_hotelFacility-popular_item__N___1">
+                                                    <div class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX"><i
+                                                            class="smarticon u-icon u-icon-ic_new_fa_park u-icon_ic_new_fa_park hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV hotelFacilityNew_underline__5dozH">Private
+                                                                Parking</span>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_label__zzdIS hotelFacilityNew_hotelFacility-popular_free__py60S">
+                                                                Free</div>
+                                                        </span></div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-popular_item__N___1">
+                                                    <div class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX"><i
+                                                            class="smarticon u-icon u-icon-ic_new_fa_24h_service u-icon_ic_new_fa_24h_service hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">24-hour
+                                                                front desk</span>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                            </div>
+                                                        </span></div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-popular_item__N___1">
+                                                    <div class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX"><i
+                                                            class="smarticon u-icon u-icon-ic_new_fa_baggage u-icon_ic_new_fa_baggage hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Luggage
+                                                                storage</span>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_label__zzdIS hotelFacilityNew_hotelFacility-popular_free__py60S">
+                                                                Free</div>
+                                                        </span></div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-popular_item__N___1">
+                                                    <div class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX"><i
+                                                            class="smarticon u-icon u-icon-ic_new_fa_breakfast u-icon_ic_new_fa_breakfast hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Restaurant</span>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                            </div>
+                                                        </span></div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-popular_item__N___1">
+                                                    <div class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX"><i
+                                                            class="smarticon u-icon u-icon-ic_new_fa_wifi u-icon_ic_new_fa_wifi hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Wi-Fi
+                                                                in public areas</span>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_label__zzdIS hotelFacilityNew_hotelFacility-popular_free__py60S">
+                                                                Free</div>
+                                                        </span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hotelFacilityNew_allFacility__FWiwC">
+                                            <div class="hotelFacilityNew_allFacility-title_exposed__Ijz3W"><i
+                                                    class="smarticon u-icon u-icon-ico_overall_light u-icon_ico_overall_light hotelFacilityNew_allFacility-title-iconExp__WXti3"></i>More
+                                                Amenities</div>
+                                            <div class="hotelFacilityNew_allFacility-content__ykjj5">
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_internet u-icon_online_amen_internet hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Internet</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Wi-Fi
+                                                                        in public areas</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS hotelFacilityNew_hotelFacility-popular_free__py60S">
+                                                                        Free</div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_parking u-icon_online_amen_parking hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Parking</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                                Private (exclusively for guests) is available On-site
+                                                                parking. Reservation not needed.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV hotelFacilityNew_underline__5dozH">Private
+                                                                        Parking</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS hotelFacilityNew_hotelFacility-popular_free__py60S">
+                                                                        Free</div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_business u-icon_online_amen_business hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Business Services</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Fax/copying
+                                                                        service</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS hotelFacilityNew_hotelFacility-popular_charge__Q1xc_">
+                                                                        Additional charge</div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_frontdesk u-icon_online_amen_frontdesk hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Front Desk Services</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Safe
+                                                                        at front desk</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Luggage
+                                                                        storage</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS hotelFacilityNew_hotelFacility-popular_free__py60S">
+                                                                        Free</div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">24-hour
+                                                                        front desk</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_languages u-icon_online_amen_languages hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Languages Spoken</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Thai</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_dining u-icon_online_amen_dining hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Food &amp; Drink</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Convenience
+                                                                        store/kiosk</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_public u-icon_online_amen_public hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Public Areas</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">ATM</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Elevator</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">No
+                                                                        smoking in public areas</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Smoking
+                                                                        area</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Vending
+                                                                        machines</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_health u-icon_online_amen_health hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Health &amp; Wellness</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Hair
+                                                                        and beauty salon</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotelFacilityNew_hotelFacility-normalA__4G_b_">
+                                                    <div class="hotelFacilityNew_hotelFacility-normal_categoryA__5COSD">
+                                                        <i
+                                                            class="smarticon u-icon u-icon-online_amen_safety u-icon_online_amen_safety hotelFacilityNew_hotelFacility-normal_iconExposed__ZFE_x hotelFacilityNew_hotelFacility-normal_icon__jzaVX"></i>
+                                                        <div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_outsideTitleA__VpH7a">
+                                                                Safety &amp; Security</div>
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-normal_descA__hxOD5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hotelFacilityNew_hotelFacility-normal_singleCategory__jcJ9_">
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">First
+                                                                        aid room</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">CCTV
+                                                                        in public areas</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">First
+                                                                        aid kit</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Fire
+                                                                        alarm</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Fire
+                                                                        extinguisher</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Smoke
+                                                                        detector</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Intruder
+                                                                        alarm</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="hotelFacilityNew_hotelFacility-normal_drawerItem__cFzN1">
+                                                            <div
+                                                                class="hotelFacilityNew_hotelFacility-popular_descA__MZHBX">
+                                                                <i
+                                                                    class="smarticon u-icon u-icon-check u-icon_check hotelFacilityNew_hotelFacility-popular_popularIconA__bipwh"></i><span><span
+                                                                        class="hotelFacilityNew_hotelFacility-popular_detailDesc__RzevV">Security
+                                                                        personnel</span>
+                                                                    <div
+                                                                        class="hotelFacilityNew_hotelFacility-popular_label__zzdIS">
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                       </div>
+                                </div>
+                                <div class="hotelPolicyNew_hotelPolicyNew__XnXoA"
+                                    data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_detailpage_policy_exposure&quot;,&quot;data&quot;:{&quot;isDrawer&quot;:false}}"
+                                    data-send="devTrace">
+                                    <h2 class="hotelPolicyNew_hotelPolicy-titleA__s1Lae">Property Policies</h2>
+                                    <div class="hotelPolicyNew_hotelPolicy-content__5R5aJ">
+                                        <% if (hotel?.Services_textediter) { %>
+                                            <%- hotel.Policies_textediter %>
+                                           <% } else { %>
+                                        <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                            <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Check-in and
+                                                Check-out Times</div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                <div class="hotelPolicyNew_hotelPolicy-check__LvVqT"><span
+                                                        class="hotelPolicyNew_hotelPolicy-subTitle__Ouxt_">Check-in:
+                                                    </span><strong
+                                                        class="hotelPolicyNew_hotelPolicy-check_desc__PskS_">After
+                                                        14:00</strong></div>
+                                                <div class="hotelPolicyNew_hotelPolicy-check__LvVqT"><span
+                                                        class="hotelPolicyNew_hotelPolicy-subTitle__Ouxt_">Check-out:
+                                                    </span><strong
+                                                        class="hotelPolicyNew_hotelPolicy-check_desc__PskS_">Before
+                                                        12:00</strong></div>
+                                                <p>Front desk hours: 24/7</p>
+                                                <p>If you will arrive outside of check-in hours, contact the property in
+                                                    advance</p>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                                <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Child Policies
+                                                </div>
+                                                <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">Children
+                                                                of all ages are welcome at this property.</span></div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">Additional
+                                                                fees may be charged for children using existing beds.
+                                                                Add the number of children to get a more accurate
+                                                                price.</span></div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"></div>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                                <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Cribs and
+                                                    Extra Beds</div>
+                                                <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT"><strong>For
+                                                                    all room types, cribs cannot be added. Extra bed
+                                                                    policies vary according to room type. Please refer
+                                                                    to the relevant room type policy.</strong></span>
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                                <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Breakfast
+                                                </div>
+                                                <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">Breakfast
+                                                                not provided.</span></div>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                                <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Deposit Policy
+                                                </div>
+                                                <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                    <div>
+                                                        <div class="hotelPolicyNew_hotelPolicy-bottomDivider__HSOfH">
+                                                            <span
+                                                                class="hotelPolicyNew_hotelPolicy-item_title__ZWV5a">Deposit</span><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">Deposit
+                                                                required</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="hotelPolicyNew_hotelPolicy-bottomDivider__HSOfH">
+                                                            <span
+                                                                class="hotelPolicyNew_hotelPolicy-item_title__ZWV5a">Deposit
+                                                                Collection Methods</span><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">The
+                                                                deposit is determined based on the number of rooms you
+                                                                book. The charge is THB 500.00 (approx. $14.64) per
+                                                                room.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="hotelPolicyNew_hotelPolicy-bottomDivider__HSOfH">
+                                                            <span
+                                                                class="hotelPolicyNew_hotelPolicy-item_title__ZWV5a">Deposit
+                                                                Payment Methods</span><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">cash</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_title__ZWV5a">Deposit
+                                                                Refund</span><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">The
+                                                                deposit will be returned to the original account of
+                                                                payment on the day of check-out.</span></div>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                                <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Pets</div>
+                                                <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">Pets
+                                                                are not allowed</span></div>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                                <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Age
+                                                    Requirements</div>
+                                                <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                    <div>
+                                                        <div class="hotelPolicyNew_bottom__U_wqk"><span
+                                                                class="hotelPolicyNew_hotelPolicy-item_description__s02FT">The
+                                                                main guest checking in must be at least 18 years
+                                                                old.</span></div>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="hotelPolicyNew_hotelPolicy-item__kEo8R">
+                                                <div class="hotelPolicyNew_hotelPolicy-item_leftA__jFnmm">Paying at the
+                                                    Hotel</div>
+                                                <div class="hotelPolicyNew_hotelPolicy-item_right__sqCWw">
+                                                    <p></p>
+                                                    <ul class="hotelPolicyNew_creditImg__iqBf8">
+                                                        <li class="hotelPolicyNew_creditImg-item__Kh7QI"><img
+                                                                src="https://ak-d.tripcdn.com/images/1p16412000bwovxdw8716.png"
+                                                                class="hotelPolicyNew_credit_img__rh7rs"></li>
+                                                        <li class="hotelPolicyNew_creditImg-item__Kh7QI"><img
+                                                                src="https://ak-d.tripcdn.com/images/1p16912000bwovmkhE799.png"
+                                                                class="hotelPolicyNew_credit_img__rh7rs"></li>
+                                                        <li class="hotelPolicyNew_creditImg-item__Kh7QI"><img
+                                                                src="https://ak-d.tripcdn.com/images/1p10q12000bwovk0y2B27.png"
+                                                                class="hotelPolicyNew_credit_img__rh7rs"></li>
+                                                        <li class="hotelPolicyNew_creditImg-item__Kh7QI"><img
+                                                                src="https://ak-d.tripcdn.com/images/1p11q12000bwovxei16BB.png"
+                                                                class="hotelPolicyNew_credit_img__rh7rs"></li>
+                                                        <li class="hotelPolicyNew_creditImg-supportCash__OH4NJ">Cash
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%}%>
+                                    </div>
+                                </div>
+                                <div class="hotelOverview_hotelOverviewA__7cBLV"
+                                    data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_hotel_description&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:&quot;95001316&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;pageId&quot;:&quot;10320668147&quot;,&quot;isNewDetail&quot;:true}}">
+                                    <h2 class="hotelOverview_hotelOverview-titleA__RDtkJ">Property Description</h2>
+                                    <% if (hotel?.Services_textediter) { %>
+                                        <%- hotel.Policies_textediter %>
+                                       <% } else { %>
+                                    <div>
+                                        <ul class="hotelOverview_hotelOverview-labelA__9yzYe"
+                                            data-test-id="hotelOverview-label">
+                                            <li class="hotelOverview_hotelOverview-label_item__6m_5S">Opened: 2022</li>
+                                            <li class="hotelOverview_hotelOverview-label_item__6m_5S">Number of Rooms:
+                                                79</li>
+                                        </ul>
+                                    </div>
+                                    <div class="hotelOverview_hotelOverview-container__XwS4Z">
+                                        <div class="hotelOverview_hotelOverview_contentNew__bU8u_">With a stay at Hotel
+                                            Z Zpaze in Bangkok (Bang Na), you'll be a 2-minute drive from Central Bangna
+                                            and 5 minutes from Suan Luang Rama IX Park. This hotel is 8.5 mi (13.7 km)
+                                            from Rajamangala National Stadium and 11.6 mi (18.7 km) from Lumphini
+                                            Park.<br><br>Make use of convenient amenities, which include complimentary
+                                            wireless internet access and a vending machine.<br><br>Enjoy a meal at the
+                                            restaurant or snacks in the hotel's coffee shop/cafe. Quench your thirst
+                                            with your favorite drink at the bar/lounge.<br><br>Featured amenities
+                                            include dry cleaning/laundry services, a 24-hour front desk, and ATM/banking
+                                            services. Free self parking is available onsite.<br><br>Make yourself at
+                                            home in one of the 79 air-conditioned guestrooms. Complimentary wireless
+                                            internet access is available to keep you connected. Bathrooms feature
+                                            bathtubs or showers, complimentary toiletries, and hair dryers. Conveniences
+                                            include phones, as well as safes and electric kettles.</div>
+                                    </div>
+                                    <div class="hotelOverview_hotelOverview-showMoreA__JKfL1"><span
+                                            class="hotelOverview_hotelOverview-showMore_desc__IO2HT">Show More</span><i
+                                            class="smarticon u-icon u-icon-ic_new_showmore_line u-icon_ic_new_showmore_line"></i>
+                                    </div>
+                                    <%}%>
+                                </div>
+                                <div class="hotelNotify_importantInfoA__ar_GH"
+                                    data-exposure="{&quot;ubtKey&quot;:&quot;ibu_htl_detailpage_booknotice_show&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316}}">
+                                    <h2 class="hotelNotify_importantInfo_titleA__g0Wlv"
+                                        data-test-id="importantInfo-title">Fine Print</h2>
+                                    <div>
+                                        <div class="hotelNotify_importantInfo-item__IaMJA">
+                                            <div class="hotelNotify_importantInfo-item_titleA__1hwYZ">City Notes</div>
+                                            <div>
+                                                <div>
+                                                    <div class="hotelNotify_innerTitle__wx4u3"></div>
+                                                    <div class="hotelNotify_innerText__c2BIG">It is prohibited to bring
+                                                        durian to the hotel.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="moreHotels_moreHotels___umQR">
+                                <p class="moreHotels_moreHotels_title__YPbur">Haven't found the right property yet?</p>
+                                <button
+                                    class="tripui-online-btn tripui-online-btn-small tripui-online-btn-solid-primary    "
+                                    type="button" dir="ltr">
+                                    <div class="tripui-online-btn-content"><span
+                                            class="tripui-online-btn-content-children ">View More Properties in
+                                            Bangkok</span></div>
+                                </button>
+                            </div>
+                            <div class="faqs_faqs__49Puv"
+                                data-exposure="{&quot;ubtKey&quot;:&quot;ibu_htl_c_online_detailpage_frequently_asked_question_show&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316}}">
+                                <div
+                                    class="faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_w-100____ijWcn faqs_max-w-1160px__fycaf faqs_min-w-768px__wzhlY faqs_mx-auto__3qYJh">
+                                    <h2
+                                        class="faqs_color-__0f294d__R8FeV faqs_font-bold__kJR1j faqs_fs-20__P8DXG faqs_mb-16px___lq9f">
+                                        Frequently Asked Questions</h2>
+                                    <div style="background-color:#ffffff"
+                                        class="faqs_w-100____ijWcn faqs_b-__f0f2f5____nhi faqs_shadow-4_8-down__7HVr6 faqs_b-rd-8px__JmgYC faqs_overflow-hidden__6_w94">
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        Which popular attractions are close to Hotel Z Zpaze?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">Hotel
+                                                Z Zpaze nearby attractions include LET'S PLAY FOOTBALL CLUB, 450 ft from
+                                                your search (straight-line distance).</span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        What are the hotel amenities at Hotel Z Zpaze?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">Hotel
+                                                Z Zpaze amenities include: .</span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        Is there a pool at Hotel Z Zpaze?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">No,
+                                                Hotel Z Zpaze doesn't have a pool.</span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        Does Hotel Z Zpaze serve breakfast?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">No,
+                                                Hotel Z Zpaze doesn't serve breakfast. </span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        Where is Hotel Z Zpaze located?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">The
+                                                hotel address is 58, 2 Soi Bang Na-Trat 23, Bang Na Nuea.</span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        Does Hotel Z Zpaze have airport shuttle service?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">No,
+                                                the Hotel Z Zpaze doesn't have airport shuttle service.</span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        Is Hotel Z Zpaze pet friendly?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">No,
+                                                pets are not allowed at Hotel Z Zpaze.</span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        How much does it cost to stay at Hotel Z Zpaze?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">Prices
+                                                at Hotel Z Zpaze are subject to change according to dates, hotel policy,
+                                                and other factors. To view prices, please search for the dates you wish
+                                                to stay at the hotel.</span>
+                                        </details>
+                                        <details
+                                            class="faqs_m-0__2ysxf faqs_p-0__TPBDX faqs_min-h-54px__a7Ubb faqs_flex__GgEtr faqs_flex-col__qIe4V faqs_flex-justify-center__GuWDn faqs_bg-__fff__6_RJA faqs_details__w3YbT">
+                                            <summary
+                                                class="faqs_flex__GgEtr faqs_h-54px__935XH faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_px-24__Bi6RI faqs_summary__8oMtP">
+                                                <div
+                                                    class="faqs_flex__GgEtr faqs_summaryContainer__1sr7J faqs_flex-items-center__vv_1X faqs_relative__c4BSs faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc">
+                                                    <h3
+                                                        class="faqs_fs-16_22__q3Tlk faqs_font-bold__kJR1j faqs_color-__0f294d__R8FeV">
+                                                        What are the check-in and check-out times at Hotel Z Zpaze?</h3>
+                                                </div>
+                                            </summary><span
+                                                class="faqs_flex__GgEtr faqs_flex-1__ETuxK faqs_py-16px__g7xjB faqs_border-b__XA3xD faqs_border-b-solid___Y0oN faqs_border-b-__dadfe6__HCDhc faqs_fs-16_22__q3Tlk faqs_mx-24__ABML5">Check-in
+                                                at Hotel Z Zpaze is 14:00, and the check-out time is until 12:00.</span>
+                                        </details>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="h5-usp-complex ">
+                                <div class="h5-usp-complex-text ">
+                                    <div class="h5-usp-complex-text__icon"
+                                        style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png&quot;);">
+                                    </div>
+                                    <div class="h5-usp-complex-text__textContainer"><span
+                                            class="h5-usp-complex-text__textContainer__title" data-redirect="false">We
+                                            Price Match</span>
+                                        <div class="h5-usp-complex-text__textContainer__subtitle">We aim to offer you
+                                            the best possible price. If you find a cheaper option elsewhere, we'll
+                                            refund the difference.</div>
+                                    </div>
+                                </div>
+                                <div class="h5-usp-complex-text ">
+                                    <div class="h5-usp-complex-text__icon"
+                                        style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5x120008whk01q784B.png&quot;);">
+                                    </div>
+                                    <div class="h5-usp-complex-text__textContainer"><span
+                                            class="h5-usp-complex-text__textContainer__title" data-redirect="false">Get
+                                            Rewarded for Traveling</span>
+                                        <div class="h5-usp-complex-text__textContainer__subtitle">Get money-saving
+                                            rewards with every booking, with no limits to how you spend<span
+                                                class="learn-more">Learn More</span></div>
+                                    </div>
+                                </div>
+                                <div class="h5-usp-complex-text ">
+                                    <div class="h5-usp-complex-text__icon"
+                                        style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png&quot;);">
+                                    </div>
+                                    <div class="h5-usp-complex-text__textContainer"><span
+                                            class="h5-usp-complex-text__textContainer__title"
+                                            data-redirect="false">Support in approx. 30s</span>
+                                        <div class="h5-usp-complex-text__textContainer__subtitle">We usually answer
+                                            phone calls within 30 seconds<span class="learn-more">Learn More</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                </div>
+
+
+
+                <div class="body-container">
+
+
+                    <!-- Date Selection Section -->
+
+
+
+
+                    <!-- Property Policies Section -->
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <%- include('partials/footer') %>
+
+            <script src="/js/hotelDetails.js"></script>
+
+
+
+
+
+
+
+
+
+
+            <!-- Date Selection Section -->

@@ -1,0 +1,25 @@
+<% const inputName = typeof name !== 'undefined' ? name : ''; const inputLabel =
+typeof label !== 'undefined' ? label : ''; const inputId = typeof id !==
+'undefined' ? id : ''; const inputPlaceholder = typeof placeholder !==
+'undefined' ? placeholder : "https://Trip-day.com"; const inputIsRequired =
+typeof isRequired !== 'undefined' ? isRequired : true; 
+const inputValue = typeof value !== 'undefined' ? value : "";%>
+
+<label
+  for="<%= inputName %>"
+  class="block mb-2 text-sm font-medium text-gray-900"
+>
+  <%= inputLabel %>
+</label>
+<div class="flex items-center rounded-lg border border-gray-300">
+  <span
+    class="flex-shrink-0 inline-flex items-center rounded-s-lg py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-0 border-e border-gray-300"
+    >URL</span
+  >
+  <div class="relative w-full">
+    <input id="<%= inputId %>" name="<%= inputName %>" type="text" value="<%= inputValue %>"
+    aria-describedby="helper-text-explanation" class="text-gray-500 border-0
+    w-full rounded-e-lg bg-gray-50" placeholder="<%= inputPlaceholder %>" <%=
+    inputIsRequired ? 'required' : '' %> />
+  </div>
+</div>

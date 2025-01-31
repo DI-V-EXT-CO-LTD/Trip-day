@@ -1,0 +1,350 @@
+
+<link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="right-wrapper">
+  <div class="my-skeleton-container" >
+      <div class="card-wrapper">
+          <div class="card-title overflow-ellipsis">Account Security</div>
+          <div class="account-security-container">
+              <div class="list-wrapper ">
+                  <div class="card-item-wrapper ">
+                      <div class="card-container">
+                          <div class="card-left-wrapper">
+                              <div class="card-left-title">
+                                  <div class="title-wrapper"><i class="icf-email icon-common"></i>
+                                      <div class="title-content">Link email</div>
+                                  </div>
+                              </div>
+                              <div class="card-left-content"> <%= user.email %></div>
+                          </div>
+                          <div class="card-right-wrapper">
+                              <button data-modal-target="email-modal" data-modal-toggle="email-modal" class="button-wrapper text-button overflow-ellipsis">Update</button>
+                              <div id="email-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                <div class="relative p-4 w-full max-w-md max-h-full">
+                                    <!-- Modal content -->
+                                    <div class="relative bg-white rounded-lg shadow p-4">
+                                        <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="email-modal">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                        <div id="verificationContainer" >
+                                            <div class="p-4 md:p-5 text-center">
+                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                    Enter New Email Address
+                                                </h3>
+                                            </div>
+                                  
+                                            <div class="px-4 ">
+                                               <label class="label-text" for="">Please enter a new email address. you will be able to use it to sign in to Trip-day.com</label>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div id="verificationContainer" class="p-4 md:p-5">
+                                                <div id="emailForm" class="space-y-4">
+                                                    <div>
+                                                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                                                        <input type="email" name="email" id="change_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                                                    </div>
+                                                    <button type="button" id="continueBtn" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Continue</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> 
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-item-wrapper ">
+                      <div class="card-container">
+                          <div class="card-left-wrapper">
+                              <div class="card-left-title">
+                                  <div class="title-wrapper"><i class="icf-phone icon-common"></i>
+                                      <div class="title-content">Link Phone Number</div>
+                                  </div>
+                              </div>
+                              <div class="card-left-content">-</div>
+                          </div>
+                          <div class="card-right-wrapper"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                                  <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Link</span></div>
+                              </button></div>
+                      </div>
+                  </div>
+                  <div class="card-item-wrapper ">
+                      <div class="card-container">
+                          <div class="card-left-wrapper">
+                              <div class="card-left-title">
+                                  <div class="title-wrapper"><i class="icf-password icon-common"></i>
+                                      <div class="title-content">Password</div>
+                                  </div>
+                              </div>
+                              <div class="card-left-content">********</div>
+                          </div>
+                          <div class="card-right-wrapper">
+                            <button data-modal-target="password-modal" data-modal-toggle="password-modal" class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                                  <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Set</span></div>
+                              </button>
+                              <div id="password-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                <div class="relative p-4 w-full max-w-md max-h-full">
+                                    <!-- Modal content -->
+                                    <div class="relative bg-white rounded-lg shadow p-4">
+                                        <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="password-modal">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                        <div id="verificationContainer" >
+                                            <div class="p-4 md:p-5 text-center">
+                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                    Reset Password
+                                                </h3>
+                                            </div>
+                                  
+                                            <div class="px-4 ">
+                                               <label class="label-text" for="">Verify your current password to set a new one</label>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div id="verificationContainer" class="p-4 md:p-5">
+                                                <div id="passwordForm" class="space-y-4">
+                                                    <div>
+                                                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current Password</label>
+                                                        <input type="password" id="current_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="********" required />
+                                                        <label id="invalid_password" for="invalid_password" class="hidden block mt-1 text-xs text-red-500">Password invalid </label>
+                                                    </div>
+                                                    <div>
+                                                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New password</label>
+                                                        <input type="password" id="new_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="********" required />
+                                                    </div>
+                                                    <button type="button" id="chagne_pwd_Btn" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Set New Password</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> 
+                            </div>
+                      </div>
+                  </div>
+                  <div class="card-item-wrapper ">
+                    <div class="card-container">
+                        <div class="card-left-wrapper">
+                            <div class="card-left-title">
+                                <div class="title-wrapper"><i class="icf-email icon-common"></i>
+                                    <div class="title-content">Role</div>
+                                </div>
+                            </div>
+                            <div class="card-left-content"><%= user.role %></div>
+                        </div>
+                        <div class="card-right-wrapper">
+                            <div class="button-wrapper text-button overflow-ellipsis"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                              <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Link</span></div>
+                          </button></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="card-item-wrapper ">
+                  <div class="card-container">
+                      <div class="card-left-wrapper">
+                          <div class="card-left-title">
+                              <div class="title-wrapper"><i class="icf-email icon-common"></i>
+                                  <div class="title-content">Company Name:</div>
+                              </div>
+                          </div>
+                          <div class="card-left-content">  <%= user.companyName || 'Not Registered' %></div>
+                      </div>
+                      <div class="card-right-wrapper">
+                          <div class="button-wrapper text-button overflow-ellipsis"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                            <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Link</span></div>
+                        </button></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-item-wrapper ">
+                  <div class="card-container">
+                      <div class="card-left-wrapper">
+                          <div class="card-left-title">
+                              <div class="title-wrapper"><i class="icf-phone icon-common"></i>
+                                  <div class="title-content">Business Number</div>
+                              </div>
+                          </div>
+                          <div class="card-left-content"> <%= user.businessNumber || 'Not Registered' %></div>
+                      </div>
+                      <div class="card-right-wrapper"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                              <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Link</span></div>
+                          </button></div>
+                  </div>
+              </div>
+              <div class="card-item-wrapper ">
+                  <div class="card-container">
+                      <div class="card-left-wrapper">
+                          <div class="card-left-title">
+                              <div class="title-wrapper"><i class="icf-password icon-common"></i>
+                                  <div class="title-content">Contact Person</div>
+                              </div>
+                          </div>
+                          <div class="card-left-content"><%= user.contactPerson || 'Not Registered' %></div>
+                      </div>
+                      <div class="card-right-wrapper"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                              <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Set</span></div>
+                          </button></div>
+                  </div>
+              </div>
+              <div class="card-item-wrapper ">
+                <div class="card-container">
+                    <div class="card-left-wrapper">
+                        <div class="card-left-title">
+                            <div class="title-wrapper"><i class="icf-email icon-common"></i>
+                                <div class="title-content">Contact Number:</div>
+                            </div>
+                        </div>
+                        <div class="card-left-content"><%= user.contactNumber || 'Not Registered' %></div>
+                    </div>
+                    <div class="card-right-wrapper">
+                        <div class="button-wrapper text-button overflow-ellipsis"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                          <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Set</span></div>
+                      </button></div>
+                    </div>
+                    
+                </div>
+            </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="my-skeleton-container" >
+      <div class="styles_container__AerWA">
+          <div class="styles_titleContainer__dgPsu">
+              <div class="styles_title__XsuDB">Update Member Profile</div>
+              <div class="styles_subTitle__949eH">Add your legal name and date of birth to complete your member profile. Please ensure the info matches your travel ID.</div>
+              <div class="styles_logoContainer__ptUW3" style="right: 16px;"><img src="https://pages.trip.com/Accounts/commonWebsite/RewardsMemberProfile/logo.png" alt=""></div>
+          </div>
+          <div class="styles_content__HfwiK">
+              <div class="styles_contentContainer__BI6Cr">
+                  <div class="styles_messageContainer__k41Lx">
+                      <div class="styles_message__tIlz1">Legal name</div>
+                      <div class="styles_message__tIlz1">Date of birth</div>
+                  </div>
+                  <div class="styles_btnContainer__1KlPt"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis " type="button" dir="ltr" style="max-width: 160px;">
+                          <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Edit</span></div>
+                      </button></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="delete-wrapper">
+      <div class="delete-btn">Delete My Account</div>
+      <div>&nbsp;&nbsp; Once deleted, all account information will be removed. You will not be able to recover this information.</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function() {
+    const continueBtn = document.getElementById("continueBtn");
+    const chagnePwdBtn = document.getElementById("chagne_pwd_Btn");
+    
+    continueBtn.addEventListener("click", () => {
+        const emailInput = document.getElementById("change_email");
+        const email = emailInput.value;
+        console.log("Email:", email);  // ตรวจสอบค่า email
+        
+        if (!email) {
+            alert("Please enter your email.");
+            return;
+        }
+
+        // เปลี่ยนข้อความใน div เป็น "Please Verification your email !"
+        const container = document.getElementById("verificationContainer");
+        container.innerHTML = `
+        <div class="p-4 md:p-5 text-center">
+                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                    Verify New Email Address
+                                                </h3>
+               <div class="p-4 ">
+                                               <label class="label-text" for="">We have sent a verification link to ${email} Please check your inbox .</label>
+                                            </div>
+            </div>
+                 
+                                               
+                                   
+           
+        `;
+
+         // // ยิง API หลังจากเปลี่ยนข้อความ
+        // try {
+        //     const response = await fetch("https://example.com/api/send-email", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify({ email }),
+        //     });
+
+        //     if (!response.ok) {
+        //         console.error("API Error:", await response.json());
+        //     }
+        // } catch (error) {
+        //     console.error("Network Error:", error.message);
+        // }
+    });
+    chagnePwdBtn.addEventListener("click", async() => {
+        const currentInput = document.getElementById("current_password").value;
+const newInput = document.getElementById("new_password").value;
+
+if (!currentInput || !newInput) {
+    alert("Please enter your password.");
+    return;
+}
+
+        try {
+            const response = await fetch("profile/change-password", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ currentInput,newInput }),
+            });
+            if (!response.ok) {
+                document.getElementById("invalid_password").classList.remove("hidden");
+                return;
+            }
+            alert("reset password success")
+            window.location.reload()
+
+        } catch (error) {
+            console.error("Network Error:", error.message);
+        }
+    });
+
+    
+});
+
+document.getElementById('resetPassword').addEventListener('click', function(e) {
+  e.preventDefault();
+  // Here you would typically send a request to the server to initiate the password reset process
+  alert('Password reset functionality will be implemented here.');
+});
+
+// <% if (user.businessNumber === 'N/A') { %>
+// document.getElementById('kycRequest').addEventListener('click', function(e) {
+//   e.preventDefault();
+//   // Here you would typically send a request to the server to initiate the KYC request process
+//   alert('KYC request functionality will be implemented here.');
+// });
+// <% } %>
+
+
+</script>

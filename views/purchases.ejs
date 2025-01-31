@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <link rel="stylesheet" href="/styles/hotelDetails.css">
+  <link rel="stylesheet" href="/styles/auth-popup.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<%
+function getStatusColor(status) {
+  switch(status.toLowerCase()) {
+    case 'completed':
+      return 'success';
+    case 'pending':
+      return 'warning';
+    case 'cancelled':
+      return 'danger';
+    default:
+      return 'secondary';
+  }
+}
+%>
+
+<div class="w-full mt-4 relative overflow-x-auto text-medium rounded-md">
+
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500" >
+    <thead class="text-gray-700 uppercase bg-gray-50 ">
+      <tr>
+        <th scope="col" class="ps-3 pe-1 py-3">Hotel Name</th>
+        <th scope="col" class="px-1 py-3">Room Name</th>
+        <th scope="col" class="px-1 py-3">Valid-from</th>
+        <th scope="col" class="px-1 py-3">Valid-until</th>
+        <th scope="col" class="px-1 py-3">Amount</th>
+        <th scope="col" class="px-1 py-3">Price(THB)</th>
+        <th scope="col" class="px-1 py-3">Payment Method</th>
+        <th scope="col" class="ps-1 pe-3 py-3">Status</th>
+ 
+      </tr>
+    </thead>
+    <tbody>
+      <% purchases.forEach(purchase => { %>
+        <tr class="bg-white border-b">
+          <td scope="row" class="ps-3 pe-1 py-3  font-medium text-gray-900"><%= purchase.hotelName %></td>
+          <td class="px-1 py-3"><%= purchase.roomName %></td>
+          <td class="px-1 py-3"><%= purchase.checkIn.toLocaleDateString() %></td>
+          <td class="px-1 py-3"><%= purchase.checkOut.toLocaleDateString() %></td>
+          <td class="px-1 py-3 text-center"><%= purchase.nights %></td>
+          <td class="px-1 py-3"><%= purchase.amount.toLocaleString(2) %>
+          <br>(hello)</td>
+          <td class="px-1 py-3">
+            <%= purchase.paymentMethod %><br>
+            <% if (purchase.purchaseDetails) { %>
+              <br>
+              <% purchase.purchaseDetails %>
+              <% if (purchase.purchaseDetails.type === 'crypto') { %>
+                <%= purchase.purchaseDetails.walletAddress %>
+              <% } else if (purchase.purchaseDetails.type === 'bank_transfer') { %>
+                <%= purchase.purchaseDetails.accountNumber %>
+              <% } %>
+            <% } %>
+          </td>
+          <td class="ps-1 pe-3 py-3 text-center">
+            <span class="badge badge-<%= getStatusColor(purchase.status) %>">
+              <%= purchase.status %>
+            </span>
+          </td>
+          
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<!-- <% purchases.forEach(purchase => { %>
+  <div class="modal fade" id="purchaseModal<%= purchase._id %>" tabindex="-1" role="dialog" aria-labelledby="purchaseModalLabel<%= purchase._id %>" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="purchaseModalLabel<%= purchase._id %>">Purchase Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered">
+            <tr>
+              <th>Hotel Name</th>
+              <td><%= purchase.hotelName %></td>
+            </tr>
+            <tr>
+              <th>Room Name</th>
+              <td><%= purchase.roomName %></td>
+            </tr>
+            <tr>
+              <th>Check-in</th>
+              <td><%= purchase.checkIn.toLocaleDateString() %></td>
+            </tr>
+            <tr>
+              <th>Check-out</th>
+              <td><%= purchase.checkOut.toLocaleDateString() %></td>
+            </tr>
+            <tr>
+              <th>Nights</th>
+              <td><%= purchase.nights %></td>
+            </tr>
+            <tr>
+              <th>Amount</th>
+              <td>฿<%= purchase.amount.toFixed(2) %></td>
+            </tr>
+            <tr>
+              <th>Payment Method</th>
+              <td><%= purchase.paymentMethod %></td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td>
+                <span class="badge badge-<%= getStatusColor(purchase.status) %>">
+                  <%= purchase.status %>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>Created At</th>
+              <td><%= purchase.createdAt.toLocaleString() %></td>
+            </tr>
+            <tr>
+              <th>Updated At</th>
+              <td><%= purchase.updatedAt.toLocaleString() %></td>
+            </tr>
+            <tr>
+              <th>Process Description</th>
+              <td><%= purchase.processDescription %></td>
+            </tr>
+          </table>
+          <h6>Purchase Log</h6>
+          <ul class="list-group">
+            <% purchase.purchaseLog.forEach(log => { %>
+              <li class="list-group-item">
+                <%= log.timestamp.toLocaleString() %> - <%= log.message %>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% }); %> -->
+

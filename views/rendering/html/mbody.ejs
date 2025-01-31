@@ -1,0 +1,384 @@
+
+<link href="assets/Lato/latostyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="assets/css/1.css" crossorigin="anonymous" data-n-p="">
+
+<style>
+body{
+	font-family: 'LatoWeb';
+}
+.section-goods{
+	margin-top: 50px;
+    text-align: center;
+}
+.section-goods-other {
+    padding-right: 4vw;
+    padding-left: 9.5vw;
+    color: #fff;
+    background-size: cover;
+}
+
+.section-goods-other p {
+    margin-bottom: 0;
+}
+
+.section-goods-other .ui-title {
+    color: #fff;
+}
+
+.section-goods-other .ui-subtitle {
+    color: #fff;
+}
+section-goods-slider {
+    overflow: hidden;
+}
+
+.section-goods-slider__inner {
+    margin-bottom: 35px;
+    padding: 90px 0 35px;
+}
+section-goods__inner {
+    background-image: url("../img/bg-1.jpg");
+    background-size: cover;
+}
+
+.section-goods__list {
+   
+    padding-bottom: 100px;
+}
+.section-goods-offers {
+    padding: 110px 5% 80px;
+}
+.section-default {
+    position: relative;
+    padding-top: 48px;
+
+}
+.section-reviews .section-default {
+    padding-bottom: 0;
+}
+.bg-dark {
+    color: #999;
+    background-color: #e4f6f4;
+	height: auto;
+}
+.bg-dark-2 {
+    background-color: #0c4852;
+}
+.ui-decor {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 9%;
+    display: block;
+    height: 1px;
+    background: #fff;
+}
+
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+    .ui-decor {
+        height: 20px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 96% 100%);
+        clip-path: polygon(0 0, 100% 0, 96% 100%);
+    }
+}
+
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+    .ui-decor_mirror {
+        -webkit-clip-path: polygon(0 0, 100% 0, 1% 100%);
+        clip-path: polygon(0 0, 100% 0, 1% 100%);
+    }
+}
+
+.ui-decor_down {
+    top: auto;
+    bottom: 20px;
+    z-index: 77;
+    position: relative;
+}
+
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+    .ui-decor_down {
+        -webkit-clip-path: polygon(1% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(1% 0, 100% 100%, 0% 100%);
+    }
+}
+
+.ui-decor_center {
+    right: 9%;
+}
+
+.ui-decor_full_width {
+    left: 0;
+}
+
+.ui-decor_up {
+    z-index: 10;
+}
+
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+    .ui-decor_sm-h {
+        height: 32px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 2.5% 100%);
+        clip-path: polygon(0 0, 100% 0, 2.5% 100%);
+    }
+}
+.ui-title-page {
+    position: relative;
+    display: inline-block;
+    margin-top: 0;
+}
+
+.ui-title {
+    margin-bottom: 15px;
+    font: 700 40px/1.1 Montserrat;
+    color: #222;
+}
+
+
+.d-inline-block .ui-title {
+    background-image: url(../img/decore02.png);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    padding-bottom: 80px;
+    text-transform: none;
+}
+
+.ui-title_lg {
+    font-size: 48px;
+    font-weight: 400;
+}
+
+.ui-title_light {
+    color: #fff;
+}
+
+.ui-title-logo {
+    margin-bottom: -40px;
+    font: 700 90px/1 Montserrat;
+    color: #f2f6f7;
+    text-transform: uppercase;
+}
+
+.ui-title-logo_dark {
+    color: #353535;
+}
+
+.ui-title-inner {
+    font-size: 22px;
+}
+.prc{
+	color: #000;
+
+}
+@media(max-width: 768px){
+    .m2img img{
+        text-align: center;
+        width: 60%;
+        height: 60%;
+        margin-bottom:20px;;
+      
+
+}
+}
+@media(max-width: 768px){
+    .img-scale{
+        width: 60%;
+        height: 60%;
+    }
+}
+
+.mtall{
+    text-align:left;
+}
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+</style>
+
+
+	<!--section class="section-goods">
+			<div class="section-default section-goods__inner bg-dark">
+				<div class="ui-decor ui-decor_mirror ui-decor_center"></div>
+				<div class="container mtall" style="text-align:left;">
+					
+						<h2 class="prc" style="font-family:'LatoWeb';letter-spacing: 4.8px; font-size: 30px; font-weight: 700;">PRODUCTS & SERVICES</h2>
+						
+						<h4 style="font-family:'LatoWeb'">Take your business to new heights.</h4>
+				</div>
+                <div class="container" style="margin-bottom:0;">
+                    <div class="section-goods__list " >
+                        <div class="row m2img" >
+                            <div class="col-xl-3 col-md-6">
+                                <div class="">
+                                    <img class="img-scale" src="assets/img/supplers.png" alt="photo" style="width:70% ;"/>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="b-goods">
+                                    <a class="" href="#"><img class="img-scale" src="assets/img/distributors.png" alt="photo" style="width:70%;"/></a>
+                                
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="b-goods">
+                                        <a class="" href="#"><img class="img-scale" src="assets/img/marketing.png" alt="photo"  style="width:70% ;"/></a>
+                                
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="b-goods">
+                                    <a class="" href="#"><img class="img-scale" src="assets/img/payment.png" alt="photo"  style="width:70% ;"/></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+			</div>
+			
+	</section -->
+
+    <section class="section  text-center mgt40" style="background-color:#eeeeee;">
+        
+        <div class="container ">
+            <h2 class="prc " style="font-family:'LatoWeb';letter-spacing: 4.8px; font-size: 30px; font-weight: 700;text-align:left;;">PRODUCTS & SERVICES</h2>
+          <div class="row row-30 row-xxl-70 offset-top-2">
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+              <article class="box-light wow slideInLeft">
+                <div class=""><img src="https://trip-day.com/assets/img/w1.jpg"  style=" border-radius:5%"></div>
+               
+              </article>
+            </div>
+            
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+ <script type='text/javascript'>               
+var content_height = 108;
+var content_idx_array = [1001,1002,1004,1005,1008];
+var content_show_array = [];
+var content_push_array = [];
+for (i=0;i<content_idx_array.length;i++) {
+    content_show_array[content_idx_array[i]] = 'div_show_' + content_idx_array[i];
+    content_push_array[content_idx_array[i]] = 'div_push_' + content_idx_array[i];
+}
+function get_more_html(idx){
+    return "<a href=\"javascript:print_more('"+idx+"')\" >[more] </a>";
+}
+function get_less_html(idx){
+    return "<a href=\"javascript:print_less('"+idx+"')\">[fold] </a>";
+}
+function print_less(idx){
+    sobj = document.getElementById(content_show_array[idx]);
+    pobj = document.getElementById(content_push_array[idx]);
+    if (sobj) {
+        sobj.style.height=content_height+'px';
+        pobj.innerHTML = get_more_html(idx);
+    }
+}
+function print_more(idx){
+    sobj = document.getElementById(content_show_array[idx]);
+    pobj = document.getElementById(content_push_array[idx]);
+    if (sobj) {
+        sobj.style.height='';
+        pobj.innerHTML = get_less_html(idx);
+    }
+}
+function init_more_less(){
+    var i, max=content_idx_array.length;
+    for (i=0;i<max;i++) {
+        sobj = document.getElementById(content_show_array[content_idx_array[i]]);
+        pobj = document.getElementById(content_push_array[content_idx_array[i]]);
+        if (sobj && parseInt(sobj.offsetHeight)>content_height) {
+            sobj.style.height=content_height+'px';
+            pobj.innerHTML = get_more_html(content_idx_array[i]);
+        }
+    }
+}
+function onload_event(){
+    init_more_less();
+}
+if (window.attachEvent) window.attachEvent('onload', onload_event); 
+else if (window.addEventListener) window.addEventListener('load', onload_event, false); 
+
+</script>
+<style>
+
+
+.my_title {font-weight:bold; margin-top:20px;}
+.my_show {width:95%; overflow:hidden; word-wrap: break-word; word-break:break-all;}
+.my_push {font-size:18px; margin-top:4px;text-align:right;margin-right:20px;}
+a:link {color:#696969; text-decoration:none; }
+a:visited {color:#696969; text-decoration:none;}
+a:hover {color:#696969; text-decoration:underline;}
+</style>
+              
+              <article class="box-light wow slideInLeft">
+                <h4 class="text-gray-800 box-light-title  mgb20">Friendly Managers</h4>
+                <div  id="div_show_1001" class="my_show ">The individual membership system helps each independent product organize and plan smoothly.
+                    The 1:1 dedicated consultation system can solve any difficulties in your company as soon as possible.
+                    You can make reservations, payments, and management one-stop by providing your own dashboard.
+                </div>
+              </article>
+              <div id="div_push_1001" class="my_push" ></div>
+            </div>
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+              <article class="box-light wow slideInLeft" data-wow-delay=".05s">
+                <div class=""><img src="https://trip-day.com/assets/img/w2.jpg" style=" border-radius:5%"></div>
+               
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+              <article class="box-light wow slideInLeft" data-wow-delay=".05s">
+                <h4 class="text-gray-800 box-light-title mgb20">Flexible Prices</h4>
+                <div  id="div_show_1002" class="my_show ">We are helping your company's funding plan as much as possible by applying season-by-season prices.
+                    We would like to clarify the distinction between off-season and peak season and provide various rewards accordingly to help your business progress.
+                </div>
+                    
+              </article>
+              <div id="div_push_1002" class="my_push" ></div>
+            </div>
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+              <article class="box-light wow slideInLeft" data-wow-delay=".1s">
+                <div><img src="https://trip-day.com/assets/img/w3.jpg"  style=" border-radius:5%"></div>
+              
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+              <article class="box-light wow slideInLeft" data-wow-delay=".1s">
+              
+                <h4 class="text-gray-800 box-light-title mgb20">Lot of voyages </h4>
+                <div  id="div_show_1004" class="my_show ">We would like to secure more hotels and golf resorts to help you develop and plan your travel products.
+                    In 2025, we will secure over 900 hotels and golf resorts.This allows you to choose more hotels and golf resorts.
+                </div>
+              </article>
+              <div id="div_push_1004" class="my_push" ></div>
+            </div>
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+              <article class="box-light wow slideInLeft" data-wow-delay=".15s">
+                <div><img src="https://trip-day.com/assets/img/w4.jpg"  style=" border-radius:5%"></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 wow-outer">
+              <!-- Box Light-->
+              <article class="box-light wow slideInLeft" data-wow-delay=".15s">
+                <h4 class="text-gray-800 box-light-title  mgb20">Online Booking</h4>
+                <div  id="div_show_1008" class="my_show ">We are helping to make and use easier and faster reservations online, breaking away from inconvenient reservation methods such as phone calls, face-to-face calls, and mail in the past.
+                    It also allows all of this to be reviewed and organized at once through my own administrator screen.</p>
+              </article>
+              <div id="div_push_1008" class="my_push" ></div>
+            </div>
+          </div>
+   
+        </div>
+      </section>

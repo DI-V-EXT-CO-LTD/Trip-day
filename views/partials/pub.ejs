@@ -1,0 +1,306 @@
+<link rel="stylesheet" href="/css/UserStyle4963.css?ver=1.1">
+  <script src="/js/Front/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="/css/UserMain5152.css?ver=1.0">
+  <script type="text/javascript" src="/js/Cookie/Cookie.js"></script>
+  <div class="main-popLayer">
+    <div class="layer-popup" id="MPop-0" style="">
+      <div class="main-popup-box">
+        <div class="layer-popup-con popup_tab00 mTs-popup" id="popup-left" CenterYn="" style="top:432px; left:1080px;" >
+          <div id = "wrapper">
+            <div class="content">
+              <ul class="imgs">
+                <li class="img"><img src="/images/pub/bg4.png"/></li>
+                <li class="img"><img  src="/images/pub/bg6.png"/></li>
+                <li class="img"><img  src="/images/pub/bg1.png"/></li>
+                <li class="img"><img  src="/images/pub/bg7.png"/></li>
+                <li class="img"><img src="/images/pub/bg5.png"/></li>
+                <li class="img"><img src="/images/pub/bg3.png"/></li>
+                <li class="img"><img src="/images/pub/bg2.png"/></li>
+              </ul>
+            </div>
+            <ul class='dots'>
+              <li><img class="dot_img" src="/images/pub/en.png"/></li>
+              <li><img class="dot_img" src="/images/pub/mr.png"/></li>
+              <li><img class="dot_img" src="/images/pub/cn.png"/></li>
+              <li><img class="dot_img" src="/images/pub/kr.png"/></li>
+              <li><img class="dot_img" src="/images/pub/in.png"/></li>
+              <li><img class="dot_img" src="/images/pub/ru.png"/></li>
+              <li><img class="dot_img" src="/images/pub/jp.png"/></li>
+            </ul>
+          </div>
+          
+          <div class="popup-x" ><button onclick="ClosePopUp(2)" title="닫기"><i class="icon-feather-x"></i></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-popLayer">
+    <div class="layer-popup" id="MPop-15" style="">
+      <div class="main-popup-box">
+        <div class="layer-popup-con" style="top:80px; left:50px;">
+          <img src="/images/pub/p2.png">
+          
+          <!-- TODO -->
+          <div class="popup-x" ><button onclick="ClosePopUp(1)" title="닫기"><i class="icon-feather-x"></i></button></div>
+         
+        </div>
+        <div class="html" id="html-show">
+        </div>
+          </div>
+      </div>
+  </div>
+  <script>
+  const popupParent = document.getElementById('MPop-15');
+  const popupParent_2 = document.getElementById('MPop-0')
+  $(document).ready( function() {
+    $(".layer-popup").each( function() {
+  
+      var WinWidth, WinHeight;
+      var PopTop, PopLeft;
+      WinWidth = window.innerWidth;
+      WinHeight = window.innerHeight;
+  
+      var MainPop = $(this).find('.mTs-popup');
+      for ( var i = 0; i < MainPop.length; i++ ){
+  
+        if ( fnCookieGet( MainPop.eq(i).attr("id")) != 'true' ) {
+  
+          if ( MainPop.eq(i).attr("CenterYn") == "Y" ){
+            var PopWith=0, PopHeight=0;
+            PopWith = MainPop.eq(i).find('.mTs-popup-inner').css("width").replace("px", "");
+            PopHeight = MainPop.eq(i).find('.mTs-popup-inner').css("height").replace("px", "")
+  
+            if ( PopWith == "auto" || PopHeight == "auto" ){
+              PopLeft	= ( WinWidth - 0 ) / 2;
+              PopTop	= ( WinHeight - 0 ) / 2;
+            } else{
+              PopLeft	= ( WinWidth - PopWith ) / 2;
+              PopTop	= ( WinHeight - PopHeight ) / 2;
+  
+              if ( WinWidth <= PopWith ) PopLeft = 0;
+              if ( WinHeight <= PopHeight ) PopTop = 0;
+            }
+            /*
+            console.log(' WinWidth : ' + WinWidth);
+            console.log(' WinHeight : ' + WinHeight);
+            console.log(' PopWith : ' + PopWith);
+            console.log(' PopHeight : ' + PopHeight);
+            console.log(' PopLeft : ' + PopLeft);
+            console.log(' PopTop : ' + PopTop);
+            */
+            MainPop.eq(i).css( "left", PopLeft );
+            MainPop.eq(i).css( "top", PopTop );
+          }
+          MainPop.eq(i).css('display', '');
+        }
+  
+      }
+  
+      $(this).slideToggle(200);
+  
+  
+    });
+  
+    $(".main-popup").each( function() {
+      if ( fnCookieGet($(this).attr("id")) != 'true' ) {
+        $(this).slideToggle(200);
+      }
+    });
+  
+  
+  
+  });
+  
+  // 팝업 닫기
+  $(document).on("click", ".popup-x a", function() {
+    $(this).parent().parent().slideToggle(100);
+  });
+  
+  function ClosePopUp(popupIdx) {
+    switch(popupIdx)
+    {
+      case 1:
+      popupParent.style.display = 'none';
+        break;
+      case 2:
+      popupParent_2.style.display = 'none';
+        break;
+    }
+    console.log("Closing Popup")
+    popupParent.style.display = 'none';
+  }
+  // 팝업 닫기
+  $(document).on("click", ".Mpopup-x a", function() {
+    $(this).parent().parent().parent().slideToggle(100);
+  });
+  
+  // 팝업 닫기
+  $(document).on("click", ".Mpopup-d a", function() {
+    $(this).parent().parent().parent().parent().parent().parent().slideToggle(100);
+  });
+  
+  
+  
+  
+  // 탭 메뉴
+  function fnMainPoupTab(num){
+    var f = $('.popup_tab').find('li');
+    for ( var i = 0; i < f.length; i++ ) {
+      if ( i == num) {
+        f.eq(i).addClass('active');
+        $('.popup_tab0' + i ).show();
+      } else {
+        f.eq(i).removeClass('active');
+        $('.popup_tab0' + i ).hide();
+      }
+    }
+  }
+  
+  
+  
+  </script>
+  
+      <style>
+ #html-show, #css-show, #js-show {
+  display: none;
+}
+
+#html-show:target, #css-show:target, #js-show:target {
+  display: block;
+}
+        
+          *{
+              padding: 0;
+              margin: 0;
+          }
+          #wrapper{
+              width: 336px;
+              height: 420px;
+          }
+          #wrapper .content{
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+          }
+          #wrapper>.content>.imgs{
+              box-sizing: border-box;
+              width: 100%;
+              height: 100%;
+          
+              border: 1px solid #ccc;
+              background: #F0F0F0;
+              border-radius: 5px;
+              list-style: none;
+          }
+          #wrapper>.content>.imgs li{
+              box-sizing: border-box;
+              width: 100%;
+              height: 100%;
+              border:1px solid #fff;
+          }
+          #wrapper>.content>.imgs>li img{
+              width: 100%;
+              height: 100%;
+          }
+          #wrapper>.dots{
+              position: absolute;
+              right:0px;
+              bottom:0px;
+              top:0px;
+              width:0px;
+              list-style: none;
+          }
+          #wrapper>.dots li{
+              box-sizing: border-box;
+              width: 70px;
+              height: 56px;
+              padding:2px;
+              border: 1px solid #ccc;
+              background: #F0F0F0;
+              margin-bottom:3px;
+              border-radius:3px;
+              cursor: pointer;
+          }
+          #wrapper>.dots li:last-child{
+              margin-bottom:0;
+          }
+          #wrapper>.dots li .dot_img{
+              box-sizing: border-box;
+              width:100%;
+              height:100%;
+              border:1px solid #fff;
+          }
+          li.active{
+              padding:1px !important;
+              border: 1px solid #EDB5ED !important;
+              background: #fff !important;
+          }
+          li.active .dot_img{
+              border:3px solid #FFD1FF!important;
+          }
+          li.quiet{
+              padding:2px;
+              border: 1px solid #ccc;
+              background: #F0F0F0;
+          }
+          li.quire .dot_img{
+              border:1px solid #fff;
+          }
+      </style>
+  </head>
+  <body>
+      <script>
+          // 滚动索引
+          var index=0;
+          var imgs = document.getElementsByClassName("img");
+          var dots = document.getElementsByClassName("dots")[0];
+          var dotss = dots.children;
+          
+          var len = imgs.length;  //图片张数
+          var timer = null; //定时器
+  
+          dotss[0].className="active";
+  
+          //改变图片
+          function ChangeImg() {
+              index++;
+              if(index>=len) index=0;
+  
+              // 循环将全部图片和圆点重置为默认样式
+              for(var i=0; i<len; i++){
+                  imgs[i].style.display='none';
+                  dotss[i].className = "quiet";
+              }
+  
+              // 将当前图片显示
+              imgs[index].style.display='block';
+              // 将当前圆点添加高亮样式
+              dotss[index].className = "active";
+          }
+  
+          // 循环添加小圆点的触发事件
+          for(var i=0; i<len; i++){
+              dotss[i].index = i;
+              dotss[i].onmouseover = function(){
+                  for(var j=0; j<len; j++){
+                      imgs[j].style.display='none';
+                      dotss[j].className = "quiet";
+                  }
+                  this.className = "active";
+                  index = this.index;
+                  imgs[index].style.display='block';
+              }
+          }
+  
+          // 添加事件：鼠标移动到wrapper上，暂停切换图片
+          wrapper.onmouseover = function(){
+              clearInterval(timer);
+          }
+          // 添加事件：鼠标移出wrapper，开始切换图片
+          wrapper.onmouseout = function(){
+              timer = setInterval(ChangeImg,2000);
+          }
+  
+          //设置定时器，每隔两秒切换一张图片
+          timer = setInterval(ChangeImg,7000);
+      </script>

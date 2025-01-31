@@ -1,0 +1,510 @@
+<div class="bg-white pb-6">
+  <form id="roomForm" class="max-w-screen-lg mx-auto grid gap-6">
+    <%- include('../../partials/ui/inputText',{name:"hotelId",
+        id:"input-name", isRequired:true, className:"hidden", value:hotelId }) %>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <!-- <label for="name" class="block text-sm font-medium text-gray-900"
+          >Name</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder=""
+          required
+        /> -->
+        <%- include('../../partials/ui/inputText',{name:"name", label:"Name" , value: room ? room.title :"" ,
+        id:"input-name", isRequired:true}) %>
+      </div>
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <label
+            for="Base Price"
+            class="block  text-sm font-medium text-gray-900"
+            >Base Price</label
+          >
+          <div class="relative w-full">
+            <div
+              class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 text-gray-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 16"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="number"
+              name="price"
+              id="Base Price"
+             value="<%= room ? room.price :"" %>"
+              class="block p-2.5 w-full z-20 ps-10 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter amount"
+              required
+            />
+          </div>
+        </div>
+        <div>
+
+            <%- include('../../partials/ui/inputText',{name:"size", label:"Room Size(m²)" , isRequired:true ,placeholder:"size" ,type:"number", min:0 , value: room ? room.size :"" }) %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-1">
+      <div class="flex items-center space-x-2">
+        <label for="Beds" class="block text-sm font-medium text-gray-900"
+          >Beds</label
+        >
+        <button
+          type="button"
+          id="addBedButton"
+          class="px-2 py-1 bg-gray-900 text-white rounded hover:bg-gray-700"
+        >
+          <label for="AddBeds" class="block text-sm font-medium text-gray-50"
+            >Add</label
+          >
+        </button>
+      </div>
+      <div
+        id="bedContainer"
+        class="grid lg:grid-cols-2 gap-6 rounded-lg p-5 border border-dashed border-gray-300"
+      >
+        <!-- addBeds.JS -->
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label
+            class="block text-sm font-medium text-gray-900"
+            for="file_input"
+            >Main Image</label
+          >
+          <input
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+            aria-describedby="file_input_help"
+            id="main_image_input"
+            name="image_id"
+            type="file"
+            accept="image/png, image/jpeg"
+          />
+          <p
+            class="hidden md:block mt-1 text-xs text-gray-500"
+            id="file_input_help"
+          >
+            PNG, JPG (MAX. 50MB).
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex items-center justify-center w-full h-48 bg-gray-300 rounded"
+      >
+
+        <img id="main_image_preview" src="uploads/<%= isAdd? "" :room.images[0] %> " alt="Preview"
+            class="h-full object-cover <%= isAdd ? " hidden" : "" %>"
+          />
+          <% if (isAdd) { %>
+            <svg id="main_image_preview_skeleton" class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+              <path
+                d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+            </svg>
+            <% } %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 items-center space-x-5">
+        <div>
+          <%- include('../../partials/ui/inputText',{name:"adults", label:"Adult" , isRequired:true ,placeholder:"number of adults" ,type:"number", min:0 , value: room ? room.adults :""}) %>
+        </div>
+        <div>
+          <%- include('../../partials/ui/inputText',{name:"children", label:"Child" , isRequired:true ,placeholder:"number of child" ,type:"number", min:0 , value: room ? room.children :""  }) %>
+        </div>
+    </div>
+
+    <div class="space-y-1">
+        <label for="Room Season Price" class="block text-lg underline font-medium text-gray-900"
+          >Room Season Price</label
+        >
+      <div
+        id="seasonPriceContainer"
+        class="grid xl:grid-cols-2 gap-6 rounded-lg p-5 border border-dashed border-gray-300"
+      >
+
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <div class="flex gap-2 items-center">
+        <label
+          for="dynamicSelect"
+          class="block text-sm font-medium text-gray-900"
+        >
+          Features
+        </label>
+        <select
+          id="dynamicSelect"
+          class="block text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 p-2"
+        >
+          <option value="" selected>Choose an Feature</option>
+          <option value="Lake view">Lake view</option>
+          <option value="City view">City view</option>
+          <option value="No Window">No Window</option>
+          <option value="Free Wi-Fi">Free Wi-Fi</option>
+          <option value="Non-smoking">Non-smoking</option>
+          <option value="Wi-Fi (additional charge)">Wi-Fi (additional charge)</option>
+          <option value="Balcony">Balcony</option>
+          <option value="Air conditioning">Air conditioning</option>
+          <option value="Private bathroom">Private bathroom</option>
+        </select>
+      </div>
+      <div
+        id="inputsContainer"
+        class="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 min-h-24 items-center rounded-lg p-5 border border-dashed border-gray-300"
+      ></div>
+    </div>
+    <div class="flex flex-col md:flex-row  justify-around gap-6 rounded-lg p-5 border border-dashed border-gray-300">
+      <div>
+        <%- include('../../partials/ui/inputCheckbox', {
+          name: 'is_breakfast_included',
+          value: '1',
+          label: 'Includes breakfasts',
+          isChecked: room ? room.is_breakfast_included : false
+        }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputCheckbox', {
+          name: 'is_refundable',
+          value: '1',
+          label: 'Free Cancellation',
+          isChecked: room ? room.is_refundable :  false
+        }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputCheckbox', {
+          name: 'is_instantConfirmation',
+          value:  '1',
+          label: 'Instant Confirmation',
+          isChecked: room ? room.is_instantConfirmation : false
+        }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputCheckbox', {
+          name: 'is_onlinepay',
+          value: '1',
+          label: 'Prepay online',
+          isChecked: room ? room.is_onlinepay : false
+        }) %>
+      </div>
+   </div>
+    <div>
+      <label for="status" class="block text-sm font-medium text-gray-900"
+        >Status</label
+      >
+      <select
+        id="countries"
+        name="status"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      >
+        <option value="active">Active</option>
+        <option value="disable">Disable</option>
+      </select>
+    </div>
+    <div>
+      <label for="Description" class="block text-sm font-medium text-gray-900"
+        >Description</label
+      >
+
+      <textarea
+        id="Description"
+        name="content"
+        rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Write your thoughts here..."
+      ><%= room ? room.content : "" %></textarea>
+    </div>
+
+
+
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+    >
+      Submit
+    </button>
+    <button disabled type="button" class="hidden py-2.5 px-5 me-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-blue-700 focus:text-blue-700  inline-flex items-center">
+      <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+      <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"/>
+      </svg>
+      Loading...
+      </button>
+  </form>
+</div>
+<script>
+  (function() {
+    'use strict';
+    const seasonInputWrapper = (startDate,endDate, price = 0)=>{
+
+    return ` <div class="flex items-center gap-6">
+
+      <div  class="flex items-center ">
+        <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+            </svg>
+          </div>
+          <input  name="startDate[]" type="text" value='${startDate}' readOnly
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  "
+            placeholder="Select date start">
+        </div>
+        <span class="mx-4 text-gray-500">to</span>
+        <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+            </svg>
+          </div>
+          <input name="endDate[]" type="text"  value='${endDate}' readOnly
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  "
+            placeholder="Select date end">
+        </div>
+      </div>
+
+      <div class="flex">
+        <input
+  type="number"
+  name="room_prices"
+  value="${price}"
+  placeholder="Price"
+ required'
+ min= 0
+  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+/></div>
+    </div>`
+  }
+    const inputAmentines = (selectedValue)=> {
+      return $(`
+        <div class=" relative">
+          <input
+            type="text"
+            name="amenities[]"
+            value="${selectedValue}"
+            readonly
+            class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg p-2.5 bg-gray-50"
+          />
+          <button
+            type="button"
+            class=" delete-btn absolute inset-y-0 end-1 top-0 text-red-700 hover:text-red-900 text-center">
+            <svg class="w-6 h-6 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </div>
+      `)}
+
+      const createBedRow = (bed, quantity, css = "") => {
+  const row = $(`
+    <div class="flex items-center space-x-4">
+      <select name="bedType[]" class="basis-2/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        ${bedTypes
+          .map((type) => `<option value="${type}" ${type === bed ? "selected" : ""}>${type}</option>`)
+          .join("")}
+      </select>
+      <input
+        type="number"
+        name="bedQuantity[]"
+        value="${quantity}"
+        placeholder="Quantity"
+        class="basis-2/5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+        min="1"
+      />
+      <button
+        type="button"
+        class="removeBedButton ${css} text-red-700 hover:text-red-900 text-center">
+        <svg class="w-6 h-6 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+  `);
+  $("#bedContainer").append(row);
+};
+
+      const bedTypes = [
+        "Single",
+        "Double",
+        "Queen",
+        "King",
+        "Sofa Bed",
+        "Bunk Bed",
+      ];
+
+
+
+
+
+  $(document).ready(function () {
+
+    const isAdd = <%- JSON.stringify(isAdd) %>
+    const hotelId = <%- JSON.stringify(hotelId) %>
+    const roomId = <%- JSON.stringify(roomId || null ) %>
+
+    const existingSeason = <%- JSON.stringify(periodSeason || []) %>
+    console.log(existingSeason)
+
+
+    if(!isAdd){
+      const amenities = <%- JSON.stringify(room?.amenities || []) %>
+
+      const beds = <%- JSON.stringify(room?.bedType || {}) %>
+
+      // amenities
+      const selectAmenities =  $('#dynamicSelect')
+      amenities.forEach( amenity =>{
+       selectAmenities.find(`option[value="${amenity}"]`).remove()
+       const inputWrapper = inputAmentines(amenity)
+      $("#inputsContainer").append(inputWrapper);
+      })
+
+      // beds
+      let hiddenFirst =0
+      Object.entries(beds).forEach(([bed, quantity]) => {
+  createBedRow(bed, quantity, hiddenFirst === 0 ? "hidden" : "");
+  hiddenFirst++
+});
+
+
+    }else{
+      createBedRow("", "1", "hidden");
+    }
+
+
+    // season
+    const seasonCotainer = $("#seasonPriceContainer")
+    existingSeason.forEach((season) => {
+      const startDate = season.start_date.split("T")[0];
+    const endDate = season.end_date.split("T")[0];
+    const price = season?.room_prices?.[roomId] ?? 0;
+
+
+    const inputWrapper = seasonInputWrapper(startDate,endDate,price);
+    seasonCotainer.append(inputWrapper);
+    });
+
+
+
+    // beds
+    $("#addBedButton").click(function () {
+      createBedRow();
+    });
+
+    $("#bedContainer").on("click", ".removeBedButton", function () {
+      $(this).parent().remove();
+    });
+
+    // amentines
+    $("#dynamicSelect").change(function () {
+      const selectedValue = $(this).val();
+      const selectedText = $(this).find("option:selected").text();
+
+      // ลบ option ที่เลือกออก
+      $(this).find(`option[value="${selectedValue}"]`).remove();
+
+      const inputWrapper = inputAmentines(selectedValue)
+
+      // เพิ่ม inputWrapper ลงใน inputsContainer
+      $("#inputsContainer").append(inputWrapper);
+    });
+
+    $("#inputsContainer").on("click", ".delete-btn", function () {
+      const inputWrapper = $(this).parent();
+      const inputName = inputWrapper.find("input").attr("name");
+      const inputValue = inputWrapper.find("input").val();
+
+      // คืน option กลับเข้า select
+      $("#dynamicSelect").append(
+        `<option value="${inputValue}">${inputValue}</option>`
+      );
+
+      // ลบ inputWrapper
+      inputWrapper.remove();
+    });
+
+    // image
+    $("#main_image_input").on("change", function (e) {
+    const file = e.target.files[0]; // เลือกไฟล์แรก
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        $("#main_image_preview_skeleton").addClass("hidden");
+        $("#main_image_preview")
+          .attr("src", event.target.result)
+          .removeClass("hidden");
+      };
+      reader.readAsDataURL(file); // อ่านไฟล์เป็น Data URL
+    }
+  });
+
+      // Form submission
+      $("#roomForm").submit(function (event) {
+      event.preventDefault();
+      // ซ่อนปุ่ม Submit และแสดงปุ่ม Loading
+      const submitButton = $("button[type='submit']");
+      const loadingButton = $("button[disabled]");
+
+      submitButton.addClass("hidden");
+      loadingButton.removeClass("hidden");
+
+
+      if (!isAdd) {
+        const currentUrl = window.location.hash;
+        const regex = /\/editHotel\/([a-f0-9]{24})/; // อันนี้ใช้สำหรับ MongoDB ObjectId ที่เป็น 24 ตัวอักษร
+        const match = currentUrl.match(regex);
+
+      }
+      const formData = new FormData(this);
+      const type = isAdd ? "POST" : "PUT";
+      const url = isAdd ? `/admins/rooms/addRoom` : `/admins/rooms/editRoom/${roomId}`
+      $.ajax({
+        type: type, // ใช้ POST ในการส่งข้อมูล
+        url: url, // URL ที่จะส่งข้อมูลไป
+        data: formData,
+        dataType: "json", // กำหนดประเภทของข้อมูลที่คาดว่าจะได้รับ (เช่น json, html, xml)
+        processData: false, // ไม่ต้องแปลง formData ให้อยู่ในรูปแบบ query string
+        contentType: false, // ป้องกันการตั้ง content-type แบบอัตโนมัติ ซึ่งทำให้ FormData ถูกส่งได้อย่างถูกต้อง
+        success: function (res) {
+          window.location.href = res.redirectUrl;
+        },
+        error:function(err){
+          submitButton.removeClass("hidden");
+          loadingButton.addClass("hidden");
+        }
+      });
+    });
+  });  
+
+})();
+
+</script>
+
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <% if (bookings.length === 0) { %>
+      <div class="flex items-center justify-center h-screen">
+        <p class="text-xl font-semibold text-gray-700">No booking available.</p>
+      </div>
+    <% } else { %>
+      <% bookings.forEach(booking => { %>
+        <div class="bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-10 p-8">
+          <!-- Logo -->
+          <div class="text-center">
+            <img
+              src="/images/Trip-day.png"
+              alt="Logo"
+              class="w-32 mx-auto mb-4"
+            />
+          </div>
+
+          <!-- Company Info -->
+          <div class="mt-6 text-center">
+            <p class="text-lg font-bold">DiveXT Co.,Ltd.</p>
+            <p>340/96 Moo9 Nongprue Banglamung Chonburi 20150 Thailand</p>
+            <p>Contact Number: +66 6 3329 7811</p>
+
+            <h1 class="mt-4 text-3xl font-bold underline">Invoice</h1>
+            <div class="mt-4 text-sm text-gray-600">
+              <p>
+                <span class="font-medium">Date:</span> <%= booking.formattedDate %>
+              </p>
+              <p>
+                <span class="font-medium">Invoice #:</span>
+                <%= booking.bookingCode %>
+              </p>
+              <p>
+                <span class="font-medium">Transaction:</span>
+                <%= booking.transactionNo %> of <%= booking.totalTransactions %>
+              </p>
+            </div>
+          </div>
+
+          <!-- Invoice Details -->
+          <div class="mt-6">
+            <div class="grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <p>
+                  <span class="font-medium text-gray-600">Company Name:</span>
+                  <strong><%= user.companyName %></strong>
+                </p>
+                <p>
+                  <span class="font-medium text-gray-600">Business Number:</span>
+                  <strong><%= user.businessNumber %></strong>
+                </p>
+                <p>
+                  <span class="font-medium text-gray-600">Address:</span>
+                  <strong><%= user.companyAddress %></strong>
+                </p>
+              </div>
+              <div class="text-right">
+                <p>
+                  <strong><%= booking.userId %></strong>
+                </p>
+              </div>
+            </div>
+           
+          </div>
+
+          <!-- Booking Details -->
+          <div class="mt-6 border-t border-gray-200 pt-4">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="px-4 py-2 font-bold">Description</th>
+                  <th class="px-4 py-2 font-bold">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b">
+                  <td class="px-4 py-2">Booking Code</td>
+                  <td class="px-4 py-2"><%= booking.bookingCode %></td>
+                </tr>
+                <% if (booking.bookingCode.startsWith("BK")) { %>
+                  <tr class="border-b">
+                    <td class="px-4 py-2">Hotel Name</td>
+                    <td class="px-4 py-2"><%= booking.name %></td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="px-4 py-2">Room Names</td>
+                    <td class="px-4 py-2">
+                      <ul class="list-disc pl-5">
+                        <% booking.roomNames.forEach(name => { %>
+                          <li><%= name %></li>
+                        <% }); %>
+                      </ul>
+                    </td>
+                  </tr>
+                <% } else { %>
+                  <tr class="border-b">
+                    <td class="px-4 py-2">Golf Name</td>
+                    <td class="px-4 py-2"><%= booking.name %></td>
+                  </tr>
+                <% }  %>
+
+                <tr>
+                  <td class="px-4 py-2 font-bold text-lg">Total</td>
+                  <td class="px-4 py-2 font-bold text-right text-xl">
+                    ฿<%= booking.total.toLocaleString() %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex justify-between items-center">
+                      <!-- Bank Information -->
+          <div >
+            <h2 class="text-xl font-semibold text-center mb-4">
+              Bank Information
+            </h2>
+            <div class="text-sm text-gray-700">
+              <p>
+                <strong>Collection Company Name:</strong> DI V-EXT COMPANY
+                LIMITED
+              </p>
+              <p>
+                <strong>Collection Account Number:</strong> 669 267 6768
+              </p>
+              <p>
+                <strong>Bank Name:</strong> THE SIAM COMMERCIAL BANK PUBLIC
+                COMPANY LIMITED
+              </p>
+              <p>
+                <strong>Branch:</strong> PATTAYA SAI 2
+              </p>
+              <p>
+                <strong>Bank Address:</strong> 116/19 MOO9 NONGPRUE BANGLAMUNG
+                CHONBURI 20150 THAILAND
+              </p>
+              <p><strong>Swift Code:</strong> SICOTHBK</p>
+              <p><strong>Bank Code:</strong> 0669</p>
+            </div>
+          </div>
+                    <!-- Stamp -->
+                    <div class="text-center">
+                      <img
+                        src="/images/Stamp.png"
+                        alt="Stamp"
+                        class="w-24 mx-auto opacity-75"
+                      />
+                    </div>
+          </div>
+
+
+
+        </div>
+      <% }) %>
+    <% } %>
+  </body>
+</html>

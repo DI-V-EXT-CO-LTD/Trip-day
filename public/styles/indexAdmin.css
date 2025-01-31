@@ -1,0 +1,23 @@
+/* public/styles/index.css */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500;700&display=swap");
+body {
+  font-family: "Roboto", "Helvetica", sans-serif, "Noto Sans KR",
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* remove default input number style */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* fire fox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

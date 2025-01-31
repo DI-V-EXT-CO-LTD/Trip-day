@@ -1,0 +1,29 @@
+<nav
+  class="flex items-center flex-column flex-wrap md:flex-row justify-between"
+  aria-label="Table navigation"
+>
+  <span
+    class="text-sm font-normal text-gray-500 mb-4 md:mb-0 block w-full md:inline md:w-auto"
+  >
+    Showing
+    <span class="font-semibold text-gray-900">
+      <%= currentPage * 10 - 9 %>-
+      <%= currentPage < totalPages ? currentPage * 10 : totalDocument %>
+    </span>
+    of
+    <span class="font-semibold text-gray-900"><%= totalDocument %></span>
+  </span>
+  <div class="flex items-center gap-4">
+    <select
+      id="pageSelect"
+      class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+      onchange="navigateToPage('<%= route %>', this.value)"
+    >
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <option value="<%= i %>" <%= i === currentPage ? 'selected' : '' %>>
+          Page <%= i %>
+        </option>
+      <% } %>
+    </select>
+  </div>
+</nav>

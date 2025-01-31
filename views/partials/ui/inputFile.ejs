@@ -1,0 +1,15 @@
+<% const inputName = typeof name !== 'undefined' ? name : ''; const inputLabel =
+typeof label !== 'undefined' ? label : ''; const inputId = typeof id !==
+'undefined' ? id : ''; const inputPlaceholder = typeof placeholder !==
+'undefined' ? placeholder : ''; const inputIsRequired = typeof isRequired !==
+'undefined' ? isRequired : true; const inputIsMultiple = typeof isMultiple !==
+'undefined' ? isMultiple : false; %>
+
+<label class="block text-sm font-medium text-gray-900" for="<%= inputName %>"
+  ><%= inputLabel %></label
+>
+<input class="block w-full text-sm text-gray-900 border border-gray-300
+rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="<%=
+inputId %>" name="<%= inputName %>" type="file"
+accept="image/jpeg,image/png,image/gif,image/webp" <%= inputIsRequired ?
+'required' : '' %> <%= inputIsMultiple ? 'multiple' : '' %> />

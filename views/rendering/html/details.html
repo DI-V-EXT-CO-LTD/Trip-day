@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Detail Page</title>
+      <meta content="" name="description">
+      <meta content="" name="keywords">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta content="telephone=no" name="format-detection">
+      <meta name="HandheldFriendly" content="true">
+      <link rel="stylesheet" href="assets/css/master.css">
+      
+      <link rel="icon" type="image/x-icon" href="favicon.ico"><!--[if lt IE 9 ]>
+<script src="/assets/js/separate-js/html5shiv-3.7.2.min.js" type="text/javascript"></script><meta content="no" http-equiv="imagetoolbar">
+<![endif]-->
+  </head>
+  <body class="page">
+      <!-- Loader-->
+      <div id="page-preloader"><span class="spinner border-t_second_b border-t_prim_a"></span></div>
+      <!-- Loader end-->
+    <div class="l-theme animated-css" data-header="sticky" data-header-top="200" data-canvas="container">
+        
+      <!-- ==========================-->
+      <!-- SEARCH MODAL-->
+      <!-- ==========================-->
+      <div class="header-search open-search">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2 col-10 offset-1">
+              <div class="navbar-search">
+                <form class="search-global">
+                  <input class="search-global__input" type="text" placeholder="Type to search" autocomplete="off" name="s" value=""/>
+                  <button class="search-global__btn"><i class="icon stroke icon-Search"></i></button>
+                  <div class="search-global__note">Begin typing your search above and press return to search.</div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="search-close close" type="button"><i class="fa fa-times"></i></button>
+      </div>
+	<!-- ==========================-->
+		<!-- MOBILE MENU-->
+		<!-- ==========================-->
+		<div data-off-canvas="mobile-slidebar left overlay">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item "><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item "><a class="nav-link" href="listing.html">Boats Listing</a></li>
+                 <li class="nav-item "><a class="nav-link" href="tours.html">Tours</a></li>
+                <li class="nav-item "><a class="nav-link" href="blog.html">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+			</ul>
+		</div>
+		<header class="header header-slider">
+			<div class="top-bar">
+				<div class="container">
+					<div class="row justify-content-between align-items-center">
+						<div class="col-auto">
+							<div class="top-bar__item"><i class="fas fa-phone-square"></i> Phone: 755 302 8549 </div>
+							<div class="top-bar__item"><i class="fas fa-envelope-square"></i> Email: support@example.com</div>
+						</div>
+						<div class="col-auto">
+							<ul class="header-soc list-unstyled">
+								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li>
+								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-behance"></i></a></li>
+								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
+								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
+								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-main">
+				<div class="container">
+					<div class="row align-items-center justify-content-between">
+						<div class="col-auto">
+							<a class="navbar-brand navbar-brand_light scroll" href="index.html"> <img class="normal-logo img-fluid" src="assets/img/logo-light.png" alt="logo" /> </a>
+							<a class="navbar-brand navbar-brand_dark scroll" href="index.html"><img class="normal-logo img-fluid" src="assets/img/logo-dark.png" alt="logo" /></a>
+						</div>
+						<div class="col-auto d-xl-none">
+							<!-- Mobile Trigger Start-->
+							<button class="menu-mobile-button js-toggle-mobile-slidebar toggle-menu-button"><i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i></button>
+							<!-- Mobile Trigger End-->
+						</div>
+						<div class="col-xl d-none d-xl-block">
+							<nav class="navbar navbar-expand-lg justify-content-end" id="nav">
+								<ul class="yamm main-menu navbar-nav">
+									<li class="nav-item active"><a class="nav-link" href="index.html">Home</a> </li>
+                                    <li class="nav-item "><a class="nav-link" href="about.html">About Us</a> </li>
+                                    
+									<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#">Our Fleet</a>
+										<div class="dropdown-menu"> 
+                                            <a class="dropdown-item" href="listing.html">Boats Listing 1</a> 
+                                            <a class="dropdown-item" href="listing-sidebar.html">Boats Listing 2</a> 
+                                            <a class="dropdown-item" href="details.html">Boats Details</a> 
+                                        </div>
+									</li>
+                                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="tours.html">Our Tours</a>
+										<div class="dropdown-menu"> 
+                                            <a class="dropdown-item" href="tours.html">Tours Listing</a> 
+                                            <a class="dropdown-item" href="tour.html">Tour Details</a>  
+                                        </div>
+									</li>
+									<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#">News</a>
+										<div class="dropdown-menu">
+                                        <a class="dropdown-item" href="blog.html">Blog main</a>
+                                        <a class="dropdown-item" href="blog-grid.html">Blog grid</a>
+                                        <a class="dropdown-item" href="post.html">Blog post</a>
+                                        </div>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+								</ul> <span class="header-main__link btn_header_search"><i class="ic icon-magnifier"></i></span>
+								<button class="header-main__btn btn btn-secondary">Book Now</button>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- end .header-->
+        
+      <div class="section-title-page area-bg area-bg_dark area-bg_op_60">
+        <div class="area-bg__inner">
+          <div class="container text-center">
+            <h1 class="b-title-page">Golden Odyssey</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="blog.html">Our Fllet</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Boat Details</li>
+              </ol>
+            </nav>
+            <!-- end .breadcrumb-->
+            
+          </div>
+        </div>
+      </div>
+      <!-- end .b-title-page-->
+        
+        
+        
+        
+             
+
+      <div class="l-main-content">
+        <div class="ui-decor ui-decor_sm-h ui-decor_mirror bg-primary"></div>
+        <div class="container">
+          <section class="b-goods-f">
+            <div class="row">
+              <div class="col-lg-8">
+               
+
+                <div class="b-goods-f__slider">
+                  <div class="ui-slider-main js-slider-for">
+                     <img class="img-scale" src="assets/img/b001.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/2.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/3.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/4.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/5.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/6.jpg" alt="photo"/>
+                    </div>
+                  <div class="ui-slider-nav js-slider-nav">
+                      <img class="img-scale" src="assets/img/b001.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/2.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/3.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/4.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/5.jpg" alt="photo"/>
+                      <img class="img-scale" src="assets/img/6.jpg" alt="photo"/>
+                    </div>
+                </div>
+                
+            
+                  
+                     <h2 class="b-goods-f__title">Boat Specifications</h2>
+                <div class="row">
+                  
+                    
+                    <div class="col-md-4">
+                      
+                      <dl class="data-list-descriptions">
+										<!-- Make -->
+					<div class="dd-item">
+						<dt>Make:</dt>
+						<dd>Celebrations</dd>
+						</div>
+												                    
+                    <div class="dd-item">
+						<dt class="left">Engine Model:</dt>
+						<dd class="right">C32A</dd>
+                    </div>
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Length:</dt>
+						<dd class="right">110 ft</dd>
+                    </div>
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Gross Weight:</dt>
+						<dd class="right">278,000 lb</dd>
+                    </div>
+																				                    
+                    
+				
+					</dl>
+                  
+                </div>
+                    
+                    
+                    <div class="col-md-4">
+                      
+                      <dl class="data-list-descriptions">
+										<!-- Make -->
+					
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Hull Material:</dt>
+						<dd class="right">Fiberglass</dd>
+                    </div>
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Draft:</dt>
+						<dd class="right">5.92 ft</dd>
+                    </div>
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Fuel Capacity:</dt>
+						<dd class="right">6150 Gallons</dd>
+                    </div>
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Fuel Type:</dt>
+						<dd class="right">Diesel</dd>
+                    </div>
+							</dl>														                    
+                    
+				
+				
+                  
+                </div>
+                    
+                    
+                    
+                    <div class="col-md-4">
+                      
+                      <dl class="data-list-descriptions">
+										<!-- Make -->
+					<div class="dd-item">
+						<dt class="left">Manufacturer:</dt>
+						<dd class="right">Caterpillar</dd>
+                    </div>
+                          
+                          
+                          <div class="dd-item">
+						<dt class="left">Max Speed:</dt>
+						<dd class="right">120</dd>
+                    </div>
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Passengers:</dt>
+						<dd class="right">12</dd>
+                    </div>
+                          
+                          <div class="dd-item">
+						<dt class="left">Master Bedroom:</dt>
+						<dd class="right">3</dd>
+                    </div>
+																				                    
+                    
+                  	</dl>
+                </div>
+                        
+                        
+                        
+                      </div> 
+                    
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item"><a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a></li>
+                  <li class="nav-item"><a class="nav-link" id="features-tab" data-toggle="tab" href="#features" role="tab" aria-controls="features" aria-selected="false">Features & Services</a></li>
+                  <li class="nav-item"><a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="false">Boats Location</a></li>
+                  <li class="nav-item"><a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a></li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                    <p>Edipisicing eiusmod tempor incididunt labore sed dolore magna aliqa enim ipsum ad minim veniams quis nostrud citation ullam laboris nisi ut aliquip laboris nisi ut aliquip ex ea commodo. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                       <h3 class="b-goods-f__title-inner">Highlights of the new services </h3>
+                    <p><strong>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</strong> nisi ut aliquip ex ea commodo cons equat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Exe pteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed umt perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+                  
+                  </div>
+                  <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
+                
+                
+                     
+                    <ul class="list list-mark-2 list-ervices">
+                      <li>Enim ipsum ad minim veniams quis</li>
+                      <li>Consectetur adipisicing elit</li>
+                      <li>Ut enim ad minim veniam quis</li>
+                      <li>Laboris nisi ut aliquip ex e comodo </li>
+                      <li>Reprehenderit in voluptate velit esse </li>
+                         <li>Enim ipsum ad minim veniams quis</li>
+                      <li>Consectetur adipisicing elit</li>
+                      <li>Ut enim ad minim veniam quis</li>
+                      <li>Laboris nisi ut aliquip ex e comodo </li>
+                      <li>Reprehenderit in voluptate velit esse </li>
+                         <li>Enim ipsum ad minim veniams quis</li>
+                      <li>Consectetur adipisicing elit</li>
+                      <li>Ut enim ad minim veniam quis</li>
+                      <li>Laboris nisi ut aliquip ex e comodo </li>
+    
+                    </ul>
+                
+                      
+                      
+                  </div>
+                  <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cons equat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                      
+                          <div class="map" id="map"></div>
+                      
+                      
+                  </div>
+                  <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                    
+                      
+                      
+                      
+                      <ul class="comments-list list-unstyled">
+                        <li>
+                          <article class="comment b-goods-reviews__comment clearfix">
+                            <header class="comment-header clearfix">
+                              <div class="pull-left">
+                                <cite class="comment-author">Johannes Kepler</cite>
+                                <time datetime="20219-10-27" class="comment-datetime">24 Sep 2019</time>
+                              </div>
+                              <ul class="rating-list list-inline pull-right">
+                                 <li class="fa fa-star color-star"></li>
+                                <li class="fa fa-star color-star"></li>
+                                <li class="fa fa-star color-star"></li>
+                                <li class="fa fa-star color-star"></li>
+                                <li class="fa fa-star "></li>
+                              </ul>
+                            </header>
+                            <div class="comment-body">
+                              <p>Duis ante magna, aliquet sit amet sagittis vitae, tristique at lacus. Ut et accumsan turpis. Phasellus ornare, tortor ut congue imperdiet, mauris magna condimentum nulla, non malesuada mauris massa eu augue.</p>
+                            </div>
+                          </article>
+                        </li>
+                        <li>
+                          <article class="comment b-goods-reviews__comment clearfix">
+                            <header class="comment-header clearfix">
+                              <div class="pull-left">
+                                <cite class="comment-author">Ruben Chapman</cite>
+                                <time datetime="2019-10-27" class="comment-datetime">19 Dec 2019</time>
+                              </div>
+                              <ul class="rating-list list-inline pull-right">
+                                <li class="fa fa-star color-star"></li>
+                                <li class="fa fa-star color-star"></li>
+                                <li class="fa fa-star color-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                              </ul>
+                            </header>
+                            <div class="comment-body">
+                              <p>Proin non ultricies mauris, non varius massa. Maecenas tempus risus ut erat blandit fermentum. Praesent commodo quam non lacus interdum semper et ut enim. Donec vel suscipit nulla. Nullam imperdiet nisl in lectus porta sodales. Curabitur consequat dui nec eleifend tempor. Pellentesque elementum blandit interdum.</p>
+                            </div>
+                          </article>
+                        </li>
+                      </ul>
+                      
+                      
+                       
+                  </div>
+                </div>
+           
+                  
+                  
+                  
+              </div>
+              <div class="col-lg-4">
+                <aside class="l-sidebar">
+                  <div class="b-goods-f-price">
+                    <div class="b-goods-f-price__header bg-secondary"><span class="b-goods-f-price__main">$120</span> / per day</div>
+                    
+                  </div>
+                  <div class="b-goods__wrap-bnrs">
+                      
+                      <img class="b-goods__bnr" src="assets/img/payment-icon_02.png" alt="photo"/>
+                      
+                       <div class="b-goods-f-price__note">Included Taxes & Checkup*</div>
+                    
+                    </div>
+                    
+                
+                    
+                    
+                  <div class="b-seller">
+                    <div class="b-seller__header bg-primary">
+                      <div class="b-seller__img"><img class="img-scale" src="assets/img/yteam001.jpg" alt="foto"/></div>
+                      <div class="b-seller__title">
+                        <div class="b-seller__name">Jane William</div>
+                        <div class="b-seller__category">Member Since April 2013</div>
+                      </div>
+                    </div>
+                    <div class="b-seller__main"><i class="b-seller__ic flaticon-phone-call text-primary"></i>
+                      <div class="b-seller__contact"><span class="d-block">Contact Seller</span><a class="b-seller__phone" href="tel:12584037961">1 (258) 403 7961</a></div>
+                      <ul class="b-seller-soc list-unstyled">
+                        <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
+                        <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-linkedin-in"></i></a></li>
+                        <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li>
+                        <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-behance"></i></a></li>
+                        <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- end .b-seller-->
+                  
+                  <div class="widget-2 section-sidebar bg-gray">
+                    <h3 class="widget-title-2"><span class="widget-title__inner">Message Seller</span></h3>
+                    <div class="widget-content">
+                      <div class="widget-inner">
+                        <form>
+                          <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Name"/>
+                          </div>
+                          <div class="form-group">
+                            <textarea class="form-control" placeholder="Message" rows="5"></textarea>
+                          </div>
+                          <button class="btn btn-secondary w-100">send message now</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </aside>
+              </div>
+            </div>
+          </section>
+          <!-- end .b-goods-f-->
+          
+        </div>
+      </div>
+
+
+        
+ 	<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="footer-section">
+							<a class="footer__logo" href="index.html"><img class="img-fluid" src="assets/img/logo-light.png" alt="Logo"></a>
+							<div class="footer-info">Ceipisicing elit sed do eiusmod tempor laboe dolore magna aliqa Ut enim ad minim veniam quis nostrud exercitation ullam co laboris nis aliquip comsecd.</div>
+						</div>
+						<section class="footer-section">
+							<h3 class="footer-section__title footer-section__title_sm">Subscribe Newsletter</h3>
+							<form class="footer-form">
+								<div class="form-group">
+									<input class="footer-form__input form-control" type="email" placeholder="your email"><i class="ic far fa-envelope-open"></i> </div>
+							</form>
+						</section>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<section class="footer-section footer-section_link pl-5">
+							<h3 class="footer-section__title">Boat Services</h3>
+							<ul class="footer-list list-unstyled">
+								<li><a href="#">Wedding Facility</a></li>
+								<li><a href="#">Cruise and Marina</a></li>
+								<li><a href="#">Yacht Party Event</a></li>
+								<li><a href="#">Corporate Event</a></li>
+								<li><a href="#">Fishing Cruiser</a></li>
+								<li><a href="#">Overnight Stay</a></li>
+								<li><a href="#">Birthday Party Yacht</a></li>
+								<li><a href="#">Boar Rentals</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<section class="footer-section footer-section_link">
+							<h3 class="footer-section__title">About Nevica</h3>
+							<ul class="footer-list list-unstyled">
+								<li><a href="#"> Home</a></li>
+								<li><a href="#">Services</a></li>
+								<li><a href="#">About us</a></li>
+								<li><a href="#">Boat Fleet</a></li>
+								<li><a href="#">Parts Shop </a></li>
+								<li><a href="#">Contact us</a></li>
+								<li><a href="#">Buy or Sell Boats</a></li>
+								<li><a href="#">Featured Vehicles</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<section class="footer-section">
+							<h3 class="footer-section__title">Get In Touch</h3>
+							<div class="footer-contacts">
+								<div class="footer-contacts__item"><i class="ic icon-location-pin"></i>Fairview Ave, El Monte, CA 91732</div>
+								<div class="footer-contacts__item"><i class="ic icon-envelope"></i><a href="mailto:support@domain.com">support@domain.com</a></div>
+								<div class="footer-contacts__item"><i class="ic icon-earphones-alt"></i> Phone: <a class="footer-contacts__phone" href="tel:+17553028549">+1 755 302 8549</a> </div>
+							</div>
+							<ul class="footer-soc list-unstyled">
+								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li>
+								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-behance"></i></a></li>
+								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
+								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
+								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
+							</ul><a class="btn btn-white" href="#">confirm booking</a> </section>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">(c) 2022 Nevica - Boat Rentals . All rights reserved.</div>
+			</div>
+		</footer>
+		<!-- .footer-->
+    </div>
+    <!-- end layout-theme-->
+    
+    
+    <!-- ++++++++++++-->
+    <!-- MAIN SCRIPTS-->
+    <!-- ++++++++++++-->
+    <script src="assets/libs/jquery-3.3.1.min.js" ></script>
+    <script src="assets/libs/jquery-migrate-1.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/plugins/popever/popper.min.js" ></script>
+    <script src="assets/libs/bootstrap-4.1.3/js/bootstrap.min.js" ></script>
+    <!---->
+    <!-- Color scheme-->
+    <script src="assets/plugins/switcher/js/dmss.js"></script>
+    <!-- Select customization & Color scheme-->
+    <script src="assets/libs/bootstrap-select.min.js"></script>
+    <!-- Pop-up window-->
+    <script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Headers scripts-->
+    <script src="assets/plugins/headers/slidebar.js"></script>
+    <script src="assets/plugins/headers/header.js"></script>
+    <!-- Mail scripts-->
+    <script src="assets/plugins/jqBootstrapValidation.js"></script>
+    <script src="assets/plugins/contact_me.js"></script>
+    <!-- Progress numbers-->
+    <script src="assets/plugins/rendro-easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/plugins/rendro-easy-pie-chart/jquery.waypoints.min.js"></script>
+    <!-- Animations-->
+    <script src="assets/plugins/scrollreveal/scrollreveal.min.js"></script>
+    <!-- Scale images-->
+    <script src="assets/plugins/ofi.min.js"></script>
+    <script src="assets/plugins/slick/slick.js"></script>
+    <!-- User customization-->
+    <script src="assets/js/custom.js"></script>
+      
+      
+   <!-- User map-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCreq2ZVp-3lJ-_KCZpeJVZ5RN3VJXk-9c"></script>
+    <!-- Maps customization-->
+    <script src="assets/js/map-custom.js"></script>
+      
+     
+  </body>
+</html>
+
+
+
+
+
+

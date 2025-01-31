@@ -1,0 +1,18 @@
+<% const inputName = typeof name !== 'undefined' ? name : ''; const inputLabel =
+typeof label !== 'undefined' ? label : ''; const inputId = typeof id !==
+'undefined' ? id : ''; const inputPlaceholder = typeof placeholder !==
+'undefined' ? placeholder : ''; const inputIsRequired = typeof isRequired !==
+'undefined' ? isRequired : true; 
+const inputValue = typeof value !== 'undefined' ? value : ""; %>
+
+<label for="<%= inputName %>" class="block mb-2 text-sm font-medium text-gray-900"
+  ><%= inputLabel %></label
+>
+<textarea
+  id="<%= inputId %>"
+  name="<%= inputName %>"
+  rows="1"
+  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+  placeholder="<%= inputPlaceholder %>"
+  <%= inputIsRequired ? 'required' : '' %> 
+><%= inputValue %></textarea>

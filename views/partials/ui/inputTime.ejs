@@ -1,0 +1,73 @@
+<% 
+  const inputNameStart = typeof nameStart !== 'undefined' ? nameStart : 'check_in_start';
+  const inputNameEnd = typeof nameEnd !== 'undefined' ? nameEnd : 'check_in_end';
+  const inputLabel = typeof label !== 'undefined' ? label : 'Check-in';
+  const inputIdStart = typeof idStart !== 'undefined' ? idStart : 'start-time';
+  const inputIdEnd = typeof idEnd !== 'undefined' ? idEnd : 'end-time';
+  const inputValueStart = typeof valueStart !== 'undefined' ? valueStart : '00:00';
+  const inputValueEnd = typeof valueEnd !== 'undefined' ? valueEnd : '00:00';
+%>
+
+<label for="<%= inputIdStart %>" class="block w-20 mb-2 text-sm font-medium text-gray-900">
+  <%= inputLabel %>
+</label>
+
+<div class="flex items-center gap-2">
+  <div>
+    <div class="relative">
+      <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+        <svg
+          class="w-4 h-4 text-gray-500"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <input
+        type="time"
+        name="<%= inputNameStart %>"
+        id="<%= inputIdStart %>"
+        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        value="<%= inputValueStart %>"
+        required
+      />
+    </div>
+  </div>
+
+  <label for="<%= inputIdEnd %>" class="block mb-2 text-sm font-medium text-gray-900">To</label>
+
+  <div>
+    <div class="relative">
+      <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+        <svg
+          class="w-4 h-4 text-gray-500"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <input
+        type="time"
+        name="<%= inputNameEnd %>"
+        id="<%= inputIdEnd %>"
+        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        value="<%= inputValueEnd %>"
+        required
+      />
+    </div>
+  </div>
+</div>

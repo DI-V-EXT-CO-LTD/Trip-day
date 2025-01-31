@@ -1,0 +1,49 @@
+<section class="grid gap-5">
+  <%- include('../../partials/ui/headerTable.ejs',{ addUrl:"#golfs/addGolf", searchHandler: `search('golfs', ${currentPage})`, searchQuery: searchQuery }) %>
+
+  <div class="relative max-h-[33rem] overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+      <thead class="text-xs text-gray-700 text-center uppercase bg-gray-50">
+        <tr>
+          <th scope="col" class="px-6 py-3 text-left">Name</th>
+          <th scope="col" class="px-6 py-3">address</th>
+          <th scope="col" class="px-6 py-3">price</th>
+          <th scope="col" class="px-6 py-3">status</th>
+          <th scope="col" class="px-6 py-3">
+            <span class="sr-only">Edit</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <% golfs.forEach(golf => { %>
+        <tr class="bg-white border-b">
+          <th scope="row" class="px-6 py-4 text-left font-medium text-gray-900">
+            <%= golf.title %>
+          </th>
+          <td class="px-6 py-4">
+            <div class="text-left overflow-hidden max-h-20"><%= golf.address %></div>
+          </td>
+          <td class="px-6 py-4"><%= golf.price %></td>
+          <td class="px-6 py-4 <%= golf.status && 'text-green-500' %>">
+            <%= golf.status ? 'active' : 'disable' %>
+          </td>
+          <td class="px-6 py-4">
+            <div class="flex justify-end items-center gap-2">
+              <a href="#golfs/editGolf/<%= golf._id %> %>" class="font-medium text-blue-600 hover:underline"
+                >Edit</a
+              >
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
+  <%- include('../../partials/ui/TablePagination.ejs', { 
+    currentPage: currentPage, 
+    totalPages: totalPages, 
+    totalDocument: totalDocument,
+    route: 'golfs' 
+  }) %>
+</section>

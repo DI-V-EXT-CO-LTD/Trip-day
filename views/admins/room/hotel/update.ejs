@@ -1,0 +1,612 @@
+<div class="bg-white pb-4">
+  <form id="hotelForm" class="max-w-screen-lg mx-auto space-y-6">
+    <div>
+      <h1
+      class="block mb-2 text-3xl font-bold text-gray-900 "
+      ><%= title %></h1>
+      <label
+        for="Information"
+        class="block mb-2 text-xl font-bold text-gray-900 underline"
+        >Information</label
+      >
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "title", label:
+        "Hotel Name", id: "input-name", value: hotel ? hotel.title :""   }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "nameEn", label:
+        "EnglishName", value: hotel ? hotel.nameEn :"" }) %>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <%- include('../../partials/ui/inputURL', { name: "slug", label:
+        "Hote_Website", value: hotel ? hotel.slug :"" , placeholder:"https://hotel.com" }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputURL', { name: "map_url", label:
+        "Google Map", value: hotel ? hotel.map_url :"" ,placeholder:"https://map-google.com"}) %>
+      </div>
+    </div>
+    <div>
+      <%- include('../../partials/ui/inputTextArea', { name: "address", label:
+      "Address" , value: hotel ? hotel.address :"" }) %>
+    </div>
+    <div>
+      <%- include('../../partials/ui/inputTextArea', { name: "content", label:
+      "Description" , value: hotel ? hotel.content :""  }) %>
+    </div>
+    <!-- image -->
+    <div class="space-y-4 mb-5">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex items-center justify-center w-full h-52 max-h-52 bg-gray-300 rounded">
+        
+          <img id="main_image_preview" src="uploads/<%= isAdd? "" :hotel.image_id %> " alt="Preview"
+            class="h-full object-cover <%= isAdd ? " hidden" : "" %>"
+          />
+          <% if (isAdd) { %>
+            <svg id="main_image_preview_skeleton" class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+              <path
+                d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+            </svg>
+            <% } %>
+        
+        </div>
+        <div class="space-y-2">
+          <div>
+            <%- include('../../partials/ui/inputFile', { id: "main_image", name:
+            "image_id", label: "Main Image" ,isRequired: hotel ? false : true   }) %> 
+          </div>
+          <div>
+            <%- include('../../partials/ui/inputFile', { name:
+            "banner_image_id", label: "Banner Image",isRequired:hotel ? false : true }) %>
+          </div>
+          <div>
+            <%- include('../../partials/ui/inputFile', { name: "gallery", label:
+            "Other Image" ,isMultiple:true,isRequired:hotel ? false : true }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- star rate -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "star_rate", label:
+        "Rate" ,type:"number" ,value: hotel ? hotel.star_rate :"" , min: 0 , max: 5}) %>
+      </div>
+
+    </div>
+    <!-- Amenities -->
+    <div class="space-y-2 mb-5">
+      <div class="flex gap-2 items-center">
+        <label
+          for="dynamicSelect"
+          class="block text-sm font-medium text-gray-900"
+        >
+          Amenities
+        </label>
+        <select
+          id="dynamicSelect"
+          class="block text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 p-2"
+        >
+          <option value="" selected>Choose an Amenities</option>
+          <option value="Parking">Parking</option>
+          <option value="24-hour front desk">24-hour front desk</option>
+          <option value="Luggage storage">Luggage storage</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Wi-Fi in public areas">Wi-Fi in public areas</option>
+          <option value="Fax/copying service">Fax/copying service</option>
+          <option value="Meeting room">Meeting room</option>
+          <option value="Valet parking">Valet parking</option>
+          <option value="Outdoor swimming pool">Outdoor swimming pool</option>
+        </select>
+      </div>
+      <div
+        id="inputsContainer"
+        class="grid gap-2 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-24 items-center rounded-lg p-5 border border-dashed border-gray-300"
+      ></div>
+    </div>
+    <div class="space-y-2 mb-5">
+      <label for="dynamicSelect" class="block text-sm font-medium text-gray-900">
+        Surroundings
+      </label>
+      <div class="grid gap-2 lg:grid-cols-3 min-h-24 rounded-lg p-5 border border-dashed border-gray-300">
+    
+        <%- include('../../partials/adminsHotel/surroundings', { buttonLabel :"Metro", containerId : 'metro_container' }) %>
+          <%- include('../../partials/adminsHotel/surroundings', { buttonLabel :"Airport", containerId : 'airport_container'}) %>
+            <%- include('../../partials/adminsHotel/surroundings', { buttonLabel :"Train", containerId : 'train_container' }) %>
+    
+      </div>
+    </div>
+    <div>
+      <label
+        for="status"
+        class="block mb-2 text-xl font-bold text-gray-900 underline"
+        >Policies</label
+      >
+    </div>
+    <div class="grid lg:grid-cols-2 gap-6">
+      <div>
+        <label
+          for="Check-in and Check-out Times"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Check-in and Check-out Times</label
+        >
+        <div class="flex items-center gap-2 mb-2">
+          <%- include('../../partials/ui/inputTime', {label:"Check-in" ,nameStart: "check_in_start", nameEnd: 'check_in_end' ,value: hotel ? hotel.check_in_time :""}) %>
+
+        </div>
+        <div class="flex items-center gap-2">
+          <%- include('../../partials/ui/inputTime', {label:"Check-Out" ,nameStart: "check_out_start", nameEnd: 'check_out_end' ,value: hotel ? hotel.check_in_time :""}) %>
+        </div>
+      </div>
+      <div class="space-y-2">
+        <div>
+          <%- include('../../partials/ui/inputText', { name: "map_zoom", label:
+          "Map zoom" ,type:'number',value: hotel ? hotel.map_zoom :""}) %>
+        </div>
+        <div>
+          <%- include('../../partials/ui/inputText', { name: "location_id",
+          label: "location ",value: hotel ? hotel.location_id :"" }) %>
+        </div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "bed_policy", label:
+        "Cribs and Extra Beds" ,value: hotel ? hotel.bed_policy :"" }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "breakfast", label:
+        "Breakfast" , value: hotel ? hotel.breakfast :"" }) %>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "deposit_policy",
+        label: "Deposit Policy", value: hotel ? hotel.deposit_policy :""  }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "pet_policy", label:
+        "Pets", value: hotel ? hotel.pet_policy :""  }) %>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <%- include('../../partials/ui/inputText', { name:
+        "service_animal_policy", label: "Service Animals", value: hotel ? hotel.service_animal_policy :""  }) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "age_policy", label:
+        "Age Requirements", value: hotel ? hotel.age_policy :""  }) %>
+      </div>
+    </div>
+
+    <div>
+      <label
+        for="Paying at the Hotel"
+        class="block mb-2 text-sm font-medium text-gray-900"
+        >Paying at the hotel</label
+      >
+      <div
+        class="grid md:grid-cols-3 lg:grid-cols-5 p-5 items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg"
+      >
+        <div class="flex items-center">
+          <input
+            checked
+            id="UnionPay"
+            name="payment[]"
+            type="checkbox"
+            value="unionPay"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+          />
+          <label for="UnionPay" class="ms-2 text-sm font-medium text-gray-900"
+            >UnionPay</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="JCB"
+            type="checkbox"
+            name="payment[]"
+            value="jcb"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+          />
+          <label for="JCB" class="ms-2 text-sm font-medium text-gray-900"
+            >JCB</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="Paypal"
+            name="payment[]"
+            type="checkbox"
+            value="paypal"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+          />
+          <label for="Paypal" class="ms-2 text-sm font-medium text-gray-900"
+            >Paypal</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="Cash"
+            name="payment[]"
+            type="checkbox"
+            value="cash"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+          />
+          <label for="Cash" class="ms-2 text-sm font-medium text-gray-900"
+            >Cash</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            checked
+            id="MasterCard"
+            name="payment[]"
+            type="checkbox"
+            value="mastercard"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+          />
+          <label for="MasterCard" class="ms-2 text-sm font-medium text-gray-900"
+            >MasterCard</label
+          >
+        </div>
+      </div>
+    </div>
+    <div >
+      <label for="Services_textediter" class="block text-sm font-medium text-gray-900"
+      >Services_textediter</label
+    >
+      <textarea id="Services_textediter" name="Services_textediter"><%= hotel ? hotel.Services_textediter : "" %></textarea>
+     </div>
+     <div >
+      <label for="Policies_textediter" class="block text-sm font-medium text-gray-900"
+      >Policies_textediter</label
+    >
+      <textarea id="Policies_textediter" name="Policies_textediter"><%= hotel ? hotel.Policies_textediter : "" %></textarea>
+     </div>
+     <div >
+      <label for="Description_textediter" class="block text-sm font-medium text-gray-900"
+      >Description_textediter</label
+    >
+      <textarea id="Description_textediter" name="Description_textediter"><%= hotel ? hotel.Description_textediter : "" %></textarea>
+     </div>
+
+    <div class="space-y-2 mb-5">
+      <div class="flex gap-2 items-center">
+        <label
+        for="Season"
+        class="block mb-2 text-xl font-bold text-gray-900 underline"
+        >Season</label
+      >
+        <button id="addSeasonBtn" type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Add
+        </button>
+      </div>
+      <div
+        id="seasonContainer"
+        class="grid gap-4 grid-cols-1  lg:grid-cols-2 min-h-24 items-center rounded-lg p-5 border border-dashed border-gray-300"
+      ></div>
+    </div>
+
+    <div>
+      <label for="status" class="block mb-2 text-sm font-medium text-gray-900"
+        >Status</label
+      >
+      <select
+        id="countries"
+        name="status"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      >
+        <option value="1">Active</option>
+        <option value="0">Disable</option>
+      </select>
+    </div>
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+    >
+      Submit
+    </button>
+    <button disabled type="button" class="hidden py-2.5 px-5 me-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-blue-700 focus:text-blue-700  inline-flex items-center">
+      <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+      <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"/>
+      </svg>
+      Loading...
+      </button>
+  </form>
+</div>
+
+<script>
+  $(() => {
+    const isAdd = <%= isAdd %>
+
+    const inputWrapperComponent = (value, isFree = false) => {
+      return $(`
+    <div class=" grid grid-cols-12 items-center border border-gray-300 rounded-lg p-2.5 bg-gray-50 gap-2">
+      <input 
+        type="text" 
+        name="amenities[]" 
+        value="${value}" 
+        readonly
+        disable = true
+        class="col-span-7 text-sm text-gray-900 bg-gray-50 p-0 border-0" 
+      />
+      <label class="col-span-3 flex items-center text-sm">
+        <input 
+          type="checkbox" 
+          name="isFreeAmenities[]" 
+          value="${value}" 
+          ${isFree ? "checked" : ""} 
+          class="mr-1 rounded-lg "
+        />
+        <span class="text-blue-600">
+          Free
+        </span>
+      </label>
+      <button 
+        type="button" 
+        class="delete-btn col-span-2  text-red-700 hover:text-red-900 text-center">
+        <svg class="w-6 h-6 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+  `);
+    };
+
+    const inputSurroundComponent = (key,value)=>{
+      return $(`
+        <div class="relative mt-2 pr-2.5">
+          <input 
+            type="text" 
+            name="${key}[]" 
+            value="${value}" 
+            placeholder="Detail ${key}" 
+            required 
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-8" 
+          />
+          <button 
+            type="button" 
+            class="delete-btn absolute inset-y-0 end-4 top-0 text-red-700 hover:text-red-900 text-center">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 1 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 0 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" />
+            </svg>
+          </button>
+        </div>
+      `);
+    }
+
+    const inputSeasonComponent = (startDate = new Date() , endDate = new Date() , season_id = 0) => {
+      const formattedStartDate = new Date(startDate).toISOString().split("T")[0];
+  const formattedEndDate = new Date(endDate).toISOString().split("T")[0];
+      return $(`
+        <div class="relative flex gap-2 items-center pr-12">
+           <input 
+            type="text" 
+            name="season_id[]"
+            value='${season_id}'
+            required 
+            class="hidden"
+            />
+          <div class="w-full">
+            <label for="startDate" class="block mb-2 text-sm font-medium text-gray-900">
+  startDate
+</label>
+            <input 
+            type="date" 
+            name="startDate[]"
+            value='${formattedStartDate}'
+            required 
+            class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg p-2.5 bg-gray-50"
+            />
+          </div>
+          <div class="w-full">
+            <label for="startDate" class="block mb-2 text-sm font-medium text-gray-900">
+  startDate
+</label>
+          <input 
+            type="date" 
+            name="endDate[]"
+            value='${formattedEndDate}'
+            required 
+            class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg p-2.5 bg-gray-50"
+          />
+           </div>
+          <button 
+  type="button" 
+  class="delete-btn absolute -inset-y-7 end-4 top-0 text-red-700 hover:text-red-900 text-center">
+  <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 1 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 0 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" />
+  </svg>
+</button>
+        </div>
+      `);
+    }
+
+
+    if (!isAdd) {
+
+  const existingAmenities = <%- JSON.stringify(hotel?.amenities || []) %>
+    const existingSeason = <%- JSON.stringify(hotel?.price_periods || []) %>
+  const freeAmenities = <%- JSON.stringify(hotel?.isFreeAmenities || []) %>
+  const existingSurrounding = <%- JSON.stringify(hotel?.surrounding)?.replace(/</g, '\\u003c') || [] %>
+
+
+  // amenities
+  existingAmenities.forEach((amenity) => {
+    $(`#dynamicSelect option`).filter(function () {
+      return $(this).text() === amenity;
+    }).remove();
+
+     const isFree = freeAmenities.includes(amenity); // ตรวจสอบว่า Amenity เป็น "ฟรี" หรือไม่
+  const inputWrapper = inputWrapperComponent(amenity, isFree);
+    $("#inputsContainer").append(inputWrapper);
+  });
+
+  //Surrounding 
+  Object.entries(existingSurrounding).forEach(([key, values]) => {
+    values.forEach((value) => {
+      const inputWrapper = inputSurroundComponent(key, value);
+      inputWrapper.find('.delete-btn').on('click', function () {
+        inputWrapper.remove();
+      });
+      $(`#${key}_container`).append(inputWrapper);
+    });
+  });
+
+      // season
+      const seasonContainer = $('#seasonContainer');
+      existingSeason.forEach(season => {
+     
+        const start = new Date(season.start_date);
+        const end = new Date(season.end_date);
+
+        seasonContainer.append(inputSeasonComponent(start,end,season._id));
+      })
+    }
+
+// amenities 
+$("#dynamicSelect").change(function () {
+  const selectedText = $(this).find("option:selected").text();
+
+  // ลบ Option ที่เลือกออก
+  $(this).find("option:selected").remove();
+
+  // เพิ่ม Input Wrapper พร้อม Checkbox ลงใน Container
+  const inputWrapper = inputWrapperComponent(selectedText);
+  $("#inputsContainer").append(inputWrapper);
+});
+
+    $("#inputsContainer").on("click", ".delete-btn", function () {
+      const inputWrapper = $(this).parent();
+      const inputValue = inputWrapper.find("input[name='amenities[]']").val();
+
+      $("#dynamicSelect").append(`<option value="${inputValue}">${inputValue}</option>`);
+
+      inputWrapper.remove();
+    });
+
+        // season
+    $("#addSeasonBtn").on("click", () => {
+      const seasonContainer = $('#seasonContainer');
+      seasonContainer.append(inputSeasonComponent()); 
+    });
+
+    $("#seasonContainer").on("click", ".delete-btn", function () {
+      const inputWrapper = $(this).parent();
+      inputWrapper.remove();
+});
+
+      // image
+    $("#main_image").on("change", function (e) {
+      const file = e.target.files[0]; // เลือกไฟล์แรก
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          $("#main_image_preview_skeleton").addClass("hidden");
+          $("#main_image_preview")
+            .attr("src", event.target.result)
+            .removeClass("hidden");
+        };
+        reader.readAsDataURL(file); // อ่านไฟล์เป็น Data URL
+      }
+    });
+
+    // Form submission
+    $("#hotelForm").submit(function (event) {
+      event.preventDefault();
+      // ซ่อนปุ่ม Submit และแสดงปุ่ม Loading
+      const submitButton = $("button[type='submit']");
+      const loadingButton = $("button[disabled]");
+
+      submitButton.addClass("hidden");
+      loadingButton.removeClass("hidden");
+
+      let hotelId;
+      if (!isAdd) {
+        const currentUrl = window.location.hash;
+        const regex = /\/editHotel\/([a-f0-9]{24})/; // อันนี้ใช้สำหรับ MongoDB ObjectId ที่เป็น 24 ตัวอักษร
+        const match = currentUrl.match(regex);
+
+        const pathSegments = currentUrl.split('/');
+        hotelId = pathSegments[pathSegments.length - 1];
+
+        if (!hotelId) {
+          console.error("Hotel ID not found in the URL");
+          return;
+        }
+      }
+      const formData = new FormData(this);
+      const type = isAdd ? "POST" : "PUT";
+      const url = isAdd ? "/admins/hotels/addHotel" : `/admins/hotels/editHotel/${hotelId}`
+      $.ajax({
+        type: type, // ใช้ POST ในการส่งข้อมูล
+        url: url, // URL ที่จะส่งข้อมูลไป
+        data: formData,
+        dataType: "json", // กำหนดประเภทของข้อมูลที่คาดว่าจะได้รับ (เช่น json, html, xml)
+        processData: false, // ไม่ต้องแปลง formData ให้อยู่ในรูปแบบ query string
+        contentType: false, // ป้องกันการตั้ง content-type แบบอัตโนมัติ ซึ่งทำให้ FormData ถูกส่งได้อย่างถูกต้อง
+        success: function (res) {
+          window.location.href = res.redirectUrl;
+        },
+        error:function(err){
+          submitButton.removeClass("hidden");
+          loadingButton.addClass("hidden");
+        }
+      });
+    });
+    
+
+    function setupAddButton(buttonId, containerId, name) {
+      $(`#${buttonId}`).on('click', function () {
+
+        const inputSurround = inputSurroundComponent(name, '')
+        // เพิ่ม event ลบ input
+        inputSurround.find('.delete-btn').on('click', function () {
+          inputSurround.remove();
+        });
+
+        $(`#${containerId}`).append(inputSurround);
+      });
+    }
+
+    setupAddButton('add-Metro', 'metro_container' ,'metro');
+    setupAddButton('add-Airport', 'airport_container','airport');
+    setupAddButton('add-Train', 'train_container','train');
+
+    new FroalaEditor("#Services_textediter", {
+      events: {
+        contentChanged: function () {
+          document.querySelector("#textEditor").value = this.html.get();
+        }
+      }
+    });
+    new FroalaEditor("#Policies_textediter", {
+      events: {
+        contentChanged: function () {
+          document.querySelector("#textEditor").value = this.html.get();
+        }
+      }
+    });
+    new FroalaEditor("#Description_textediter", {
+      events: {
+        contentChanged: function () {
+          document.querySelector("#textEditor").value = this.html.get();
+        }
+      }
+    });
+  });
+
+
+ 
+</script>

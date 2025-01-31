@@ -1,0 +1,1173 @@
+<div class="home-wrapper home-body-container-new">
+  <div class="banner-carousel"  style="margin-bottom: 40px;">
+    <div class="banner-wrapper">
+   
+     <a class="online-advertize-item-link online-advertize-item-link-ONLINE_INDEX_TOP_DEAL" href="#"><img class="online-advertize-item-image" src="https://dimg04.tripcdn.com/images/0a13s12000h6ue7wq53CE.png"></a>
+     <a class="online-advertize-item-link online-advertize-item-link-ONLINE_INDEX_TOP_DEAL" href="#"><img class="online-advertize-item-image" src="https://ak-d.tripcdn.com/images/1gz2b12000d3b4w848CAA.jpg" ></a>
+     <a class="online-advertize-item-link online-advertize-item-link-ONLINE_INDEX_TOP_DEAL" href="#"><img class="online-advertize-item-image" src="https://ak-d.tripcdn.com/images/0a14l12000doxd9mwD330.jpg" ></a>
+      <div><img src="/images/en4.png" alt="Banner 4" style="padding-left: 8px; padding-right: 8px;"></div>
+      <div><img src="/images/en5.png" alt="Banner 5" style="padding-left: 8px; padding-right: 8px;"></div>
+    
+    </div>
+    <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+    <button class="carousel-control next" onclick="nextSlide()">❯</button>
+  </div>
+
+	<div class="home-wrapper-inner seo-coupon" style="margin: 0px;">
+		<div>
+		</div>
+	</div>
+	<div class="home-wrapper-inner new-guests" style="margin-bottom: 40px;">
+		<div class="online-new-guest" id="oniine-new-guest-wrapper">
+			<div class="online-new-guest-bg">
+				<div class="ng-left">
+					<div class="carddsc">
+						<div class="new-guests-carddsc">
+							<div class="new-guests-carddsc-top" id="online-new-guest-icon-notice">
+								<span class="new-guests-carddsc-top-icon"></span><span class="new-guests-carddsc-top-text">Welcome Pack</span>
+							</div>
+							<div class="new-guests-carddsc-cen" id="online-new-guest-title">
+								Save Big on Your First Booking
+							</div>
+							<div class="new-guests-carddsc-usp">
+							</div>
+						</div>
+					</div>
+					<% bestsellers.slice(0, 3).forEach(function(hotel) { %>
+          <div class="new-guests-gallery-list-container__card" id="online-new-guest-hotel-1" >
+           
+			<div class="new-guests-hotel">
+			
+				<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"> <div class="new-guests-hotel-image">
+                <div class="new-guests-hotel-image-bg" style="background-image: url('/uploads/<%= hotel.image_id %>');">
+                </div>
+				</a>
+              </div>
+			  <% for (let i = 0; i < hotel.star_rate; i++) { %>
+				
+			  <% } %>
+              <div class="new-guests-hotel-info">
+                <div class="new-guests-hotel-info-title">
+                  <div class="new-guests-hotel-info-title-desc" id="online-new-guest-hotel-name-1">
+					<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"><%= hotel.title %>&nbsp;</a>
+                    <div class="fi-box">
+                      <i class="star fi fi-star"></i><i class="star fi fi-star"></i><i class="star fi fi-star"></i><i class="star fi fi-star"></i>
+                    </div>
+                  </div>
+                  <div class="new-guests-hotel-info-title-score" id="online-new-guest-hotel-score-1">
+                    <div class="new-guests-hotel-info-title-score-shape">
+                      <span class="max">4.3</span><span class="mini">/5</span>
+                    </div>
+                    <div class="new-guests-hotel-info-title-score-nums">
+                      175 reviews
+                    </div>
+                  </div>
+                </div>
+                <div class="new-guests-hotel-info-price">
+                  <div class="new-guests-hotel-info-price-value" id="online-new-guest-hotel-price-1">
+                    <%= hotel.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %>
+                  </div>
+                  <div class="new-guests-hotel-info-price-prev-value">
+                  </div>
+                </div>
+              </div>
+			
+            </div>
+          </div>
+		  <% }); %>
+		</div>
+       
+			
+			</div>
+		</div>
+	</div>
+	<div class="scroll-loader-com false" >
+		<div class="scroll-loader-com-wrapper false">
+			<div class="home-wrapper-inner recommend-wrapper home-recommend-hotels">
+				<div class="recommended-module recomended-hotel-new-theme new-theme" dir="ltr">
+					<div class="recommended-module-title">
+						Featured Hotel
+					</div>
+					<div class="recommend-module-usp-container">
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">We Price Match</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS6o120009gxfriv28B3.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">Hotel Booking Guarantee</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS2j120009gxknwsA052.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">Hotel Stay Guarantee</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+					</div>
+						<div class="tab-container" id="container-1">
+							<div class="js-tab-ajax-switch new-theme">
+								<div class="tab-con">
+									<div class="js-tile-tab">
+										<div class="tab-container" >
+											<div class="js-tile-tab">
+												<div class="js-tab-wrapper" style="transform: translateX(0px);">
+												<span class="js-tab-item is-active" data-tab="miami">Bangkok</span>
+												<span class="js-tab-item " data-tab="orlando">Pattaya</span>
+												<span class="js-tab-item" data-tab="newyork">Phuket</span>
+												<span class="js-tab-item" data-tab="lasvegas">Chiangmai</span>
+												<span class="js-tab-item" data-tab="losangeles">Krabi</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="content-con">
+								<div class="tab-content" data-tab-content="orlando" style="display: none;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<% pattaya.slice(0, 3).forEach(function(hotel) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= hotel.image_id %>');">
+														</div></a>
+													</div>
+												</div>
+												<% for (let i = 0; i < hotel.star_rate; i++) { %>
+						
+												<% } %>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+															<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"><%= hotel.title %></a> &nbsp;
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"> <%= hotel.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+									
+										<a class="recommend-module-more-card more-card-hotels" href="/search?query=pattaya">
+										<div class="rmmc-bg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotels around the pattaya
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+								<div class="tab-content" data-tab-content="miami" style="display:block ;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<%bangkok.slice(0, 3).forEach(function(hotel) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= hotel.image_id %>');">
+														</div></a>
+													</div>
+												</div>
+												<% for (let i = 0; i < hotel.star_rate; i++) { %>
+						
+												<% } %>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+															<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"><%= hotel.title %></a> &nbsp;
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"> <%= hotel.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+									
+										<a class="recommend-module-more-card more-card-hotels" href="/search?query=Bangkok">
+										<div class="rmmc-bg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotels around the Bangkok
+											</div>
+											<button class=" tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="">
+											<div class="">
+												<span class=" ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="tab-content" data-tab-content="newyork" style="display: none;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<%phuket.slice(0, 3).forEach(function(hotel) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>">
+														<div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= hotel.image_id %>');">
+														</div></a>
+													</div>
+												</div>
+												<% for (let i = 0; i < hotel.star_rate; i++) { %>
+						
+												<% } %>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+															<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"><%= hotel.title %></a> &nbsp;
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"> <%= hotel.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+									
+										<a class="recommend-module-more-card more-card-hotels" href="/search?query=phuket">
+										<div class="rmmc-bg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotels around the phuket
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="tab-content" data-tab-content="lasvegas" style="display: none;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<%chiangmai.slice(0, 3).forEach(function(hotel) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping"><a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>">
+														<div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= hotel.image_id %>');">
+														</div></a>
+													</div>
+												</div>
+												<% for (let i = 0; i < hotel.star_rate; i++) { %>
+						
+												<% } %>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+															<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>"><%= hotel.title %></a> &nbsp;
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"> <%= hotel.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+									
+										<a class="recommend-module-more-card more-card-hotels" href="/search?query=chiangmai">
+										<div class="rmmc-bg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotels around the chiangmai
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="tab-content" data-tab-content="losangeles" style="display: none;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<%Krabi.slice(0, 3).forEach(function(hotel) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>">
+														<div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= hotel.image_id %>');">
+														</div></a>
+													</div>
+												</div>
+												<% for (let i = 0; i < hotel.star_rate; i++) { %>
+						
+												<% } %>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando"><a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %><% } %>">
+															<%= hotel.title %> &nbsp;</a>
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"> <%= hotel.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+									
+										<a class="recommend-module-more-card more-card-hotels" href="/search?query=Krabi">
+										<div class="rmmc-bg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotels around the krabi
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+						</div>
+							</div>
+						</div>
+				</div>
+				<div class="recommend-module-usp-popover" style="display: none; opacity: 0;">
+					<div class="popover__arrow" style="left: calc(50% - 8px);">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	
+  	<div class="scroll-loader-com false" >
+		<div class="scroll-loader-com-wrapper false">
+			<div class="home-wrapper-inner recommend-wrapper home-recommend-hotels">
+				<div class="recommended-module recomended-hotel-new-theme new-theme" dir="ltr">
+					<div class="recommended-module-title">
+						Featured Golf
+					</div>
+					<div class="recommend-module-usp-container">
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">We Price Match</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS6o120009gxfriv28B3.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">Hotel Booking Guarantee</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS2j120009gxknwsA052.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">Hotel Stay Guarantee</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+					</div>
+					<div class="tab-container" id="container-2">
+					<div class="js-tab-ajax-switch new-theme">
+						<div class="tab-con">
+							<div class="js-tile-tab">
+								<div class="js-tab-wrapper" style="transform: translateX(0px);">
+									<span class="js-tab-item is-active" data-tab="gBangkok">Bangkok</span>
+									<span class="js-tab-item " data-tab="gPattaya">Pattaya</span>
+									<span class="js-tab-item" data-tab="gChiangmai">Chiangmai</span>
+									<span class="js-tab-item" data-tab="gKrabi">Kanchanaburi</span>
+								
+								  </div>
+							</div>
+						</div>
+						<div class="content-con">
+							<div class="tab-content" data-tab-content="gPattaya" style=" display:none;">
+								<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+									<% gpattaya.slice(0, 3).forEach(function(golf) { %>
+									<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+										<div class="c-hot-hotel-item-v2">
+											<div class="c-hot-hotel-item-v2__image-con">
+												<div class="c-hot-hotel-item-v2__image-clipping"> 
+													<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');">>
+													</div></a>
+												</div>
+											</div>
+											<div class="c-hot-hotel-item-v2__content">
+												<div class="c-hot-hotel-item-v2__overlay-label">
+													<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><%= golf.title %> &nbsp;</a>
+														<div class="c-hot-hotel-item-v2__level">
+															<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+														</div>
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__review">
+													<div class="c-hot-hotel-item-v2__score">
+														<span>4.1</span><span>/</span><span>5</span>
+													</div>
+													<div class="hotel-comments">
+														152 reviews
+													</div>
+												</div>
+												<div class="hotel-tag-con">
+													<div class="tag-txt">
+														
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+													<div class="c-hot-hotel-item-v2__price-box">
+														<div class="o-price">
+															<span class="o-price__from">From</span><span class="o-price__content"><%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<% }); %>
+					
+									<a class="recommend-module-more-card more-card-hotels" href="/golf/search?query=Pattaya">
+									<div class="rmmc-mgbg-full">
+									</div>
+									<div class="rmmc-content">
+										<div class="rmmc-content-text">
+											Discover great deals on golf around the pattaya
+										</div>
+										<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+										<div class="tripui-online-btn-content">
+											<span class="tripui-online-btn-content-children ">Go Now</span>
+										</div>
+										</button>
+									</div>
+									</a>
+								</div>
+							</div>
+							<div class="tab-content" data-tab-content="gBangkok" style="display:block; ">
+								<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+									<% gbangkok.slice(0, 3).forEach(function(golf) { %>
+									<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+										<div class="c-hot-hotel-item-v2">
+											<div class="c-hot-hotel-item-v2__image-con">
+												<div class="c-hot-hotel-item-v2__image-clipping">
+													<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');">>
+													</div></a>
+												</div>
+											</div>
+											<div class="c-hot-hotel-item-v2__content">
+												<div class="c-hot-hotel-item-v2__overlay-label">
+													<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><%= golf.title %> &nbsp;</a>
+														<div class="c-hot-hotel-item-v2__level">
+															<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+														</div>
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__review">
+													<div class="c-hot-hotel-item-v2__score">
+														<span>4.1</span><span>/</span><span>5</span>
+													</div>
+													<div class="hotel-comments">
+														152 reviews
+													</div>
+												</div>
+												<div class="hotel-tag-con">
+													<div class="tag-txt">
+														
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+													<div class="c-hot-hotel-item-v2__price-box">
+														<div class="o-price">
+															<span class="o-price__from">From</span><span class="o-price__content"><%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<% }); %>
+					
+									<a class="recommend-module-more-card more-card-hotels" href="/golf/search?query=Bangkok">
+									<div class="rmmc-mgbg-full">
+									</div>
+									<div class="rmmc-content">
+										<div class="rmmc-content-text">
+											Discover great deals on golf around the Bangkok
+										</div>
+										<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+										<div class="tripui-online-btn-content">
+											<span class="tripui-online-btn-content-children ">Go Now</span>
+										</div>
+										</button>
+									</div>
+									</a>
+								</div>
+							</div>
+							<div class="tab-content" data-tab-content="gChiangmai" style="display:none;">
+								<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+									<% gchiangmai.slice(0, 3).forEach(function(golf) { %>
+									<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+										<div class="c-hot-hotel-item-v2">
+											<div class="c-hot-hotel-item-v2__image-con">
+												<div class="c-hot-hotel-item-v2__image-clipping">
+													<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');">>
+													</div></a>
+												</div>
+											</div>
+											<div class="c-hot-hotel-item-v2__content">
+												<div class="c-hot-hotel-item-v2__overlay-label">
+													<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><%= golf.title %> &nbsp;</a>
+														<div class="c-hot-hotel-item-v2__level">
+															<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+														</div>
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__review">
+													<div class="c-hot-hotel-item-v2__score">
+														<span>4.1</span><span>/</span><span>5</span>
+													</div>
+													<div class="hotel-comments">
+														152 reviews
+													</div>
+												</div>
+												<div class="hotel-tag-con">
+													<div class="tag-txt">
+														
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+													<div class="c-hot-hotel-item-v2__price-box">
+														<div class="o-price">
+															<span class="o-price__from">From</span><span class="o-price__content"><%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<% }); %>
+					
+									<a class="recommend-module-more-card more-card-hotels" href="/golf/search?query=Chiang%20mai">
+									<div class="rmmc-mgbg-full">
+									</div>
+									<div class="rmmc-content">
+										<div class="rmmc-content-text">
+											Discover great deals on golf around the Chiangmai
+										</div>
+										<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+										<div class="tripui-online-btn-content">
+											<span class="tripui-online-btn-content-children ">Go Now</span>
+										</div>
+										</button>
+									</div>
+									</a>
+								</div>
+							</div>
+							<div class="tab-content" data-tab-content="gKrabi" style="display:none;">
+								<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+									<% gKrabi.slice(0, 3).forEach(function(golf) { %>
+									<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+										<div class="c-hot-hotel-item-v2">
+											<div class="c-hot-hotel-item-v2__image-con">
+												<div class="c-hot-hotel-item-v2__image-clipping">
+													<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');">>
+													</div></a>
+												</div>
+											</div>
+											<div class="c-hot-hotel-item-v2__content">
+												<div class="c-hot-hotel-item-v2__overlay-label">
+													<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/golf/golf-courses/<%= golf._id %><% } else { %><% } %>"><%= golf.title %> &nbsp;</a>
+														<div class="c-hot-hotel-item-v2__level">
+															<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+														</div>
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__review">
+													<div class="c-hot-hotel-item-v2__score">
+														<span>4.1</span><span>/</span><span>5</span>
+													</div>
+													<div class="hotel-comments">
+														152 reviews
+													</div>
+												</div>
+												<div class="hotel-tag-con">
+													<div class="tag-txt">
+														
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+													<div class="c-hot-hotel-item-v2__price-box">
+														<div class="o-price">
+															<span class="o-price__from">From</span><span class="o-price__content"><%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<% }); %>
+					
+									<a class="recommend-module-more-card more-card-hotels" href="/search?query=kanchanaburi">
+									<div class="rmmc-mgbg-full">
+									</div>
+									<div class="rmmc-content">
+										<div class="rmmc-content-text">
+											Discover great deals on golf around the kanchanaburi
+										</div>
+										<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+										<div class="tripui-online-btn-content">
+											<span class="tripui-online-btn-content-children ">Go Now</span>
+										</div>
+										</button>
+									</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="recommend-module-usp-popover" style="display: none; opacity: 0;">
+					<div class="popover__arrow" style="left: calc(50% - 8px);">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="scroll-loader-com false" >
+		<div class="scroll-loader-com-wrapper false">
+			<div class="home-wrapper-inner recommend-wrapper home-recommend-hotels">
+				<div class="recommended-module recomended-hotel-new-theme new-theme" dir="ltr">
+					<div class="recommended-module-title">
+						Featured Hoter&Golf
+					</div>
+					<div class="recommend-module-usp-container">
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">We Price Match</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS6o120009gxfriv28B3.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">Hotel Booking Guarantee</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+						<div class="recommend-module-usp-item">
+							<img src="https://ak-d.tripcdn.com/images/0AS2j120009gxknwsA052.png" alt="icon" class="recommend-module-usp-icon">
+							<div class="recommend-module-usp-text-con">
+								<span class="recommend-module-usp-text">Hotel Stay Guarantee</span><span class="usp__title__dashline"></span>
+							</div>
+						</div>
+					</div>
+					<div class="tab-container" id="container-3">
+						<div class="js-tab-ajax-switch new-theme">
+							<div class="tab-con">
+								<div class="js-tile-tab">
+									<div class="js-tab-wrapper" style="transform: translateX(0px);">
+										<span class="js-tab-item is-active" data-tab="pBangkok">Bangkok</span>
+										<span class="js-tab-item " data-tab="pPattaya">Pattaya</span>
+										<span class="js-tab-item" data-tab="pphuket">Phuket</span>
+										<span class="js-tab-item" data-tab="pkhaoyai">khaoYai</span>
+									
+									  </div>
+								</div>
+							</div>
+							<div class="content-con">
+								<div class="tab-content" data-tab-content="pPattaya" style="display:none ;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<% ppattaya.slice(0, 3).forEach(function(golf) { %>
+											<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											  <div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+												  <div class="c-hot-hotel-item-v2__image-clipping">
+													<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>">
+													<div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');"></div></a>
+												  </div>
+												</div>
+												<div class="c-hot-hotel-item-v2__content">
+												  <div class="c-hot-hotel-item-v2__overlay-label">
+													<div class="c-hot-hotel-item-v2__name" title="<%= golf.title %>">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>"><%= golf.title %>&nbsp;</a>
+													  <div class="c-hot-hotel-item-v2__level">
+														  <i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+													  </div>
+													</div>
+												  </div>
+												  <div class="c-hot-hotel-item-v2__review">
+													<div class="c-hot-hotel-item-v2__score">
+													  <span>4.1</span><span>/</span><span>5</span>
+													</div>
+													<div class="hotel-comments">
+													  152 reviews
+													</div>
+												  </div>
+												  <div class="c-hot-hotel-item-v2__info-con u-clearfix">
+													<div class="c-hot-hotel-item-v2__price-box">
+													  <div class="o-price">
+														<span class="o-price__from">From</span>
+														<span class="o-price__content">  <% if (golf && golf.price) { %>
+															<%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %>
+														  <% } else { %>
+															N/A
+														  <% } %></span>
+													  </div>
+													</div>
+												  </div>
+												</div>
+											  </div>
+											</div>
+										  <% }); %>
+						
+										<a class="recommend-module-more-card more-card-hotels" href="package/search?query=Pattaya">
+										<div class="rmmc-mhgbg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotel&golf around the Pattaya
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+								<div class="tab-content" data-tab-content="pBangkok" style="display:block;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<% pbangkok.slice(0, 3).forEach(function(golf) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');">>
+														</div></a>
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+															<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>"><%= golf.title %> &nbsp;</a>
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"><%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+						
+										<a class="recommend-module-more-card more-card-hotels" href="package/search?query=Bangkok">
+										<div class="rmmc-mhgbg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotel&golf around the Bangkok
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+								<div class="tab-content" data-tab-content="pphuket" style="display:none;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<% pphuket.slice(0, 3).forEach(function(golf) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');">>
+														</div></a>
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+															<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>"><%= golf.title %> &nbsp;</a>
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"><%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+						
+										<a class="recommend-module-more-card more-card-hotels" href="package/search?query=Phuket">
+										<div class="rmmc-mhgbg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotel&golf around the phuket
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+								<div class="tab-content" data-tab-content="pkhaoyai" style="display:none;">
+									<div class="new-recommend-list l-tile-hotels online-hotel-recommend">
+										<% pkhaoyai.slice(0, 3).forEach(function(golf) { %>
+										<div class="l-tile__item c-hot-hotel-item-v2__wrapper">
+											<div class="c-hot-hotel-item-v2">
+												<div class="c-hot-hotel-item-v2__image-con">
+													<div class="c-hot-hotel-item-v2__image-clipping">
+														<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>"><div class="c-hot-hotel-item-v2__image" style="background-image: url('/uploads/<%= golf.image_id %>');">>
+														</div></a>
+													</div>
+												</div>
+												<div class="c-hot-hotel-item-v2__content">
+													<div class="c-hot-hotel-item-v2__overlay-label">
+														<div class="c-hot-hotel-item-v2__name" title="DoubleTree by Hilton at The Entrance to Universal Orlando">
+															<a href="<% if (typeof user !== 'undefined' && user) { %>/package/packageDetails/<%= golf._id %><% } else { %><% } %>"><%= golf.title %> &nbsp;</a>
+															<div class="c-hot-hotel-item-v2__level">
+																<i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i><i class="fi fi-star"></i>
+															</div>
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__review">
+														<div class="c-hot-hotel-item-v2__score">
+															<span>4.1</span><span>/</span><span>5</span>
+														</div>
+														<div class="hotel-comments">
+															152 reviews
+														</div>
+													</div>
+													<div class="hotel-tag-con">
+														<div class="tag-txt">
+															
+														</div>
+													</div>
+													<div class="c-hot-hotel-item-v2__info-con u-clearfix">
+														<div class="c-hot-hotel-item-v2__price-box">
+															<div class="o-price">
+																<span class="o-price__from">From</span><span class="o-price__content"><%= golf.price.toLocaleString('en-US', { style: 'currency', currency: 'THB' }) %></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% }); %>
+						
+										<a class="recommend-module-more-card more-card-hotels" href="package/search?query=khao%20yai">
+										<div class="rmmc-mhgbg-full">
+										</div>
+										<div class="rmmc-content">
+											<div class="rmmc-content-text">
+												Discover great deals on hotel&golf around the khaoyai
+											</div>
+											<button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary tripui-online-btn-block " type="button">
+											<div class="tripui-online-btn-content">
+												<span class="tripui-online-btn-content-children ">Go Now</span>
+											</div>
+											</button>
+										</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+				</div>
+				<div class="recommend-module-usp-popover" style="display: none; opacity: 0;">
+					<div class="popover__arrow" style="left: calc(50% - 8px);">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div id="new-app-download-component" >
+    <div class="l-content">
+      <div class="l-content-round">
+      </div>
+    </div>
+    <div class="c-content" style="overflow: hidden;">
+      <div class="r-content-download">
+        <div class="title">
+          All-in-one hotel golf ordering site
+        </div>
+        <div class="text-wrap">
+          <div class="text" id="new-adu-text">
+            <div class="text-new-adu-item">
+              <img src="https://pages.trip.com/images/online-adu/filled.png" alt=""><span>easy Deals</span>
+            </div>
+            <div class="text-new-adu-item">
+              <img src="https://pages.trip.com/images/online-adu/filled.png" alt=""><span>easy sales plan</span>
+            </div>
+            <div style="clear: both;">
+            </div>
+          </div>
+        </div>
+        <div class="layout">
+          <div class="new-tcp-online-adc online-adl">
+            <div class="new-tcp-online-adc__qrcode">
+              <div class="tcp-online-newadq default">
+                <div class="tcp-online-newadq__qrcode-wrapper">
+                  <img class="tcp-online-newadq__qrcode" src="/images/qrcode_155583479_ae9a3a8d2d7cbaffe6a1b0fc364dbb4f.png" alt="qrcode">
+                </div>
+              </div>
+            </div>
+            <div class="new-tcp-online-adc__app-market">
+              <div class="new-tcp-online-adc__market-appdata">
+                <div class="new-tcp-online-adc__market-appdata-info">
+                  <div class="new-tcp-online-adc__market-appdata-info-title" dir="ltr">
+                    1.8M+
+                  </div>
+                  <div class="new-tcp-online-adc__market-appdata-info-dsc">
+                    Daily Users
+                  </div>
+                </div>
+                <div class="new-tcp-online-adc__market-appdata-info">
+                  <div class="new-tcp-online-adc__market-appdata-info-title" dir="ltr">
+                    150K+
+                  </div>
+                  <div class="new-tcp-online-adc__market-appdata-info-dsc">
+                    Daily Downloads
+                  </div>
+                </div>
+                <div class="new-tcp-online-adc__market-appdata-info">
+                  <div class="new-tcp-online-adc__market-appdata-info-title" dir="ltr">
+                    4.7
+                  </div>
+                  <div class="new-tcp-online-adc__market-appdata-info-dsc">
+                    Rating
+                  </div>
+                </div>
+              </div>
+              <div class="new-tcp-online-adc__market-download">
+                <img src="https://pages.trip.com/images/download-button/en-us/ios-en-us.png" alt="app store qrcode"><img src="https://pages.trip.com/images/download-button/en-us/android-en-us.png" alt="google play qrcode">
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="r-content" style="overflow: hidden;">
+      <div class="r-content-img" style="background-image: url(&quot;https://pages.trip.com/images/online-adu/showImg.png&quot;);">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+      
+    <script src="/scripts/contents.js"></script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+  // Select all tab containers
+  const tabContainers = document.querySelectorAll('.tab-container');
+
+  // Initialize tab functionality for each container
+  tabContainers.forEach((container) => {
+    const tabItems = container.querySelectorAll('.js-tab-item');
+    const tabContents = container.querySelectorAll('.tab-content');
+
+    // Add click event listener to each tab in the container
+    tabItems.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        // Remove 'is-active' class from all tabs in the container
+        tabItems.forEach((item) => item.classList.remove('is-active'));
+
+        // Add 'is-active' class to the clicked tab
+        tab.classList.add('is-active');
+
+        // Hide all tab contents in the container
+        tabContents.forEach((content) => (content.style.display = 'none'));
+
+        // Show the content matching the clicked tab's data-tab
+        const tabName = tab.getAttribute('data-tab');
+        const activeContent = container.querySelector(`[data-tab-content="${tabName}"]`);
+        if (activeContent) activeContent.style.display = 'block';
+      });
+    });
+  });
+});
+</script>
+
+
+

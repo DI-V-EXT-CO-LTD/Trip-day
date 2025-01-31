@@ -1,0 +1,303 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="cart-container w-[865px] space-y-2 ">
+  <% if (cart && cart.items && cart.items.length> 0) { %>
+    <% cart.items.forEach(item=> { %>
+      <div class="cart-item" style="max-width:865px">
+        <div class="item-image">
+
+          <img src="<%= item.roomImage %>" alt="<%= item.roomType %>">
+
+        </div>
+
+        <div class="w-full" style="padding-top:15px;">
+          <h3 class="hotel-name" style="float:left ;">
+            <%= item.hotelName %>
+              <span>
+                <i class="smarticon u-icon u-icon-ic_new_star u-icon_ic_new_star icon"></i>
+                <i class="smarticon u-icon u-icon-ic_new_star u-icon_ic_new_star icon"></i>
+                <i class="smarticon u-icon u-icon-ic_new_star u-icon_ic_new_star icon"></i>
+                <i class="smarticon u-icon u-icon-ic_new_star u-icon_ic_new_star icon"></i>
+              </span>
+          </h3>
+          <p class="room-type">
+            <%= item.roomType %>
+              <% if (item.ProductType==="Hotel" ) { %>
+                <p style="text-align: center">
+                  <strong>
+                    <%= item.period_start.toLocaleDateString(); %> ~ <%= item.period_end.toLocaleDateString(); %>
+                  </strong>
+                </p>
+                <% } %>
+                  <% if (item.ProductType==="Package" ) { %>
+                    <p style="text-align: center">
+                      <strong>Cheak-in : <%= item.check_in %> Check-Out <%= item.check_out %>
+                      </strong>
+                    </p>
+                    <% } %>
+
+                      <div class="scoreBody"><em class="score">4.4</em><em class="scoreMax">/5</em></div>
+          </p>
+
+          <div class="room-card">
+            <div class="baseRoom-facility__a54rp">
+              <% if (item.ProductType=="Hotel" ) { %>
+                <div class="baseRoom-facility_item__i8SOV"><i class="fa-solid fa-person"></i><span
+                    class="baseRoom-facility_title__LU_LB">room.windows</span></div>
+                <div class="baseRoom-facility_item__i8SOV"><i
+                    class="smarticon u-icon u-icon-ic_new_fa_no_smoking u-icon_ic_new_fa_no_smoking baseRoom-facility_icon__Nvqbh"></i><span
+                    class="baseRoom-facility_title__LU_LB"> room.smoking</span></div>
+                <div class="baseRoom-facility_item__i8SOV"><i
+                    class="smarticon u-icon u-icon-ic_roomspace u-icon_ic_roomspace baseRoom-facility_icon__Nvqbh"></i><span
+                    class="baseRoom-facility_title__LU_LB">room.area㎡</span></div>
+                <div class="baseRoom-facility_item__i8SOV"><i
+                    class="smarticon u-icon u-icon-ic_new_fa_floor u-icon_ic_new_fa_floor baseRoom-facility_icon__Nvqbh"></i><span
+                    class="baseRoom-facility_title__LU_LB">Floor: floor </span></div>
+                <div class="baseRoom-facility_item__i8SOV"><i
+                    class="smarticon u-icon u-icon-ic_new_fa_wifi u-icon_ic_new_fa_wifi baseRoom-facility_icon__Nvqbh"></i><span
+                    class="baseRoom-facility_title__LU_LB">wifi</span></div>
+                <div class="baseRoom-facility_item__i8SOV"><i
+                    class="smarticon u-icon u-icon-checklist u-icon_checklist baseRoom-facility_icon__Nvqbh"></i><span
+                    class="baseRoom-facility_title__LU_LB">Airconditioning</span></div>
+                <% } %>
+
+                  <% if (item.ProductType=="Package" ) { %>
+                    <div class="baseRoom-facility_item__i8SOV"> <span class="baseRoom-facility_title__LU_LB"> adults :
+                        <%= item.adults %>
+                      </span></div>
+                    <div class="baseRoom-facility_item__i8SOV"><span class="baseRoom-facility_title__LU_LB">golf : <%=
+                          item.play_golf %></span></div>
+                    <% } %>
+
+            </div>
+          </div>
+          <div class="date-and-room">
+            <div class="item-select">
+              <input type="checkbox" class="item-checkbox" data-id="<%= item._id %>" checked>
+            </div>
+            <div class="item-column">
+              <p class="item-price" style="text-align:center;font-size:16px;margin-left:5px;">฿<%= item.price %>/per
+                  night</p>
+            </div>
+            <div class="room-box">
+              <div class="item-column">
+                <%= item.roomValidityperiod %>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="date-and-room">
+
+
+            <div class="room-box">
+              <div id="item-nights" class="item-column">
+                Amount: <%= item.quantity %>
+              </div>
+            </div>
+            <div class="item-column">
+              <p class="item-total" style="text-align: center;font-size:16px;">Total: ฿<%= item.total.toLocaleString()
+                  %>
+              </p>
+            </div>
+            <div class="item-column">
+              <button class="remove-item" data-id="<%= item._id %>" style="text-align: center;">Remove</button>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <% }) %>
+        <% } %>
+</div>
+<% if (cart && cart.items && cart.items.length> 0) { %>
+
+
+  <div class="cart-container">
+
+    <div class="cart-summary">
+      <p class="PriceDetails">Price Details</p>
+      <div class="summary-item">
+        <span>Subtotal</span>
+        <span id="subtotal">฿ <%= cart.subtotal.toLocaleString() %></span>
+      </div>
+      <div class="summary-item total">
+        <span>Total</span>
+        <span id="total">฿ <%= cart.subtotal.toLocaleString() %></span>
+      </div>
+      <button id="proceed-to-checkout" class="proceed-btn">Proceed To Checkout</button>
+    </div>
+    <% } else { %>
+      <div class="empty-cart">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Your cart is empty.</p>
+        <a href="/" class="btn">Continue Shopping</a>
+      </div>
+      <% } %>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const proceedToCheckoutBtn = document.getElementById("proceed-to-checkout");
+      if (proceedToCheckoutBtn) {
+        proceedToCheckoutBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          const selectedItems = getSelectedItems();
+          if (selectedItems.length === 0) {
+            alert("Please select at least one item to proceed to checkout.");
+            return;
+          }
+          sendSelectedItemsToServer(selectedItems);
+          // console.log(selectedItems)
+          // selectedItems.map((item)=>{removeItemFromCart(item.id)})
+        });
+      }
+
+      var subtotalElement = document.getElementById("subtotal");
+      const removeButtons = document.querySelectorAll(".remove-item");
+      removeButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const itemId = this.getAttribute("data-id");
+          removeItemFromCart(itemId);
+        });
+      });
+
+      const itemCheckboxes = document.querySelectorAll(".item-checkbox");
+      itemCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          updateTotals();
+        });
+      });
+
+
+      //  updateTotals();
+    });
+
+    function removeItemFromCart(itemId) {
+      fetch(`/cart/remove/${itemId}`, { method: "POST" })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            location.reload();
+          } else {
+            alert("Failed to remove item from cart");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred while removing the item");
+        });
+    }
+
+    function updateTotals() {
+      const itemCheckboxes = document.querySelectorAll('.item-checkbox:checked');
+      let subtotal = 0;
+
+      itemCheckboxes.forEach(checkbox => {
+        const itemTotalText = checkbox.closest('.cart-item').querySelector('.item-total').textContent.replace('Total: ฿', '').replace(/,/g, '');
+        const itemTotal = parseFloat(itemTotalText);
+        subtotal += itemTotal; // item.total을 더함
+        console.log(`Original item total: ฿${itemTotalText}`);
+        console.log(`Parsed item total: ฿${itemTotal.toLocaleString('en-US')}`);
+      });
+      console.log(`Calculated subtotal: ฿${subtotal.toLocaleString('en-US')}`);
+
+      document.getElementById('subtotal').textContent = `฿${subtotal.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+      document.getElementById('total').textContent = `฿${subtotal.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+    }
+    function getSelectedItems() {
+      return Array.from(document.querySelectorAll(".item-checkbox:checked")).map((cb) => {
+        const cartItem = cb.closest(".cart-item");
+        const productType = cartItem.getAttribute("data-product-type"); 
+
+        const baseItem = {
+          id: cb.getAttribute("data-id"),
+          hotelName: cartItem.querySelector(".hotel-name")?.textContent || null,
+          roomType: cartItem.querySelector(".room-type")?.textContent || null,
+          checkIn: cartItem.querySelector("p strong")?.textContent.split(" ~ ")[0] || null,
+          checkOut: cartItem.querySelector("p strong")?.textContent.split(" ~ ")[1] || null,
+          nights: parseInt(cartItem.querySelector("#item-nights")?.textContent || 0),
+          price: parseFloat(
+            cartItem.querySelector(".item-price")?.textContent.replace("฿", "").replace(/,/g, "") || 0
+          ),
+          total: parseFloat(
+            cartItem.querySelector(".item-total")?.textContent.replace("Total: ฿", "").replace(/,/g, "") || 0
+          ),
+        };
+
+        if (productType === "Hotel") {
+          return {
+            ...baseItem,
+            roomValidityperiod: cartItem.querySelector(".room-box")?.textContent || null,
+            features: Array.from(cartItem.querySelectorAll(".baseRoom-facility_item__i8SOV")).map(
+              (el) => el.textContent.trim()
+            ),
+          };
+        }
+
+        if (productType === "Package") {
+          return {
+            ...baseItem,
+            adults: parseInt(cartItem.querySelector(".baseRoom-facility_title__LU_LB")?.textContent.match(/\d+/) || 0),
+            playGolf: cartItem.querySelector(".baseRoom-facility_title__LU_LB")?.textContent.includes("golf"),
+          };
+        }
+        
+        return baseItem;
+      });
+    }
+
+
+
+    function triggerCheckoutAndReload() {
+      sessionStorage.setItem("reloadToCheckout", "true");
+      window.location.reload();
+    }
+
+    function sendSelectedItemsToServer(selectedItems) {
+      fetch("/dashboard/cart/update-selected", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedItems }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            triggerCheckoutAndReload();
+          } else {
+            alert("Failed to update selected items. Please try again.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred while updating selected items");
+        });
+    }
+  </script>
+
+  <style>
+    .proceed-btn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .proceed-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/styles/cart.css">

@@ -1,0 +1,34 @@
+#navigation ul ul{background-color:#303030;box-shadow:0 2px 12px 0 rgba(0,0,0,.12);border-radius:4px;width:210px;}
+
+.avatar-wrapper{margin:0 10px 15px 0;}
+.avatar-wrapper .file-pic {width:100%;}
+
+.wrp-ImgUpBtn .file-upload{display:none;}
+
+
+.project-pro-details .trk-num .submit-field .with-border{width:240px;}
+
+
+::placeholder{color:#cfcfcf;opacity:1}
+
+button.button.margin-left-10 {margin-left:10px;}
+
+.with-border.wd-80-p {width:80%}
+.with-border.wd-50-p {width:50%}
+
+.with-border:-moz-read-only, .with-border:read-only { background:#efefefe; }
+
+.submit-field span.stxt{position:absolute; top:5px; left:10px;color:#cfcfcf; font-size:16px;}
+
+::disabled{color:gray;opacity:1}
+
+
+#small-dialog{background:#fff;padding:40px;padding-top:0;text-align:left;margin:40px auto;position:relative;box-sizing:border-box;border-radius:4px;max-width:800px}
+
+
+.fc_grey {color:#cccccc;}
+.fc_blue {color:#486cca;}
+
+
+
+.table_wrap .table01_wrap table th.red{color:red;}

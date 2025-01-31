@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/hotel-head') %>
+<div id="ibu_hotel_container">
+    <section><article>
+    <div class="hotel-list-page" dir="">
+     <div class="searchBox-v8" data-exposure="{&quot;ubtKey&quot;:&quot;htl_ol_wcl_search_exposure&quot;,&quot;data&quot;:{&quot;channeltype&quot;:&quot;online&quot;,&quot;page&quot;:&quot;10320668148&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;adultnum&quot;:2,&quot;roomnum&quot;:1,&quot;childnum&quot;:0,&quot;searchDateList&quot;:[{&quot;checkin&quot;:&quot;2024/12/23&quot;,&quot;checkout&quot;:&quot;2024/12/24&quot;}],&quot;regionid&quot;:359,&quot;regionname&quot;:&quot;Bangkok&quot;}}">
+            <div class="list-search-borderRadius" id="list-search-borderRadius">
+            </div>
+            <div id="hotel_searchBox" class="list-search-container list-search-container-dark searchBarVersionB short-search">
+                <ul class="ul">
+                    <li class="list-item list-destination">
+                    <div class="search-container-v8">
+                        <div class="search-box" id="search-box-destination">
+                            <label class="minNoise-destinationLabel" for="hotels-destinationV8">Destinationddd</label>
+                           
+                                <input type="text" id="hotels-destinationV8" class="show-hightlight" value="<%= query %>" autocomplete="off" placeholder="City, airport, region, landmark or property name">
+                             
+                          
+                            <label for="hotels-destinationV8" class="searchBarVersionBLabel minNoise-searchBarVersionBLabel" id="versionBValueLabel" style=""></label>
+                            <div class="searchClearIconContainer" onclick="clearInput()" >
+                                <i type="ic_bestir_clear" class="u-icon u-icon-ic_bestir_clear searchClearIcon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="list-item list-calendar">
+                    <div class="calendar-container-v8">
+                        <div class="time-tab">
+                            <label class="in minNoiseCalendarLabel" for="checkIn">Check-in</label><input type="text" id="checkIn" class="focus-input show-hightlight in-time" value="Mon, Dec 23" placeholder="Select date" readonly="" data-key="2024/12/23">
+                        </div>
+                        <div id="preload-nights" class="nights minNoiseCalendarLabel">
+                            <span>1 night</span>
+                        </div>
+                        <div class="time-tab">
+                            <label class="out minNoiseCalendarLabel" for="checkOut">Check-out</label><input type="text" id="checkOut" class="focus-input show-hightlight out-time" value="Tue, Dec 24" placeholder="Select date" readonly="" data-key="2024/12/24">
+                        </div>
+                        <div id="preload-nights" class="nights minNoiseCalendarLabel">
+                            <span>1 night</span>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="list-item list-roomguest">
+                    <div class="room-guest-container-v8">
+                            <div class="relative-content">
+                                <!-- Dropdown Header -->
+                                <div class="dropdown-header">
+                                  <div>
+                                    <label class="label-text">Rooms and Guests</label>
+                                    <div class="room-guests-info">
+                                      <!-- Room Input -->
+                                      <div class="input-group">
+                                        <input id="roomInput" name="roomValue" type="number" min="1" value="1"  readonly />
+                                        <span>room,</span>
+                                      </div>
+                              
+                                      <!-- Adults Input -->
+                                      <div class="input-group">
+                                        <input id="adultsInput" name="adultsValue" type="number" min="1" value="2" readonly />
+                                        <span>adults,</span>
+                                      </div>
+                              
+                                      <!-- Children Input -->
+                                      <div class="input-group">
+                                        <input id="childInput" name="childValue" type="number" min="0" value="0" readonly />
+                                        <span>children</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <i type="ic_new_dropdown_line" class="u-icon u-icon-ic_new_dropdown_line icon-arrow"></i>
+                                </div>
+                              
+                                <!-- Dropdown Menu -->
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-menu-content">                            <!-- Rooms Row -->
+                                        <div class="row">
+                                          <div class="title">Rooms</div>
+                                          <div class="button-group">
+                                            <button id="decreaseRoom" type="button">-</button>
+                                            <span id="roomValue">1</span>
+                                            <button id="increaseRoom" type="button">+</button>
+                                          </div>
+                                        </div>
+                                    
+                                        <!-- Adults Row -->
+                                        <div class="row">
+                                          <div class="title">Adults <small>(18+ yrs)</small></div>
+                                          <div class="button-group">
+                                            <button id="decreaseAdults" type="button">-</button>
+                                            <span id="adultsValue">2</span>
+                                            <button id="increaseAdults" type="button">+</button>
+                                          </div>
+                                        </div>
+                                    
+                                        <!-- Children Row -->
+                                        <div class="row">
+                                          <div class="title">Child <small>(0-17 yrs)</small></div>
+                                          <div class="button-group">
+                                            <button id="decreaseChild" type="button">-</button>
+                                            <span id="childValue">0</span>
+                                            <button id="increaseChild" type="button">+</button>
+                                          </div>
+                                        </div></div>
+      
+                                </div>
+                              </div>
+                              
+                           
+                       
+                    </div>
+                    </li>
+                    <li class="list-item list-btn"><button class="tripui-online-btn tripui-online-btn-large tripui-online-btn-wireframe-primary search-button-new" type="button" dir="ltr">
+                    <div class="tripui-online-btn-content">
+                        <span class="tripui-online-btn-icon" style="transform:none"><i type="search" class="u-icon u-icon-search searchIcon"></i></span><span class="tripui-online-btn-content-children "><span class="searbtn-txt">Search</span></span>
+                    </div>
+                    </button></li>
+                </ul>
+            </div>
+        </div>
+        <section class="main-container main-content">
+        <div class="filter-mask">
+        </div>
+        <div class="filter-wrap filterWrapFixed">
+            <div class="filter-box false invisible">
+                <div class="search-property-wrapper">
+                    <div class="title-wrap">
+                        <p>
+                            Search Properties
+                        </p>
+                    </div>
+                    <div class="input-wrap">
+                        <div class="search-box">
+                            <i type="search" class="u-icon u-icon-search search-icon"></i><input type="text" class="input-dom" placeholder="Property name" autocomplete="off">
+                        </div>
+                        <div class="result-box hide">
+                        </div>
+                    </div>
+                </div>
+                <div class="price-wrapper-v8 no-border-radius">
+                    <div class="price-container">
+                        <div class="price-title">
+                            <div class="price-title-range">
+                                <span class="price-main-title">Budget</span><span class="price-title-local">($0 - $150+)</span>
+                            </div>
+                        </div>
+                        <div class="price-range-wrapper">
+                            <div class="price-range-bar">
+                                <div class="price-range-track" style="left:-1px;width:233px">
+                                </div>
+                                <div class="price-range-floor" style="left:-1px">
+                                    <div class="price-tooltip" style="visibility:hidden;left:-10px">
+                                        $0
+                                        <div class="price-tooltip-arrow bottom" style="left:13px">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-range-ceil" style="left:232px">
+                                    <div class="price-tooltip" style="visibility:hidden;left:-10px">
+                                        $150+
+                                        <div class="price-tooltip-arrow bottom" style="left:13px">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-range-click">
+                                </div>
+                            </div>
+                            <div class="price-quick-choose">
+                                <button onclick="fetchHotelrangePrice(0,800)" class="price-quick-choose-btn">
+                                    $0 - $20
+                                </button>
+                                <button onclick="fetchHotelrangePrice(801,1200)" class="price-quick-choose-btn">
+                                    $20 - $30
+                                </button>
+                                <button onclick="fetchHotelrangePrice(1201,1600)" class="price-quick-choose-btn">
+                                    $30 - $40
+                                </button>
+                                <button onclick="fetchHotelrangePrice(1601,3200)" class="price-quick-choose-btn">
+                                    $40 - $80
+                                </button>
+                                <button onclick="fetchHotelrangePrice(3201,6000)" class="price-quick-choose-btn">
+                                    $80 - $150
+                                </button>
+                                <button onclick="fetchHotelrangePrice(6001)" class="price-quick-choose-btn">
+                                    &gt; $150
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popularFilter-wrap-v8">
+                    <div class="popularFilter-container">
+                        <div class="popularFilter-title">
+                            <p class="popularFilter-main-title">
+                                Popular Filters
+                            </p>
+                        </div>
+                        <ul class="m-checkbox-v8">
+                            <li class="li-popular-filter">
+                                <input 
+                                    type="checkbox" 
+                                    name="Breakfast" 
+                                    class="checkbox-popular-filter" 
+                                    id="filter-breakfast"
+                                    onclick="fetchCheckboxFilter('breakfast', this.checked)" 
+                                />
+                                <span class="checkboxTxt">Breakfast Included</span>
+                            </li>
+                            <li class="li-popular-filter">
+                                <input 
+                                    type="checkbox" 
+                                    name="refund" 
+                                    class="checkbox-popular-filter" 
+                                    id="filter-refund"
+                                    onclick="fetchCheckboxFilter('refund', this.checked)" 
+                                />
+                                <span class="checkboxTxt">Free Cancellation</span>
+                            </li>
+                            <li class="li-popular-filter">
+                                <input 
+                                    type="checkbox" 
+                                    name="2beds" 
+                                    class="checkbox-popular-filter" 
+                                    id="filter-beds"
+                                    onclick="fetchCheckboxFilter('beds', this.checked)" 
+                                />
+                                <span class="checkboxTxt">2 Beds</span>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="starrating-wrap-v8">
+                    <div class="starrating-container">
+                        <div class="starrating-title">
+                            <p>
+                                Star Rating<i type="ic_new_question_line" class="u-icon u-icon-ic_new_question_line ic_question"></i>
+                            </p>
+                        </div>
+                        <div class="starrating-content">
+                            <ul class="sr-ul">
+                                <li class="sr-li" onclick="filterByStars(2, 'lte')">
+                                    <span class="sr-checkbox" >≤2</span>
+                                    <span class="sr-level">
+                                        <div class="more-star-repeat">
+                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                        </div>
+                                    </span>
+                                </li>
+                                <li class="sr-li" onclick="filterByStars(3)">
+                                    <span class="sr-checkbox" >3</span>
+                                    <span class="sr-level">
+                                        <div class="more-star-repeat">
+                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                        </div>
+                                    </span>
+                                </li>
+                                <li class="sr-li" onclick="filterByStars(4)">
+                                    <span class="sr-checkbox" >4</span>
+                                    <span class="sr-level">
+                                        <div class="more-star-repeat">
+                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                        </div>
+                                    </span>
+                                </li>
+                                <li class="sr-li" onclick="filterByStars(5)">
+                                    <span class="sr-checkbox" >5</span>
+                                    <span class="sr-level">
+                                        <div class="more-star-repeat">
+                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                        </div>
+                                    </span>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:none">
+                </div>
+                <div class="location-wrap-v8">
+                    <div class="location-container">
+                        <div class="location-title title-empty">
+                            <p>
+                                Location
+                            </p>
+                        </div>
+                        <div class="location-content">
+                            <ul class="m-radiobox-v8">
+                                <li class="li-popular-filter" ><input class="checkbox-popular-filter" id="Siam" onclick="filterUtils('location','Siam')"   type="radio" style="height: 20px; "><span class="radioboxTxt">Siam</span></li>
+                                <li class="li-popular-filter"><input class="checkbox-popular-filter" id="Sukhumvit"  onclick="filterUtils('location','Sukhumvit')"  type="radio"  style="height: 20px; "><span class="radioboxTxt">Sukhumvit</span></li>
+                                <li class="li-popular-filter"><input class="checkbox-popular-filter" id="Suvarnabhumi Airport"  onclick="filterUtils('location','Suvarnabhumi Airport')"  type="radio"  style="height: 20px; "><span class="radioboxTxt">Suvarnabhumi Airport</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 17</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bed-wrap-v8">
+                    <div class="bed-container">
+                        <div class="bed-title">
+                            <p>
+                                Bed Type
+                            </p>
+                        </div>
+                        <div class="bed-content">
+                            <ul class="m-radiobox-v8">
+                                
+                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="1 Double Bed" onclick="filterUtils('BedType','1 Double Bed')" ><span class="radioboxTxt">1 Double Bed</span></li>
+                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="2 Beds" onclick="filterUtils('BedType','1 Double Bed')"><span class="radioboxTxt">2 Beds</span></li>
+                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="1 Single Bed" onclick="filterUtils('BedType','1 Double Bed')"><span class="radioboxTxt">1 Single Bed</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 6</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="payment-wrap-v8" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_filter_exposure&quot;,&quot;data&quot;:{}}">
+                    <div class="payment-container">
+                        <div class="payment-title">
+                            <p>
+                                Payment
+                            </p>
+                        </div>
+                        <div class="payment-content">
+                            <ul class="m-radiobox-v8">
+                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="Prepay Online" onclick="filterUtils('Payment','Prepay Online')" ></i><span class="radioboxTxt">Prepay Online</span></li>
+                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="Pay at Hotel" onclick="filterUtils('Payment','Pay at Hotel')"></i><span class="radioboxTxt">Pay at Hotel</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="display:none">
+                </div>
+
+                <div class="roomtype-wrap-v8">
+                    <div class="roomtype-container">
+                        <div class="roomtype-title">
+                            <p style="position:relative">
+                                Room Facilities &amp; Services
+                            </p>
+                        </div>
+                        <div class="roomtype-content">
+                            <ul class="m-checkbox-v8">
+                                <li class="li-popular-filter"><input type="checkbox" id="filter-Smoking room" class="checkbox-popular-filter" onclick="fetchCheckboxFilter('Smoking room', this.checked)"> <span class="checkboxTxt">Smoking room</span></li>
+                                <li class="li-popular-filter"><input type="checkbox" id="filter-Balcony" class="checkbox-popular-filter" onclick="fetchCheckboxFilter('Balcony', this.checked)"> <span class="checkboxTxt">Balcony</span></li>
+                                <li class="li-popular-filter"><input type="checkbox" id="filter-Washing machine" class="checkbox-popular-filter" onclick="fetchCheckboxFilter('Washing machine', this.checked)"> <span class="checkboxTxt">Washing machine</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 22</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="m-recentHotels-v8 listpage">
+                <h3 class="m-recentHotels_title">Recently Viewed</h3>
+                <div class="m-recentHotels_box">
+                    <div class="m-card">
+                        <div class="m-baseCard row">
+                            <section class="m-baseCard_img">
+                            <div class="m-lazyImg" style="width: 88px; height: 88px;">
+                                <img class="m-lazyImg__img" src="https://ak-d.tripcdn.com/images/1mc0t12000btgb5fd35A4_R_600_600_R5_D.jpg" style="width: 88px; height: 88px; object-fit: cover; object-position: center center; background-color: rgb(240, 242, 245);">
+                            </div>
+                            </section><section class="m-baseCard_content">
+                            <h3 class="m-baseCard_title">NASA BANGKOK</h3>
+                            <div class="m-baseCard_level">
+                                <i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i><i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i><i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i><i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i>
+                            </div>
+                            <div class="m-baseCard_score">
+                                <span class="score"><em class="number">3.9</em><em class="total">/5</em></span><span class="rating">Good</span>
+                            </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="m-card">
+                        <div class="m-baseCard row">
+                            <section class="m-baseCard_img">
+                            <div class="m-lazyImg" style="width: 88px; height: 88px;">
+                                <img class="m-lazyImg__img" src="https://ak-d.tripcdn.com/images/0224y12000927n6vxBEBA_R_600_600_R5_D.jpg" style="width: 88px; height: 88px; object-fit: cover; object-position: center center; background-color: rgb(240, 242, 245);">
+                            </div>
+                            </section><section class="m-baseCard_content">
+                            <h3 class="m-baseCard_title">DoubleTree by Hilton at The Entrance to Universal Orlando</h3>
+                            <div class="m-baseCard_level">
+                                <i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i><i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i><i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i><i type="ic_new_star" class="u-icon u-icon-ic_new_star m-baseCard_star minNoiseStar"></i>
+                            </div>
+                            <div class="m-baseCard_score">
+                                <span class="score"><em class="number">4.1</em><em class="total">/5</em></span><span class="rating">Very Good</span>
+                            </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h5-usp-verticalList ">
+                <div class="h5-usp-verticalList-head">
+                    <span>Why book with Trip.com?</span>
+                </div>
+                <div class="h5-usp-verticalList-text ">
+                    <div class="h5-usp-verticalList-text__icon" style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png&quot;);">
+                    </div>
+                    <div class="h5-usp-verticalList-text__textContainer">
+                        <span class="h5-usp-verticalList-text__textContainer__title" data-redirect="false">We Price Match</span>
+                        <div class="h5-usp-verticalList-text__textContainer__subtitle">
+                            We aim to offer you the best possible price. If you find a cheaper option elsewhere, we'll refund the difference.
+                        </div>
+                    </div>
+                </div>
+                <div class="h5-usp-verticalList-text ">
+                    <div class="h5-usp-verticalList-text__icon" style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5x120008whk01q784B.png&quot;);">
+                    </div>
+                    <div class="h5-usp-verticalList-text__textContainer">
+                        <span class="h5-usp-verticalList-text__textContainer__title" data-redirect="false">Get Rewarded for Traveling</span>
+                        <div class="h5-usp-verticalList-text__textContainer__subtitle">
+                            Get money-saving rewards with every booking, with no limits to how you spend<span class="learn-more">Learn More</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="h5-usp-verticalList-rating ">
+                    <div class="h5-usp-verticalList-rating__item ">
+                        <div class="icon h5-usp-verticalList-rating__item__icon" style="background-image: url(&quot;https://ak-d.tripcdn.com/images/05S4g12000cqdx0yc54ED.png&quot;);">
+                        </div>
+                        <div class="h5-usp-verticalList-rating__item__text">
+                            <div class="h5-usp-verticalList-rating__item__text__line1">
+                                <div class="h5-usp-verticalList-rating__item__text__line1__mark">
+                                    4.8<span class="h5-usp-verticalList-rating__item__text__line1__mark__total">/5</span>
+                                </div>
+                                <div class="h5-usp-rate ">
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 79%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h5-usp-verticalList-rating__item__text__NoRvs">
+                                206,715 reviews
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h5-usp-verticalList-rating__item ">
+                        <div class="icon h5-usp-verticalList-rating__item__icon" style="background-image: url(&quot;https://ak-d.tripcdn.com/images/05S4212000cqdwzbb83F0.png&quot;);">
+                        </div>
+                        <div class="h5-usp-verticalList-rating__item__text">
+                            <div class="h5-usp-verticalList-rating__item__text__line1">
+                                <div class="h5-usp-verticalList-rating__item__text__line1__mark">
+                                    4.7<span class="h5-usp-verticalList-rating__item__text__line1__mark__total">/5</span>
+                                </div>
+                                <div class="h5-usp-rate ">
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 100%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="h5-usp-rate__item">
+                                        <div class="h5-usp-rate__item__bg">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                        <div class="h5-usp-rate__item__fr" style="width: 70%; color: rgb(255, 149, 0);">
+                                            <i class="icon fi fi-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h5-usp-verticalList-rating__item__text__NoRvs">
+                                20,234 reviews
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="trust-pilot-wrapper undefined">
+            </div>
+        </div>
+        <ul class="long-list long-list-v8 version-b ">
+            <li class="long-list-head"><article>
+            <div class="filterWrapper">
+                <div class="current-filter-wrap-v8">
+                    <div class="filter-title version-b ">
+                        <h3 class="">3694 properties found</h3>
+                        <div class="selector-container">
+                            
+                            <div class="tab-sort-v8" id="list_hotel_sort">
+                                <span><i class="u-icon u-icon-General_sort sort-selector-icon" type="General_sort"></i><a class="nav-link active" id="hotels-tab" data-toggle="tab" href="#hotels" role="tab">Hotels (<%= hotels.length %>)</a><i class="u-icon u-icon-arrowLineDown sort-arrowIcon" type="arrowLineDown"></i>
+                            </div>
+                            <div class="price-type-selector">
+                                <span class="dropdown-selector"><span><i class="u-icon u-icon-General_price dropdown-selector-icon" type="General_price"></i><a class="nav-link" id="golf-tab" data-toggle="tab" href="#golf" role="tab">Golf Courses (<%= golfCourses.length %>)</a><i class="u-icon u-icon-arrowLineDown dropdown-selector-arrow-icon" type="arrowLineDown"></i></span>
+                            </div>
+                            <div class="price-type-selector">
+                                <span class="dropdown-selector"><span><i class="u-icon u-icon-General_price dropdown-selector-icon" type="General_price"></i><a class="nav-link" id="packages-tab" data-toggle="tab" href="#packages" role="tab">Packages (<%= packages.length %>)</a><i class="u-icon u-icon-arrowLineDown dropdown-selector-arrow-icon" type="arrowLineDown"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </article>
+            <div class="mapfilter-wrap">
+                <div class="mapfilter-container bg-map " style="height:100%">
+                    <div class="map-item">
+                        <i type="ic_new_map" class="u-icon u-icon-ic_new_map map_location"></i>
+                        <div class="map-txt-new">
+                            Show on Map
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </li>
+
+            <% if (hotels && hotels.length > 0) { %>
+                <% hotels.forEach((hotel) => { %> 
+            <li id="hotels"> 
+                
+            <div class="with-decorator-wrap-v8">
+                
+                <div class="border -border">
+                    
+                    <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
+                        <div class="hotel-info">
+                            <div class="lf imgSizeVersionB">
+                                <div class="listcard-imgB">
+                                    <div class="multi-images" style="transform:translateX(-236px);transition:all 0.2s ease-in-out">
+                                        <div style="width:236px;height:100%" class="m-lazyImg multi-images-item">
+                                            <a href="/hotel-details/<%= hotel.slug %>" ><img style="width:236px;height:100%;object-fit:cover;object-position:center;background-color:#F0F2F5" src="/uploads/<%= hotel.banner_image_id || '/images/default-hotel.jpg' %>" class="card-img-top" alt="<%= hotel.name || 'Hotel' %>"></a>
+                                        </div>
+                                        <div style="width:236px;height:100%" class="m-lazyImg multi-images-item">
+                                            <a href="/hotel-details/<%= hotel.slug %>" ><img style="width:236px;height:100%;object-fit:cover;object-position:center;background-color:#F0F2F5" src="/uploads/<%= hotel.banner_image_id || '/images/default-hotel.jpg' %>" class="card-img-top" alt="<%= hotel.name || 'Hotel' %>"></a>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                      
+                                
+                          
+                             
+                                   
+                            
+                            <div class="rt imgSizeVersionB">
+                                <div class="rt-head">
+                                    <div class="rt-head-title">
+                                        <div class="list-card-tagAndTitle">
+                                            <div class="list-card-title">
+                                                <a href="/hotel-details/<%= hotel.slug %>" ><%= hotel.title %></a>
+                                                <div class="more-star-repeat">
+                                                    <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                                </div>
+                                                <span class="thumb thumb-6"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rt-head-title-label">
+                                            <div>
+                                                <section class="list-card-comment list-card-comment-versionB listHoverVB">
+                                                <div class="me">
+                                                    <div class="subme">
+                                                        <span class="inherit">
+                                                        <div class="score">
+                                                            <span class="real">3.9</span><span class="full">/</span><span class="full">5</span>
+                                                        </div>
+                                                        <div class="describe">
+                                                            <p class="outstanding">
+                                                                Good
+                                                            </p>
+                                                        </div>
+                                                        <div class="count">
+                                                            <a>6,336 reviews</a>
+                                                        </div>
+                                                        </span>
+                                                        <div class="list-encourage-review">
+                                                            <p class="review-rt">
+                                                                <span class="review-item">"Easy to get around"</span><span class="review-item">"Convenient location"</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <div class="list-card-transport-v8">
+                                            <p class="transport">
+                                                <span class="trans-icon"><i type="ic_new_map" class="u-icon u-icon-ic_new_map map-icon"></i></span><span><% if (hotel.content) { %> 
+                                                    
+                                                <% } else { %>
+                                                   
+                                                    <p class="card-text flex-grow-1">No Explains</p>
+                                                <% } %></span><span class="split-dot"></span><span><%= hotel.address || 'No location Specified' %></span><span class="split-dot"></span><span class="map">Show on Map</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="rt-head-reviewandstatus">
+                                    </div>
+                                </div>
+                                <div class="room-type">
+                                    <div class="room-panel-roominfo">
+                                        <div class="room-panel-roominfo-middle">
+                                            <span class="room-panel-roominfo-name">Standard Double Or Twin Room</span><span class="room-panel-roominfo-people"><i type="ic_new_fa_occupant" class="u-icon u-icon-ic_new_fa_occupant"></i><i type="ic_new_fa_occupant" class="u-icon u-icon-ic_new_fa_occupant"></i></span><span class="room-panel-roominfo-bed"><i class="u-icon u-icon-ic_new_double_bed bed-icon-customer ic_new_double_bed" type="ic_new_double_bed"></i><span class="gang">/</span><i class="u-icon u-icon-ic_new_twobeds bed-icon-customer ic_new_twobeds" type="ic_new_twobeds"></i></span>
+                                        </div>
+                                        <div class="roominfo-content">
+                                            <div class="list-card-promotion">
+                                             
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="room-panel-rt" id="room-panel-rtundefined">
+                                        <div class="room-panel-price-btn ">
+                                           
+                                            <div class="btn-bottom">
+                                                <button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary " type="button" dir="ltr">
+                                                <div class="tripui-online-btn-content">
+                                                    <span class="tripui-online-btn-content-children ">Check Availability</span><span class="tripui-online-btn-icon" style="transform:none"><i type="ic_new_more_line1" class="u-icon u-icon-ic_new_more_line1 btn-icon"></i></span>
+                                                </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+            </li>
+            
+            <li></li>
+            <% }) %>
+                            
+            <% } else { %>
+                <p>No Results found</p>
+                
+                <% } %>
+
+
+            <% if (golfCourses && golfCourses.length > 0) { %>
+                
+                <% golfCourses.forEach((golf, index) => { %>
+            <li id="golf">
+                
+            <div class="with-decorator-wrap-v8">
+                
+                <div class="border -border">
+                    
+                    <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
+                        <div class="hotel-info">
+                            <div class="lf imgSizeVersionB">
+                                <div class="listcard-imgB">
+                                    <div class="multi-images" style="transform:translateX(-236px);transition:all 0.2s ease-in-out">
+                                        <div style="width:236px;height:100%" class="m-lazyImg multi-images-item">
+                                            <a href="/golf/golf-courses/<%= golf._id %>" ><img style="width:236px;height:100%;object-fit:cover;object-position:center;background-color:#F0F2F5" src="/uploads/<%= golf.banner_image_id %>" class="card-img-top" ></a>
+                                        </div>
+                                        <div style="width:236px;height:100%" class="m-lazyImg multi-images-item">
+                                            <a href="/golf/golf-courses/<%= golf._id %>" ><img style="width:236px;height:100%;object-fit:cover;object-position:center;background-color:#F0F2F5" src="/uploads/<%= golf.banner_image_id %>" class="card-img-top" ></a>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                      
+                                
+                          
+                             
+                                   
+                            
+                            <div class="rt imgSizeVersionB">
+                                <div class="rt-head">
+                                    <div class="rt-head-title">
+                                        <div class="list-card-tagAndTitle">
+                                            <div class="list-card-title">
+                                                <a href="/golf/golf-courses/<%= golf._id %>" ><%= golf.title %></a>
+                                                <div class="more-star-repeat">
+                                                    <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                                </div>
+                                                <span class="thumb thumb-6"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rt-head-title-label">
+                                            <div>
+                                                <section class="list-card-comment list-card-comment-versionB listHoverVB">
+                                                <div class="me">
+                                                    <div class="subme">
+                                                        <span class="inherit">
+                                                        <div class="score">
+                                                            <span class="real">3.9</span><span class="full">/</span><span class="full">5</span>
+                                                        </div>
+                                                        <div class="describe">
+                                                            <p class="outstanding">
+                                                                Good
+                                                            </p>
+                                                        </div>
+                                                        <div class="count">
+                                                            <a>6,336 reviews</a>
+                                                        </div>
+                                                        </span>
+                                                        <div class="list-encourage-review">
+                                                            <p class="review-rt">
+                                                                <span class="review-item">"Easy to get around"</span><span class="review-item">"Convenient location"</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <div class="list-card-transport-v8">
+                                            <p class="transport">
+                                                <span class="trans-icon"><i type="ic_new_map" class="u-icon u-icon-ic_new_map map-icon"></i></span><span><% if (golf.content) { %>
+                                                    <p class="card-text flex-grow-1"><%= golf.content.substring(0, 100) %>...</p>
+                                                <% } else { %>
+                                                    <p class="card-text flex-grow-1">no explains.</p>
+                                                <% } %></span><br><span><%= golf.address || 'No location Specified' %></spanp><br>
+                                                <br><p class="map">Show on Map</p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="rt-head-reviewandstatus">
+                                    </div>
+                                </div>
+                                <div class="room-type">
+                                    <div class="room-panel-roominfo">
+                                        <div class="room-panel-roominfo-middle">
+                                            <span class="room-panel-roominfo-name">Standard Double Or Twin Room</span><span class="room-panel-roominfo-people"><i type="ic_new_fa_occupant" class="u-icon u-icon-ic_new_fa_occupant"></i><i type="ic_new_fa_occupant" class="u-icon u-icon-ic_new_fa_occupant"></i></span><span class="room-panel-roominfo-bed"><i class="u-icon u-icon-ic_new_double_bed bed-icon-customer ic_new_double_bed" type="ic_new_double_bed"></i><span class="gang">/</span><i class="u-icon u-icon-ic_new_twobeds bed-icon-customer ic_new_twobeds" type="ic_new_twobeds"></i></span>
+                                        </div>
+                                        <div class="roominfo-content">
+                                            <div class="list-card-promotion">
+                                             
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="room-panel-rt" id="room-panel-rtundefined">
+                                        <div class="room-panel-price-btn ">
+                                           
+                                            <div class="btn-bottom">
+                                                <button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary " type="button" dir="ltr">
+                                                <div class="tripui-online-btn-content">
+                                                    <span class="tripui-online-btn-content-children ">Check Availability</span><span class="tripui-online-btn-icon" style="transform:none"><i type="ic_new_more_line1" class="u-icon u-icon-ic_new_more_line1 btn-icon"></i></span>
+                                                </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+            </li>
+            
+            <li></li>
+            <% }) %>
+                            
+            <% } else { %>
+                <p>No Results found</p>
+                
+                <% } %> 
+
+                <% if (packages && packages.length > 0) { %>
+                    
+                        <% packages.forEach((package, index) => { %>
+                <li>
+                    
+                <div class="with-decorator-wrap-v8">
+                    
+                    <div class="border -border">
+                        
+                        <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
+                            <div class="hotel-info">
+                                <div class="lf imgSizeVersionB">
+                                    <div class="listcard-imgB">
+                                        <div class="multi-images" style="transform:translateX(-236px);transition:all 0.2s ease-in-out">
+                                            <div style="width:236px;height:100%" class="m-lazyImg multi-images-item">
+                                                <a href="/package/packageDetails/<%= package._id %>" ><img style="width:236px;height:100%;object-fit:cover;object-position:center;background-color:#F0F2F5" src="/uploads/<%= package.banner_image_id %>" class="card-img-top" ></a>
+                                            </div>
+                                            <div style="width:236px;height:100%" class="m-lazyImg multi-images-item">
+                                                <a href="/package/packageDetails/<%= package._id %>" ><img style="width:236px;height:100%;object-fit:cover;object-position:center;background-color:#F0F2F5" src="/uploads/<%= package.banner_image_id %>" class="card-img-top" ></a>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                          
+                                    
+                              
+                                 
+                                       
+                                
+                                <div class="rt imgSizeVersionB">
+                                    <div class="rt-head">
+                                        <div class="rt-head-title">
+                                            <div class="list-card-tagAndTitle">
+                                                <div class="list-card-title">
+                                                    <a href="/package/packageDetails/<%= package._id %>" ><%= package.title %></a>
+                                                    <div class="more-star-repeat">
+                                                        <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i><i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                                    </div>
+                                                    <span class="thumb thumb-6"></span>
+                                                </div>
+                                            </div>
+                                            <div class="rt-head-title-label">
+                                                <div>
+                                                    <section class="list-card-comment list-card-comment-versionB listHoverVB">
+                                                    <div class="me">
+                                                        <div class="subme">
+                                                            <span class="inherit">
+                                                            <div class="score">
+                                                                <span class="real">3.9</span><span class="full">/</span><span class="full">5</span>
+                                                            </div>
+                                                            <div class="describe">
+                                                                <p class="outstanding">
+                                                                    Good
+                                                                </p>
+                                                            </div>
+                                                            <div class="count">
+                                                                <a>6,336 reviews</a>
+                                                            </div>
+                                                            </span>
+                                                            <div class="list-encourage-review">
+                                                                <p class="review-rt">
+                                                                    <span class="review-item">"Easy to get around"</span><span class="review-item">"Convenient location"</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="list-card-transport-v8">
+                                                <p class="transport">
+                                                    <span class="trans-icon"><i type="ic_new_map" class="u-icon u-icon-ic_new_map map-icon"></i></span><span><% if (package.content) { %>
+                                                        <p class="card-text flex-grow-1"><%= package.content.substring(0, 100) %>...</p>
+                                                    <% } else { %>
+                                                        <p class="card-text flex-grow-1">no explains.</p>
+                                                    <% } %></span><br><span><%= package.address || 'No location Specified' %></spanp><br>
+                                                    <br><p class="map">Show on Map</p>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="rt-head-reviewandstatus">
+                                        </div>
+                                    </div>
+                                    <div class="room-type">
+                                        <div class="room-panel-roominfo">
+                                            <div class="room-panel-roominfo-middle">
+                                                <span class="room-panel-roominfo-name">Standard Double Or Twin Room</span><span class="room-panel-roominfo-people"><i type="ic_new_fa_occupant" class="u-icon u-icon-ic_new_fa_occupant"></i><i type="ic_new_fa_occupant" class="u-icon u-icon-ic_new_fa_occupant"></i></span><span class="room-panel-roominfo-bed"><i class="u-icon u-icon-ic_new_double_bed bed-icon-customer ic_new_double_bed" type="ic_new_double_bed"></i><span class="gang">/</span><i class="u-icon u-icon-ic_new_twobeds bed-icon-customer ic_new_twobeds" type="ic_new_twobeds"></i></span>
+                                            </div>
+                                            <div class="roominfo-content">
+                                                <div class="list-card-promotion">
+                                                 
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="room-panel-rt" id="room-panel-rtundefined">
+                                            <div class="room-panel-price-btn ">
+                                               
+                                                <div class="btn-bottom">
+                                                    <button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary " type="button" dir="ltr">
+                                                    <div class="tripui-online-btn-content">
+                                                        <span class="tripui-online-btn-content-children ">Check Availability</span><span class="tripui-online-btn-icon" style="transform:none"><i type="ic_new_more_line1" class="u-icon u-icon-ic_new_more_line1 btn-icon"></i></span>
+                                                    </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+                </li>
+                
+                <li></li>
+                <% }) %>
+                                
+                <% } else { %>
+                    <p>No Results found</p>
+                    
+                    <% } %>
+
+
+
+
+
+
+       
+            <div class="none-ref" style="height:0">
+            </div>
+            
+        </ul>
+        </section>
+        <div class="cookie-banner">
+        </div>
+    </div>
+    </article></section>
+</div>
+
+<section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(/images/banner2_5.png);">
+    <div class="breadcrumbs-custom-inner">
+        <div class="container breadcrumbs-custom-container">
+            <div class="breadcrumbs-custom-main">
+                <h6 class="breadcrumbs-custom-subtitle title-decorated">Search Results</h6>
+                <h1 class="breadcrumbs-custom-title">Search Results</h1>
+            </div>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/">Home</a></li>
+                <li class="active">Search Results</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Results for "<%= query %>"</h2>
+
+    <!-- 탭 네비게이션 -->
+    <ul class="nav nav-tabs mb-4" id="searchTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="hotels-tab" data-toggle="tab" href="#hotels" role="tab">Hotels (<%= hotels.length %>)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="golf-tab" data-toggle="tab" href="#golf" role="tab">Golf Courses (<%= golfCourses.length %>)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="packages-tab" data-toggle="tab" href="#packages" role="tab">Packages (<%= packages.length %>)</a>
+        </li>
+    </ul>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="tab-content" id="searchTabContent">
+        <!-- 호텔 탭 -->
+        <div class="tab-pane fade show active"  role="tabpanel">
+            <% if (hotels && hotels.length > 0) { %>
+                <div class="row">
+                    <% hotels.forEach((hotel, index) => { %>
+                        <div class="col-md-6 wow-outer">
+                            <article class="post-modern wow slideInLeft">
+                                <div class="c-hot-hotel-item-v2__image-con mgb30">
+                                    <div class="c-hot-hotel-item-v2__image-clipping">
+                                        <a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %>#<% } %>"
+                                           <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required');"<% } %>>
+                                            <div class="c-hot-hotel-item-v2__image aimg">
+                                                <img src="/uploads/<%= hotel.banner_image_id || '/images/default-hotel.jpg' %>" alt="<%= hotel.title %>">
+                                                <div class="c-hot-hotel-item-v2__name">
+                                                    <div class="hotel-title"><%= hotel.title %></div>
+                                                    <div class="view-hotel">VIEW HOTEL ></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <p>No hotels found matching your search.</p>
+            <% } %>
+        </div>
+
+        <!-- 골프 탭 -->
+        <div class="tab-pane fade"  role="tabpanel">
+            <% if (golfCourses && golfCourses.length > 0) { %>
+                <div class="row">
+                    <% golfCourses.forEach((golf, index) => { %>
+                        <div class="col-md-6 wow-outer">
+                            <article class="post-modern wow slideInLeft">
+                                <div class="c-hot-hotel-item-v2__image-con mgb30">
+                                    <div class="c-hot-hotel-item-v2__image-clipping">
+                                        <a href="<% if (typeof user !== 'undefined' && user) { %>/golf-details/<%= golf.slug %><% } else { %>#<% } %>"
+                                           <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required');"<% } %>>
+                                            <div class="c-hot-hotel-item-v2__image aimg">
+                                                <img src="/uploads/<%= golf.banner_image_id || '/images/default-golf.jpg' %>" alt="<%= golf.title %>">
+                                                <div class="c-hot-hotel-item-v2__name">
+                                                    <div class="hotel-title"><%= golf.title %></div>
+                                                    <div class="view-hotel">VIEW GOLF COURSE ></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <p>No golf courses found matching your search.</p>
+            <% } %>
+        </div>
+
+        <!-- 패키지 탭 -->
+        <div class="tab-pane fade" id="packages" role="tabpanel">
+            <% if (packages && packages.length > 0) { %>
+                <div class="row">
+                    <% packages.forEach((package, index) => { %>
+                        <div class="col-md-6 wow-outer">
+                            <article class="post-modern wow slideInLeft">
+                                <div class="c-hot-hotel-item-v2__image-con mgb30">
+                                    <div class="c-hot-hotel-item-v2__image-clipping">
+                                        <a href="<% if (typeof user !== 'undefined' && user) { %>/package-details/<%= package.slug %><% } else { %>#<% } %>"
+                                           <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required');"<% } %>>
+                                            <div class="c-hot-hotel-item-v2__image aimg">
+                                                <img src="/uploads/<%= package.banner_image_id || '/images/default-package.jpg' %>" alt="<%= package.title %>">
+                                                <div class="c-hot-hotel-item-v2__name">
+                                                    <div class="hotel-title"><%= package.title %></div>
+                                                    <div class="view-hotel">VIEW PACKAGE ></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <p>No packages found matching your search.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- 페이지네이션 -->
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                <a class="page-link" href="?s=<%= encodeURIComponent(query) %>&page=1">&laquo;</a>
+            </li>
+            
+            <% for(let i = 1; i <= totalPages; i++) { %>
+                <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                    <a class="page-link" href="?s=<%= encodeURIComponent(query) %>&page=<%= i %>"><%= i %></a>
+                </li>
+            <% } %>
+            
+            <li class="page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
+                <a class="page-link" href="?s=<%= encodeURIComponent(query) %>&page=<%= totalPages %>">&raquo;</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<style>
+    .c-hot-hotel-item-v2__image-con { margin-bottom: 30px; }
+    .c-hot-hotel-item-v2__image-clipping {
+        width: 100%;
+        height: 327px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .c-hot-hotel-item-v2__image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .c-hot-hotel-item-v2__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.2s linear;
+    }
+    .c-hot-hotel-item-v2__name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9));
+        color: white;
+        padding: 20px;
+        text-align: left;
+    }
+    .hotel-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .view-hotel {
+        font-size: 14px;
+        color: #007daa;
+    }
+    .aimg:hover img {
+        transform: scale(1.1);
+    }
+    .nav-tabs .nav-link {
+        color: #495057;
+        border: 1px solid transparent;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        padding: .5rem 1rem;
+        margin-right: 5px;
+    }
+    .nav-tabs .nav-link.active {
+        color: #007bff;
+        background-color: #fff;
+        border-color: #dee2e6 #dee2e6 #fff;
+    }
+</style>
+
+<%- include('../partials/footer') %>
+<script src="/js/filterSearch.js"></script>
+</body>
+</html>
