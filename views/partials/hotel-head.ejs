@@ -1,6 +1,7 @@
 <%- include('head') %>
 <head>
   <link rel="stylesheet" href="/styles/hotel.css">
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
 </head>
 
@@ -155,10 +156,7 @@
                             </div>
                         </div>
                       </div>
-                    <!--
-                        <div class="popup-content">
-                          
-                          <h2 id="popupTitle">Sign In / Register</h2>
+
                       
                           <% if (messages.error) { %>
                             <div class="alert alert-danger">
@@ -166,17 +164,7 @@
                             </div>
                           <% } %>
                       
-                          <form id="authForm" action="/auth/register" method="post">
-                            <input type="email" id="email" name="email" placeholder="Email Address" required>
-                            <input type="password" id="password" name="password" placeholder="Password" style="display:none;">
-                            
-                            <div class="button-row">
-                              <button type="submit" id="authButton">Submit</button>
-                              <button type="button" onclick="closePopup()">Close</button>
-                            </div>
-                          </form>
-                        </div>
-                        -->
+
                     </div>
                      
                   </div>

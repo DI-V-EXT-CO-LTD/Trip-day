@@ -4,87 +4,36 @@
             <section>
                 <article>
                     <div class="hotel-list-page" dir="">
-                        <div class="searchBox-v8"
-                            data-exposure="{&quot;ubtKey&quot;:&quot;htl_ol_wcl_search_exposure&quot;,&quot;data&quot;:{&quot;channeltype&quot;:&quot;online&quot;,&quot;page&quot;:&quot;10320668148&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;adultnum&quot;:2,&quot;roomnum&quot;:1,&quot;childnum&quot;:0,&quot;searchDateList&quot;:[{&quot;checkin&quot;:&quot;2024/12/23&quot;,&quot;checkout&quot;:&quot;2024/12/24&quot;}],&quot;regionid&quot;:359,&quot;regionname&quot;:&quot;Bangkok&quot;}}">
+                        <div class="searchBox-v8" data-exposure="{&quot;ubtKey&quot;:&quot;htl_ol_wcl_search_exposure&quot;,&quot;data&quot;:{&quot;channeltype&quot;:&quot;online&quot;,&quot;page&quot;:&quot;10320668148&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;adultnum&quot;:2,&quot;roomnum&quot;:1,&quot;childnum&quot;:0,&quot;searchDateList&quot;:[{&quot;checkin&quot;:&quot;2024/12/23&quot;,&quot;checkout&quot;:&quot;2024/12/24&quot;}],&quot;regionid&quot;:359,&quot;regionname&quot;:&quot;Bangkok&quot;}}">
                             <div class="list-search-borderRadius" id="list-search-borderRadius">
                             </div>
-                            <div id="hotel_searchBox"
-                                class="list-search-container list-search-container-dark searchBarVersionB short-search">
+                            <form class="rd-search" action="/package/search" data-search-live="rd-search-results-live-NaN"
+                            method="GET">
+                            <div id="hotel_searchBox" class="list-search-container list-search-container-dark searchBarVersionB short-search">
                                 <ul class="ul">
                                     <li class="list-item list-destination">
-                                        <div class="search-container-v8">
-                                            <div class="search-box" id="search-box-destination">
-                                                <label class="minNoise-destinationLabel"
-                                                    for="hotels-destinationV8">Destination</label>
-                                                <div class="inputBarWidth">
-                                                    <input type="text" id="hotels-destinationV8" class="show-hightlight"
-                                                        value="Bangkok" autocomplete="off"
-                                                        placeholder="City, airport, region, landmark or property name">
-                                                    <div id="input-length-cacl">
-                                                        Bangkok
-                                                    </div>
-                                                </div>
-                                                <label for="hotels-destinationV8"
-                                                    class="searchBarVersionBLabel minNoise-searchBarVersionBLabel"
-                                                    id="versionBValueLabel" style=""></label>
-                                                <div class="searchClearIconContainer">
-                                                    <i type="ic_bestir_clear"
-                                                        class="u-icon u-icon-ic_bestir_clear searchClearIcon"></i>
-                                                </div>
+                                    <div class="search-container-v8">
+                                        <div class="search-box" id="search-box-destination">
+                                            <label class="minNoise-destinationLabel" for="hotels-destinationV8">Destination partial packageSearcResults</label>
+                 
+                                                <input type="text" id="hotels-destinationV8" class="show-hightlight" value="<%= package.title %>" autocomplete="off" placeholder="City, airport, region, landmark or property name">
+                           
+                                            <label for="hotels-destinationV8" class="searchBarVersionBLabel minNoise-searchBarVersionBLabel" id="versionBValueLabel" ></label>
+                                            <div class="searchClearIconContainer" onclick="clearInput()" >
+                                                <i type="ic_bestir_clear" class="u-icon u-icon-ic_bestir_clear searchClearIcon"></i>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
-                                    <li class="list-item list-calendar">
-                                        <div class="calendar-container-v8">
-                                            <div class="time-tab">
-                                                <label class="in minNoiseCalendarLabel"
-                                                    for="checkIn">Check-in</label><input type="text" id="checkInHeader"
-                                                    class="focus-input show-hightlight in-time" value="Mon, Dec 23"
-                                                    placeholder="Select date" readonly="" data-key="2024/12/23">
-                                            </div>
-                                            <div id="preload-nights" class="nights minNoiseCalendarLabel">
-                                                <span>1 night</span>
-                                            </div>
-                                            <div class="time-tab">
-                                                <label class="out minNoiseCalendarLabel"
-                                                    for="checkOut">Check-out</label><input type="text"
-                                                    id="checkOutHeader" class="focus-input show-hightlight out-time"
-                                                    value="Tue, Dec 24" placeholder="Select date" readonly=""
-                                                    data-key="2024/12/24">
-                                            </div>
-                                            <div id="preload-nights" class="nights minNoiseCalendarLabel">
-                                                <span>1 night</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-item list-roomguest">
-                                        <div class="room-guest-container-v8">
-                                            <div class="room-guest">
-                                                <label class="minNoise-roomGuestLabel">Rooms and Guests</label>
-                                                <p id="preload-room-guest" class="info show-hightlight">
-                                                    <span>1 room</span>, <span>2 adults</span>, <span>0 children</span>
-                                                </p>
-                                                <i type="ic_new_dropdown_line"
-                                                    class="u-icon u-icon-ic_new_dropdown_line icon-arrow"></i>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-item list-btn"><button
-                                            class="tripui-online-btn tripui-online-btn-large tripui-online-btn-wireframe-primary search-button-new"
-                                            type="button" dir="ltr">
-                                            <div class="tripui-online-btn-content">
-                                                <span class="tripui-online-btn-icon" style="transform:none"><i
-                                                        type="search"
-                                                        class="u-icon u-icon-search searchIcon"></i></span><span
-                                                    class="tripui-online-btn-content-children "><span
-                                                        class="searbtn-txt">Search</span></span>
-                                            </div>
-                                        </button></li>
+                
+                                    <li class="list-item list-btn"><button class="tripui-online-btn tripui-online-btn-large tripui-online-btn-wireframe-primary search-button-new" type="submit" dir="ltr">
+                                    <div class="tripui-online-btn-content">
+                                        <span class="tripui-online-btn-icon" style="transform:none"><i type="search" class="u-icon u-icon-search searchIcon"></i></span><span class="tripui-online-btn-content-children "><span class="searbtn-txt">Search</span></span>
+                                    </div>
+                                    </button></li>
                                 </ul>
-                            </div>
+                            </div></form>
                         </div>
-
-
                     </div>
                 </article>
             </section>

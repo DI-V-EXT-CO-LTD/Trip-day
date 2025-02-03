@@ -190,6 +190,9 @@ router.get("/hotel-details/:slug", async (req, res) => {
   try {
     const slug = req.params.slug;
     const period = req.query.period || new Date(); // รับค่า period จาก query string
+    const roomValue = req.query.roomValue || 1; // รับค่า period จาก query string
+    const adultsValue = req.query.adultsValue || 1; // รับค่า period จาก query string
+    const childValue = req.query.childValue || 0; // รับค่า period จาก query string
 
     const periodMonthDay = getMonthDay(period); // แปลง period ให้เป็นตัวเลข MMDD
 
@@ -253,6 +256,11 @@ router.get("/hotel-details/:slug", async (req, res) => {
       hotel: { ...hotel.toObject(), rooms: filteredRooms ,amenitiesIcon,highlightIcon },
       period_start: new Date(selectedPeriod.start_date).toLocaleDateString(),
       period_end: new Date(selectedPeriod.end_date).toLocaleDateString(),
+      query: slug.replace(/_/g, ' '),
+      period,
+      roomValue,
+      adultsValue,
+      childValue,
     });
   } catch (error) {
     console.error("Error fetching hotel details:", error);

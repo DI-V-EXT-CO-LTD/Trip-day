@@ -20,7 +20,7 @@
                                         <input type="text" name="s" id="hotels-destinationV8" class="show-hightlight" value="<%= query %>" autocomplete="off" placeholder="City, airport, region, landmark or property name">
             
                                     <label for="hotels-destinationV8" class="searchBarVersionBLabel minNoise-searchBarVersionBLabel" id="versionBValueLabel" ></label>
-                                    <div class="searchClearIconContainer">
+                                    <div class="searchClearIconContainer" onclick="clearInput()" >
                                         <i type="ic_bestir_clear" class="u-icon u-icon-ic_bestir_clear searchClearIcon"></i>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
             <div class="filter-mask">
             </div>
             <div class="filter-wrap filterWrapFixed">
-                <div class="filter-box false invisible">
+                <div class="filter-box false ">
                     <div class="search-property-wrapper">
                         <div class="title-wrap">
                             <p>
@@ -485,7 +485,7 @@
                     
                 <div class="with-decorator-wrap-v8">
                     
-                    <div class="border -border">
+                    <div class=" -border">
                         
                         <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
                             <div class="hotel-info">
@@ -626,5 +626,5 @@
     </div>
 
 
-
+    <script src="/js/clearSearchInput.js"></script>
  

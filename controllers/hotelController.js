@@ -3,6 +3,7 @@ const Golf = require("../models/golf");
 const he = require("he");
 
 exports.searchHotels = async (req, res) => {
+  console.log('from searchHotels')
   try {
     const {
       s,
@@ -51,10 +52,10 @@ exports.searchHotels = async (req, res) => {
     }
 
     // // Add location_category to $and
-    // if (!filter.$and) {
-    //   filter.$and = [];
-    // }
-    // filter.$and.push({ location_category: location });
+    if (!filter.$and) {
+      filter.$and = [];
+    }
+    filter.$and.push({ city: location });
 
     // Filter by adults and children
     if (adultsValue) {
@@ -118,25 +119,23 @@ exports.searchHotels = async (req, res) => {
       return hotel;
     });
 
-    console.log(processedHotels[0])
 
     // 모든 데이터를 출력
     res.render("partials/searchResults", {
       hotels: processedHotels,
       query: searchQuery,
-      period,
+      period:period|| new Date().toISOString().split('T')[0],
       he,
-      roomValue,
-      adultsValue,
-      childValue,
-      currentPage: validPageNumber,
-      totalPages: totalPages,
+      roomValue:roomValue || 1,
+      adultsValue:adultsValue||1,
+      childValue:childValue|| 0,
     });
   } catch (error) {
     console.error("Error searching hotels:", error);
     res.status(500).send("Error searching hotels");
   }
 };
+
 function calculateRelevance(hotel, query) {
   const searchTerms = query.toLowerCase().split(/\\s+/);
   let relevance = 0;

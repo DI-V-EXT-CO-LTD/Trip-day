@@ -7,115 +7,12 @@
     <div id="ibu_hotel_container">
         <section><article>
         <div class="hotel-list-page" dir="">
-            <div class="searchBox-v8" data-exposure="{&quot;ubtKey&quot;:&quot;htl_ol_wcl_search_exposure&quot;,&quot;data&quot;:{&quot;channeltype&quot;:&quot;online&quot;,&quot;page&quot;:&quot;10320668148&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;adultnum&quot;:2,&quot;roomnum&quot;:1,&quot;childnum&quot;:0,&quot;searchDateList&quot;:[{&quot;checkin&quot;:&quot;2024/12/23&quot;,&quot;checkout&quot;:&quot;2024/12/24&quot;}],&quot;regionid&quot;:359,&quot;regionname&quot;:&quot;Bangkok&quot;}}">
-                <div class="list-search-borderRadius" id="list-search-borderRadius">
-                </div>
-                <div id="hotel_searchBox" class="list-search-container list-search-container-dark searchBarVersionB short-search">
-                 <form action="/search"  method="GET" >
-                    <ul class="ul">
-                        <li class="list-item list-destination">
-                        <div class="search-container-v8">
-                            <div class="search-box" id="search-box-destination">
-                                <label class="minNoise-destinationLabel" for="hotels-destinationV8">Destinations</label>
-                               
-                                    <input type="text" id="hotels-destinationV8" name="s" class="show-hightlight" value="<%= query %>" autocomplete="off" placeholder="City, airport, region, landmark or property name">
-                                <label for="hotels-destinationV8" class="searchBarVersionBLabel minNoise-searchBarVersionBLabel" id="versionBValueLabel" ></label>
-                                <div class="searchClearIconContainer" onclick="clearInput()" >
-                                    <i type="ic_bestir_clear" class="u-icon u-icon-ic_bestir_clear searchClearIcon"></i>
-                                </div>
-                            </div>
-                        </div>
-                        </li>
-                        <div class="xYMCg_QqPorbG5WNg6Ms">
-                            <div class="ziv0jEjaxcgWq6iiTrEQ" style="width: 100%;"><label class="jveskUk1O3jO0s1QGao3"
-                                for="checkInInput">Check-in</label>
-                              <input type="date" name="period" id="hotel_checkInDate">
-                            </div>
-                          </div>
-                        
-                        <li class="list-item list-roomguest">
-                        <div class="room-guest-container-v8">
-                                <div class="relative-content">
-                                   
-                                    <div class="dropdown-header">
-                                      <div>
-                                        <label class="label-text">Rooms and Guests</label>
-                                        <div class="room-guests-info">
-                                         
-                                          <div class="input-group">
-                                            <input id="roomInput" name="roomValue" type="number" min="1" value="<%= roomValue %>" readonly />
-                                            <span>room,</span>
-                                          </div>
-                                  
-                                          
-                                          <div class="input-group">
-                                            <input id="adultsInput" name="adultsValue" type="number" min="1" value="<%= adultsValue %>" readonly />
-                                            <span>adults,</span>
-                                          </div>
-                                  
-                                         
-                                          <div class="input-group">
-                                            <input id="childInput" name="childValue" type="number" min="0" value="<%= childValue %>" readonly />
-                                            <span>children</span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <i type="ic_new_dropdown_line" class="u-icon u-icon-ic_new_dropdown_line icon-arrow"></i>
-                                    </div>
-                                  
-                                    
-                                    <div class="dropdown-menu">
-                                        <div class="dropdown-menu-content">                           
-                                            <div class="row">
-                                              <div class="title">Rooms</div>
-                                              <div class="button-group">
-                                                <button id="decreaseRoom" type="button">-</button>
-                                                <span id="roomValue"><%= roomValue %></span>
-                                                <button id="increaseRoom" type="button">+</button>
-                                              </div>
-                                            </div>
-                                        
-                                           
-                                            <div class="row">
-                                              <div class="title">Adults <small>(18+ yrs)</small></div>
-                                              <div class="button-group">
-                                                <button id="decreaseAdults" type="button">-</button>
-                                                <span id="adultsValue"><%= adultsValue %></span>
-                                                <button id="increaseAdults" type="button">+</button>
-                                              </div>
-                                            </div>
-                                        
-                                           
-                                            <div class="row">
-                                              <div class="title">Child <small>(0-17 yrs)</small></div>
-                                              <div class="button-group">
-                                                <button id="decreaseChild" type="button">-</button>
-                                                <span id="childValue"><%= childValue %></span>
-                                                <button id="increaseChild" type="button">+</button>
-                                              </div>
-                                            </div>
-                                        </div>
-          
-                                    </div>
-                                  </div>
-
-                        </div>
-                        </li>
-                        <li class="list-item list-btn">
-                        <button class="tripui-online-btn tripui-online-btn-large tripui-online-btn-wireframe-primary search-button-new" type="submit" dir="ltr">
-                        <div class="tripui-online-btn-content">
-                            <span class="tripui-online-btn-icon" style="transform:none"><i type="search" class="u-icon u-icon-search searchIcon"></i></span><span class="tripui-online-btn-content-children "><span class="searbtn-txt">Search</span></span>
-                        </div>
-                        </button></li>
-                    </ul>
-                </form>
-                </div>
-            </div>
+            <%- include('hotel/search') %>
             <section class="main-container main-content">
             <div class="filter-mask">
             </div>
             <div class="filter-wrap filterWrapFixed">
-                <div class="filter-box false invisible">
+                <div class="filter-box false ">
                     <div class="search-property-wrapper">
                         <div class="title-wrap">
                             <p>
@@ -568,7 +465,7 @@
                     
                 <div class="with-decorator-wrap-v8">
                     
-                    <div class="border -border">
+                    <div class=" -border">
                         
                         <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
                             <div class="hotel-info">
@@ -681,69 +578,7 @@
 
     <%- include('./footer') %>
    <script src="/js/filterSearch.js"></script>
-   <script>
-          document.addEventListener("DOMContentLoaded", function() {
-      const roomInput = document.getElementById('roomInput');
-  const roomValue = document.getElementById('roomValue');
-  const decreaseRoom = document.getElementById('decreaseRoom');
-  const increaseRoom = document.getElementById('increaseRoom');
-
-    const adultsInput = document.getElementById('adultsInput');
-  const adultsValue = document.getElementById('adultsValue');
-  const decreaseAdults = document.getElementById('decreaseAdults');
-  const increaseAdults = document.getElementById('increaseAdults');
-
-    const childInput = document.getElementById('childInput');
-  const childValue = document.getElementById('childValue');
-  const decreaseChild = document.getElementById('decreaseChild');
-  const increaseChild = document.getElementById('increaseChild');
-
-
-  increaseRoom.addEventListener('click', () => {
-    let currentValue = parseInt(roomInput.value, 10);
-    roomInput.value = currentValue + 1;
-    roomValue.textContent = currentValue + 1;
-  });
-
-
-  decreaseRoom.addEventListener('click', () => {
-    let currentValue = parseInt(roomInput.value, 10);
-    if (currentValue > 1) {
-      roomInput.value = currentValue - 1;
-      roomValue.textContent = currentValue - 1;
-    }
-  });
-
-  increaseAdults.addEventListener('click', () => {
-    let currentValue = parseInt(adultsInput.value, 10);
-    adultsInput.value = currentValue + 1;
-    adultsValue.textContent = currentValue + 1;
-  });
-
-
-  decreaseAdults.addEventListener('click', () => {
-    let currentValue = parseInt(adultsInput.value, 10);
-    if (currentValue > 1) {
-      adultsInput.value = currentValue - 1;
-      adultsValue.textContent = currentValue - 1;
-    }
-  });
-
-  increaseChild.addEventListener('click', () => {
-    let currentValue = parseInt(childInput.value, 10);
-    childInput.value = currentValue + 1;
-    childValue.textContent = currentValue + 1;
-  });
-
-  decreaseChild.addEventListener('click', () => {
-    let currentValue = parseInt(childInput.value, 10);
-    if (currentValue > 0) {
-      childInput.value = currentValue - 1;
-      childValue.textContent = currentValue - 1;
-    }
-  });
-});
-
-   </script>
+   <script src="/js/headerSearch.js"></script>
+   <script src="/js/clearSearchInput.js"></script>
 </body>
 </html>

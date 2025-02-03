@@ -81,7 +81,7 @@ exports.searchPackages = async (req, res) => {
 
         res.render('partials/packageSearchResults', {
             Packages: processedHotels,
-            query: searchQuery || 'All Packages',
+            query: searchQuery || '',
             currentPage: validPageNumber,
             totalPages: totalPages,
             he
