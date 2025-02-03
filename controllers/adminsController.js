@@ -388,11 +388,16 @@ exports.postAddHotel = async (req, res) => {
       nameEn,
       slug,
       map_zoom,
-      location_id,
+      city,
       map_url,
       address,
       content,
       star_rate,
+      isPromotion,
+      promotionStartDate,
+      promotionEndDate,
+      promotionType,
+      is_featured,
       highlights,
       amenities,
       isFreeAmenities,
@@ -447,11 +452,16 @@ exports.postAddHotel = async (req, res) => {
       content,
       map_url,
       map_zoom,
-      location_id,
+      city,
       image_id,
       banner_image_id,
       gallery,
       star_rate,
+      isPromotion,
+      promotionStartDate:isPromotion ? new Date(promotionStartDate):null ,
+      promotionEndDate:isPromotion ? new Date(promotionEndDate):null,
+      promotionType,
+      is_featured,
       highlights,
       amenities,
       isFreeAmenities,
@@ -609,6 +619,13 @@ exports.postAddGolf = async (req, res) => {
       slug,
       address,
       content,
+      location,
+      star_rate,
+      isPromotion,
+      promotionStartDate,
+      promotionEndDate,
+      promotionType,
+      is_featured,
       Services_textediter,
       Policies_textediter,
       Description_textediter,
@@ -636,6 +653,13 @@ exports.postAddGolf = async (req, res) => {
       slug,
       address,
       content,
+      location,
+      star_rate,
+      isPromotion,
+      promotionStartDate:isPromotion ? new Date(promotionStartDate):null ,
+      promotionEndDate:isPromotion ? new Date(promotionEndDate):null,
+      promotionType,
+      is_featured,
       Services_textediter,
       Policies_textediter,
       Description_textediter,
@@ -663,6 +687,7 @@ exports.postAddPackage = async (req, res) => {
       nameEn,
       room_price,
       golf_price,
+      location,
       slug,
       address,
       content,
@@ -694,6 +719,7 @@ exports.postAddPackage = async (req, res) => {
       slug,
       address,
       content,
+      location,
       Services_textediter,
       Policies_textediter,
       Description_textediter,
@@ -716,132 +742,145 @@ exports.postAddPackage = async (req, res) => {
 // put
 
 exports.putEditHotel = async (req, res) => {
-     console.log('from put edithotel ')
-  try {
-    const hotelId = req.params.id;
-    const {
-      title,
-      nameEn,
-      slug,
-      map_zoom,
-      location_id,
-      map_url,
-      address,
-      content,
-      star_rate,
-      highlights,
-      amenities,
-      isFreeAmenities,
-      metro,
-      airport,
-      train,
-      check_in_start,
-      check_in_end,
-      check_out_start,
-      check_out_end,
-      bed_policy,
-      breakfast,
-      deposit_policy,
-      pet_policy,
-      service_animal_policy,
-      age_policy,
-      payment,
-      startDate,
-      endDate,
-      season_id,
-      Services_textediter,
-      Policies_textediter,
-      Description_textediter,
-      status,
-    } = req.body;
+  console.log('from put edithotel ')
+try {
+ const hotelId = req.params.id;
+ const {
+   title,
+   nameEn,
+   slug,
+   map_zoom,
+   city,
+   map_url,
+   address,
+   content,
+   star_rate,
+   isPromotion,
+   promotionType,
+   promotionStartDate,
+   promotionEndDate,
+   is_featured,
+   highlights,
+   amenities,
+   isFreeAmenities,
+   metro,
+   airport,
+   train,
+   check_in_start,
+   check_in_end,
+   check_out_start,
+   check_out_end,
+   bed_policy,
+   breakfast,
+   deposit_policy,
+   pet_policy,
+   service_animal_policy,
+   age_policy,
+   payment,
+   startDate,
+   endDate,
+   season_id,
+   Services_textediter,
+   Policies_textediter,
+   Description_textediter,
+   status,
+ } = req.body;
 
-    const image_id = req.files["image_id"]
-      ? req.files["image_id"][0].filename
-      : null; // path ของ main_image
-    const banner_image_id = req.files["banner_image_id"]
-      ? req.files["banner_image_id"][0].filename
-      : null; // path ของ main_image
-    const gallery = req.files["gallery"]
-      ? req.files.gallery?.map((file) => file.filename)
-      : null; // path ของ other_image ทั้งหมด
+ const image_id = req.files["image_id"]
+   ? req.files["image_id"][0].filename
+   : null; // path ของ main_image
+ const banner_image_id = req.files["banner_image_id"]
+   ? req.files["banner_image_id"][0].filename
+   : null; // path ของ main_image
+ const gallery = req.files["gallery"]
+   ? req.files.gallery?.map((file) => file.filename)
+   : null; // path ของ other_image ทั้งหมด
 
-      const hotel = await Hotel.findById(hotelId);
-      if (!hotel) throw new Error("Hotel not found");
-  
-      // อัปเดตข้อมูลโรงแรม (ยกเว้น price_periods)
-      const updateData = {
-        title,
-        nameEn,
-        slug,
-        address,
-        content,
-        map_url,
-        map_zoom,
-        location_id,
-        star_rate,
-        highlights: highlights || [],
-        amenities: amenities || [],
-        isFreeAmenities: isFreeAmenities || [],
-        surrounding: { metro, airport, train },
-        check_in_start,
-        check_in_end,
-        check_out_start,
-        check_out_end,
-        bed_policy,
-        breakfast,
-        deposit_policy,
-        pet_policy,
-        service_animal_policy,
-        Services_textediter,
-        Policies_textediter,
-        Description_textediter,
-        age_policy,
-        payment,
-        status,
-      };
+   const hotel = await Hotel.findById(hotelId);
+   if (!hotel) throw new Error("Hotel not found");
 
-    if (image_id) updateData.image_id = image_id;
-    if (banner_image_id) updateData.banner_image_id = banner_image_id;
-    if (gallery && gallery.length > 0) updateData.gallery = gallery;
+ //   // อัปเดตข้อมูลโรงแรม (ยกเว้น price_periods)
+   const updateData = {
+     title,
+     nameEn,
+     slug,
+     address,
+     content,
+     map_url,
+     map_zoom,
+     city,
+     isPromotion,
+     is_featured,
+     star_rate,
+     highlights: highlights || [],
+     amenities: amenities || [],
+     isFreeAmenities: isFreeAmenities || [],
+     surrounding: { metro, airport, train },
+     check_in_start,
+     check_in_end,
+     check_out_start,
+     check_out_end,
+     bed_policy,
+     breakfast,
+     deposit_policy,
+     pet_policy,
+     service_animal_policy,
+     Services_textediter,
+     Policies_textediter,
+     Description_textediter,
+     age_policy,
+     payment,
+     status,
+   };
+
+ if (image_id) updateData.image_id = image_id;
+ if (banner_image_id) updateData.banner_image_id = banner_image_id;
+ if (gallery && gallery.length > 0) updateData.gallery = gallery;
+
+ if(isPromotion==="true"){
+   updateData.promotionStartDate = new Date(promotionStartDate)
+   updateData.promotionEndDate = new Date(promotionEndDate)
+   updateData.promotionType = promotionType
+ }
+
+ const validSeasonIds = season_id?.filter((id) => id !== "0").map(id => id);
+
+ hotel.price_periods = hotel.price_periods.filter(period =>
+   validSeasonIds.includes(period._id.toString())
+ );
+
+ startDate?.forEach((start, index) => {
+   const end = endDate[index];
+   const seasonId = season_id[index];
+
+   if (seasonId === "0") {
+     hotel.price_periods.push({
+       start_date: new Date(start),
+       end_date: new Date(end),
+       room_prices: {},
+     });
+   } else {
+     const existingPeriod = hotel.price_periods.find(period => period._id.toString() === seasonId);
+     if (existingPeriod) {
+       existingPeriod.start_date = new Date(start);
+       existingPeriod.end_date = new Date(end);
+     }
+   }
+ });
 
 
-    const validSeasonIds = season_id?.filter((id) => id !== "0").map(id => id);
 
-    hotel.price_periods = hotel.price_periods.filter(period =>
-      validSeasonIds.includes(period._id.toString())
-    );
-
-    startDate?.forEach((start, index) => {
-      const end = endDate[index];
-      const seasonId = season_id[index];
-
-      if (seasonId === "0") {
-        hotel.price_periods.push({
-          start_date: new Date(start),
-          end_date: new Date(end),
-          room_prices: {},
-        });
-      } else {
-        const existingPeriod = hotel.price_periods.find(period => period._id.toString() === seasonId);
-        if (existingPeriod) {
-          existingPeriod.start_date = new Date(start);
-          existingPeriod.end_date = new Date(end);
-        }
-      }
-    });
+ await Hotel.findByIdAndUpdate(hotelId, updateData);
+ await hotel.save();
 
 
-
-    await Hotel.findByIdAndUpdate(hotelId, updateData);
-    await hotel.save();
-
- 
-    res.json({ redirectUrl: "/admins#hotels" });
-  } catch (error) {
-    console.error("Error saving hotel:", error);
-    res.status(500).send("Internal Server Error");
-  }
+ res.json({ redirectUrl: "/admins#hotels" });
+} catch (error) {
+ console.error("Error saving hotel:", error);
+ res.status(500).send("Internal Server Error");
+}
 };
+
 
 exports.putEditRoom = async (req, res) => {
   try {
@@ -968,7 +1007,14 @@ exports.putEditGolf = async (req, res) => {
       price,
       slug,
       address,
+      location,
       content,
+      star_rate,
+      isPromotion,
+      promotionStartDate,
+      promotionEndDate,
+      promotionType,
+      is_featured,
       Services_textediter,
       Policies_textediter,
       Description_textediter,
@@ -995,7 +1041,14 @@ exports.putEditGolf = async (req, res) => {
       price,
       slug,
       address,
+      location,
       content,
+      star_rate,
+      isPromotion,
+      promotionStartDate:isPromotion ? new Date(promotionStartDate):null ,
+      promotionEndDate:isPromotion ? new Date(promotionEndDate):null,
+      promotionType,
+      is_featured,
       Services_textediter,
       Policies_textediter,
       Description_textediter,
@@ -1030,12 +1083,14 @@ exports.putEditPackage = async (req, res) => {
       golf_price,
       slug,
       address,
+      location,
       content,
       Services_textediter,
       Policies_textediter,
       Description_textediter,
       status
     } = req.body;
+
 
     const golf = await Package.findById(packageId);
     if (!golf) throw new Error("golf not found");
@@ -1058,6 +1113,7 @@ exports.putEditPackage = async (req, res) => {
       golf_price,
       slug,
       address,
+      location,
       content,
       Services_textediter,
       Policies_textediter,
@@ -1073,7 +1129,7 @@ exports.putEditPackage = async (req, res) => {
   await Package.findByIdAndUpdate(packageId, updateData);
     await golf.save();
 
-    res.json({ redirectUrl: `/admins#golfs?page=1` });
+    res.json({ redirectUrl: `/admins#packages` });
   } catch (error) {
     console.error("Error updating room:", error);
     res.status(500).send("Internal Server Error");

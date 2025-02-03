@@ -62,7 +62,7 @@ const hotelSchema = new mongoose.Schema({
   nameEn: { type: String }, // 호텔 영문 이름
   image_id: { type: String, required: true }, // 이미지 ID
   banner_image_id: { type: String, required: true }, // 배너 이미지 ID
-  location_id: { type: String, required: true }, // 위치 ID
+  city: { type: String, required: true }, // 위치 ID
   address: { type: String, required: false }, // 호텔 주소
   map_url: { type: String, required: false },
   map_lat: { type: Number, required: false },
@@ -72,7 +72,7 @@ const hotelSchema = new mongoose.Schema({
   gallery: [String], // 갤러리 이미지 목록
   video: { type: String }, // 비디오 URL
   policy: { type: String }, // 호텔 정책
-  star_rate: { type: Number, required: false }, // 호텔 별점
+  star_rate: { type: Number, required: false ,default:0}, // 호텔 별점
   starInfo: starInfoSchema, // 호텔 별 정보
   price: { type: Number, required: false }, // 기본 가격
   allow_full_day: { type: Boolean, default: false }, // 하루 종일 예약 가능 여부
@@ -96,12 +96,12 @@ const hotelSchema = new mongoose.Schema({
   check_in_end: { type: String },
   check_out_start: { type: String },
   check_out_end: { type: String },
-  bed_policy: { type: String, required: true },
-  breakfast: { type: String, required: true },
-  deposit_policy: { type: String, required: true },
-  pet_policy: { type: String, required: true },
-  service_animal_policy: { type: String, required: true },
-  age_policy: { type: String, required: true },
+  bed_policy: { type: String },
+  breakfast: { type: String },
+  deposit_policy: { type: String },
+  pet_policy: { type: String },
+  service_animal_policy: { type: String },
+  age_policy: { type: String },
   payment: [String],
   highlights: [String],
   author_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // 작성자
@@ -109,7 +109,7 @@ const hotelSchema = new mongoose.Schema({
   min_day_stays: { type: Number }, // 최소 숙박 일수,
   price_periods: [pricePeriodSchema],
   location: String,
-  isPromotion: Boolean,
+  isPromotion: {type:Boolean,required:true},
   promotionType: String,
   promotionStartDate: Date,
   promotionEndDate: Date,

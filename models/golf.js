@@ -68,7 +68,7 @@ const golfSchema = new mongoose.Schema({
   gallery: [String],
   video: { type: String },
   policy: { type: String },
-  rating: { type: Number, required: false },
+  star_rate: { type: Number, required: false ,default:0}, // 호텔 별점
   ratingInfo: ratingInfoSchema,
   price: { type: Number, required: true },
   tee_time: { type: String, required: true, default: "05:30~11:30" },
@@ -92,7 +92,7 @@ const golfSchema = new mongoose.Schema({
   Services_textediter:{type:String},
   Policies_textediter:{type:String},
   Description_textediter:{type:String},
-  isPromotion: Boolean,
+  isPromotion: {type:Boolean,required:true},
   promotionType: String,
   promotionStartDate: Date,
   promotionEndDate: Date,

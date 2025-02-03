@@ -1,5 +1,5 @@
 <div class="bg-white pb-4">
-  <form id="hotelForm" class="max-w-screen-lg mx-auto space-y-6">
+  <form id="hotelForm" class="max-w-screen-lg mx-auto space-y-8">
     <div>
       <h1
       class="block mb-2 text-3xl font-bold text-gray-900 "
@@ -20,7 +20,7 @@
         "EnglishName", value: hotel ? hotel.nameEn :"" }) %>
       </div>
     </div>
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-3 gap-6">
       <div>
         <%- include('../../partials/ui/inputURL', { name: "slug", label:
         "Hote_Website", value: hotel ? hotel.slug :"" , placeholder:"https://hotel.com" }) %>
@@ -28,6 +28,10 @@
       <div>
         <%- include('../../partials/ui/inputURL', { name: "map_url", label:
         "Google Map", value: hotel ? hotel.map_url :"" ,placeholder:"https://map-google.com"}) %>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "city", label:
+        "City", value: hotel ? hotel.city :"" ,placeholder:"Provice"}) %>
       </div>
     </div>
     <div>
@@ -47,7 +51,7 @@
             class="h-full object-cover <%= isAdd ? " hidden" : "" %>"
           />
           <% if (isAdd) { %>
-            <svg id="main_image_preview_skeleton" class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
+            <svg id="main_image_preview_skeleton" class="w-10 h-10 text-gray-200  aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
               <path
                 d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
@@ -71,14 +75,69 @@
         </div>
       </div>
     </div>
-    <!-- star rate -->
-    <div class="grid md:grid-cols-2 gap-6">
-      <div>
-        <%- include('../../partials/ui/inputText', { name: "star_rate", label:
-        "Rate" ,type:"number" ,value: hotel ? hotel.star_rate :"" , min: 0 , max: 5}) %>
+    <!-- star rate  and  voucher-->
+     <div class="grid md:grid-cols-2 gap-6">
+      <div class="flex gap-6 items-center w-full">
+        <div class="w-full">
+          <%- include('../../partials/ui/inputText', { name: "star_rate", label:
+          "Rate" ,type:"number",value: hotel ? hotel.star_rate :"" , min: 0 , max: 5}) %>
+        </div>
+        <div class="w-full">
+          <label for="is_featured" class="block text-sm font-medium text-gray-900 ">Is Featured</label>
+          <select name="is_featured" id="is_featured" 
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            <option <%= hotel?.is_featured ? "": "selected" %> value="false">False</option>
+            <option <%= hotel?.is_featured ? "selected": "" %>  value="true">True</option>
+          </select>
+        </div>
       </div>
 
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "voucherAmount", label:
+        "Voucher" ,type:"number" ,value: hotel ? hotel.voucherAmount :0 , min: 0 }) %>
+      </div>
+     </div>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div>
+        <label for="isPromotion" class="block text-sm font-medium text-gray-900 ">Promotion</label>
+        <select name="isPromotion" id="isPromotion" 
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option <%= hotel?.isPromotion ? "": "selected" %> value="false">False</option>
+          <option <%= hotel?.isPromotion ? "selected": "" %>  value="true">True</option>
+        </select>
+      </div>
+      
+<div id="date-range-picker" date-rangepicker class=" md:col-span-2 flex flex-col md:flex-row items-end hidden gap-6">
+  <div class="relative w-full">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+        </svg>
     </div>
+    <input id="datepicker-range-start" autocomplete="off" value="<%= hotel?.isPromotion ? new Date(hotel.promotionStartDate).toLocaleDateString('en-US') : "" %>" name="promotionStartDate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  " placeholder="Date start">
+  </div>
+  <div class="relative w-full">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+        </svg>
+    </div>
+    <input id="datepicker-range-end" autocomplete="off" value="<%= hotel?.isPromotion ? new Date(hotel.promotionEndDate).toLocaleDateString('en-US') : "" %>" name="promotionEndDate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  " placeholder="Date end">
+</div>
+</div>
+
+      
+      <div id="promotion_type" class="hidden flex items-end">
+        <select id="Promotion_price" name="promotionType" required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option <%= hotel?.promotionType === "EarlyBird" ? "selected": "" %>  value="EarlyBird">EarlyBird</option>
+          <option <%= hotel?.promotionType === "BestSellers" ? "selected": "" %> value="BestSellers">BestSellers</option>
+        </select>
+      </div>
+      
+      
+      </div>
+      
     <!-- hightlights -->
     <div class="space-y-2 mb-5">
       <div class="flex gap-2 items-center">
@@ -175,10 +234,7 @@
           <%- include('../../partials/ui/inputText', { name: "map_zoom", label:
           "Map zoom" ,type:'number',value: hotel ? hotel.map_zoom :""}) %>
         </div>
-        <div>
-          <%- include('../../partials/ui/inputText', { name: "location_id",
-          label: "location ",value: hotel ? hotel.location_id :"" }) %>
-        </div>
+
       </div>
     </div>
     <div class="grid md:grid-cols-2 gap-6">
@@ -344,7 +400,7 @@
       Submit
     </button>
     <button disabled type="button" class="hidden py-2.5 px-5 me-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-blue-700 focus:text-blue-700  inline-flex items-center">
-      <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin  viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
       <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"/>
       </svg>
@@ -354,6 +410,7 @@
 </div>
 
 <script>
+
   $(() => {
     const isAdd = <%= isAdd %>
 
@@ -488,7 +545,8 @@
   const existingHighlights = <%- JSON.stringify(hotel?.highlights || []) %>
   const existingSurrounding = <%- JSON.stringify(hotel?.surrounding)?.replace(/</g, '\\u003c') || [] %>
 
-
+  // promotion
+  checkIsPromotion();
   // amenities
   existingAmenities.forEach((amenity) => {
     $(`#dynamicSelect option`).filter(function () {
@@ -530,6 +588,26 @@
         seasonContainer.append(inputSeasonComponent(start,end,season._id));
       })
     }
+
+    // Prometion
+    function checkIsPromotion() {
+      const isPromotion = $('#isPromotion').val() === 'true';
+
+      // Show or hide elements based on the value of 'isPromotion'
+      if (isPromotion) {
+        $('#date-range-picker').removeClass('hidden');
+        $('#promotion_type').removeClass('hidden');
+      } else {
+        $('#date-range-picker').addClass('hidden');
+        $('#promotion_type').addClass('hidden');
+      }
+    }
+
+    $('#isPromotion').on('change', function() {
+        checkIsPromotion();
+    });
+
+
 
 // highlights 
 $("#hightlightSelect").change(function () {
@@ -624,6 +702,21 @@ $("#dynamicSelect").change(function () {
           return;
         }
       }
+
+      const VaildDateTime = $('#isPromotion').val();
+      if(VaildDateTime ==='true'){
+        const promotionStartDate = $('#datepicker-range-start').val()
+        const promotionEndDate = $('#datepicker-range-end').val()
+
+        if(promotionStartDate ==='' || promotionEndDate===''){
+          alert("Date Promotion is not valid")
+          submitButton.removeClass("hidden");
+          loadingButton.addClass("hidden");
+          return;
+        }
+      }
+
+
       const formData = new FormData(this);
       const type = isAdd ? "POST" : "PUT";
       const url = isAdd ? "/admins/hotels/addHotel" : `/admins/hotels/editHotel/${hotelId}`
@@ -645,6 +738,9 @@ $("#dynamicSelect").change(function () {
     });
     
 
+
+
+    // metro
     function setupAddButton(buttonId, containerId, name) {
       $(`#${buttonId}`).on('click', function () {
 

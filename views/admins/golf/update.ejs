@@ -20,7 +20,7 @@
           "EnglishName", value: golf ? golf.nameEn :"" }) %>
         </div>
       </div>
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid md:grid-cols-3 gap-6">
         <div>
             <label
               for="Base Price"
@@ -61,6 +61,10 @@
         <div>
           <%- include('../../partials/ui/inputURL', { name: "slug", label:
           "Golf_Website", value: golf ? golf.slug :"" , placeholder:"https://golf.com" }) %>
+        </div>
+        <div>
+          <%- include('../../partials/ui/inputText', { name: "location", label:
+          "City", value: golf ? golf.location :"" ,placeholder:"Provice"}) %>
         </div>
       </div>
       <div>
@@ -104,13 +108,67 @@
           </div>
         </div>
       </div>
-      <!-- star rate -->
-      <!-- <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          %- include('../../partials/ui/inputText', { name: "star_rate", label:
-          "Rate" ,type:"number" ,value: golf ? golf.star_rate :"" , min: 0 , max: 5}) %>
+    <!-- star rate  and  voucher-->
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="flex gap-6 items-center w-full">
+        <div class="w-full">
+          <%- include('../../partials/ui/inputText', { name: "star_rate", label:
+          "Rate" ,type:"number",value: golf ? golf.star_rate :"" , min: 0 , max: 5}) %>
         </div>
-      </div> -->
+        <div class="w-full">
+          <label for="is_featured" class="block text-sm font-medium text-gray-900 ">Is Featured</label>
+          <select name="is_featured" id="is_featured" 
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            <option <%= golf?.is_featured ? "": "selected" %> value="false">False</option>
+            <option <%= golf?.is_featured ? "selected": "" %>  value="true">True</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputText', { name: "voucherAmount", label:
+        "Voucher" ,type:"number" ,value: golf ? golf.voucherAmount :0 , min: 0 }) %>
+      </div>
+     </div>
+     <div class="grid md:grid-cols-4 gap-6">
+      <div>
+        <label for="isPromotion" class="block text-sm font-medium text-gray-900 ">Promotion</label>
+        <select name="isPromotion" id="isPromotion" 
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option <%= golf?.isPromotion ? "": "selected" %> value="false">False</option>
+          <option <%= golf?.isPromotion ? "selected": "" %>  value="true">True</option>
+        </select>
+      </div>
+      
+<div id="date-range-picker" date-rangepicker class=" md:col-span-2 flex flex-col md:flex-row items-end hidden gap-6">
+  <div class="relative w-full">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+        </svg>
+    </div>
+    <input id="datepicker-range-start" autocomplete="off" value="<%= golf?.isPromotion ? new Date(golf.promotionStartDate).toLocaleDateString('en-US') : "" %>" name="promotionStartDate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  " placeholder="Date start">
+  </div>
+  <div class="relative w-full">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+        </svg>
+    </div>
+    <input id="datepicker-range-end" autocomplete="off" value="<%= golf?.isPromotion ? new Date(golf.promotionEndDate).toLocaleDateString('en-US') : "" %>" name="promotionEndDate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  " placeholder="Date end">
+</div>
+</div>
+
+      
+      <div id="promotion_type" class="hidden flex items-end">
+        <select id="Promotion_price" name="promotionType" required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option <%= golf?.promotionType === "EarlyBird" ? "selected": "" %>  value="EarlyBird">EarlyBird</option>
+          <option <%= golf?.promotionType === "BestSellers" ? "selected": "" %> value="BestSellers">BestSellers</option>
+        </select>
+      </div>
+      
+      
+      </div>
       <div >
         <label for="Services_textediter" class="block text-sm font-medium text-gray-900"
         >Services_textediter</label
@@ -162,7 +220,34 @@
   <script>
     $(() => {
       const isAdd = <%= isAdd %>
+
+
+        // Prometion
+        function checkIsPromotion() {
+          const isPromotion = $('#isPromotion').val() === 'true';
+
+          // Show or hide elements based on the value of 'isPromotion'
+          if (isPromotion) {
+            $('#date-range-picker').removeClass('hidden');
+            $('#promotion_type').removeClass('hidden');
+          } else {
+            $('#date-range-picker').addClass('hidden');
+            $('#promotion_type').addClass('hidden');
+          }
+        }
+
+
+      if (!isAdd) {
+        checkIsPromotion()
+      }
+
   
+
+      // Promotion
+      $('#isPromotion').on('change', function () {
+        checkIsPromotion();
+      });
+
         // image
       $("#main_image").on("change", function (e) {
         const file = e.target.files[0]; // เลือกไฟล์แรก
@@ -202,6 +287,22 @@
             return;
           }
         }
+
+        
+      const VaildDateTime = $('#isPromotion').val();
+      if(VaildDateTime ==='true'){
+        const promotionStartDate = $('#datepicker-range-start').val()
+        const promotionEndDate = $('#datepicker-range-end').val()
+
+        if(promotionStartDate ==='' || promotionEndDate===''){
+          alert("Date Promotion is not valid")
+          submitButton.removeClass("hidden");
+          loadingButton.addClass("hidden");
+          return;
+        }
+      }
+
+
         const formData = new FormData(this);
         const type = isAdd ? "POST" : "PUT";
         const url = isAdd ? "/admins/golfs/addGolf" : `/admins/golfs/editGolf/${golfId}`

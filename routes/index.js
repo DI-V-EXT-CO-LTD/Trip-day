@@ -95,25 +95,27 @@ router.get("/", async (req, res) => {
       .select("id title image_id star_rate facilityTags price slug content")
       .populate("rooms");
 
-    const pattaya = await Hotel.find({ location_category: "Pattaya" })
+    
+      const pattaya = await Hotel.find({ city: "Pattaya" })
       .select("id title image_id star_rate facilityTags price slug content")
       .populate("rooms");
 
-    const Krabi = await Hotel.find({ location_category: "Krabi" })
+    const Krabi = await Hotel.find({ city: "Krabi" })
       .select("id title image_id star_rate facilityTags price slug content")
       .populate("rooms");
 
-    const bangkok = await Hotel.find({ location_category: "Bangkok" })
+    const bangkok = await Hotel.find({ city: "Bangkok" })
       .select("id title image_id star_rate facilityTags price slug content")
       .populate("rooms");
 
-    const phuket = await Hotel.find({ location_category: "Phuket" })
+    const phuket = await Hotel.find({ city: "Phuket" })
       .select("id title image_id star_rate facilityTags price slug content")
       .populate("rooms");
 
-    const chiangmai = await Hotel.find({ location_category: "Chiang mai" })
+    const chiangmai = await Hotel.find({ city: "Chiang mai" })
       .select("id title image_id star_rate facilityTags price slug content")
       .populate("rooms");
+
 
     const earlybird = await Hotel.find({
       $where: "this.rooms.length > 0",
@@ -244,6 +246,8 @@ router.get("/hotel-details/:slug", async (req, res) => {
     // หาไอคอน
     const amenitiesIcon = hotel?.amenities?.map( list => amenitiesIconList[list])
     const highlightIcon = hotel?.highlights?.map( list => highlightsIconList[list])
+
+    console.log(highlightIcon)
 
     // ส่งข้อมูลกลับไปที่ view
     res.render("hotelDetails", {
