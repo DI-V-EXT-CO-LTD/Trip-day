@@ -247,8 +247,6 @@ router.get("/hotel-details/:slug", async (req, res) => {
     const amenitiesIcon = hotel?.amenities?.map( list => amenitiesIconList[list])
     const highlightIcon = hotel?.highlights?.map( list => highlightsIconList[list])
 
-    console.log(amenitiesIcon)
-
     // ส่งข้อมูลกลับไปที่ view
     res.render("hotelDetails", {
       user: req.user,

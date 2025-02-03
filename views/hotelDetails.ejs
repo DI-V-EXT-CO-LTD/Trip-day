@@ -231,25 +231,7 @@
 
                     </div>
                     <div class="headBottom_headerBottom_right__iOoID">
-                        <div class="headReviewNew_reviewNew___bp_z"
-                            data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_midban_cmt_exposure&quot;,&quot;data&quot;:{&quot;page&quot;:&quot;10320668147&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;masterhotelid&quot;:95001316}}">
-                            <div>
-                                <div class="reviewTop_reviewTop-container__RwoZu">
-                                    <div class="reviewTop_reviewTop-score-container__SoL7s"><em
-                                            class="reviewTop_reviewTop-score__FpKsA">4.4</em><em
-                                            class="reviewTop_reviewTop-scoreMax__CfPSG">/
-                                            <!-- -->5</em></div><span
-                                        class="reviewTop_reviewTop-container_desc__hlPSz">Very Good</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="reviewSwitch_reviewSwitch-content__6c7dF"><span
-                                        class="reviewSwitch_reviewSwitch-contentText__TX5NM">Clean and so many things
-                                        around hotel e.g. Central, restaurants (Thai, Korean, Japanese).</span>
-                                </div>
-                            </div>
-                            <div class="headReviewNew_reviewSwitch-review_numA__Qv6sO">All 589 Reviews</div>
-                        </div>
+
                         <div class="headBottom_headerBottom_right_split__o7xeq"></div>
                         <div class="headTrafficNew_headTraffic__fykSq">
                             <div class="headTrafficNew_headTraffic-title__5jh1C">
@@ -259,49 +241,25 @@
                                 </div>
                             </div>
                             <div class="trafficDetail_headTraffic-content_highlight__oODoD">
-                                <div id="traffic_0" class="trafficDetail_headTraffic-item__XpIj_"><i
-                                        class="smarticon u-icon u-icon-OL_subway_outline u-icon_OL_subway_outline trafficDetail_headTraffic-item_icon__Yfnby"></i>
-                                    <div class="trafficDetail_headTraffic-item_desc__9VF_q">Metro: Udom Suk</div>
-                                    <div class="trafficDetail_headTraffic-item_distance__Zoscp">(
-                                        <!-- -->3.1 miles
-                                        <!-- -->)
+                                <% hotel.surrounding.metro.forEach(metro => { %>
+                                 
+                                    <div id="traffic_1" class="trafficDetail_headTraffic-item__XpIj_"><i
+                                            class="smarticon u-icon u-icon-OL_subway_outline u-icon_OL_subway_outline trafficDetail_headTraffic-item_icon__Yfnby"></i>
+                                        <div class="trafficDetail_headTraffic-item_desc__9VF_q">Metro: <%= metro %></div>
                                     </div>
-                                </div>
-                                <div id="traffic_1" class="trafficDetail_headTraffic-item__XpIj_"><i
-                                        class="smarticon u-icon u-icon-OL_subway_outline u-icon_OL_subway_outline trafficDetail_headTraffic-item_icon__Yfnby"></i>
-                                    <div class="trafficDetail_headTraffic-item_desc__9VF_q">Metro: Bang Na</div>
-                                    <div class="trafficDetail_headTraffic-item_distance__Zoscp">(
-                                        <!-- -->3.5 miles
-                                        <!-- -->)
-                                    </div>
-                                </div>
-                                <div id="traffic_2" class="trafficDetail_headTraffic-item__XpIj_"><i
-                                        class="smarticon u-icon u-icon-OL_flight_outline u-icon_OL_flight_outline trafficDetail_headTraffic-item_icon__Yfnby"></i>
-                                    <div class="trafficDetail_headTraffic-item_desc__9VF_q">Airport: Suvarnabhumi
-                                        Airport</div>
-                                    <div class="trafficDetail_headTraffic-item_distance__Zoscp">(
-                                        <!-- -->17.0 miles
-                                        <!-- -->)
-                                    </div>
-                                </div>
+                                <% }) %>
+                                <% hotel.surrounding.airport.forEach(airport => { %>
                                 <div id="traffic_3" class="trafficDetail_headTraffic-item__XpIj_"><i
                                         class="smarticon u-icon u-icon-OL_flight_outline u-icon_OL_flight_outline trafficDetail_headTraffic-item_icon__Yfnby"></i>
-                                    <div class="trafficDetail_headTraffic-item_desc__9VF_q">Airport: Don Mueang
-                                        International Airport</div>
-                                    <div class="trafficDetail_headTraffic-item_distance__Zoscp">(
-                                        <!-- -->25.7 miles
-                                        <!-- -->)
-                                    </div>
+                                    <div class="trafficDetail_headTraffic-item_desc__9VF_q">Airport: <%= airport %></div>
                                 </div>
+                                <% }) %>
+                                <% hotel.surrounding.airport.forEach(train => { %>
                                 <div id="traffic_4" class="trafficDetail_headTraffic-item__XpIj_"><i
                                         class="smarticon u-icon u-icon-OL_train_outline u-icon_OL_train_outline trafficDetail_headTraffic-item_icon__Yfnby"></i>
-                                    <div class="trafficDetail_headTraffic-item_desc__9VF_q">Train: Rajadamri Sky Train
-                                        Station</div>
-                                    <div class="trafficDetail_headTraffic-item_distance__Zoscp">(
-                                        <!-- -->12.8 miles
-                                        <!-- -->)
-                                    </div>
+                                    <div class="trafficDetail_headTraffic-item_desc__9VF_q">Train: <%= train %> </div>
                                 </div>
+                                <% }) %>
                             </div>
                             <div class="headTrafficNew_headTraffic-showMoreA__SdOyh">View on Map</div>
                         </div>
