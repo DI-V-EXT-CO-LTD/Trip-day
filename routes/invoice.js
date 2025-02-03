@@ -226,8 +226,8 @@ router.get("/doc/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    // ดึงข้อมูล bookings จากฐานข้อมูล
-    const bookings = await Invoice.find({ userId: id });
+    const invoice = await Invoice.find({ userId: id });
+  
     // ฟังก์ชันจัดรูปแบบวันที่
     const formatDate = (date) => {
       const d = new Date(date);
@@ -237,20 +237,20 @@ router.get("/doc/:id", async (req, res) => {
       return `${day}/${month}/${year}`;
     };
 
-    // เพิ่มฟิลด์วันที่ที่จัดรูปแบบแล้วลงในแต่ละ booking
-    const formattedBookings = bookings.map((booking) => ({
-      ...booking.toObject(), // เพื่อให้สามารถเข้าถึงได้เหมือน object
-      formattedDate: formatDate(booking.createAt),
+    const formattedinvoice = invoice[0].items.map((item) => ({
+      ...item,
+      period_start: formatDate(item.period_start),
+      period_end: formatDate(item.period_start),
     }));
 
-    console.log(formattedBookings);
+    invoice[0].createAt =  formatDate(invoice[0].createAt)
+  
+    console.log(formattedinvoice)
 
-    // ส่งข้อมูลไปยัง view
-    res.render("invoice", { bookings: formattedBookings, user: req.user });
+    res.render("invoice", { invoices: formattedinvoice,invoiceHeader:invoice[0], user: req.user });
   } catch (error) {
     console.error("error:", error);
     res.status(500).send("error: " + error.message);
   }
 });
-
 module.exports = router;

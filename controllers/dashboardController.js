@@ -446,54 +446,64 @@ exports.updateSelectedItems = async (req, res) => {
 
     const selectedCartItems = cart.items.filter((item) => item.isSelected);
 
+
     if (selectedCartItems.length > 0) {
       await Invoice.deleteMany({ userId: userId, status: "Pending" });
-
-      // Prepare invoice details
-      let totalAmount = 0;
       const today = new Date();
-      const itemDetails = selectedCartItems.map((item) => {
+      const itemDetails = await Promise.all(selectedCartItems.map(async (item) => {
+        let totalItemPrice = 0;
+      
         if (item.ProductType === "Hotel") {
-          totalAmount += item.price * item.quantity;
+          totalItemPrice = item.price * item.quantity;
+          const roomName = await Hotel.find({"rooms._id": item.room.toString()}, {"rooms.$": 1, _id: 0, title: 1});
           return {
             room: item.room,
             hotel: item.hotel,
+            roomName: roomName[0].rooms[0].title,
+            hotelName: roomName[0].title,
             quantity: item.quantity,
             price: item.price,
-            total: item.price * item.quantity,
+            total: totalItemPrice,
             period_start: item.period_start,
             period_end: item.period_end,
+            type: item.ProductType,
           };
         } else if (item.ProductType === "Golf") {
-          totalAmount += item.price * item.quantity;
+          totalItemPrice = item.price * item.quantity;
           const nextYear = new Date();
           nextYear.setFullYear(today.getFullYear() + 1);
+          const golfName = await Golf.find({_id: item.golf.toString()}, {_id: 0, title: 1});
           return {
-            room: item.room,
-            hotel: item.hotel,
+            golf: item.golf,
+            golfName:golfName[0].title,
             quantity: item.quantity,
             price: item.price,
-            total: item.price * item.quantity,
+            total: totalItemPrice,
             period_start: today,
             period_end: nextYear,
+            type: item.ProductType,
           };
         } else {
-          totalAmount += item.price * item.quantity * item.nights;
-
+          totalItemPrice = item.price * item.quantity * item.nights;
+          const packageName = await Package.find({_id: item.package.toString()}, {_id: 0, title: 1});
           return {
-            room: item.room,
-            hotel: item.hotel,
+            package: item.package,
+            packageName:packageName[0].title,
             quantity: item.quantity,
             price: item.price,
-            total: item.price * item.quantity * item.nights,
+            total: totalItemPrice,
             period_start: item.check_in,
             period_end: item.check_out,
             nights: item.nights,
             detail: `Adults: ${item.adults} Golf: ${item.play_golf} `,
+            type: item.ProductType,
           };
         }
-      });
-
+      }));
+      
+      // Calculate the total amount after all item details have been resolved
+      const totalAmount = itemDetails.reduce((sum, item) => sum + item.total, 0);
+      
       // Create a single invoice
       const invoice = new Invoice({
         userId: userId,
@@ -502,7 +512,8 @@ exports.updateSelectedItems = async (req, res) => {
         items: itemDetails, // Store all selected items in a single invoice
         status: "Pending",
       });
-
+      
+      // Save the invoice to the database
       await invoice.save();
 
       res.json({
@@ -524,6 +535,7 @@ exports.updateSelectedItems = async (req, res) => {
     });
   }
 };
+
 
 exports.getSelectedItems = async (req, res) => {
   console.log("dshboardController.getSelectedItems");
