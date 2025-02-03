@@ -210,48 +210,25 @@
                                     <div class="headFacilityNew_headFacility-titleA__Am0XA">Amenities</div>
                                 </div>
                                 <div class="headFacilityNew_headFacility-list__TKhjv">
-                                    <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_0"><i
-                                            class="smarticon u-icon u-icon-ic_new_fa_park u-icon_ic_new_fa_park headFacilityNew_headFacility-list_icon__z3srE"></i><span><span
-                                                class="headFacilityNew_headFacility-list_descTit__A3XKB">Private
-                                                Parking</span><span
-                                                class="headFacilityNew_showTitle__399MU">Free</span></span></div>
-                                    <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_1"><i
-                                            class="smarticon u-icon u-icon-ic_new_fa_24h_service u-icon_ic_new_fa_24h_service headFacilityNew_headFacility-list_icon__z3srE"></i><span><span
-                                                class="headFacilityNew_headFacility-list_desc__SqAR2">24-hour front
-                                                desk</span></span></div>
-                                    <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_2"><i
-                                            class="smarticon u-icon u-icon-ic_new_fa_baggage u-icon_ic_new_fa_baggage headFacilityNew_headFacility-list_icon__z3srE"></i><span><span
-                                                class="headFacilityNew_headFacility-list_descTit__A3XKB">Luggage
-                                                storage</span><span
-                                                class="headFacilityNew_showTitle__399MU">Free</span></span></div>
-                                    <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_3"><i
-                                            class="smarticon u-icon u-icon-ic_new_fa_breakfast u-icon_ic_new_fa_breakfast headFacilityNew_headFacility-list_icon__z3srE"></i><span><span
-                                                class="headFacilityNew_headFacility-list_desc__SqAR2">Restaurant</span></span>
+                                <% hotel.amenities.forEach((amenities,index)=> { %>
+                                        <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_0">
+                                            <i class="<%= hotel.amenitiesIcon[index] %>"></i><span><span
+                                                    class="headFacilityNew_headFacility-list_descTit__A3XKB">
+                                                    <%= amenities %>
+                                                </span>
+                                                <% if (hotel.isFreeAmenities.includes(amenities)) { %>
+                                                    <span class="headFacilityNew_showTitle__399MU">Free</span>
+                                                    <% } %>
+                                            </span>
+                                        </div>
+                        
+                                        <% }) %>
                                     </div>
-                                    <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_4"><i
-                                            class="smarticon u-icon u-icon-ic_new_fa_wifi u-icon_ic_new_fa_wifi headFacilityNew_headFacility-list_icon__z3srE"></i><span><span
-                                                class="headFacilityNew_headFacility-list_descTit__A3XKB">Wi-Fi in public
-                                                areas</span><span
-                                                class="headFacilityNew_showTitle__399MU">Free</span></span></div>
-                                    <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_5"><i
-                                            class="smarticon u-icon u-icon-order_printer u-icon_order_printer headFacilityNew_headFacility-list_icon__z3srE"></i><span><span
-                                                class="headFacilityNew_headFacility-list_desc__SqAR2">Fax/copying
-                                                service</span></span></div>
-                                </div>
-                                <div class="headFacilityNew_headFacility-showmoreA___dZbn">All Amenities</div>
+                        
+                                        <div class="headFacilityNew_headFacility-showmoreA___dZbn">All Amenities</div>
                             </div>
                         </div>
-                        <div data-exposure="{&quot;ubtKey&quot;:&quot;hotel_trip_detail_module_load&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316,&quot;page&quot;:&quot;10320668147&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;module&quot;:&quot;hotel_description&quot;,&quot;position&quot;:1}}"
-                            data-send="devTrace">
-                            <div class="hotelDescription_hotelDescription-titleA__dOwX2">Property Description</div>
-                            <div class="hotelDescription_hotelDescription-address__2tlm2"><span
-                                    class="hotelDescription_hotelDescription-address_detail_highLight__mbLc0 hotelDescription_hotelDescription-address_detail_line1__4EL_K">With
-                                    a stay at Hotel Z Zpaze in Bangkok (Bang Na), you'll be a 2-minute drive from
-                                    Central Bangna and 5 minutes from Suan Luang Rama IX Park. This hotel is 8.5 mi
-                                    (13.7 km) from Rajamangala National Stadium and 11.6 mi (18.7 km) from Lumphini
-                                    Park.</span></div>
-                            <div class="hotelDescription_hotelDescription-address_showmoreA__Yt1A4">Show More</div>
-                        </div>
+
                     </div>
                     <div class="headBottom_headerBottom_right__iOoID">
                         <div class="headReviewNew_reviewNew___bp_z"
