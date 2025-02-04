@@ -28,6 +28,9 @@ router.get("/golfs/editGolf/:id", adminsController.getUpdateGolf);
 router.get("/packages", adminsController.getPackages);
 router.get("/packages/addPackage", adminsController.getUpdatePackage);
 router.get("/packages/editPackage/:id", adminsController.getUpdatePackage);
+router.get("/invoices", adminsController.getInvoices);
+router.get("/purchases", adminsController.getPurchases);
+
 
 // Add
 router.post(
@@ -108,4 +111,12 @@ router.put(
   adminsController.putEditPackage
 );
 
+router.put(
+  "/invoices/invoiceStatus",
+  adminsController.putInvoiceStatus
+);
+router.put(
+  "/purchases/purchaseStatus",
+  adminsController.putPurchaseStatus
+);
 module.exports = router;

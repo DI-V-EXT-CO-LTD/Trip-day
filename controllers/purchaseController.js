@@ -1,6 +1,5 @@
 const Purchase = require("../models/purchase");
 const Cart = require("../models/cart");
-const Hotel = require("../models/hotel");
 const Message = require("../models/message");
 const User = require("../models/user");
 const mailgunConfig = require("../config/mailgun");
@@ -15,54 +14,21 @@ const crypto = require("crypto");
 const TelegramBot = require("node-telegram-bot-api");
 const bot = new TelegramBot(process.env.TELGRAM_BOT_TOKEN, { polling: false });
 const { PaymentMethod } = require("../models/paymentMethod");
+const Invoice = require("../models/inv");
 
 console.log("Payment providers initialized");
 
 exports.createPaymentIntent = async (req, res) => {
-  console.log("Request received for creating PaymentIntent:", req.body);
+  console.log("createPaymentIntent", req.body);
   try {
     const { paymentMethod } = req.body;
     const userId = req.user._id;
 
     const user = await User.findById(userId);
 
-    const cart = await Cart.findOne({ user: userId })
-      .populate({
-        path: "items.room",
-        model: "Room",
-      })
-      .populate({
-        path: "items.hotel",
-        model: "Hotel",
-      });
-
-    if (!cart || cart.items.length === 0) {
-      console.log("Cart is empty");
-      return res.status(400).json({ error: "Cart is empty" });
-    }
-
-    const selectedItems = cart.items.filter((item) => item.isSelected);
-
-    if (selectedItems.length === 0) {
-      console.log("No items selected for purchase");
-      return res.status(400).json({ error: "No items selected for purchase" });
-    }
-
-    const amount = selectedItems.reduce((total, item) => {
-      if (item.ProductType === "Package") {
-        return total + item.price * item.quantity * item.nights;
-      }
-      return total + item.price * item.quantity;
-    }, 0);
-
-    const currency = "thb";
-
-    console.log("Creating payment intent with:", {
-      amount,
-      currency,
-      paymentMethod,
-    });
-
+     const invoice = await Invoice.findOne({ userId }).sort({ createAt: -1 });
+    const amount = invoice.total
+    const currency = 'thb'
     switch (paymentMethod) {
       case "stripe":
         try {
@@ -650,201 +616,36 @@ async function handleFailedPayment(paymentData, provider) {
     );
   }
 }
-
+// status === "completed" ? "Paid" : "Pending"
 async function createPurchaseFromPayment(paymentData, provider, status, user) {
-  console.log("Creating purchase from payment:", paymentData);
+  console.log("createPurchaseFromPayment", paymentData);
   try {
     if (!user) {
       throw new Error("User is required for creating purchase");
     }
 
     const userId = user._id;
-    let cart = null;
-    cart = await Cart.findOne({ user: userId })
-      .populate({
-        path: "items.hotel",
-        model: "Hotel",
-      })
-      .populate({
-        path: "items.golf",
-        model: "Golf",
-      })
-      .populate({
-        path: "items.package",
-        model: "Package",
-      });
+    
+    const invoice = await Invoice.findOne({ userId }).sort({ createAt: -1 });
 
-    if (!cart || cart.items.length === 0) {
-      throw new Error("Cart is empty");
-    }
+   const purchase=  new Purchase({
+    purchaseId: createNewId(),
+    user:invoice.userId,
+    items:invoice.items,
+    total:invoice.total,
+    invoice:invoice._id,
+    status: status === "completed" ? "Paid" : "Pending",
+    paymentMethod:provider,
+    })
 
-    const selectedItems = cart.items.filter((item) => item.isSelected);
-
-    if (selectedItems.length === 0) {
-      throw new Error("No items selected for purchase");
-    }
-
-    const purchases = [];
-
-    for (const item of selectedItems) {
-      const hotelName =
-        item.hotel && item.hotel.title ? item.hotel.title : "Unknown Hotel";
-
-      // ค้นหา room ใน hotel.rooms
-      let roomName = "Unknown Room";
-      if (item.hotel && item.room) {
-        const room = item.hotel.rooms.find(
-          (r) => r._id.toString() === item.room.toString()
-        );
-        roomName = room ? room.title : roomName;
-      }
-
-      let checkInDate, checkOutDate;
-
-      if (item.check_in) {
-        checkInDate = new Date(item.check_in);
-      } else if (item.hotel && item.hotel.validFrom) {
-        checkInDate = new Date(item.hotel.validFrom);
-      } else {
-        checkInDate = new Date();
-      }
-
-      if (item.check_out) {
-        checkOutDate = new Date(item.check_out);
-      } else if (item.hotel && item.hotel.ExpiredAt) {
-        checkOutDate = new Date(item.hotel.ExpiredAt);
-      } else {
-        const nights = item.quantity || 1;
-        checkOutDate = new Date(checkInDate);
-        checkOutDate.setDate(checkOutDate.getDate() + nights);
-      }
-
-      if (isNaN(checkInDate.getTime())) {
-        checkInDate = new Date();
-      }
-      if (isNaN(checkOutDate.getTime())) {
-        checkOutDate = new Date(checkInDate);
-        checkOutDate.setDate(checkOutDate.getDate() + (item.quantity || 1));
-      }
-
-      const purchaseId = createNewId();
-
-      let paymentDetails = null;
-      if (provider === "crypto" || provider === "bank_transfer") {
-        const FindPaymentMethod = await PaymentMethod.findOne({
-          type: provider,
-        });
-        if (FindPaymentMethod) {
-          paymentDetails = FindPaymentMethod._id;
-        }
-      }
-
-      const amount =
-        item.ProductType === "Package"
-          ? item.price * item.quantity * item.nights
-          : item.price * item.quantity;
-
-      let purchase = null;
-
-      if (item.ProductType == "Hotel") {
-        purchase = new Purchase({
-          purchaseId: purchaseId,
-          user: userId,
-          hotelName: hotelName,
-          roomName: roomName, 
-          checkIn: checkInDate,
-          checkOut: checkOutDate,
-          nights: item.quantity || 1,
-          amount: amount,
-          paymentMethod: provider,
-          paymentDetails: paymentDetails,
-          status: status === "completed" ? "Paid" : "Pending",
-          processDescription:
-            status === "completed" ? "Payment successful" : "Payment Pending",
-          purchaseLog: [
-            {
-              message:
-                status === "completed"
-                  ? "Purchase completed"
-                  : "Purchase Pending",
-            },
-          ],
-        });
-      } else if (item.ProductType == "Golf") {
-        purchase = new Purchase({
-          purchaseId: purchaseId,
-          user: userId,
-          hotelName: item.golf.title,
-          roomName: item.golf.title,
-          checkIn: new Date(),
-          checkOut: new Date(),
-          nights: item.quantity || 1,
-          amount: amount,
-          paymentMethod: provider,
-          paymentDetails: paymentDetails,
-          status: status === "completed" ? "Paid" : "Pending",
-          processDescription:
-            status === "completed" ? "Payment successful" : "Payment Pending",
-          purchaseLog: [
-            {
-              message:
-                status === "completed"
-                  ? "Purchase completed"
-                  : "Purchase Pending",
-            },
-          ],
-        });
-      } else {
-        purchase = new Purchase({
-          purchaseId: purchaseId,
-          user: userId,
-          hotelName: item.package.title,
-          roomName: item.package.title,
-          checkIn: checkInDate,
-          checkOut: checkOutDate,
-          nights: item.quantity || 1,
-          amount: amount,
-          paymentMethod: provider,
-          paymentDetails: paymentDetails,
-          status: status === "completed" ? "Paid" : "Pending",
-          processDescription:
-            status === "completed" ? "Payment successful" : "Payment Pending",
-          purchaseLog: [
-            {
-              message:
-                status === "completed"
-                  ? "Purchase completed"
-                  : "Purchase Pending",
-            },
-          ],
-        });
-      }
-
-      switch (provider) {
-        case "stripe":
-          purchase.stripePaymentIntentId = paymentData.id;
-          break;
-        case "paypal":
-          purchase.paypalPaymentId = paymentData.id;
-          break;
-        case "omise":
-          purchase.omiseChargeId = paymentData.id;
-          break;
-        case "paymentwall":
-          purchase.paymentwallChargeId = paymentData.id;
-          break;
-      }
-
-      await purchase.save();
-      purchases.push(purchase);
-    }
-
+    await purchase.save()
+  
     await Cart.findOneAndUpdate(
       { user: userId },
       { $pull: { items: { isSelected: true } } }
     );
 
-    return purchases;
+    return purchase;
   } catch (error) {
     console.error("Error in createPurchaseFromPayment:", error);
     throw error;

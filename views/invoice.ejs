@@ -77,18 +77,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="border-b bg-gray-50 font-bold">
-                  <td class="px-4 py-2">Hotel</td>
-                  <td class="px-4 py-2"></td>
-                </tr>
-                <% invoices.forEach(invoice => { %>
-                  <% if (invoice.type ==="Hotel") { %>
-                    <tr class="border-b">
-                      <td class="px-4 py-2"><%= invoice.hotelName %></td>
-                      <td class="px-4 py-2">Amount : <%= invoice.quantity %>     Time : <%= invoice.period_start %> ~ <%= invoice.period_end %></td>
-                    </tr>
-                  <% } %>
-                <% }) %>
+                <% if (invoices.some(invoice => invoice.type === "Hotel")) { %>
+                  <tr class="border-b bg-gray-50 font-bold">
+                    <td class="px-4 py-2">Hotel</td>
+                    <td class="px-4 py-2"></td>
+                  </tr>
+                  <% invoices.forEach(invoice => { %>
+                    <% if (invoice.type === "Hotel") { %>
+                      <tr class="border-b">
+                        <td class="px-4 py-2"><%= invoice.hotelName %></td>
+                        <td class="px-4 py-2">Amount : <%= invoice.quantity %> Time : <%= invoice.period_start %> ~ <%= invoice.period_end %></td>
+                      </tr>
+                    <% } %>
+                  <% }) %>
+                <% } %>
+                <% if (invoices.some(invoice => invoice.type === "Golf")) { %>
                 <tr class="border-b bg-gray-50 font-bold">
                   <td class="px-4 py-2">Golf</td>
                   <td class="px-4 py-2"></td>
@@ -101,6 +104,8 @@
                     </tr>
                   <% } %>
                 <% }) %>
+                <% } %>
+                <% if (invoices.some(invoice => invoice.type === "Package")) { %>
                 <tr class="border-b bg-gray-50 font-bold">
                   <td class="px-4 py-2">Package</td>
                   <td class="px-4 py-2"></td>
@@ -113,6 +118,7 @@
                     </tr>
                   <% } %>
                 <% }) %>
+                <% } %>
                 <tr>
                   <td class="px-4 py-2 font-bold text-lg">Total</td>
                   <td class="px-4 py-2 font-bold text-right text-xl">

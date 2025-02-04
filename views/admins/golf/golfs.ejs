@@ -23,7 +23,7 @@
           <td class="px-6 py-4">
             <div class="text-left overflow-hidden max-h-20"><%= golf.address %></div>
           </td>
-          <td class="px-6 py-4"><%= golf.price %></td>
+          <td class="px-6 py-4"><%= Intl.NumberFormat().format(golf.price) %></td>
           <td class="px-6 py-4 <%= golf.status && 'text-green-500' %>">
             <%= golf.status ? 'active' : 'disable' %>
           </td>

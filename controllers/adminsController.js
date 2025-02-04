@@ -1,16 +1,17 @@
 const User = require("../models/user");
-const Voucher = require("../models/voucher");
-const Invoice = require("../models/inv");
 const Hotel = require("../models/hotel");
+const Golf = require("../models/golf");
+const Package = require("../models/package");
+const Invoice = require("../models/inv");
+const Voucher = require("../models/voucher");
 const Booking = require("../models/Booking");
 const Wallet = require("../models/wallet");
 const Reservation = require("../models/reservation");
 const Purchase = require("../models/purchase");
 const { ObjectId } = require("mongodb");
-const Golf = require("../models/golf");
-const Package = require("../models/package");
 const mongoose = require("mongoose");
-const typeOfBeds = require("../constant/bedType")
+const typeOfBeds = require("../constant/bedType");
+
 
 // For layout
 exports.getIndex = async (req, res) => {
@@ -377,6 +378,85 @@ exports.getUpdatePackage = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+exports.getInvoices = async (req, res)=>{
+  try {
+    const limit = 10; // จำนวนรายการต่อหน้า
+    const currentPage = parseInt(req.query.page) || 1; // หน้าปัจจุบัน (ค่าเริ่มต้น = 1)
+    const searchQuery = req.query.search || "";
+    const skip = (currentPage - 1) * limit; // จำนวนรายการที่ต้องข้าม
+
+    const filter = searchQuery
+      ? {
+          $or: [
+            { invoiceNumber: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ title
+            { userId: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+          ],
+        }
+      : {};
+
+    // ดึงข้อมูลโรงแรมและคำนวณจำนวนหน้าทั้งหมด
+    const [invoices, totalDocument] = await Promise.all([
+      Invoice.find(filter).skip(skip).limit(limit),
+      Invoice.countDocuments(filter),
+    ]);
+
+    const totalPages = Math.ceil(totalDocument / limit); // คำนวณจำนวนหน้าทั้งห
+    // dashboard.ejs로 데이터 전달
+    res.render("admins/invoice/invoices", {
+      admin: req.user,
+      invoices,
+      currentPage,
+      totalDocument,
+      totalPages,
+      title: "Invoice",
+      searchQuery,
+    });
+  } catch (error) {
+    console.error("Error in getInvoice:", error);
+    res.render("../views/errors/500", { layout: false });
+  }
+}
+
+exports.getPurchases = async (req, res)=>{
+  try {
+    const limit = 10; // จำนวนรายการต่อหน้า
+    const currentPage = parseInt(req.query.page) || 1; // หน้าปัจจุบัน (ค่าเริ่มต้น = 1)
+    const searchQuery = req.query.search || "";
+    const skip = (currentPage - 1) * limit; // จำนวนรายการที่ต้องข้าม
+
+    const filter = searchQuery
+      ? {
+          $or: [
+            { purchaseId: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ title
+            { paymentMethod: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+            { invoice: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+          ],
+        }
+      : {};
+
+    // ดึงข้อมูลโรงแรมและคำนวณจำนวนหน้าทั้งหมด
+    const [purchases, totalDocument] = await Promise.all([
+      Purchase.find(filter).skip(skip).limit(limit),
+      Purchase.countDocuments(filter),
+    ]);
+
+    const totalPages = Math.ceil(totalDocument / limit); // คำนวณจำนวนหน้าทั้งห
+    // dashboard.ejs로 데이터 전달
+    res.render("admins/purchase/purchases", {
+      admin: req.user,
+      purchases,
+      currentPage,
+      totalDocument,
+      totalPages,
+      title: "Purchase",
+      searchQuery,
+    });
+  } catch (error) {
+    console.error("Error in getPurchases:", error);
+    res.render("../views/errors/500", { layout: false });
+  }
+}
 
 // post
 
@@ -881,7 +961,6 @@ try {
 }
 };
 
-
 exports.putEditRoom = async (req, res) => {
   try {
     console.log("form putEditRoom");
@@ -1136,3 +1215,40 @@ exports.putEditPackage = async (req, res) => {
   }
 };
 
+exports.putInvoiceStatus = async (req, res)=>{
+  try {
+    console.log("form putInvoiceStatus");
+
+    const { id, status } = req.body;
+    if (!id || !status) {
+        return res.status(400).json({ error: "ข้อมูลไม่ครบถ้วน" });
+    }
+
+    await Invoice.findByIdAndUpdate(id, { status });
+    
+
+    res.status(200).json({ message: "อัปเดตสถานะสำเร็จ" });
+  } catch (error) {
+    console.error("Error updating invoice status:", error);
+    res.status(500).json({ error: "เกิดข้อผิดพลาดในเซิร์ฟเวอร์" });
+  }
+}
+
+exports.putPurchaseStatus = async (req, res)=>{
+  try {
+    console.log("form putPurchaseStatus");
+
+    const { id, status } = req.body;
+    if (!id || !status) {
+        return res.status(400).json({ error: "ข้อมูลไม่ครบถ้วน" });
+    }
+
+    await Purchase.findByIdAndUpdate(id, { status });
+    
+
+    res.status(200).json({ message: "อัปเดตสถานะสำเร็จ" });
+  } catch (error) {
+    console.error("Error updating Purchase status:", error);
+    res.status(500).json({ error: "เกิดข้อผิดพลาดในเซิร์ฟเวอร์" });
+  }
+}

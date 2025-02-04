@@ -1,0 +1,101 @@
+<section class="grid gap-5">
+    <%- include('../../partials/ui/headerTable.ejs',{  searchHandler: `search('invoices', ${currentPage})`, searchQuery: searchQuery }) %>
+  
+    <div class="relative max-h-[33rem] overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-gray-700 text-center uppercase bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left">Number</th>
+            <th scope="col" class="px-6 py-3">User ID</th>
+            <th scope="col" class="px-6 py-3">create At</th>
+            <th scope="col" class="px-6 py-3">total</th>
+            <th scope="col" class="px-6 py-3"></th>
+            <th scope="col" class="px-6 py-3">
+              <span class="sr-only">Edit</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+            <% invoices.forEach(invoice => { %>
+                <tr class="bg-white border-b">
+                  <th scope="row" class="px-6 py-4 text-left font-medium text-gray-900">
+                    <%= invoice.invoiceNumber %>
+                  </th>
+                  <td class="px-6 py-4">
+                    <div class="text-left overflow-hidden max-h-20"><%= invoice.userId %></div>
+                  </td>
+                  <td class="px-6 py-4"><%= invoice.createAt.toLocaleString('us-US', { timeZone: 'UTC' }) %></td>
+                  <td class="px-6 py-4"><%= Intl.NumberFormat().format(invoice.total) %></td>
+                  <td class="px-6 py-4">
+                    <select class="underline_select block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                      data-id="<%= invoice._id %>" data-number="<%= invoice.invoiceNumber %>">
+                      <option value="Pending" <%= invoice.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                      <option value="Published" <%= invoice.status === 'Published' ? 'selected' : '' %>>Published</option>
+                    </select>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="flex justify-end items-center gap-2">
+                      <a target="_blank" href="/invoice/docAdmin/<%= invoice._id %>" class="font-medium text-blue-600 hover:underline">
+                        View
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              <% }) %>
+              
+        </tbody>
+      </table>
+    </div>
+    
+    <%- include('../../partials/ui/TablePagination.ejs', { 
+      currentPage: currentPage, 
+      totalPages: totalPages, 
+      totalDocument: totalDocument,
+      route: 'invoices' 
+    }) %>
+  </section>
+
+  <script>
+    $(document).ready(function () {
+        $(".underline_select").on("change", function () {
+            const newStatus = $(this).val();
+            const invoiceId = $(this).data("id"); // ดึงค่า invoice._id จาก data-id
+            const invoiceNumber = $(this).data("number"); // ดึงค่า invoice._id จาก data-id
+            const oldStatus = $(this).find("option[selected]").val() ; // ค่าเดิมก่อนเปลี่ยน
+    
+            // ยืนยันก่อนเปลี่ยนสถานะ
+            Swal.fire({
+                title: "Are you sure?",
+                text: `${invoiceNumber}   from "${oldStatus}" to "${newStatus}" ?`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "sure",
+                cancelButtonText: "cancel"
+            }).then((result) => {
+                if (!result.isConfirmed) {
+                    $(this).val(oldStatus);
+                } else {
+                    $.ajax({
+                        url: "admins/invoices/invoiceStatus", 
+                        type: "PUT",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            id: invoiceId,
+                            status: newStatus
+                        }),
+                        success: function (response) {
+                            Swal.fire("สำเร็จ!", "สถานะถูกอัปเดตแล้ว", "success");
+                        },
+                        error: function (error) {
+                            Swal.fire("เกิดข้อผิดพลาด!", "อัปเดตสถานะไม่สำเร็จ", "error");
+                            $(this).val(oldStatus); 
+                        }
+                    });
+                }
+            });
+        });
+    });
+    </script>
+  

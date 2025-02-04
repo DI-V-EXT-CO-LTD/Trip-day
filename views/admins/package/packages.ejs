@@ -24,7 +24,7 @@
             <td class="px-6 py-4">
               <div class="text-left overflow-hidden max-h-20"><%= package.address %></div>
             </td>
-            <td class="px-6 py-4"><%= package.room_price %></td>
+            <td class="px-6 py-4"><%= Intl.NumberFormat().format(package.room_price) %></td>
             <td class="px-6 py-4"><%= package.golf_price %></td>
             <td class="px-6 py-4 <%= package.status && 'text-green-500' %>">
               <%= package.status ? 'active' : 'disable' %>

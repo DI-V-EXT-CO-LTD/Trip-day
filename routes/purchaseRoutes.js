@@ -9,7 +9,7 @@ console.log('Purchase routes loaded');
 
 // Create a payment intent
 router.post('/create-payment-intent', (req, res, next) => {
-  console.log('POST /create-payment-intent called');
+  console.log('purchaseRoutes POST /create-payment-intent called');
   next();
 }, purchaseController.createPaymentIntent);
 

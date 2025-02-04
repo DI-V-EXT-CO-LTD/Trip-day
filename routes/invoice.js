@@ -5,6 +5,7 @@ const Booking = require("../models/Booking");
 const Invoice = require("../models/inv");
 const Voucher = require("../models/voucher");
 const { getConnection, query } = require("../config/db");
+const User = require("../models/user");
 
 function getRandomSplitAmount(min, max) {
   return Math.floor((Math.random() * (max - min + 1)) / 10000) * 10000 + min;
@@ -226,7 +227,9 @@ router.get("/doc/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const invoice = await Invoice.find({ userId: id });
+    const invoice = await Invoice.findOne({ userId: id }).sort({ createAt: -1 });
+
+    console.log(invoice)
   
     // ฟังก์ชันจัดรูปแบบวันที่
     const formatDate = (date) => {
@@ -237,17 +240,51 @@ router.get("/doc/:id", async (req, res) => {
       return `${day}/${month}/${year}`;
     };
 
-    const formattedinvoice = invoice[0].items.map((item) => ({
+    const formattedinvoice = invoice.items.map((item) => ({
       ...item,
       period_start: formatDate(item.period_start),
-      period_end: formatDate(item.period_start),
+      period_end: formatDate(item.period_end),
     }));
 
-    invoice[0].createAt =  formatDate(invoice[0].createAt)
+    invoice.createAt =  formatDate(invoice.createAt)
+  
+
+    res.render("invoice", { invoices: formattedinvoice,invoiceHeader:invoice, user: req.user });
+  } catch (error) {
+    console.error("error:", error);
+    res.status(500).send("error: " + error.message);
+  }
+});
+
+// Route handler ใน server (Express)
+router.get("/docAdmin/:id", async (req, res) => {
+  console.log("invoiceRouter");
+  try {
+    const { id } = req.params;
+
+    const invoice = await Invoice.findOne({ _id: id });
+    const user = await User.findOne({_id:invoice.userId})
+  
+    // ฟังก์ชันจัดรูปแบบวันที่
+    const formatDate = (date) => {
+      const d = new Date(date);
+      const day = ("0" + d.getDate()).slice(-2);
+      const month = ("0" + (d.getMonth() + 1)).slice(-2);
+      const year = d.getFullYear();
+      return `${day}/${month}/${year}`;
+    };
+
+    const formattedinvoice = invoice.items.map((item) => ({
+      ...item,
+      period_start: formatDate(item.period_start),
+      period_end: formatDate(item.period_end),
+    }));
+
+    invoice.createAt =  formatDate(invoice.createAt)
   
     console.log(formattedinvoice)
 
-    res.render("invoice", { invoices: formattedinvoice,invoiceHeader:invoice[0], user: req.user });
+    res.render("invoice", { invoices: formattedinvoice,invoiceHeader:invoice, user });
   } catch (error) {
     console.error("error:", error);
     res.status(500).send("error: " + error.message);

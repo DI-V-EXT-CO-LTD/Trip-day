@@ -159,6 +159,8 @@ exports.getDashboard = async (req, res) => {
       );
     }
 
+    console.log(purchases)
+
     res.render("dashboard", {
       user,
       wallet,
@@ -448,7 +450,6 @@ exports.updateSelectedItems = async (req, res) => {
 
 
     if (selectedCartItems.length > 0) {
-      await Invoice.deleteMany({ userId: userId, status: "Pending" });
       const today = new Date();
       const itemDetails = await Promise.all(selectedCartItems.map(async (item) => {
         let totalItemPrice = 0;

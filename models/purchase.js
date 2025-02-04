@@ -11,36 +11,9 @@ const purchaseSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  hotelName: {
-    type: String,
-    required: true
-  },
-  roomName: {
-    type: String,
-    required: true
-  },
-  checkIn: {
-    type: Date,
-    required: false
-  },  
-  checkOut: {
-    type: Date,
-    required: false
-  },
-  nights: {
-    type: Number,
-    required: true
-  },
-  amount: {
-    type: Number,
-    required: true
-  },
-  paymentMethod: {
-    type: String,
-    required: true
-  },
-  paymentDetails: {type: mongoose.Schema.Types.ObjectId, ref: 'paymentMethod'},
-
+  items: [],
+  total:Number,
+  paymentMethod:String,
   status: {
     type: String,
     enum: ['Pending','Paid', 'Preparing', 'Confirmed', 'Processing', 'Publishing', 'publishing', 'Complete', 'Cancelled', 'Failed', 'Refunded', 'Expired'],
@@ -63,8 +36,8 @@ const purchaseSchema = new mongoose.Schema({
     default: 'Processing'
   },
   invoice: {
-    type: String,
-    
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'invoices'
   },
   purchaseLog: [{
     timestamp: {
