@@ -71,6 +71,25 @@ const flightOffers = async (props) => {
   }
 };
 
+const flightOffersPrice = async (props) => {
+  const {
+    flightOffers
+  } = props;
+try {
+  return await amadeus.shopping.flightOffersPrice.post({
+    "data": {
+        "type": "flight-offers-pricing",
+        "flightOffers":flightOffers
+    }
+});
+} catch (error) {
+  console.log(error)
+}
+  
+
+ 
+};
+
 const iatacodeAirline_to_name = async (airlineCodes) => {
   try {
     return await amadeus.referenceData.airlines.get({
@@ -102,6 +121,7 @@ const iatacodeAirport_to_name = async (airportCodes) => {
 
 module.exports = {
   flightOffers,
+  flightOffersPrice,
   iatacodeAirline_to_name,
   iatacodeAirport_to_name,
   

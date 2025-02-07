@@ -1,6 +1,7 @@
 
 const {
   flightOffers,
+  flightOffersPrice,
   iatacodeAirline_to_name,
   iatacodeAirport_to_name,
 } = require("../service/amadeus");
@@ -153,15 +154,13 @@ exports.getOffer = async (req, res) => {
   }
 };
 
-// const response = await amadeus.shopping.flightOffers.pricing.post(
-//   {
-//     data: {
-//       type: "flight-offers-pricing",
-//       flightOffers: [flightOffersResponse.data[0]],
-//     },
-//   },
-//   { include: "credit-card-fees,detailed-fare-rules" }
-// );
+exports.getOfferPrice=async(req,res)=>{
+    try {
+      console.log(await flightOffersPrice(req.body.flight))
+    } catch (error) {
+      
+    }
+}
 
 function calculateDifftime(startTime, endTime) {
   const start = new Date(startTime);
