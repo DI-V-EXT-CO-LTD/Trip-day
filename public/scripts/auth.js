@@ -59,15 +59,14 @@ document
   .getElementById("authForm")
   .addEventListener("submit", function (event) {
     event.preventDefault();
-
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const confirm = document.getElementById("confirmPWD").value;
     const authButton = document.getElementById("authButton");
-    const errorConfirmPWD = document.getElementById("error_confirm_pwd")
+    
 
     if (authButton.textContent === "register") {
-
+      const confirm = document.getElementById("confirmPWD").value;
+      const errorConfirmPWD = document.getElementById("error_confirm_pwd")
       if (password !== confirm) {
         errorConfirmPWD.style.display = 'block'
         document.getElementById("password").style.borderColor = "red";
@@ -101,6 +100,7 @@ document.getElementById("confirmPWD").style.borderColor = "red";
           alert("An error occurred. Please try again.");
         });
     } else {
+
       // 로그인 처리 (기존 코드)
       fetch("/auth/login", {
         method: "POST",
