@@ -100,7 +100,7 @@
                   <% } %>
                 </div>
               </div>
-
+        </div>
                 <div class="headBottom_headerBottom___8GSb">
                     <div class="headBottom_headerBottom_left__GxeQe">
                         <div class="headHighLight_highlight__VSP_p"
@@ -121,41 +121,15 @@
                                 </div>
                                 <% }) %>
                             </div>
-                            <div class="headHighLight_highlight-content_showmoreA__6Xl6w"
-                                data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_highlights_showmore_exposure&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316,&quot;locale&quot;:&quot;en-US&quot;,&quot;page&quot;:&quot;10320668147&quot;}}">
-                                Show More</div>
+                            
                         </div>
-                        <div class="headFacilityNew_headFacility__v5__A"
-                            data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_fs_facliity_exposure&quot;,&quot;data&quot;:{&quot;locale&quot;:&quot;en-US&quot;,&quot;page&quot;:&quot;10320668147&quot;,&quot;masterhotelid&quot;:95001316,&quot;fac_num&quot;:6,&quot;freefac_num&quot;:3,&quot;sceneid&quot;:&quot;[2]&quot;}}">
-                            <div class="headFacilityNew_headFacility-container__cirz2">
-                                <div class="headFacilityNew_headFacility-container_top__XGd20">
-                                    <div class="headFacilityNew_headFacility-titleA__Am0XA">Amenities</div>
-                                </div>
-                                <div class="headFacilityNew_headFacility-list__TKhjv">
-                                <% hotel.amenities.forEach((amenities,index)=> { %>
-                                        <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_0">
-                                            <i class="<%= hotel.amenitiesIcon[index] %>"></i><span><span
-                                                    class="headFacilityNew_headFacility-list_descTit__A3XKB">
-                                                    <%= amenities %>
-                                                </span>
-                                                <% if (hotel.isFreeAmenities.includes(amenities)) { %>
-                                                    <span class="headFacilityNew_showTitle__399MU">Free</span>
-                                                    <% } %>
-                                            </span>
-                                        </div>
-                        
-                                        <% }) %>
-                                    </div>
-                        
-                                        <div class="headFacilityNew_headFacility-showmoreA___dZbn">All Amenities</div>
-                            </div>
-                        </div>
+                     
 
                     </div>
                     <div class="headBottom_headerBottom_right__iOoID">
 
-                        <div class="headBottom_headerBottom_right_split__o7xeq"></div>
-                        <div class="headTrafficNew_headTraffic__fykSq">
+                      
+                        <div class="headTrafficNew_headTraffic__fykSq" style="margin-top: 20px;">
                             <div class="headTrafficNew_headTraffic-title__5jh1C">
                                 <div class="headTrafficNew_headTraffic-title_box__9guE7">
                                     <div class="headTrafficNew_headTraffic-title_icon__Vr6JJ"></div>
@@ -183,13 +157,35 @@
                                 </div>
                                 <% }) %>
                             </div>
-                            <div class="headTrafficNew_headTraffic-showMoreA__SdOyh">View on Map</div>
+                           
                         </div>
                     </div>
                 </div>
-   
-
-            <div>
+                <div class="headFacilityNew_headFacility__v5__A"
+                data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_fs_facliity_exposure&quot;,&quot;data&quot;:{&quot;locale&quot;:&quot;en-US&quot;,&quot;page&quot;:&quot;10320668147&quot;,&quot;masterhotelid&quot;:95001316,&quot;fac_num&quot;:6,&quot;freefac_num&quot;:3,&quot;sceneid&quot;:&quot;[2]&quot;}}">
+                <div class="headFacilityNew_headFacility-container__cirz2">
+                    <div class="headFacilityNew_headFacility-container_top__XGd20">
+                        <div class="headFacilityNew_headFacility-titleA__Am0XA">Amenities</div>
+                    </div>
+                    <div class="headFacilityNew_headFacility-list__TKhjv">
+                    <% hotel.amenities.forEach((amenities,index)=> { %>
+                            <div class="headFacilityNew_headFacility-list_item__0V_zM" id="fac_0">
+                                <i class="<%= hotel.amenitiesIcon[index] %>"></i><span><span
+                                        class="headFacilityNew_headFacility-list_descTit__A3XKB">
+                                        <%= amenities %>
+                                    </span>
+                                    <% if (hotel.isFreeAmenities.includes(amenities)) { %>
+                                        <span class="headFacilityNew_showTitle__399MU">Free</span>
+                                        <% } %>
+                                </span>
+                            </div>
+            
+                            <% }) %>
+                        </div>
+            
+                          
+                </div>
+                </div>
                 <div dir="ltr" id="Select Room">
 
                     <% if (hotel.rooms && hotel.rooms.length> 0) { %>
@@ -372,10 +368,10 @@
                                                                         <div class="section date-selection-section"
                                                                             style="margin-bottom:50px;">
                                                                             <div class="date-inputs">
-                                                                                <label for="nights">Quantity:</label>
+                                                                                <label for="nights" style="color: #000;">Quantity:</label>
                                                                                 <input type="number" id="nights"
                                                                                     name="nights" min="1" value="1"
-                                                                                    class="Quantity-input">
+                                                                                    class="Quantity-input" style="border:1px solid #cccccc;width:100px;text-align:right;">
 
                                                                             </div>
 
@@ -435,15 +431,18 @@
 
 
                                         </div>
+                                     
 
                                     </div>
+                              
 
                                 </div>
-                                <% }); %>
-                                    <% } else { %>
-                                        <p>No rooms available for this hotel.</p>
-                                        <% } %>
+                         
                             </div>
+                                <% }); %>
+                                <% } else { %>
+                                    <p>No rooms available for this hotel.</p>
+                                    <% } %>
 
                             <div>
 
@@ -1167,7 +1166,7 @@
                                     data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_dtl_hotel_description&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:&quot;95001316&quot;,&quot;locale&quot;:&quot;en-US&quot;,&quot;pageId&quot;:&quot;10320668147&quot;,&quot;isNewDetail&quot;:true}}">
                                     <h2 class="hotelOverview_hotelOverview-titleA__RDtkJ">Property Description</h2>
                                     <% if (hotel?.Services_textediter) { %>
-                                        <%- hotel.Policies_textediter %>
+                                        <%- hotel.Description_textediter %>
                                        <% } else { %>
                                     <div>
                                         <ul class="hotelOverview_hotelOverview-labelA__9yzYe"
@@ -1199,23 +1198,7 @@
                                     </div>
                                     <%}%>
                                 </div>
-                                <div class="hotelNotify_importantInfoA__ar_GH"
-                                    data-exposure="{&quot;ubtKey&quot;:&quot;ibu_htl_detailpage_booknotice_show&quot;,&quot;data&quot;:{&quot;masterhotelid&quot;:95001316}}">
-                                    <h2 class="hotelNotify_importantInfo_titleA__g0Wlv"
-                                        data-test-id="importantInfo-title">Fine Print</h2>
-                                    <div>
-                                        <div class="hotelNotify_importantInfo-item__IaMJA">
-                                            <div class="hotelNotify_importantInfo-item_titleA__1hwYZ">City Notes</div>
-                                            <div>
-                                                <div>
-                                                    <div class="hotelNotify_innerTitle__wx4u3"></div>
-                                                    <div class="hotelNotify_innerText__c2BIG">It is prohibited to bring
-                                                        durian to the hotel.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                      
                             </div>
 
 
@@ -1225,8 +1208,8 @@
                                     class="tripui-online-btn tripui-online-btn-small tripui-online-btn-solid-primary    "
                                     type="button" dir="ltr">
                                     <div class="tripui-online-btn-content"><span
-                                            class="tripui-online-btn-content-children ">View More Properties in
-                                            Bangkok</span></div>
+                                            class="tripui-online-btn-content-children "><a href="/search/" style="color: #fff;">View More Properties in
+                                            Bangkok</a></span></div>
                                 </button>
                             </div>
                             <div class="faqs_faqs__49Puv"
@@ -1372,62 +1355,14 @@
                             </div>
 
 
-                            <div class="h5-usp-complex ">
-                                <div class="h5-usp-complex-text ">
-                                    <div class="h5-usp-complex-text__icon"
-                                        style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png&quot;);">
-                                    </div>
-                                    <div class="h5-usp-complex-text__textContainer"><span
-                                            class="h5-usp-complex-text__textContainer__title" data-redirect="false">We
-                                            Price Match</span>
-                                        <div class="h5-usp-complex-text__textContainer__subtitle">We aim to offer you
-                                            the best possible price. If you find a cheaper option elsewhere, we'll
-                                            refund the difference.</div>
-                                    </div>
-                                </div>
-                                <div class="h5-usp-complex-text ">
-                                    <div class="h5-usp-complex-text__icon"
-                                        style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5x120008whk01q784B.png&quot;);">
-                                    </div>
-                                    <div class="h5-usp-complex-text__textContainer"><span
-                                            class="h5-usp-complex-text__textContainer__title" data-redirect="false">Get
-                                            Rewarded for Traveling</span>
-                                        <div class="h5-usp-complex-text__textContainer__subtitle">Get money-saving
-                                            rewards with every booking, with no limits to how you spend<span
-                                                class="learn-more">Learn More</span></div>
-                                    </div>
-                                </div>
-                                <div class="h5-usp-complex-text ">
-                                    <div class="h5-usp-complex-text__icon"
-                                        style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png&quot;);">
-                                    </div>
-                                    <div class="h5-usp-complex-text__textContainer"><span
-                                            class="h5-usp-complex-text__textContainer__title"
-                                            data-redirect="false">Support in approx. 30s</span>
-                                        <div class="h5-usp-complex-text__textContainer__subtitle">We usually answer
-                                            phone calls within 30 seconds<span class="learn-more">Learn More</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+              
 
                 </div>
 
+  
+           
 
 
-                <div class="body-container">
-
-
-                    <!-- Date Selection Section -->
-
-
-
-
-                    <!-- Property Policies Section -->
-
-
-
-                </div>
 
 
             </div>

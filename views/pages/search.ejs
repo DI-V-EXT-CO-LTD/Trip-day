@@ -12,13 +12,15 @@
                     <li class="list-item list-destination">
                     <div class="search-container-v8">
                         <div class="search-box" id="search-box-destination">
-                            <label class="minNoise-destinationLabel" for="hotels-destinationV8">Destinationddd</label>
-                           
-                                <input type="text" id="hotels-destinationV8" class="show-hightlight" value="<%= query %>" autocomplete="off" placeholder="City, airport, region, landmark or property name">
-                             
-                          
-                            <label for="hotels-destinationV8" class="searchBarVersionBLabel minNoise-searchBarVersionBLabel" id="versionBValueLabel" style=""></label>
-                            <div class="searchClearIconContainer" onclick="clearInput()" >
+                            <label class="minNoise-destinationLabel" for="hotels-destinationV8">Destination</label>
+                            <div class="inputBarWidth">
+                                <input type="text" id="hotels-destinationV8" class="show-hightlight" value="Bangkok" autocomplete="off" placeholder="City, airport, region, landmark or property name">
+                                <div id="input-length-cacl">
+                                    Bangkok
+                                </div>
+                            </div>
+                            <label for="hotels-destinationV8" class="searchBarVersionBLabel minNoise-searchBarVersionBLabel" id="versionBValueLabel"></label>
+                            <div class="searchClearIconContainer">
                                 <i type="ic_bestir_clear" class="u-icon u-icon-ic_bestir_clear searchClearIcon"></i>
                             </div>
                         </div>
@@ -42,71 +44,13 @@
                     </li>
                     <li class="list-item list-roomguest">
                     <div class="room-guest-container-v8">
-                            <div class="relative-content">
-                                <!-- Dropdown Header -->
-                                <div class="dropdown-header">
-                                  <div>
-                                    <label class="label-text">Rooms and Guests</label>
-                                    <div class="room-guests-info">
-                                      <!-- Room Input -->
-                                      <div class="input-group">
-                                        <input id="roomInput" name="roomValue" type="number" min="1" value="1"  readonly />
-                                        <span>room,</span>
-                                      </div>
-                              
-                                      <!-- Adults Input -->
-                                      <div class="input-group">
-                                        <input id="adultsInput" name="adultsValue" type="number" min="1" value="2" readonly />
-                                        <span>adults,</span>
-                                      </div>
-                              
-                                      <!-- Children Input -->
-                                      <div class="input-group">
-                                        <input id="childInput" name="childValue" type="number" min="0" value="0" readonly />
-                                        <span>children</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <i type="ic_new_dropdown_line" class="u-icon u-icon-ic_new_dropdown_line icon-arrow"></i>
-                                </div>
-                              
-                                <!-- Dropdown Menu -->
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-menu-content">                            <!-- Rooms Row -->
-                                        <div class="row">
-                                          <div class="title">Rooms</div>
-                                          <div class="button-group">
-                                            <button id="decreaseRoom" type="button">-</button>
-                                            <span id="roomValue">1</span>
-                                            <button id="increaseRoom" type="button">+</button>
-                                          </div>
-                                        </div>
-                                    
-                                        <!-- Adults Row -->
-                                        <div class="row">
-                                          <div class="title">Adults <small>(18+ yrs)</small></div>
-                                          <div class="button-group">
-                                            <button id="decreaseAdults" type="button">-</button>
-                                            <span id="adultsValue">2</span>
-                                            <button id="increaseAdults" type="button">+</button>
-                                          </div>
-                                        </div>
-                                    
-                                        <!-- Children Row -->
-                                        <div class="row">
-                                          <div class="title">Child <small>(0-17 yrs)</small></div>
-                                          <div class="button-group">
-                                            <button id="decreaseChild" type="button">-</button>
-                                            <span id="childValue">0</span>
-                                            <button id="increaseChild" type="button">+</button>
-                                          </div>
-                                        </div></div>
-      
-                                </div>
-                              </div>
-                              
-                           
-                       
+                        <div class="room-guest">
+                            <label class="minNoise-roomGuestLabel">Rooms and Guests</label>
+                            <p id="preload-room-guest" class="info show-hightlight">
+                                <span>1 room</span>, <span>2 adults</span>, <span>0 children</span>
+                            </p>
+                            <i type="ic_new_dropdown_line" class="u-icon u-icon-ic_new_dropdown_line icon-arrow"></i>
+                        </div>
                     </div>
                     </li>
                     <li class="list-item list-btn"><button class="tripui-online-btn tripui-online-btn-large tripui-online-btn-wireframe-primary search-button-new" type="button" dir="ltr">
@@ -144,25 +88,21 @@
                             </div>
                         </div>
                         <div class="price-range-wrapper">
-                            <div class="price-range-bar">
-                                <div class="price-range-track" style="left:-1px;width:233px">
-                                </div>
-                                <div class="price-range-floor" style="left:-1px">
-                                    <div class="price-tooltip" style="visibility:hidden;left:-10px">
-                                        $0
-                                        <div class="price-tooltip-arrow bottom" style="left:13px">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="price-range-ceil" style="left:232px">
-                                    <div class="price-tooltip" style="visibility:hidden;left:-10px">
-                                        $150+
-                                        <div class="price-tooltip-arrow bottom" style="left:13px">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="price-range-click">
-                                </div>
+                            <div class="relative">
+                                <input type="range" 
+                                       class="absolute bottom-0 left-0 translate-y-[-100%] px-4 py-1.5 text-base rounded-xl transition-[left] duration-300 ease-out will-change-[left,transform]" 
+                                       min="0" 
+                                       max="10000" 
+                                       value="2500" 
+                                       step="1">
+                                <input type="range" 
+                                       class="absolute top-0 right-0 translate-y-[100%] px-4 py-1.5 text-base rounded-xl transition-[right] duration-300 ease-out will-change-[right,transform] " 
+                                       min="0" 
+                                       max="10000" 
+                                       value="8500" 
+                                       step="1">
+                                       <div class="minvalue"></div>
+                                       <div class="maxvalue"></div>
                             </div>
                             <div class="price-quick-choose">
                                 <button onclick="fetchHotelrangePrice(0,800)" class="price-quick-choose-btn">
@@ -353,6 +293,7 @@
                 </div>
 
             </div>
+            <!--
             <div class="m-recentHotels-v8 listpage">
                 <h3 class="m-recentHotels_title">Recently Viewed</h3>
                 <div class="m-recentHotels_box">
@@ -392,10 +333,8 @@
                     </div>
                 </div>
             </div>
+            
             <div class="h5-usp-verticalList ">
-                <div class="h5-usp-verticalList-head">
-                    <span>Why book with Trip.com?</span>
-                </div>
                 <div class="h5-usp-verticalList-text ">
                     <div class="h5-usp-verticalList-text__icon" style="background-image: url(&quot;https://ak-d.tripcdn.com/images/0AS5f120008whj34f2145.png&quot;);">
                     </div>
@@ -533,13 +472,14 @@
             </div>
             <div class="trust-pilot-wrapper undefined">
             </div>
+            -->
         </div>
         <ul class="long-list long-list-v8 version-b ">
             <li class="long-list-head"><article>
             <div class="filterWrapper">
                 <div class="current-filter-wrap-v8">
                     <div class="filter-title version-b ">
-                        <h3 class="">3694 properties found</h3>
+                        <h3 class="">Search results</h3>
                         <div class="selector-container">
                             
                             <div class="tab-sort-v8" id="list_hotel_sort">
@@ -574,7 +514,7 @@
                 
             <div class="with-decorator-wrap-v8">
                 
-                <div class="border -border">
+                <div class="">
                     
                     <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
                         <div class="hotel-info">
@@ -688,7 +628,7 @@
             <% }) %>
                             
             <% } else { %>
-                <p>No Results found</p>
+                <p>No Results hotel</p>
                 
                 <% } %>
 
@@ -700,7 +640,7 @@
                 
             <div class="with-decorator-wrap-v8">
                 
-                <div class="border -border">
+                <div class="">
                     
                     <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
                         <div class="hotel-info">
@@ -814,7 +754,7 @@
             <% }) %>
                             
             <% } else { %>
-                <p>No Results found</p>
+                <p>No Results golf</p>
                 
                 <% } %> 
 
@@ -825,7 +765,7 @@
                     
                 <div class="with-decorator-wrap-v8">
                     
-                    <div class="border -border">
+                    <div class="">
                         
                         <div class="compressmeta-hotel-wrap-v8" id="996749" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_hotellist_exposure&quot;,&quot;data&quot;:{}}" data-send="devTrace">
                             <div class="hotel-info">
@@ -939,7 +879,7 @@
                 <% }) %>
                                 
                 <% } else { %>
-                    <p>No Results found</p>
+                    <p>No Results hotel&golf</p>
                     
                     <% } %>
 
@@ -960,209 +900,11 @@
     </article></section>
 </div>
 
-<section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(/images/banner2_5.png);">
-    <div class="breadcrumbs-custom-inner">
-        <div class="container breadcrumbs-custom-container">
-            <div class="breadcrumbs-custom-main">
-                <h6 class="breadcrumbs-custom-subtitle title-decorated">Search Results</h6>
-                <h1 class="breadcrumbs-custom-title">Search Results</h1>
-            </div>
-            <ul class="breadcrumbs-custom-path">
-                <li><a href="/">Home</a></li>
-                <li class="active">Search Results</li>
-            </ul>
-        </div>
-    </div>
-</section>
 
-<div class="container mt-5">
-    <h2 class="mb-4">Results for "<%= query %>"</h2>
 
-    <!-- 탭 네비게이션 -->
-    <ul class="nav nav-tabs mb-4" id="searchTabs" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="hotels-tab" data-toggle="tab" href="#hotels" role="tab">Hotels (<%= hotels.length %>)</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="golf-tab" data-toggle="tab" href="#golf" role="tab">Golf Courses (<%= golfCourses.length %>)</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="packages-tab" data-toggle="tab" href="#packages" role="tab">Packages (<%= packages.length %>)</a>
-        </li>
-    </ul>
 
-    <!-- 탭 컨텐츠 -->
-    <div class="tab-content" id="searchTabContent">
-        <!-- 호텔 탭 -->
-        <div class="tab-pane fade show active"  role="tabpanel">
-            <% if (hotels && hotels.length > 0) { %>
-                <div class="row">
-                    <% hotels.forEach((hotel, index) => { %>
-                        <div class="col-md-6 wow-outer">
-                            <article class="post-modern wow slideInLeft">
-                                <div class="c-hot-hotel-item-v2__image-con mgb30">
-                                    <div class="c-hot-hotel-item-v2__image-clipping">
-                                        <a href="<% if (typeof user !== 'undefined' && user) { %>/hotel-details/<%= hotel.slug %><% } else { %>#<% } %>"
-                                           <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required');"<% } %>>
-                                            <div class="c-hot-hotel-item-v2__image aimg">
-                                                <img src="/uploads/<%= hotel.banner_image_id || '/images/default-hotel.jpg' %>" alt="<%= hotel.title %>">
-                                                <div class="c-hot-hotel-item-v2__name">
-                                                    <div class="hotel-title"><%= hotel.title %></div>
-                                                    <div class="view-hotel">VIEW HOTEL ></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    <% }) %>
-                </div>
-            <% } else { %>
-                <p>No hotels found matching your search.</p>
-            <% } %>
-        </div>
 
-        <!-- 골프 탭 -->
-        <div class="tab-pane fade"  role="tabpanel">
-            <% if (golfCourses && golfCourses.length > 0) { %>
-                <div class="row">
-                    <% golfCourses.forEach((golf, index) => { %>
-                        <div class="col-md-6 wow-outer">
-                            <article class="post-modern wow slideInLeft">
-                                <div class="c-hot-hotel-item-v2__image-con mgb30">
-                                    <div class="c-hot-hotel-item-v2__image-clipping">
-                                        <a href="<% if (typeof user !== 'undefined' && user) { %>/golf-details/<%= golf.slug %><% } else { %>#<% } %>"
-                                           <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required');"<% } %>>
-                                            <div class="c-hot-hotel-item-v2__image aimg">
-                                                <img src="/uploads/<%= golf.banner_image_id || '/images/default-golf.jpg' %>" alt="<%= golf.title %>">
-                                                <div class="c-hot-hotel-item-v2__name">
-                                                    <div class="hotel-title"><%= golf.title %></div>
-                                                    <div class="view-hotel">VIEW GOLF COURSE ></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    <% }) %>
-                </div>
-            <% } else { %>
-                <p>No golf courses found matching your search.</p>
-            <% } %>
-        </div>
-
-        <!-- 패키지 탭 -->
-        <div class="tab-pane fade" id="packages" role="tabpanel">
-            <% if (packages && packages.length > 0) { %>
-                <div class="row">
-                    <% packages.forEach((package, index) => { %>
-                        <div class="col-md-6 wow-outer">
-                            <article class="post-modern wow slideInLeft">
-                                <div class="c-hot-hotel-item-v2__image-con mgb30">
-                                    <div class="c-hot-hotel-item-v2__image-clipping">
-                                        <a href="<% if (typeof user !== 'undefined' && user) { %>/package-details/<%= package.slug %><% } else { %>#<% } %>"
-                                           <% if (!(typeof user !== 'undefined' && user)) { %>onclick="alert('Login is required');"<% } %>>
-                                            <div class="c-hot-hotel-item-v2__image aimg">
-                                                <img src="/uploads/<%= package.banner_image_id || '/images/default-package.jpg' %>" alt="<%= package.title %>">
-                                                <div class="c-hot-hotel-item-v2__name">
-                                                    <div class="hotel-title"><%= package.title %></div>
-                                                    <div class="view-hotel">VIEW PACKAGE ></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    <% }) %>
-                </div>
-            <% } else { %>
-                <p>No packages found matching your search.</p>
-            <% } %>
-        </div>
-    </div>
-
-    <!-- 페이지네이션 -->
-    <nav aria-label="Page navigation" class="mt-4">
-        <ul class="pagination justify-content-center">
-            <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
-                <a class="page-link" href="?s=<%= encodeURIComponent(query) %>&page=1">&laquo;</a>
-            </li>
-            
-            <% for(let i = 1; i <= totalPages; i++) { %>
-                <li class="page-item <%= currentPage === i ? 'active' : '' %>">
-                    <a class="page-link" href="?s=<%= encodeURIComponent(query) %>&page=<%= i %>"><%= i %></a>
-                </li>
-            <% } %>
-            
-            <li class="page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
-                <a class="page-link" href="?s=<%= encodeURIComponent(query) %>&page=<%= totalPages %>">&raquo;</a>
-            </li>
-        </ul>
-    </nav>
-</div>
-
-<style>
-    .c-hot-hotel-item-v2__image-con { margin-bottom: 30px; }
-    .c-hot-hotel-item-v2__image-clipping {
-        width: 100%;
-        height: 327px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-    .c-hot-hotel-item-v2__image {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-    .c-hot-hotel-item-v2__image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: all 0.2s linear;
-    }
-    .c-hot-hotel-item-v2__name {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9));
-        color: white;
-        padding: 20px;
-        text-align: left;
-    }
-    .hotel-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-    .view-hotel {
-        font-size: 14px;
-        color: #007daa;
-    }
-    .aimg:hover img {
-        transform: scale(1.1);
-    }
-    .nav-tabs .nav-link {
-        color: #495057;
-        border: 1px solid transparent;
-        border-top-left-radius: .25rem;
-        border-top-right-radius: .25rem;
-        padding: .5rem 1rem;
-        margin-right: 5px;
-    }
-    .nav-tabs .nav-link.active {
-        color: #007bff;
-        background-color: #fff;
-        border-color: #dee2e6 #dee2e6 #fff;
-    }
-</style>
 
 <%- include('../partials/footer') %>
-<script src="/js/filterSearch.js"></script>
 </body>
 </html>
