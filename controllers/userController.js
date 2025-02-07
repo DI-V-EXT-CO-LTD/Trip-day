@@ -10,6 +10,7 @@ const EmailLog = require("../models/emailLog");
 const TelegramBot = require("node-telegram-bot-api");
 const bot = new TelegramBot(process.env.TELGRAM_BOT_TOKEN, { polling: false });
 const TeleSignSDK = require("telesignenterprisesdk");
+const passport = require('passport');
 
 // Telesign API 설정
 const customerId =
@@ -24,8 +25,8 @@ exports.renderRegisterPage = (req, res) => {
 };
 
 // 회원가입 처리
-exports.registerUser = async (req, res) => {
-  const { email } = req.body;
+exports.registerUser = async (req, res, next) => {
+  const { email,password } = req.body;
 
   try {
     // 중복 체크
@@ -45,15 +46,32 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ message: "Email is already registered." });
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+    if(!hashedPassword) throw new Error("can't hashed password")
+
     const newUser = new User({
       email: email,
+      password:hashedPassword,
+      role:"Customer",
+      kycStatus:"KYC Not Complete",
+      isVerified:false,
+      isEmailVerified: false,
+      isApproved:false,
       verificationToken: crypto.randomBytes(32).toString("hex"),
-      status: "Pending",
       registrationIP: req.ip,
       registrationCountry: country,
       registrationBrowser: browserName,
       registrationDevice: deviceType,
-      isEmailVerified: false,
+      registrationDate:new Date(),
+      userLevel:0,
+      userPaybackRate:0,
+      userReceiveEmail:email,
+      businessNumber:'',
+      companyName:'',
+      contactNumber:'',
+      contactPerson:'',
+      companyAddress:'',
+      status: "Pending",
     });
 
     await newUser.save();
@@ -72,28 +90,50 @@ exports.registerUser = async (req, res) => {
 
     await newWallet.save();
 
-    const data = {
-      from: "TRIP-DAY EMAIL VERIFICATION <contact@trip-day.com>",
-      to: email,
-      subject: "Email Verification",
-      text: `Click the link to verify your email: http://trip-day.com/auth/verify-email?token=${newUser.verificationToken}`,
-    };
+    // const data = {
+    //   from: "TRIP-DAY EMAIL VERIFICATION <contact@trip-day.com>",
+    //   to: email,
+    //   subject: "Email Verification",
+    //   text: `Click the link to verify your email: http://trip-day.com/auth/verify-email?token=${newUser.verificationToken}`,
+    // };
 
-    mailgun.messages().send(data, (error, body) => {
-      if (error) {
-        return res.status(500).send("Error sending verification email");
-      }
-      res
-        .status(201)
-        .json({ message: "Verification email sent. Please check your inbox." });
-    });
-    const newEmailLog = new EmailLog({
-      from: data.from,
-      to: data.to,
-      subject: data.subject,
-      text: data.text,
-    });
-    await newEmailLog.save();
+    // mailgun.messages().send(data, (error, body) => {
+    //   if (error) {
+    //     return res.status(500).send("Error sending verification email");
+    //   }
+    //   res
+    //     .status(201)
+    //     .json({ message: "Verification email sent. Please check your inbox." });
+    // });
+    // const newEmailLog = new EmailLog({
+    //   from: data.from,
+    //   to: data.to,
+    //   subject: data.subject,
+    //   text: data.text,
+    // });
+    // await newEmailLog.save();
+
+    // passport.authenticate('local', (err, user, info) => {
+    //   //console.log('Passport authenticate result:', { err, user, info });
+    //   if (err) {
+    //     console.error('Authentication error:', err);
+    //     return next(err);
+    //   }
+    //   if (!user) {
+    //     console.log('Authentication failed:', info.message);
+    //     return res.status(401).json({ error: info.message });
+    //   }
+    //   req.logIn(user, (err) => {
+    //     if (err) {
+    //       console.error('Login error:', err);
+    //       return next(err);
+    //     }
+    //     bot.sendMessage(process.env.TELGRAM_CHAT_ID, `${email}님이 로그인 하셨습니다. \nIP:${req.ip} \n국가:${country} \n브라우저:${browserName} \n디바이스:${deviceType}`);
+    //     return res.json({ success: true, message: 'Login successful' });
+    //   });
+    // })(req, res, next);
+    res.status(200).json({success:true})
+    
   } catch (error) {
     console.error("Error in registerUser:", error);
     res.status(500).send("Server error");

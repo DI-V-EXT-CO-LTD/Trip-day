@@ -282,36 +282,34 @@
                 <%= messages.error %>
               </div>
               <% } %>
-                <form id="authForm" action="/auth/register" method="post">
-                  <div class="form_wrapper">
-                    <div class="ibu_title top_title">Sign in / Register</div>
-                    <div class="ibu_desc top_content">Manage your bookings with ease and enjoy member-only benefits
-                    </div>
-                    <div class="input_wrapper">
-                      <div class="input-module__ibu_input_item__EQTLR   ">
-                        <p class="input-module__label__3QCyf input-module__common_label__Ygu4-" style="display: none;">
-                          Email</p>
-                        <div>
-                          <input type="email" id="email" name="email" placeholder="Email Address" required
-                            class="input-module__r_input__-Yspv" style="margin-bottom:10px;width:92%;">
 
+              <form id="authForm" action="/auth/register" method="post">
+                                <div class="form_wrapper">
+                                    <div class="ibu_title top_title">Sign in / Register</div>
+                                    <div class="ibu_desc top_content">Manage your bookings with ease and enjoy member-only benefits</div>
+                                    <div class="input_wrapper">
+                                        <div class="input-module__ibu_input_item__EQTLR   ">
+                                            <p class="input-module__label__3QCyf input-module__common_label__Ygu4-" style="display: none;">Email</p>
+                                            <div >
+                                                <input type="email" id="email" name="email" placeholder="Email Address" required class="input-module__r_input__-Yspv">
+                                          
+                                            
+                                                <input type="password" id="password" name="password" placeholder="Password" style="display:none;" required class="input-module__r_input__-Yspv">
+                                                <input type="password" id="confirmPWD" name="confirmPWD" placeholder="confirm your password" style="display:none;"  class="input-module__r_input__-Yspv">
+                                                <div id="error_confirm_pwd" style="color: red; display:none;">Confirm Password is not matches</div>
+                                                <div class="input-module__right_btn__-GXAu"></div>
+                                            </div>
+                                        </div>
+                                    </div>ßß
+                                    <div class="ibu-account-slider">
+                                        <div id="ibu-online-account-sliderPubHeader"></div>
+                                    </div><button  type="submit" id="authButton" class="tripui-online-btn tripui-online-btn-large tripui-online-btn-solid-primary tripui-online-btn-solid-primary-disabled tripui-online-btn-block  ibu-login-btn ibu-button-submit-class ibu-login-btn-primary ibu-v3-submit_btn " >
+                                        <div class="tripui-online-btn-content" ><span class="tripui-online-btn-content-children "><span class="ibu-button-link-text" id="authButton">Continue</span></span></div>
+                                        
+                                      </button>
+                                </div>
+                            </form>
 
-                          <input type="password" id="password" name="password" placeholder="Password"
-                            style="display:none;width:92%;" required class="input-module__r_input__-Yspv" >
-                          <div class="input-module__right_btn__-GXAu"></div>
-                        </div>
-                      </div>
-                    </div>ßß
-                    <div class="ibu-account-slider">
-                      <div id="ibu-online-account-sliderPubHeader"></div>
-                    </div><button type="submit" id="authButton"
-                      class="tripui-online-btn tripui-online-btn-large tripui-online-btn-solid-primary tripui-online-btn-solid-primary-disabled tripui-online-btn-block  ibu-login-btn ibu-button-submit-class ibu-login-btn-primary ibu-v3-submit_btn ">
-                      <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children "><span
-                            class="ibu-button-link-text" id="authButton">Continue</span></span></div>
-
-                    </button>
-                  </div>
-                </form>
                 <div class="form_wrapper ibu-simple-slider">
                   <div id="ibu-online-account-simple-sliderPubHeader"></div>
                 </div>

@@ -710,8 +710,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="content-<%= index  %>" class="hidden bg-gray-100 shadow-sm p-2">
-                                                <div class="grid gap-4 md:grid-cols-3">
+                                            <div id="content-<%= index  %>" class="overflow-hidden bg-gray-100 shadow-sm p-0 transition-all duration-800 ease-in-out" style="max-height: 0;">
+                                                <div class="grid gap-4 p-2 md:grid-cols-3">
                                                     <% flight.travelerPricings.forEach(traveler => { %>
                                                         <div
                                                         class=" p-6 bg-white rounded-lg shadow-sm ">
@@ -738,15 +738,19 @@
                                                                 currency: 'THB' , 
                                                                 maximumFractionDigits: 0
                                                               }).format(traveler.price.base).replace('฿', '฿ ') %></p>
-                                                        <a href="#"
-                                                            class="w-full inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                                                            BOOK
-                                                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                                fill="none" viewBox="0 0 14 10">
-                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                                    d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                                            </svg>
-                                                        </a>
+                                                                                                                <form method="post" action="/flight/flight-offers-price">
+                                                                                                                    <input type="text" name="flight" value="<%= flight %>" class="hidden">
+                                                                                                                    <button type="submit" 
+                                                                                                                        class="w-full inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                                                                                                        BOOK
+                                                                                                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                                                                                            fill="none" viewBox="0 0 14 10">
+                                                                                                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                                                                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                                                                                                        </svg>
+                                                                                                                    </button>
+                                                                                                                </form>
+                                                                                                                
                                                     </div>
                                                      
                                                     <% }) %>
@@ -773,10 +777,16 @@
         <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 
         <script>
-           $(document).ready(function() {
-    $(".toggle-btn").on("click", function() {
-        let targetId = $(this).data("toggle");
-        $("#" + targetId).toggleClass("hidden");
+            $(document).ready(function () {
+                $(".toggle-btn").on("click", function() {
+        const targetId = $(this).data("toggle");
+        const target = $("#" + targetId);
+        if (target.css("max-height") === "0px") {
+            let scrollHeight = target.prop("scrollHeight") + "px";
+            target.css("max-height", scrollHeight);
+        } else {
+            target.css("max-height", "0px");
+        }
     });
-});
+            });
         </script>
