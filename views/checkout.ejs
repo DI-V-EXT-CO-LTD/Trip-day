@@ -55,32 +55,22 @@
   <div class="modal-content">
     <h2 style="text-align: center">Select Payment Method</h2>
     <div class="payment-methods">
-      <div class="payment-option">
-        <input
-          type="radio"
-          id="bank-transfer"
-          name="payment-method"
-          value="bank_transfer"
-        />
-        <label for="bank-transfer">Bank Transfer</label>
+      <div class="payment-option" style="border: 1px solid #cccccc; padding: 10px; display: flex; align-items: center;">
+        <input type="radio" id="bank-transfer" name="payment-method" value="bank_transfer">
+        <label for="bank-transfer" style="flex:1; cursor: pointer;">
+          Bank Transfer
+        </label>
+        <img src="/images/bank.png" style="height: 30px; margin-left: auto;">
       </div>
-      <div class="payment-option">
-        <input
-          type="radio"
-          id="card-payment"
-          name="payment-method"
-          value="credit_card"
-        />
-        <label for="card-payment">Credit Card</label>
+      <div class="payment-option" style="border: 1px solid #cccccc; padding: 10px; display: flex; align-items: center;">
+        <input type="radio" id="card-payment" name="payment-method" value="credit_card" />
+          <label for="bank-transfer" style="flex:1; cursor: pointer;">Credit Card</label>
+          <img src="/images/card.png" style="height: 30px; margin-left: auto;">
       </div>
-      <div class="payment-option">
-        <input
-          type="radio"
-          id="crypto-payment"
-          name="payment-method"
-          value="crypto"
-        />
-        <label for="crypto-payment">Cryptocurrency</label>
+      <div class="payment-option" style="border: 1px solid #cccccc; padding: 10px; display: flex; align-items: center;">
+        <input type="radio" id="crypto-payment" name="payment-method" value="crypto"/>
+        <label for="bank-transfer" style="flex:1; cursor: pointer;">Cryptocurrency</label>
+        <img src="/images/coin.png" style="height: 30px; margin-left: auto;">
       </div>
     </div>
     <div class="modal-buttons">
@@ -96,32 +86,23 @@
   <div class="modal-content">
     <h2 style="text-align: center">Select Card Payment Provider</h2>
     <div class="payment-methods">
-      <div class="payment-option">
+      <div class="payment-option" style="border: 1px solid #cccccc; padding: 10px; display: flex; align-items: center;">
         <input
-          type="radio"
-          id="stripe-payment"
-          name="card-payment-method"
-          value="stripe"
-        />
+          type="radio" id="stripe-payment" name="card-payment-method" value="stripe" />
         <label for="stripe-payment">Stripe</label>
+        <img src="/images/Stripe.png" style="height: 30px; margin-left: auto;">
       </div>
-      <div class="payment-option">
+     
+      <div class="payment-option" style="border: 1px solid #cccccc; padding: 10px; display: flex; align-items: center;">
         <input
-          type="radio"
-          id="paypal-payment"
-          name="card-payment-method"
-          value="paypal"
-        />
-        <label for="paypal-payment">PayPal</label>
-      </div>
-      <div class="payment-option">
-        <input
-          type="radio"
-          id="omise-payment"
-          name="card-payment-method"
-          value="omise"
-        />
+          type="radio" id="omise-payment" name="card-payment-method" value="omise"  />
         <label for="omise-payment">Omise</label>
+        <img src="/images/Omise.png" style="height: 30px; margin-left: auto;">
+      </div>
+      <div class="payment-option" style="border: 1px solid #cccccc; padding: 10px; display: flex; align-items: center;">
+        <input type="radio" id="paypal-payment" name="card-payment-method" value="paypal" />
+        <label for="paypal-payment">paymentwall</label>
+        <img src="/images/paymentwall.png" style="height: 30px; margin-left: auto;">
       </div>
     </div>
     <div class="modal-buttons">
@@ -1014,6 +995,7 @@ function closeModal(id) {
 
   .payment-option input[type="radio"] {
     margin-right: 10px;
+    border: 1px solid #cccccc;
   }
 
   .modal-buttons {

@@ -59,7 +59,7 @@ exports.getCookiePolicy = async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: 'Error fetching bookings' });
     }
-  }
+  };
   
 exports.getLegalNotes = async (req, res) => {
     try {
@@ -67,7 +67,36 @@ exports.getLegalNotes = async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: 'Error fetching bookings' });
     }
-  }
+  };
+  exports.getcustomerservice = async (req, res) => {
+    try {
+      res.render('pages/customerservice.ejs');
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching bookings' });
+    }
+  };
+  exports.getserviceinfo = async (req, res) => {
+    try {
+      res.render('pages/serviceinfo.ejs');
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching bookings' });
+    }
+  };
+  exports.getcareers = async (req, res) => {
+    try {
+      res.render('pages/careers.ejs');
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching bookings' });
+    }
+  };
+  exports.getpersonal = async (req, res) => {
+    try {
+      res.render('pages/personal.ejs');
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching bookings' });
+    }
+  };
+  
   
 exports.getContactUs = async (req, res) => {
     try {

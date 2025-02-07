@@ -21,7 +21,7 @@ exports.searchHotels = async (req, res) => {
       exactStars,
       location,
       page = 1,
-      limit = 9,
+      limit = 200,
     } = req.query;
 
 
