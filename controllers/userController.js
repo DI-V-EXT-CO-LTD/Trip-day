@@ -55,7 +55,7 @@ exports.registerUser = async (req, res, next) => {
       role:"Customer",
       kycStatus:"KYC Not Complete",
       isVerified:false,
-      isEmailVerified: true,
+      isEmailVerified: false,
       isApproved:false,
       verificationToken: crypto.randomBytes(32).toString("hex"),
       registrationIP: req.ip,
@@ -113,26 +113,26 @@ exports.registerUser = async (req, res, next) => {
     // });
     // await newEmailLog.save();
 
-    passport.authenticate('local', (err, user, info) => {
-      //console.log('Passport authenticate result:', { err, user, info });
-      if (err) {
-        console.error('Authentication error:', err);
-        return next(err);
-      }
-      if (!user) {
-        console.log('Authentication failed:', info.message);
-        return res.status(401).json({ error: info.message });
-      }
-      req.logIn(user, (err) => {
-        if (err) {
-          console.error('Login error:', err);
-          return next(err);
-        }
-        bot.sendMessage(process.env.TELGRAM_CHAT_ID, `${email}님이 로그인 하셨습니다. \nIP:${req.ip} \n국가:${country} \n브라우저:${browserName} \n디바이스:${deviceType}`);
-        return res.json({ success: true, message: 'Login successful' });
-      });
-    })(req, res, next);
-    // res.status(200).json({success:true})
+    // passport.authenticate('local', (err, user, info) => {
+    //   //console.log('Passport authenticate result:', { err, user, info });
+    //   if (err) {
+    //     console.error('Authentication error:', err);
+    //     return next(err);
+    //   }
+    //   if (!user) {
+    //     console.log('Authentication failed:', info.message);
+    //     return res.status(401).json({ error: info.message });
+    //   }
+    //   req.logIn(user, (err) => {
+    //     if (err) {
+    //       console.error('Login error:', err);
+    //       return next(err);
+    //     }
+    //     bot.sendMessage(process.env.TELGRAM_CHAT_ID, `${email}님이 로그인 하셨습니다. \nIP:${req.ip} \n국가:${country} \n브라우저:${browserName} \n디바이스:${deviceType}`);
+    //     return res.json({ success: true, message: 'Login successful' });
+    //   });
+    // })(req, res, next);
+    res.status(200).json({success:true})
     
   } catch (error) {
     console.error("Error in registerUser:", error);

@@ -88,7 +88,7 @@ document.getElementById("confirmPWD").style.borderColor = "red";
         .then((data) => {
           if (data.success) {
             alert(
-              "Registration successful. Please check your email for verification."
+              "Registration successful. Please Wait for admin verification your account."
             );
             // closePopup();
             window.location.reload()

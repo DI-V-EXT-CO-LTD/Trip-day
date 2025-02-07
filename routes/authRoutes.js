@@ -35,7 +35,6 @@ router.post('/login', (req, res, next) => {
     const country = geo ? geo.country : 'Unknown';
     
   passport.authenticate('local', (err, user, info) => {
-    //console.log('Passport authenticate result:', { err, user, info });
     if (err) {
       console.error('Authentication error:', err);
       return next(err);
