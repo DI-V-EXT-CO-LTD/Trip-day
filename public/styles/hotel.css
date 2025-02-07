@@ -5630,7 +5630,7 @@ label {
 [dir='rtl'] .adult-tips::before {
     left: unset !important;
     right: -8px;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .adult-tips-close {
@@ -7060,7 +7060,6 @@ label {
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    padding: 12px 0px 0px 0px;
     background: transparent;
     align-items: center;
     border-bottom: none
@@ -8064,7 +8063,7 @@ label {
 }
 
 [dir='rtl'] .compressmeta-hotel-wrap-v8 .hotel-info .lf_inbound_tag_content .tag-icon {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .compressmeta-hotel-wrap-v8 .hotel-info .lf_inbound_tag {
@@ -8883,23 +8882,23 @@ label {
 }
 
 [dir='rtl'] .list-card-comment .me .score {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     margin-left: 4px;
     margin-right: 0px
 }
 
 [dir='rtl'] .list-card-comment .me .score .real {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     display: inline-block
 }
 
 [dir='rtl'] .list-card-comment .me .score .full {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     display: inline-block
 }
 
 [dir='rtl'] .ta-img {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .list-fs-b .long-list-v8 .list-card-comment .me .score {
@@ -10406,7 +10405,7 @@ label {
 }
 
 [dir='rtl'] .u-icon-ic_new_more_line1 {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .room-panel-price .price-explain {
@@ -10416,7 +10415,7 @@ label {
 
 [dir='rtl'] .hide-price {
     display: inline-block;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .signInNote {
@@ -12906,8 +12905,8 @@ body {
 .webp #new-adu>#new-app-download-component[dir=rtl]>.l-content>.l-content-round {
     margin-left: 0;
     margin-right: -73px;
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg)
+    -webkit- /*transform: rotateY(180deg) */;
+     /*transform: rotateY(180deg) */
 }
 
 @media screen and (max-width: 1442px) {
@@ -12933,8 +12932,8 @@ body {
 }
 
 .webp #new-adu>#new-app-download-component[dir=rtl]>.r-content .r-content-img {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg)
+    -webkit- /*transform: rotateY(180deg) */;
+     /*transform: rotateY(180deg) */
 }
 
 #new-adu>#new-app-download-component {
@@ -13136,8 +13135,8 @@ body {
 #new-adu>#new-app-download-component[dir=rtl]>.l-content>.l-content-round {
     margin-left: 0;
     margin-right: -73px;
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg)
+    -webkit- /*transform: rotateY(180deg) */;
+     /*transform: rotateY(180deg) */
 }
 
 @media screen and (max-width: 1442px) {
@@ -13163,8 +13162,8 @@ body {
 }
 
 #new-adu>#new-app-download-component[dir=rtl]>.r-content .r-content-img {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg)
+    -webkit- /*transform: rotateY(180deg) */;
+     /*transform: rotateY(180deg) */
 }
 
 .new-tcp-online-adc.slide {
@@ -13619,8 +13618,8 @@ body {
 }
 
 .new-tcp-online-adc.pop.new-tcp-online-adc__wrapper .new-tcp-online-adc__main .new-tcp-online-adc__left-bgimg {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg)
+    -webkit- /*transform: rotateY(180deg) */;
+     /*transform: rotateY(180deg) */
 }
 
 .new-tcp-online-adc.pop.new-tcp-online-adc__wrapper .new-tcp-online-adc__main .new-tcp-online-adc__right .new-tcp-online-adc__content-sub-item-img {
@@ -16103,7 +16102,7 @@ body {
 }
 
 [dir='rtl'] .soldout-recommend .list .recommend-item .roll {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     margin-left: 8px
 }
 
@@ -17911,7 +17910,7 @@ body {
 }
 
 [dir='rtl'] .crossBanner .crossBanner-right .unlock .u-icon-ic_new_more_line1,[dir='rtl'] .crossBanner .crossBanner-right .hasClaimed .u-icon-ic_new_more_line1 {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .crossModal-Mask {
@@ -18513,7 +18512,7 @@ body {
 }
 
 [dir='rtl'] .newUserBanner .newUserBanner-leftImg {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .newUserBanner .newUserBanner-rightImg {
@@ -23377,7 +23376,7 @@ body {
 }
 
 .webp #new-adu>#new-app-download-component[dir=rtl]>.l-content>.l-content-round {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     margin-right: -73px;
     margin-left: 0
 }
@@ -23405,7 +23404,7 @@ body {
 }
 
 .webp #new-adu>#new-app-download-component[dir=rtl]>.r-content .r-content-img {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 #new-adu>#new-app-download-component {
@@ -23570,7 +23569,7 @@ body {
 }
 
 #new-adu>#new-app-download-component[dir=rtl]>.l-content>.l-content-round {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     margin-right: -73px;
     margin-left: 0
 }
@@ -23598,7 +23597,7 @@ body {
 }
 
 #new-adu>#new-app-download-component[dir=rtl]>.r-content .r-content-img {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .new-tcp-online-adc.pop {
@@ -23748,7 +23747,7 @@ body {
 }
 
 .new-tcp-online-adc.pop.new-tcp-online-adc__wrapper .new-tcp-online-adc__main .new-tcp-online-adc__left-bgimg {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .new-tcp-online-adc.pop.new-tcp-online-adc__wrapper .new-tcp-online-adc__main .new-tcp-online-adc__right .new-tcp-online-adc__content-sub-item-img {
@@ -26476,7 +26475,7 @@ body {
 
 [dir='rtl'] .starrating-title .ic_question {
     display: inline-block;
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     margin-left: 0;
     margin-right: 5px
 }
@@ -27764,15 +27763,15 @@ body {
 }
 
 [dir='rtl'] .m-recentHotels-v8.listpage .m-baseCard .m-baseCard_content .m-baseCard_score .score {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .m-recentHotels-v8.listpage .m-baseCard .m-baseCard_content .m-baseCard_score .score .number {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .m-recentHotels-v8.listpage .m-baseCard .m-baseCard_content .m-baseCard_score .score .total {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir='rtl'] .m-recentHotels-v8.listpage .m-baseCard .m-baseCard_content .m-baseCard_score .rating {
@@ -28237,7 +28236,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
     margin-bottom: 8px;
 }
 .headFacilityNew_headFacility__v5__A {
-    padding: 18px 0 28px;
+    padding: 18px 0 0;
 }
 .hotelDescription_hotelDescription-titleA__dOwX2 {
     color: #0f294d;
@@ -28325,9 +28324,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
     font-size: 14px;
     margin-top: 8px;
 }
-.headFacilityNew_headFacility__v5__A {
-    padding: 18px 0 28px;
-}
+
 .hotelDescription_hotelDescription-titleA__dOwX2 {
     color: #0f294d;
     font-size: 18px;
@@ -28336,8 +28333,11 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
     margin-bottom: 8px;
 }
 .headFacilityNew_headFacility-container__cirz2 {
-    display: flex
-;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 8px;
+    padding:28px;
     position: relative;
     flex-direction: column;
     overflow: hidden;
@@ -29369,7 +29369,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
     background-color: #fff;
     width: 100%;
     border-radius: 8px;
-    padding-top: 28px
+    padding: 28px
 }
 
 .headBottom_headerBottom_left__GxeQe {
@@ -29553,7 +29553,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .headFacility_headFacility-showmore_icon__J85WU {
     display: inline-block;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .headFacility_headFacility__eFVfG:hover {
@@ -30544,7 +30544,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .headReview_headReviewV2-totalNumIcon__10icr {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .headReview_headReviewV2-switchIconWrapper__lqsHU {
@@ -30564,7 +30564,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .headReview_headReviewV2-switchIconWrapper__lqsHU {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .headReview_headReviewV2-switchIcon__A4At3 {
@@ -30781,7 +30781,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .headReview_headReview-num_icon__UH8eD {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     display: inline-block
 }
 
@@ -31007,7 +31007,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .headTraffic_headTraffic-showmore_icon__wQuhW {
     display: inline-block;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 @media screen and (max-width: 900px) {
@@ -31699,7 +31699,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .hotelFacilityNew_hotelFacility-showMore_icon__nSbDE {
     display: inline-block;
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     margin-right: 4px
 }
 
@@ -31717,7 +31717,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .hotelFacilityNew_hotelFacility-normal_online_amen_trans__H8Dh7 {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .hotelFacilityNew_hoverBox__gaZef {
@@ -31891,8 +31891,9 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .hotelFacilityNew_restaurant__WvCe0 {
-    transform: rotateY(180deg);
-    direction: rtl
+   /*  /*transform: rotateY(180deg) */
+   text-align: left;
+    direction: rtl;
 }
 
 .hotelFacilityNew_swiperWrapper__nstoX {
@@ -31902,7 +31903,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .hotelFacilityNew_swiperWrapper__nstoX {
     direction: ltr;
-    transform: rotateY(180deg)
+    /*transform: rotateY(180deg) */
 }
 
 .hotelFacilityNew_restaurant_title__4DVHO {
@@ -31934,7 +31935,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .hotelFacilityNew_hotelFacility-popular_ic_new_fa_pickup__muHUB {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 @media screen and (max-width: 1024px) {
@@ -32019,7 +32020,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .picModal_swiper__WBXNR {
     direction: ltr;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .picModal_picModal-imgBox__F3yF9 {
@@ -32060,7 +32061,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .picModal_picModal_num__AwjiT {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .picModal_swiper-close__FphxB {
@@ -32125,12 +32126,12 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 #facility-list-swiper .glider-contain {
-    transform: rotateY(180deg);
+   /*  /*transform: rotateY(180deg) */; */
     direction: ltr
 }
 
 #facility-list-swiper .glider-slide {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .hotelHealthInfo_healthInfo__z5AEL {
@@ -32223,7 +32224,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .hotelLocationNew_hotelLocation-item_ic_new_fa_pickupIcon__QqS9c {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     display: inline-block
 }
 
@@ -32401,7 +32402,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .hotelLocationNew_hotelLocation-showMore_icon__KJfqF {
     display: inline-block;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .hotelLocationNew_highlight__GLoxa {
@@ -32537,9 +32538,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
     margin-right: 50px
 }
 
-.hotelOverview_hotelOverview-label_item__6m_5S {
-    padding-left: 50px
-}
+
 
 .hotelOverview_hotelOverview-container__XwS4Z {
     margin: 16px 0;
@@ -32609,7 +32608,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .hotelOverview_hotelOverview-showMore_icon__Bca6J {
     display: inline-block;
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     margin-right: 4px
 }
 
@@ -32700,7 +32699,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .hotelPolicyNew_hotelPolicy-showMore_icon__HbaEL {
-    transform: rotateY(180deg);
+     /*transform: rotateY(180deg) */;
     display: inline-block
 }
 
@@ -35626,7 +35625,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .bU5oLlnF9hve7CcKwMNl {
     direction: ltr;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 [dir=ltr] ._A7FuKoiQyecisYbe352 {
@@ -35636,7 +35635,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 ._A7FuKoiQyecisYbe352 {
     display: inline-block;
     margin-right: 4px;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .YsrGhihTZjZL63bM64N6 {
@@ -35663,7 +35662,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .MEUKVI24diSLqEvVL8eW {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .mvpbY1OGmmizbW8tTw_S {
@@ -35847,7 +35846,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .u1PDo2krIRUmQQeVGpmg {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .rbVfWkIvbKV1kI226jNv {
@@ -36592,7 +36591,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 }
 
 .saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem_layerButton__PexE0 {
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .saleRoomItemBox-reservationNotesInfo_basicSaleRoomItem_layerButton__PexE0:hover {
@@ -36802,7 +36801,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .saleRoomItemBox-reservationNotesInfo_packagesArrowLine__T2zYV {
     left: 6px;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .saleRoomItemBox-reservationNotesInfo_arrowIcon__y4ESJ {
@@ -41814,7 +41813,7 @@ div.m-confirm-flight-mask .m-confirm_content .content_txt {
 
 .reviewSwiper_reviewSwiper-itemBody__T4_Lf {
     direction: rtl;
-    transform: rotateY(180deg)
+     /*transform: rotateY(180deg) */
 }
 
 .reviewSwiper_reviewSwiper-itemBody__T4_Lf:hover {
