@@ -73,19 +73,21 @@
     <table class=" w-full text-sm text-left rtl:text-right text-gray-500">
       <thead class=" text-gray-700 uppercase bg-gray-50 ">
         <tr>
-          <td scope="col" class="px-6 py-3">Hotel</td>
           <td scope="col" class="px-6 py-3">Code</td>
-          <td scope="col" class="px-6 py-3">Value</td>
-          <td scope="col" class="px-6 py-3">Expiry Date</td>
+          <td scope="col" class="px-6 py-3">title</td>
+          <td scope="col" class="px-6 py-3">remaining</td>
+          <td scope="col" class="px-6 py-3">validFrom</td>
+          <td scope="col" class="px-6 py-3">validUntil</td>
           <td scope="col" class="px-6 py-3">Action</td>
         </tr>
       </thead>
       <tbody>
         <% vouchers.forEach(voucher => { %>
           <tr class="bg-white border-b ">
-            <td scope="row" class="px-6 py-3  font-medium text-gray-900 whitespace-nowrap"><%= voucher.hotelName %></td>
-            <td class="px-6 py-3"><%= voucher.voucherCode %></td>
-            <td class="px-6 py-3"><%= voucher.quantity.toLocaleString() %></td>
+            <td scope="row" class="px-6 py-3  font-medium text-gray-900 whitespace-nowrap"><%= voucher.voucherCode %></td>
+            <td class="px-6 py-3"><%= voucher.title %></td>
+            <td class="px-6 py-3 text-center"><%= voucher.remainingQuantity.toLocaleString() %></td>
+            <td class="px-6 py-3"><%= voucher.validFrom.toDateString() %></td>
             <td class="px-6 py-3"><%= voucher.validUntil.toDateString() %></td>
             <td class="px-6 py-3">
               <button class="btn-primary-APIS" data-toggle="modal" data-target="#voucherModal<%= voucher.voucherCode %>">

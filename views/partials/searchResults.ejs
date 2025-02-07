@@ -35,25 +35,21 @@
                                 </div>
                             </div>
                             <div class="price-range-wrapper">
-                                <div class="price-range-bar">
-                                    <div class="price-range-track" style="left:-1px;width:233px">
-                                    </div>
-                                    <div class="price-range-floor" style="left:-1px">
-                                        <div class="price-tooltip" style="visibility:hidden;left:-10px">
-                                            $0
-                                            <div class="price-tooltip-arrow bottom" style="left:13px">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="price-range-ceil" style="left:232px">
-                                        <div class="price-tooltip" style="visibility:hidden;left:-10px">
-                                            $150+
-                                            <div class="price-tooltip-arrow bottom" style="left:13px">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="price-range-click">
-                                    </div>
+                                <div class="relative">
+                                    <input type="range" 
+                                           class="absolute bottom-0 left-0 translate-y-[-100%] px-4 py-1.5 text-base rounded-xl transition-[left] duration-300 ease-out will-change-[left,transform]" 
+                                           min="0" 
+                                           max="10000" 
+                                           value="2500" 
+                                           step="1">
+                                    <input type="range" 
+                                           class="absolute top-0 right-0 translate-y-[100%] px-4 py-1.5 text-base rounded-xl transition-[right] duration-300 ease-out will-change-[right,transform] " 
+                                           min="0" 
+                                           max="10000" 
+                                           value="8500" 
+                                           step="1">
+                                           <div class="minvalue"></div>
+                                           <div class="maxvalue"></div>
                                 </div>
                                 <div class="price-quick-choose">
                                     <button onclick="fetchHotelrangePrice(0,800)" class="price-quick-choose-btn">
@@ -582,5 +578,8 @@
    <script src="/js/filterSearch.js"></script>
    <script src="/js/headerSearch.js"></script>
    <script src="/js/clearSearchInput.js"></script>
+   <script>
+        document.querySelectorAll(".range-input input");
+   </script>
 </body>
 </html>

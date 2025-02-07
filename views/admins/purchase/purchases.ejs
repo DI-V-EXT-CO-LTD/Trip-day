@@ -86,10 +86,10 @@
                             status: newStatus
                         }),
                         success: function (response) {
-                            Swal.fire("สำเร็จ!", "สถานะถูกอัปเดตแล้ว", "success");
+                            Swal.fire("Success!", "Status is Update", "success");
                         },
                         error: function (error) {
-                            Swal.fire("เกิดข้อผิดพลาด!", "อัปเดตสถานะไม่สำเร็จ", "error");
+                            Swal.fire("Fail!", "Update status is Fail", "error");
                             $(this).val(oldStatus); 
                         }
                     });

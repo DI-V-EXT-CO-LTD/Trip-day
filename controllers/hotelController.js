@@ -34,40 +34,28 @@ exports.searchHotels = async (req, res) => {
     let searchQuery = s || query || "";
 
     let filter = {};
-    filter.rooms = { $elemMatch: {} };
+    let roomFilters = {};
 
-    if (searchQuery) {
-      const searchTerms = searchQuery.trim().split(/\s+/);
-      const searchRegexes = searchTerms.map((term) => new RegExp(term, "i"));
-
-      // Initialize $and as an array if not already set
-      filter.$and = searchRegexes.map((regex) => ({
-        $or: [
-          { title: regex },
-          { name: regex },
-          { description: regex },
-          { address: regex },
-        ],
-      }));
+    if (searchQuery && searchQuery.trim() !== "") {
+      filter.title = { $regex: searchQuery, $options: "i" };
     }
 
-    // // Add location_category to $and
-    if (!filter.$and) {
-      filter.$and = [];
+    // Add location_category to $and
+    if (location) {
+      filter.city = location;
     }
-    filter.$and.push({ city: location });
 
     // Filter by adults and children
     if (adultsValue) {
-      filter.rooms.$elemMatch.adults = { $gte: parseNumber(adultsValue) };
+      roomFilters.adults = { $gte: parseNumber(adultsValue) };
     }
     if (childValue) {
-      filter.rooms.$elemMatch.children = { $gte: parseNumber(childValue) };
+      roomFilters.children = { $gte: parseNumber(childValue) };
     }
 
     // Filter by price range
     if (minPrice || maxPrice) {
-      filter.rooms.$elemMatch.price = {
+      roomFilters.price = {
         ...(minPrice && { $gte: parseNumber(minPrice) }),
         ...(maxPrice && { $lte: parseNumber(maxPrice) }),
       };
@@ -75,13 +63,13 @@ exports.searchHotels = async (req, res) => {
 
     // Filter by refund, breakfast, and beds
     if (refund) {
-      filter.rooms.$elemMatch.is_refundable = parseBoolean(refund);
+      roomFilters.is_refundable = parseBoolean(refund);
     }
     if (breakfast) {
-      filter.rooms.$elemMatch.is_breakfast_included = parseBoolean(breakfast);
+      roomFilters.is_breakfast_included = parseBoolean(breakfast);
     }
     if (beds) {
-      filter.rooms.$elemMatch.beds = { $gte: beds };
+      roomFilters.beds = { $gte: beds };
     }
 
     if (!isNaN(maxStars)) {
@@ -92,6 +80,12 @@ exports.searchHotels = async (req, res) => {
       const exactStarsInt = parseInt(req.query.exactStars, 10);
       filter.star_rate = exactStarsInt;
     }
+
+    if (Object.keys(roomFilters).length > 0) {
+      filter.rooms = { $elemMatch: roomFilters };
+    }
+
+    // console.log(filter)
 
     const totalHotels = await Hotel.countDocuments(filter);
     const totalPages = Math.max(1, Math.ceil(totalHotels / pageSize));

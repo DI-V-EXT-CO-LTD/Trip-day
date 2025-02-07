@@ -27,7 +27,7 @@ exports.getDashboard = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     const wallet = await Wallet.findOne({ user: req.user.id });
-    const vouchers = await Voucher.find({ userId: req.user.email });
+    const vouchers = await Voucher.find({ userId: req.user._id });
     const reservations = await Reservation.find({ user: req.user.id }).populate(
       "hotel"
     );
@@ -159,7 +159,6 @@ exports.getDashboard = async (req, res) => {
       );
     }
 
-    console.log(purchases)
 
     res.render("dashboard", {
       user,
