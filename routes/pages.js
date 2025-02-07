@@ -12,4 +12,8 @@ router.get('/moreservice', pagesController.getMoreservice);
 router.get('/service-guarantee', pagesController.getserviceguarantee);
 router.get('/affiliate-contact', pagesController.getaffiliateContact);
 router.get('/Cancel-Refund-Policy', pagesController.getCancelRefundPolicy);
+router.get('/customer-service', pagesController.getcustomerservice);
+router.get('/serviceinfo', pagesController.getserviceinfo);
+router.get('/careers', pagesController.getcareers);
+router.get('/personal', pagesController.getpersonal);
 module.exports = router;

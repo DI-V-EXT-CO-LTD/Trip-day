@@ -458,6 +458,46 @@ exports.getPurchases = async (req, res)=>{
   }
 }
 
+exports.getVouchers = async (req, res)=>{
+  try {
+    const limit = 10; // จำนวนรายการต่อหน้า
+    const currentPage = parseInt(req.query.page) || 1; // หน้าปัจจุบัน (ค่าเริ่มต้น = 1)
+    const searchQuery = req.query.search || "";
+    const skip = (currentPage - 1) * limit; // จำนวนรายการที่ต้องข้าม
+
+    const filter = searchQuery
+      ? {
+          $or: [
+            { voucherCode: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ title
+            { purchaseId: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+            { title: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+          ],
+        }
+      : {};
+
+    // ดึงข้อมูลโรงแรมและคำนวณจำนวนหน้าทั้งหมด
+    const [vouchers, totalDocument] = await Promise.all([
+      Voucher.find(filter).skip(skip).limit(limit),
+      Voucher.countDocuments(filter),
+    ]);
+
+    const totalPages = Math.ceil(totalDocument / limit); // คำนวณจำนวนหน้าทั้งห
+    // dashboard.ejs로 데이터 전달
+    res.render("admins/voucher/vouchers", {
+      admin: req.user,
+      vouchers,
+      currentPage,
+      totalDocument,
+      totalPages,
+      title: "Voucher",
+      searchQuery,
+    });
+  } catch (error) {
+    console.error("Error in getVouchers:", error);
+    res.render("../views/errors/500", { layout: false });
+  }
+}
+
 // post
 
 exports.postAddHotel = async (req, res) => {
@@ -1243,8 +1283,33 @@ exports.putPurchaseStatus = async (req, res)=>{
         return res.status(400).json({ error: "ข้อมูลไม่ครบถ้วน" });
     }
 
-    await Purchase.findByIdAndUpdate(id, { status });
+    const purchaseUpdateData = await Purchase.findByIdAndUpdate(id, { status });
+
+    if(status === 'Paid'){
+
+      const vouchers = purchaseUpdateData.items.map((item) => {
+      return {
+        voucherCode: "VCH-" + Math.random().toString(36).substr(2, 9).toUpperCase(), 
+        purchaseId:purchaseUpdateData._id,
+        title: item.packageName || item.golfName || item.hotelName +' '+ item.roomName , // ใช้ชื่อโรงแรมหรือแพ็กเกจ
+        detail: item.detail || "", // รายละเอียด (อาจเป็น string)
+        initialQuantity: item.quantity, // จำนวนเริ่มต้น
+        remainingQuantity: item.quantity, // จำนวนที่เหลือ
+        validFrom: new Date(item.period_start), // วันที่เริ่มต้น
+        validUntil: new Date(item.period_end), // วันที่สิ้นสุด
+        userId: purchaseUpdateData.user, 
+        hotelId: item.hotel ? item.hotel : null, // ID โรงแรม (ถ้ามี)
+        golfId: item.golf ? item.golf : null, // ID แพ็กเกจ (ถ้ามี)
+        packageId: item.package ? item.package : null, // ID แพ็กเกจ (ถ้ามี)
+      };
+    });
     
+    await Voucher.insertMany(vouchers);
+  }
+
+  if(status ==='Pending'){
+    await Voucher.deleteMany({ purchaseId: purchaseUpdateData._id });
+  }
 
     res.status(200).json({ message: "อัปเดตสถานะสำเร็จ" });
   } catch (error) {

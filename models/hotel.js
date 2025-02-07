@@ -65,8 +65,6 @@ const hotelSchema = new mongoose.Schema({
   city: { type: String, required: true }, // 위치 ID
   address: { type: String, required: false }, // 호텔 주소
   map_url: { type: String, required: false },
-  map_lat: { type: Number, required: false },
-  map_lng: { type: Number, required: false }, // 지도 경도
   map_zoom: { type: Number, required: true }, // 지도 줌 레벨
   is_featured: { type: Boolean, default: false }, // 추천 호텔 여부
   gallery: [String], // 갤러리 이미지 목록

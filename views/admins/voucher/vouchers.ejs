@@ -1,0 +1,111 @@
+<section class="grid gap-5">
+    <%- include('../../partials/ui/headerTable.ejs',{  searchHandler: `search('vouchers', ${currentPage})`, searchQuery: searchQuery }) %>
+  
+    <div class="relative max-h-[33rem] overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-gray-700 text-center uppercase bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left">Code</th>
+            <th scope="col" class="px-6 py-3">title</th>
+            <th scope="col" class="px-6 py-3">quantity</th>
+            <th scope="col" class="px-6 py-3">purchase Id</th>
+            <th scope="col" class="px-6 py-3">user id</th>
+            <th scope="col" class="px-6 py-3">
+              <span class="sr-only">action</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+            <% vouchers.forEach(voucher => { %>
+                <tr class="bg-white border-b">
+                  <th scope="row" class="px-6 py-4 text-left font-medium text-gray-900 whitespace-nowrap">
+                    <%= voucher.voucherCode %>
+                  </th>
+                  <td class="px-6 py-4">
+                    <div class="text-left overflow-hidden max-h-20"><%= voucher.title %></div>
+                  </td>
+                  <td class="px-6 py-4"><%= voucher.remainingQuantity %>/<%= voucher.initialQuantity %></td>
+                  <td class="px-6 py-4"><%= voucher.purchaseId %></td>
+                  <td class="px-6 py-4">
+                    <%= voucher.userId %>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="flex justify-end items-center gap-2">
+                        <button data-id="<%= voucher._id %>" data-title="<%= voucher.title %>" data-quantity="<%= voucher.remainingQuantity %>" class="open-modal block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
+                            USE
+                          </button>
+                    </div>
+                  </td>
+                </tr>
+              <% }) %>
+              
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Main modal -->
+<div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow-sm ">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                <h3 class="text-lg font-semibold text-gray-900 ">
+                    Usesage voucher
+                </h3>
+                <button data-modal-toggle="crud-modal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-toggle="crud-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div >
+                        <label for="name" class="block text-sm font-medium text-gray-900 ">Date</label>
+                        <input type="date" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="Type product name" required="">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <%- include('../../partials/ui/inputText',{ name:'quantity', id:"voucher-quantity" ,label:'Quantity',type:'number',placeholder:"amount of useage",isRequired:true, min:1 }) %>
+                    </div>
+                </div>
+                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">
+                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                    Save Booking
+                </button>
+            </form>
+        </div>
+    </div>
+</div> 
+    
+    <%- include('../../partials/ui/TablePagination.ejs', { 
+      currentPage: currentPage, 
+      totalPages: totalPages, 
+      totalDocument: totalDocument,
+      route: 'vouchers' 
+    }) %>
+  </section>
+
+  <script>
+
+$(document).ready(function() {
+    $(".open-modal").on("click", function() {
+        let voucherCode = $(this).data("id");
+        let title = $(this).data("title");
+        let quantity = $(this).data("quantity");
+
+        $("#voucher-quantity").val(quantity).attr("max", quantity); // ✅ แก้ไขตรงนี้
+
+        $("#crud-modal").removeClass("hidden").addClass("flex");
+    });
+
+    $("[data-modal-toggle]").on("click", function() {
+        $("#crud-modal").addClass("hidden").removeClass("flex");
+    });
+});
+
+
+</script>
+  

@@ -1,4 +1,9 @@
-const { flightOffers, iatacode_to_name } = require("../service/amadeus");
+
+const {
+  flightOffers,
+  iatacodeAirline_to_name,
+  iatacodeAirport_to_name,
+} = require("../service/amadeus");
 // {
 //   'trip-type': 'round',
 //   non_stop: 'on',
@@ -26,7 +31,7 @@ exports.getOffer = async (req, res) => {
       classType,
     } = req.query;
 
-    const max = 10;
+    const max = 2;
     const flightOffersParams = {
       trip_type,
       non_stop,
@@ -54,44 +59,72 @@ exports.getOffer = async (req, res) => {
     const allAirportCodes = new Set();
     flightOffersResults.data.forEach((flight) => {
       flight.itineraries[0].segments.forEach((segment) => {
-        allCarrierCodes.add(segment.carrierCode);
+        allAirportCodes.add(segment.departure.iataCode);
+        allAirportCodes.add(segment.arrival.iataCode);
       });
     });
 
     // ส่งไปขอชื่อสายการบิน
-    const businessName = await iatacode_to_name([...allCarrierCodes].join(","));
+    const businessName = await iatacodeAirline_to_name(
+      [...allCarrierCodes].join(",")
+    );
 
-    // สร้าง airlineMap
+    const airportName = await iatacodeAirport_to_name([...allAirportCodes]);
+
+    // สร้าง Map key:iata value:ชื่อ airline
     const airlineMap = {};
     if (businessName.data && businessName.data.length > 0) {
       businessName.data.forEach((airline) => {
         airlineMap[airline.iataCode] = airline.businessName;
       });
     }
+    // สร้าง Map key:iata value:ชื่อ airport
+    const airportMap = {};
+    airportName.forEach((aiprotArray) => {
+      if (aiprotArray.data && aiprotArray.data.length > 0) {
+        aiprotArray.data.forEach((airport) => {
+          console.log("form loop aiprotArray", JSON.stringify(airport,null,2));
+          airportMap[airport.iataCode] = airport.name;
+        });
+      }
+    });
 
-    // Set Each airlineName and setTime Duration For show
+        // สร้าง Map key:iata value:country
+        const cityMap = {};
+        airportName.forEach((data) => {
+          if (data.data && data.data.length > 0) {
+            data.data.forEach((airport) => {
+              cityMap[airport.iataCode] = airport.address.cityName;
+            });
+          }
+        });
+
+
     for (const flight of flightOffersResults.data) {
-      // set Name
+      // ชื่อ airport ที่ให้บริการ
       const airlineName =
         airlineMap[flight.validatingAirlineCodes[0]] || "Unknown Airline";
       flight.airlineName = airlineName;
 
       // setTime Duration
       const duration = flight.itineraries[0].duration;
-      const formattedDuration = formattedTime(duration);
-      flight.itineraries[0].formattedDuration = formattedDuration;
+      flight.itineraries[0].formattedDuration = formattedTime(duration);
 
-      // setWaitingTime
+      flight.itineraries[0].waitAtCounty = formattedTime(duration);
+
+      // หาเวลาที่ลงจอดที่สนามบินแรก
       const firtSemgentArrival = flight.itineraries[0].segments[0].arrival;
       const arrivalTime = firtSemgentArrival.at;
 
+      // หาเวลาที่ออกจากสนามบินแรก
       const SecondSemgentDeparture =
         flight.itineraries[0].segments[1].departure;
       const departureTime = SecondSemgentDeparture.at;
 
-      // diffTime form arrival to depart next time
+      // หาเวลาที่อยู่ทีสนามบินแรก
       const waitingTime = calculateDifftime(arrivalTime, departureTime);
 
+      // ใส่เวลาอยู่ที่สนามบินแรก
       flight.itineraries[0].waitingTime = waitingTime;
 
       const fligthSegments = flight.itineraries[0].segments;
@@ -101,7 +134,9 @@ exports.getOffer = async (req, res) => {
       );
 
       const fligthSegmentsAddName = fligthSegments.map((segment) => ({
-        ...segment, // คัดลอกค่าเดิม
+        ...segment, 
+        departure:{...segment.departure,airportName:airportMap[segment.departure.iataCode],cityName:cityMap[segment.departure.iataCode]},
+        arrival:{...segment.arrival,airportName:airportMap[segment.arrival.iataCode],cityName:cityMap[segment.arrival.iataCode]},
         carrierName: airlineMap[segment.carrierCode] || "Unknown Airline", // เพิ่ม carrierName
       }));
 
@@ -111,7 +146,6 @@ exports.getOffer = async (req, res) => {
 
     console.log("--------------------");
     console.log(JSON.stringify(flightOffersResults.data, null, 2));
-    console.log(airlineMap);
     res.render("flight/flightList", { flightData: flightOffersResults.data });
   } catch (error) {
     console.log(error);

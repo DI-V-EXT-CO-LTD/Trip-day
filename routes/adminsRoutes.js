@@ -30,6 +30,7 @@ router.get("/packages/addPackage", adminsController.getUpdatePackage);
 router.get("/packages/editPackage/:id", adminsController.getUpdatePackage);
 router.get("/invoices", adminsController.getInvoices);
 router.get("/purchases", adminsController.getPurchases);
+router.get("/vouchers", adminsController.getVouchers);
 
 
 // Add
