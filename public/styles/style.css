@@ -6153,7 +6153,7 @@ a.mc-hd__search-booking-cur:hover,a.mc-hd__search-booking-cur:hover .mc-hd__sear
 	margin-right:25px
 }
 .mc-ft__cnt>.mc-ft__others>.mc-ft__partner .mc-ft__partner-body .mc-ft__partner-item img {
-	height:16px
+	height:25px
 }
 .mc-ft_brand {
 	align-items:center;
@@ -23396,7 +23396,6 @@ _static .modal_content {
  .modal_content {
     display: flex;
     width: 474px;
-    min-height: 614px;
     background: #fff;
     padding: 64px 49px 40px;
     box-sizing: border-box;
