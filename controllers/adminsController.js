@@ -1196,6 +1196,7 @@ exports.putEditRoom = async (req, res) => {
         const end = endDate[index];
         const roomPriceSeason = Number(room_prices[index]);
 
+
         // ค้นหา period ที่มี start_date และ end_date ตรงกัน
         let period = hotel.price_periods.find(
           (p) =>
