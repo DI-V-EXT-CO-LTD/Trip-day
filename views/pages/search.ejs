@@ -65,7 +65,21 @@
         <div class="filter-mask">
         </div>
         <div class="filter-wrap filterWrapFixed">
-            <div class="filter-box false ">
+            <div class="filter-box false invisible">
+                <div class="mapfilter-wrap-v8">
+                    <div class="mapfilter-container">
+                        <div style="width:100%;height:100%" class="m-lazyImg mapfilter-background">
+                            <img class="m-lazyImg__img" style="width:100%;height:100%;object-fit:cover;object-position:center;background-color:#F0F2F5" src="//aw-s.tripcdn.com/modules/ibu/ibu-hotel-online/es/image/bg_mapV8.87d8e59989a401c2ce2bc772fea4a32a.png">
+                        </div>
+                        <div class="map-item">
+                            <button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary map-item-button" type="button" dir="ltr">
+                            <div class="tripui-online-btn-content">
+                                <span class="tripui-online-btn-content-children ">Show on Map</span>
+                            </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div class="search-property-wrapper">
                     <div class="title-wrap">
                         <p>
@@ -105,24 +119,24 @@
                                        <div class="maxvalue"></div>
                             </div>
                             <div class="price-quick-choose">
-                                <button onclick="fetchHotelrangePrice(0,800)" class="price-quick-choose-btn">
+                                <div class="price-quick-choose-btn">
                                     $0 - $20
-                                </button>
-                                <button onclick="fetchHotelrangePrice(801,1200)" class="price-quick-choose-btn">
+                                </div>
+                                <div class="price-quick-choose-btn">
                                     $20 - $30
-                                </button>
-                                <button onclick="fetchHotelrangePrice(1201,1600)" class="price-quick-choose-btn">
+                                </div>
+                                <div class="price-quick-choose-btn">
                                     $30 - $40
-                                </button>
-                                <button onclick="fetchHotelrangePrice(1601,3200)" class="price-quick-choose-btn">
+                                </div>
+                                <div class="price-quick-choose-btn">
                                     $40 - $80
-                                </button>
-                                <button onclick="fetchHotelrangePrice(3201,6000)" class="price-quick-choose-btn">
+                                </div>
+                                <div class="price-quick-choose-btn">
                                     $80 - $150
-                                </button>
-                                <button onclick="fetchHotelrangePrice(6001)" class="price-quick-choose-btn">
+                                </div>
+                                <div class="price-quick-choose-btn">
                                     &gt; $150
-                                </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -135,38 +149,10 @@
                             </p>
                         </div>
                         <ul class="m-checkbox-v8">
-                            <li class="li-popular-filter">
-                                <input 
-                                    type="checkbox" 
-                                    name="Breakfast" 
-                                    class="checkbox-popular-filter" 
-                                    id="filter-breakfast"
-                                    onclick="fetchCheckboxFilter('breakfast', this.checked)" 
-                                />
-                                <span class="checkboxTxt">Breakfast Included</span>
-                            </li>
-                            <li class="li-popular-filter">
-                                <input 
-                                    type="checkbox" 
-                                    name="refund" 
-                                    class="checkbox-popular-filter" 
-                                    id="filter-refund"
-                                    onclick="fetchCheckboxFilter('refund', this.checked)" 
-                                />
-                                <span class="checkboxTxt">Free Cancellation</span>
-                            </li>
-                            <li class="li-popular-filter">
-                                <input 
-                                    type="checkbox" 
-                                    name="2beds" 
-                                    class="checkbox-popular-filter" 
-                                    id="filter-beds"
-                                    onclick="fetchCheckboxFilter('beds', this.checked)" 
-                                />
-                                <span class="checkboxTxt">2 Beds</span>
-                            </li>
+                            <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Breakfast Included</span></li>
+                            <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Free Cancellation</span></li>
+                            <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">2 Beds</span></li>
                         </ul>
-                        
                     </div>
                 </div>
                 <div class="starrating-wrap-v8">
@@ -178,44 +164,47 @@
                         </div>
                         <div class="starrating-content">
                             <ul class="sr-ul">
-                                <li class="sr-li" onclick="filterByStars(2, 'lte')">
-                                    <span class="sr-checkbox" >≤2</span>
-                                    <span class="sr-level">
-                                        <div class="more-star-repeat">
-                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
-                                        </div>
-                                    </span>
-                                </li>
-                                <li class="sr-li" onclick="filterByStars(3)">
-                                    <span class="sr-checkbox" >3</span>
-                                    <span class="sr-level">
-                                        <div class="more-star-repeat">
-                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
-                                        </div>
-                                    </span>
-                                </li>
-                                <li class="sr-li" onclick="filterByStars(4)">
-                                    <span class="sr-checkbox" >4</span>
-                                    <span class="sr-level">
-                                        <div class="more-star-repeat">
-                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
-                                        </div>
-                                    </span>
-                                </li>
-                                <li class="sr-li" onclick="filterByStars(5)">
-                                    <span class="sr-checkbox" >5</span>
-                                    <span class="sr-level">
-                                        <div class="more-star-repeat">
-                                            <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
-                                        </div>
-                                    </span>
-                                </li>
+                                <li class="sr-li"><span class="sr-checkbox">≤2</span><span class="sr-level">
+                                <div class="more-star-repeat">
+                                    <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                </div>
+                                </span></li>
+                                <li class="sr-li"><span class="sr-checkbox">3</span><span class="sr-level">
+                                <div class="more-star-repeat">
+                                    <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                </div>
+                                </span></li>
+                                <li class="sr-li"><span class="sr-checkbox">4</span><span class="sr-level">
+                                <div class="more-star-repeat">
+                                    <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                </div>
+                                </span></li>
+                                <li class="sr-li"><span class="sr-checkbox">5</span><span class="sr-level">
+                                <div class="more-star-repeat">
+                                    <i style="color:#ffb400" type="ic_new_star" class="u-icon u-icon-ic_new_star own-star"></i>
+                                </div>
+                                </span></li>
                             </ul>
-                            
                         </div>
                     </div>
                 </div>
-
+                <div class="guest-rating-wrap-v8">
+                    <div class="guest-rating-container">
+                        <div class="guest-rating-title">
+                            <p>
+                                Guest Rating
+                            </p>
+                        </div>
+                        <div class="guest-rating-content">
+                            <ul class="gr-btn-ul">
+                                <li class="gr-btn-li"><span>3+</span></li>
+                                <li class="gr-btn-li"><span>3.5+</span></li>
+                                <li class="gr-btn-li"><span>4+</span></li>
+                                <li class="gr-btn-li"><span>4.5+</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div style="display:none">
                 </div>
                 <div class="location-wrap-v8">
@@ -227,15 +216,31 @@
                         </div>
                         <div class="location-content">
                             <ul class="m-radiobox-v8">
-                                <li class="li-popular-filter" ><input class="checkbox-popular-filter" id="Siam" onclick="filterUtils('location','Siam')"   type="radio" style="height: 20px; "><span class="radioboxTxt">Siam</span></li>
-                                <li class="li-popular-filter"><input class="checkbox-popular-filter" id="Sukhumvit"  onclick="filterUtils('location','Sukhumvit')"  type="radio"  style="height: 20px; "><span class="radioboxTxt">Sukhumvit</span></li>
-                                <li class="li-popular-filter"><input class="checkbox-popular-filter" id="Suvarnabhumi Airport"  onclick="filterUtils('location','Suvarnabhumi Airport')"  type="radio"  style="height: 20px; "><span class="radioboxTxt">Suvarnabhumi Airport</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Siam</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Sukhumvit</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Suvarnabhumi Airport</span></li>
                                 <li id="showAll" class="" style="position:relative"><span>Show All 17</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
+                <div class="category-wrap-v8">
+                    <div class="category-container">
+                        <div class="category-title">
+                            <p style="position:relative">
+                                Property Type
+                            </p>
+                        </div>
+                        <div class="category-content">
+                            <ul class="m-checkbox-v8">
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Hotel</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Homes &amp; Apts</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Serviced apartment</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 21</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="bed-wrap-v8">
                     <div class="bed-container">
                         <div class="bed-title">
@@ -245,17 +250,47 @@
                         </div>
                         <div class="bed-content">
                             <ul class="m-radiobox-v8">
-                                
-                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="1 Double Bed" onclick="filterUtils('BedType','1 Double Bed')" ><span class="radioboxTxt">1 Double Bed</span></li>
-                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="2 Beds" onclick="filterUtils('BedType','1 Double Bed')"><span class="radioboxTxt">2 Beds</span></li>
-                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="1 Single Bed" onclick="filterUtils('BedType','1 Double Bed')"><span class="radioboxTxt">1 Single Bed</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">1 Double Bed</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">2 Beds</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">1 Single Bed</span></li>
                                 <li id="showAll" class="" style="position:relative"><span>Show All 6</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-
+                <div class="roomNum-wrap-v8" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_filter_exposure&quot;,&quot;data&quot;:{}}">
+                    <div class="roomNum-container">
+                        <div class="roomNum-title">
+                            <p>
+                                Number of Bedrooms
+                            </p>
+                        </div>
+                        <div class="roomNum-content">
+                            <ul class="m-radiobox-v8">
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">1 Bedroom/Studio</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">2 Bedrooms</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">3+ Bedrooms</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="amenty-wrap-v8">
+                    <div class="amenty-container">
+                        <div class="amenty-title">
+                            <p style="position:relative">
+                                Property Facilities &amp; Services
+                            </p>
+                        </div>
+                        <div class="amenty-content">
+                            <ul class="m-checkbox-v8">
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Airport pick-up service</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Smoking area</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Currency exchange</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 24</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="payment-wrap-v8" data-exposure="{&quot;ubtKey&quot;:&quot;htl_t_online_list_filter_exposure&quot;,&quot;data&quot;:{}}">
                     <div class="payment-container">
                         <div class="payment-title">
@@ -265,15 +300,31 @@
                         </div>
                         <div class="payment-content">
                             <ul class="m-radiobox-v8">
-                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="Prepay Online" onclick="filterUtils('Payment','Prepay Online')" ></i><span class="radioboxTxt">Prepay Online</span></li>
-                                <li class="li-popular-filter"><input type="radio" class="checkbox-popular-filter" id="Pay at Hotel" onclick="filterUtils('Payment','Pay at Hotel')"></i><span class="radioboxTxt">Pay at Hotel</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Prepay Online</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Pay at Hotel</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div style="display:none">
                 </div>
-
+                <div class="roomFacility-wrap-v8">
+                    <div class="roomFacility-container">
+                        <div class="roomFacility-title">
+                            <p>
+                                Room Features
+                            </p>
+                        </div>
+                        <div class="roomFacility-content">
+                            <ul class="m-radiobox-v8">
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Family Room</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Suite</span></li>
+                                <li class="m-radiobox_item"><i type="radiobox" class="u-icon u-icon-radiobox iconStyle"></i><span class="radioboxTxt">Lofts</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 6</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="roomtype-wrap-v8">
                     <div class="roomtype-container">
                         <div class="roomtype-title">
@@ -283,15 +334,48 @@
                         </div>
                         <div class="roomtype-content">
                             <ul class="m-checkbox-v8">
-                                <li class="li-popular-filter"><input type="checkbox" id="filter-Smoking room" class="checkbox-popular-filter" onclick="fetchCheckboxFilter('Smoking room', this.checked)"> <span class="checkboxTxt">Smoking room</span></li>
-                                <li class="li-popular-filter"><input type="checkbox" id="filter-Balcony" class="checkbox-popular-filter" onclick="fetchCheckboxFilter('Balcony', this.checked)"> <span class="checkboxTxt">Balcony</span></li>
-                                <li class="li-popular-filter"><input type="checkbox" id="filter-Washing machine" class="checkbox-popular-filter" onclick="fetchCheckboxFilter('Washing machine', this.checked)"> <span class="checkboxTxt">Washing machine</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Smoking room</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Balcony</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Washing machine</span></li>
                                 <li id="showAll" class="" style="position:relative"><span>Show All 22</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
+                <div class="feature-wrap-v8">
+                    <div class="feature-container">
+                        <div class="feature-title">
+                            <p style="position:relative">
+                                Property Features
+                            </p>
+                        </div>
+                        <div class="feature-content">
+                            <ul class="m-checkbox-v8">
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Family-friendly</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Great Views</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Signature Hot Spring</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 9</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-wrap-v8">
+                    <div class="brand-container">
+                        <div class="brand-title">
+                            <p style="position:relative">
+                                Brand
+                            </p>
+                        </div>
+                        <div class="brand-content">
+                            <ul class="m-checkbox-v8">
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">7 Days Premium</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Aloft</span></li>
+                                <li class="m-checkbox_item"><i type="checkbox" class="u-icon u-icon-checkbox iconClassName iconType"></i><span class="checkboxTxt">Aman Resorts</span></li>
+                                <li id="showAll" class="" style="position:relative"><span>Show All 127</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--
             <div class="m-recentHotels-v8 listpage">
