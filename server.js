@@ -49,6 +49,7 @@ const pagesRouter = require("./routes/pages");
 const searchRoutes = require("./routes/searchRoutes");
 const PaymentDetails = require("./models/paymentMethod");
 const flightRoutes = require("./routes/flightRoutes");
+const receiptRouter = require("./routes/receiptRoutes");
 
 const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
@@ -70,7 +71,7 @@ mongoose
   })
   .catch((err) => console.error("MongoDB connection failed:", err));
 
-app.use(express.json({ limit: "50mb" }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(express.static(path.join(__dirname, "public")));
 console.log("Static files served from: ", path.join(__dirname, "public"));
@@ -157,6 +158,7 @@ const fs = require("fs");
 
 // Routes
 app.use("/flight",flightRoutes);
+app.use("/receipt",receiptRouter);
 app.use("/invoice", invoiceRouter);
 app.use("/vouchers", vouchersRouter);
 app.use("/api/vouchers", vouchersRouter);

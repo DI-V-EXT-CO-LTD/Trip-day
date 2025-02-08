@@ -116,6 +116,67 @@ exports.getDashboard = async (req, res) => {
   }
 };
 
+exports.getUsers = async (req, res) => {
+  try {
+    const limit = 10; // จำนวนรายการต่อหน้า
+    const currentPage = parseInt(req.query.page) || 1; // หน้าปัจจุบัน (ค่าเริ่มต้น = 1)
+    const searchQuery = req.query.search || "";
+    const skip = (currentPage - 1) * limit; // จำนวนรายการที่ต้องข้าม
+
+    const filter = searchQuery
+      ? {
+          $or: [
+            { email: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ title
+            { role: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ address
+            { companyName: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+          ],
+        }
+      : {};
+
+    // ดึงข้อมูลโรงแรมและคำนวณจำนวนหน้าทั้งหมด
+    const [users, totalDocument] = await Promise.all([
+      User.find(filter).skip(skip).limit(limit),
+      User.countDocuments(filter),
+    ]);
+
+    const totalPages = Math.ceil(totalDocument / limit); // คำนวณจำนวนหน้าทั้งห
+    // dashboard.ejs로 데이터 전달
+    res.render("admins/user/users", {
+      admin: req.user,
+      users,
+      currentPage,
+      totalDocument,
+      totalPages,
+      title: "Users",
+      searchQuery,
+    });
+  } catch (error) {
+    console.error("Error in getDashboard:", error);
+    res.render("../views/errors/500", { layout: false });
+  }
+};
+
+exports.getUpdateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    let user = null;
+    const isAdd = id === undefined;
+    if (!isAdd) {
+      user = await User.findOne({ _id: id });
+    }
+
+    res.render("admins/user/update", {
+      admin: req.user,
+      title: isAdd ? "Add User" : "Edit User",
+      isAdd,
+      user,
+    });
+  } catch (error) {
+    console.error("Error in getUpdateUser:", error);
+    res.status(500).send(error);
+  }
+};
+
 exports.getHotels = async (req, res) => {
   try {
     const limit = 10; // จำนวนรายการต่อหน้า
@@ -860,6 +921,61 @@ exports.postAddPackage = async (req, res) => {
 };
 
 // put
+exports.putEditUser = async (req, res) => {
+  console.log('from put putEditUser ')
+
+try {
+ const userId = req.params.id;
+ const {
+  companyName,
+  contactPerson,
+  contactNumber,
+  businessNumber,
+  companyAddress,
+  email,
+  role,
+  kycStatus,
+  isVerified,
+  isEmailVerified,
+  isApproved, 
+  userLevel,
+  userReceiveEmail,
+  userPaybackRate,
+ } = req.body;
+ console.log(req.body)
+
+   const user = await User.findById(userId);
+   if (!user) throw new Error("User not found");
+
+ //   // อัปเดตข้อมูลโรงแรม (ยกเว้น price_periods)
+   const updateData = {
+    companyName,
+    contactPerson,
+    contactNumber,
+    businessNumber,
+    companyAddress,
+    email,
+    role,
+    kycStatus,
+    isVerified,
+    isEmailVerified,
+    isApproved, 
+    userLevel,
+    userReceiveEmail,
+    userPaybackRate,
+   };
+
+
+ await User.findByIdAndUpdate(userId, updateData);
+ await user.save();
+
+ res.json({ redirectUrl: "/admins#users" });
+} catch (error) {
+ console.error("Error saving user:", error);
+ res.status(500).send("Internal Server Error");
+}
+};
+
 
 exports.putEditHotel = async (req, res) => {
   console.log('from put edithotel ')
@@ -1285,7 +1401,7 @@ exports.putPurchaseStatus = async (req, res)=>{
 
     const purchaseUpdateData = await Purchase.findByIdAndUpdate(id, { status });
 
-    if(status === 'Paid'){
+    if(status === 'Complete'){
 
       const vouchers = purchaseUpdateData.items.map((item) => {
       return {
@@ -1307,7 +1423,7 @@ exports.putPurchaseStatus = async (req, res)=>{
     await Voucher.insertMany(vouchers);
   }
 
-  if(status ==='Pending'){
+  if(status ==='Processing'){
     await Voucher.deleteMany({ purchaseId: purchaseUpdateData._id });
   }
 

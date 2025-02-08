@@ -16,6 +16,8 @@ const { uploadHotelImage,uploadRoomImage ,uploadGolfImage, uploadPackageImage} =
 // get page
 router.get("/", adminsController.getIndex);
 router.get("/dashboard", adminsController.getDashboard);
+router.get("/users", adminsController.getUsers);
+router.get("/users/editUser/:id", adminsController.getUpdateUser);
 router.get("/hotels", adminsController.getHotels);
 router.get("/hotels/addHotel", adminsController.getUpdateHotel);
 router.get("/hotels/editHotel/:id", adminsController.getUpdateHotel);
@@ -74,6 +76,12 @@ router.post(
 
 
 // Update
+
+router.put(
+  "/users/editUser/:id",
+  adminsController.putEditUser
+);
+
 router.put(
   "/hotels/editHotel/:id",
   uploadHotelImage.fields([

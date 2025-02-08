@@ -1,0 +1,179 @@
+<div class="bg-white pb-4">
+    <form id="userForm" class="max-w-screen-lg mx-auto space-y-6">
+      <div>
+        <h1
+        class="block mb-2 text-3xl font-bold text-gray-900 "
+        ><%= title %></h1>
+        <label
+          for="Information"
+          class="block mb-2 text-xl font-bold text-gray-900 underline"
+          >Information</label
+        >
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <%- include('../../partials/ui/inputText', { name: "companyName", label:
+          "Company",  value: user ? user.companyName :""  ,isRequired:false  }) %>
+        </div>
+        <div>
+          <%- include('../../partials/ui/inputText', { name: "contactPerson", label:
+          "Person", value: user ? user.contactPerson :"" ,isRequired:false  }) %>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <%- include('../../partials/ui/inputText', { name: "businessNumber", label:
+          "Business Number", value: user ? user.businessNumber :"" ,isRequired:false  }) %>
+        </div>
+        <div>
+          <%- include('../../partials/ui/inputText', { name: "contactNumber", label:
+          "Contact", value: user ? user.contactNumber :"" ,placeholder:"tel" ,isRequired:false }) %>
+        </div>
+      </div>
+      <div>
+        <%- include('../../partials/ui/inputTextArea', { name: "companyAddress", label:
+        "Address" , value: user ? user.companyAddress :"" ,isRequired:false}) %>
+      </div>
+
+
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="w-full md:col-span-2">
+          <%- include('../../partials/ui/inputText', { name: "email", label:
+          "Email" ,value: user ? user.email :"" }) %>
+        </div>
+        <div class="w-full">
+          <label for="role" class="block text-sm font-medium text-gray-900 ">Role</label>
+          <select name="role" id="is_featured" 
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            <option <%= user?.role==='SuperAdmin' ? "": "selected" %> value="SuperAdmin">SuperAdmin</option>
+            <option <%= user?.role==="Admin" ? "selected": "" %>  value="Admin">Admin</option>
+            <option <%= user?.role==="LandCompany" ? "selected": "" %>  value="LandCompany">LandCompany</option>
+            <option <%= user?.role==="Vendor" ? "selected": "" %>  value="Vendor">Vendor</option>
+            <option <%= user?.role==="Agency" ? "selected": "" %>  value="Agency">Agency</option>
+            <option <%= user?.role==="Customer" ? "selected": "" %>  value="Customer">Customer</option>
+          </select>
+        </div>
+     </div>
+     <div class="grid md:grid-cols-4 gap-6">
+      <div>
+          <label for="kycStatus" class="block text-sm font-medium text-gray-900 ">kycStatus</label>
+          <select name="kycStatus" id="kycStatus" 
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            <option <%= user?.isVerified ? "": "selected" %> value="KYC Not Complete">KYC Not Complete</option>
+            <option <%= user?.isVerified ? "selected": "" %>  value="KYC Complete">KYC Complete</option>
+
+          </select>
+      </div>
+      <div>
+        <label for="isVerified" class="block text-sm font-medium text-gray-900 ">isVerified</label>
+        <select name="isVerified" id="isVerified" 
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option <%= user?.isVerified ? "": "selected" %> value="false">False</option>
+          <option <%= user?.isVerified ? "selected": "" %>  value="true">True</option>
+        </select>
+      </div>
+      <div>
+        <label for="isEmailVerified" class="block text-sm font-medium text-gray-900 ">isEmailVerified</label>
+        <select name="isEmailVerified" id="isEmailVerified" 
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option <%= user?.isEmailVerified ? "": "selected" %> value="false">False</option>
+          <option <%= user?.isEmailVerified ? "selected": "" %>  value="true">True</option>
+        </select>
+      </div>
+      <div>
+        <label for="isApproved" class="block text-sm font-medium text-gray-900 ">isApproved</label>
+        <select name="isApproved" id="isApproved" 
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option <%= user?.isApproved ? "": "selected" %> value="false">False</option>
+          <option <%= user?.isApproved ? "selected": "" %>  value="true">True</option>
+        </select>
+      </div>
+
+      </div>
+      <div class="grid grid-cols-3 gap-6">
+        <div> <%- include('../../partials/ui/inputText', { name: "userLevel", label:
+          "User Level", type:'number', min:0, max:10, value: user ? user.userLevel :"" ,placeholder:"level"}) %></div>
+        <div>  <%- include('../../partials/ui/inputText', { name: "userReceiveEmail", label:
+        "Receive Email" , value: user ? user.userReceiveEmail :"" }) %></div>
+        <div><%- include('../../partials/ui/inputText', { name: "userPaybackRate", label:
+            "userPaybackRate" , value: user ? user.userPaybackRate :"" }) %>
+   </div>
+      </div>
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+      >
+        Submit
+      </button>
+      <button disabled type="button" class="hidden py-2.5 px-5 me-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-blue-700 focus:text-blue-700  inline-flex items-center">
+        <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"/>
+        </svg>
+        Loading...
+        </button>
+    </form>
+  </div>
+  
+  <script>
+    $(() => {
+      const isAdd = <%= isAdd %>
+  
+      // Form submission
+      $("#userForm").submit(function (event) {
+        event.preventDefault();
+        // ซ่อนปุ่ม Submit และแสดงปุ่ม Loading
+        const submitButton = $("button[type='submit']");
+        const loadingButton = $("button[disabled]");
+  
+        submitButton.addClass("hidden");
+        loadingButton.removeClass("hidden");
+  
+        let userId;
+        if (!isAdd) {
+          const currentUrl = window.location.hash;
+          const regex = /\/editUser\/([a-f0-9]{24})/; // อันนี้ใช้สำหรับ MongoDB ObjectId ที่เป็น 24 ตัวอักษร
+          const match = currentUrl.match(regex);
+  
+          const pathSegments = currentUrl.split('/');
+          userId = pathSegments[pathSegments.length - 1];
+  
+          if (!userId) {
+            console.error("User ID not found in the URL");
+            return;
+          }
+        }
+
+
+
+        const formData = new FormData(this);
+
+// สร้างอ็อบเจ็กต์ที่เก็บค่าจากฟอร์ม
+const data = {};
+
+// วนลูปผ่าน FormData เพื่อเก็บค่าลงในอ็อบเจ็กต์ data
+formData.forEach((value, key) => {
+  data[key] = value;
+});
+
+console.log(data)
+        const type = isAdd ? "POST" : "PUT";
+        const url = isAdd ? "/admins/users/addUser" : `/admins/users/editUser/${userId}`
+        $.ajax({
+          type: type, // ใช้ POST ในการส่งข้อมูล
+          url: url, // URL ที่จะส่งข้อมูลไป
+          data: data,
+          success: function (res) {
+            window.location.href = res.redirectUrl;
+          },
+          error:function(err){
+            submitButton.removeClass("hidden");
+            loadingButton.addClass("hidden");
+          }
+        });
+      });
+  
+    })
+   
+  </script>
+  

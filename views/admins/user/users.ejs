@@ -1,45 +1,37 @@
 <section class="grid gap-5">
-    <%- include('../../partials/ui/headerTable.ejs',{  searchHandler: `search('purchases', ${currentPage})`, searchQuery: searchQuery }) %>
+    <%- include('../../partials/ui/headerTable.ejs',{  searchHandler: `search('users', ${currentPage})`, searchQuery: searchQuery }) %>
   
     <div class="relative max-h-[33rem] overflow-x-auto shadow-md sm:rounded-lg">
       <table class="w-full text-sm text-left rtl:text-right text-gray-500">
         <thead class="text-xs text-gray-700 text-center uppercase bg-gray-50">
           <tr>
-            <th scope="col" class="px-6 py-3 text-left">Number</th>
-            <th scope="col" class="px-6 py-3">User ID</th>
-            <th scope="col" class="px-6 py-3">create At</th>
-            <th scope="col" class="px-6 py-3">total</th>
-            <th scope="col" class="px-6 py-3"></th>
+            <th scope="col" class="px-6 py-3 text-left">userid</th>
+            <th scope="col" class="px-6 py-3">email</th>
+            <th scope="col" class="px-6 py-3">company</th>
+            <th scope="col" class="px-6 py-3">role</th>
             <th scope="col" class="px-6 py-3">
               <span class="sr-only">Edit</span>
             </th>
           </tr>
         </thead>
         <tbody class="text-center">
-            <% purchases.forEach(purchase => { %>
+            <% users.forEach(user => { %>
                 <tr class="bg-white border-b">
                   <th scope="row" class="px-6 py-4 text-left font-medium text-gray-900">
-                    <%= purchase.purchaseId %>
+                    <%= user._id %>
                   </th>
                   <td class="px-6 py-4">
-                    <div class="text-left overflow-hidden max-h-20"><%= purchase.user %></div>
+                    <div class="text-left overflow-hidden max-h-20"><%= user.email %></div>
                   </td>
-                  <td class="px-6 py-4"><%= purchase.createdAt.toLocaleString('us-US', { timeZone: 'UTC' }) %></td>
-                  <td class="px-6 py-4"><%= Intl.NumberFormat().format(purchase.total) %></td>
+                  <td class="px-6 py-4"><%= user.companyName %></td>
+                  <td class="px-6 py-4"><%= user.role %></td>
                   <td class="px-6 py-4">
-                    <select class="underline_select block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-                      data-id="<%= purchase._id %>" data-number="<%= purchase.purchaseId %>">
-                      <option value="Processing" <%= purchase.status === 'Processing' ? 'selected' : '' %>>Processing</option>
-                      <option value="Complete" <%= purchase.status === 'Complete' ? 'selected' : '' %>>Complete</option>
-                    </select>
-                  </td>
-                  <!-- <td class="px-6 py-4">
                     <div class="flex justify-end items-center gap-2">
-                      <a target="_blank" href="/purchase/docAdmin/<%= purchase._id %>" class="font-medium text-blue-600 hover:underline">
-                        View
-                      </a>
+                      <a href="#users/edituser/<%= user._id %> %>" class="font-medium text-blue-600 hover:underline"
+                        >Edit</a
+                      >
                     </div>
-                  </td> -->
+                  </td>
                 </tr>
               <% }) %>
               
@@ -51,7 +43,7 @@
       currentPage: currentPage, 
       totalPages: totalPages, 
       totalDocument: totalDocument,
-      route: 'purchases' 
+      route: 'users' 
     }) %>
   </section>
 
@@ -59,14 +51,14 @@
     $(document).ready(function () {
         $(".underline_select").on("change", function () {
             const newStatus = $(this).val();
-            const purchaseId = $(this).data("id"); // ดึงค่า purchase._id จาก data-id
-            const purchaseNumber = $(this).data("number"); // ดึงค่า purchase._id จาก data-id
+            const userId = $(this).data("id"); // ดึงค่า user._id จาก data-id
+            const userNumber = $(this).data("number"); // ดึงค่า user._id จาก data-id
             const oldStatus = $(this).find("option[selected]").val() ; // ค่าเดิมก่อนเปลี่ยน
     
             // ยืนยันก่อนเปลี่ยนสถานะ
             Swal.fire({
                 title: "Are you sure?",
-                text: `${purchaseNumber}   from "${oldStatus}" to "${newStatus}" ?`,
+                text: `${userNumber}   from "${oldStatus}" to "${newStatus}" ?`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
@@ -78,11 +70,11 @@
                     $(this).val(oldStatus);
                 } else {
                     $.ajax({
-                        url: "admins/purchases/purchaseStatus", 
+                        url: "admins/users/userstatus", 
                         type: "PUT",
                         contentType: "application/json",
                         data: JSON.stringify({
-                            id: purchaseId,
+                            id: userId,
                             status: newStatus
                         }),
                         success: function (response) {

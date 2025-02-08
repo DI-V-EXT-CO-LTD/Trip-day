@@ -147,7 +147,7 @@ exports.createPaymentIntent = async (req, res) => {
           const purchase = await createPurchaseFromPayment(
             { id: "bank_transfer" },
             "bank_transfer",
-            "pending",
+            "Processing",
             req.user
           );
           console.log("Purchase created for bank transfer:", purchase);
@@ -174,7 +174,7 @@ exports.createPaymentIntent = async (req, res) => {
           const purchase = await createPurchaseFromPayment(
             { id: "crypto" },
             "crypto",
-            "pending",
+            "Processing",
             req.user
           );
           console.log("Purchase created for crypto payment:", purchase);
@@ -596,14 +596,14 @@ async function handleFailedPayment(paymentData, provider) {
         purchase = await createPurchaseFromPayment(
           paymentData,
           provider,
-          "pending"
+          "Processing"
         );
         break;
       case "crypto":
         purchase = await createPurchaseFromPayment(
           paymentData,
           provider,
-          "pending"
+          "Processing"
         );
         break;
     }
@@ -616,7 +616,7 @@ async function handleFailedPayment(paymentData, provider) {
     );
   }
 }
-// status === "completed" ? "Paid" : "Pending"
+
 async function createPurchaseFromPayment(paymentData, provider, status, user) {
   console.log("createPurchaseFromPayment", paymentData);
   try {
@@ -634,7 +634,7 @@ async function createPurchaseFromPayment(paymentData, provider, status, user) {
     items:invoice.items,
     total:invoice.total,
     invoice:invoice._id,
-    status: status === "completed" ? "Paid" : "Pending",
+    status: status === "completed" ? "Paid" : "Processing",
     paymentMethod:provider,
     })
 

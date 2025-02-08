@@ -16,8 +16,8 @@ const purchaseSchema = new mongoose.Schema({
   paymentMethod:String,
   status: {
     type: String,
-    enum: ['Pending','Paid', 'Preparing', 'Confirmed', 'Processing', 'Publishing', 'publishing', 'Complete', 'Cancelled', 'Failed', 'Refunded', 'Expired'],
-    default: 'Pending'
+    enum: [ 'Confirmed', 'Processing', 'Complete', 'Cancelled', 'Failed', 'Refunded', 'Expired'],
+    default: 'Processing'
   },
   createdAt: {
     type: Date,
