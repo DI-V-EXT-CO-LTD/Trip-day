@@ -46,7 +46,7 @@
                                                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                                         <input type="email" name="email" id="change_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
                                                     </div>
-                                                    <button type="button" id="continueBtn" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Continue</button>
+                                                    <button type="button" id="emailBtn" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Continue</button>
                                                 </div>
                                             </div>
 
@@ -66,11 +66,61 @@
                                       <div class="title-content">Link Phone Number</div>
                                   </div>
                               </div>
-                              <div class="card-left-content">-</div>
+                              <div class="card-left-content"><%= user?.contactNumber ? user?.contactNumber[0]+ " "+user?.contactNumber[1]:"-"  %></div>
                           </div>
-                          <div class="card-right-wrapper"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
-                                  <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Link</span></div>
-                              </button></div>
+                          <div class="card-right-wrapper">
+                            <button data-modal-target="phone-modal" data-modal-toggle="phone-modal" class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
+                                  <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis"><%= user?.contactNumber ? "Change":"Set"  %></span></div>
+                            </button>
+                            <div id="phone-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                <div class="relative p-4 w-full max-w-md max-h-full">
+                                    <!-- Modal content -->
+                                    <div class="relative bg-white rounded-lg shadow p-4">
+                                        <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="phone-modal">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                        <div >
+                                            <div class="p-4 md:p-5 text-center">
+                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                    <%= user?.contactNumber ? "Change Number":"Set Phone"  %>
+                                                </h3>
+                                            </div>
+                                  
+                                            <div class="px-4 ">
+                                               <label class="label-text" for="">Make sure your phone is correct</label>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div  class="p-4 md:p-5">
+                                                <div id="phoneForm" class="space-y-4">
+                                                    <div>
+                                                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+                                                        <div class="flex">
+                                                            <!-- Select สำหรับรหัสประเทศ -->
+                                                            <select id="phonePrefix" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 p-2.5">
+                                                              <option <%= user?.contactNumber[0] === '+66' && "select" %> value="+66">TH (+66)</option>
+                                                              <option <%= user?.contactNumber[0] === '+86' && "select" %> value="+86">CN (+86)</option>
+                                                              <option <%= user?.contactNumber[0] === '+82' && "select" %> value="+82">KR (+82)</option>
+                                                              <option <%= user?.contactNumber[0] === '+1' && "select" %> value="+1">US (+1)</option>
+                                                              <option <%= user?.contactNumber[0] === '+81' && "select" %> value="+81">JP (+81)</option>
+                                                            </select>
+                                                            
+                                                            <!-- Input สำหรับเบอร์โทรศัพท์ -->
+                                                            <input type="number" onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57" id="current_phone" value="<%= user?.contactNumber[1] && user?.contactNumber[1] %>" class="bg-gray-50 border border-l-0 border-gray-300 text-gray-900 text-sm rounded-r-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                                                           
+                                                          </div>
+                                                          <div id="invalid-phone" class="hidden text-xs text-red-600 w-full text-right">Phone is invalid</div>
+                                                    </div>
+                                                    <button type="button" id="phoneBtn" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
                       </div>
                   </div>
                   <div class="card-item-wrapper ">
@@ -142,9 +192,7 @@
                             <div class="card-left-content"><%= user.role %></div>
                         </div>
                         <div class="card-right-wrapper">
-                            <div class="button-wrapper text-button overflow-ellipsis"><button class="tripui-online-btn tripui-online-btn-middle tripui-online-btn-solid-primary   tripui-online-btn-ellipsis button-wrapper" type="button" dir="ltr" style="max-width: 160px;">
-                              <div class="tripui-online-btn-content"><span class="tripui-online-btn-content-children tripui-online-btn-ellipsis">Link</span></div>
-                          </button></div>
+                            <div class="button-wrapper text-button overflow-ellipsis"></div>
                         </div>
                         
                     </div>
@@ -246,105 +294,140 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- inputMark -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" integrity="sha512-K8e0xoiW9CSOVAk8XDzQYpFVzW/3UxhI9zg21CHyRJ5THwxyQKSlwDYmQK0jriYkdN6HdJQ3t7y4WZ6sn8Hztg==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script>
-    
-    document.addEventListener("DOMContentLoaded", function() {
-    const continueBtn = document.getElementById("continueBtn");
-    const chagnePwdBtn = document.getElementById("chagne_pwd_Btn");
-    
-    continueBtn.addEventListener("click", () => {
-        const emailInput = document.getElementById("change_email");
-        const email = emailInput.value;
-        console.log("Email:", email);  // ตรวจสอบค่า email
-        
-        if (!email) {
-            alert("Please enter your email.");
-            return;
-        }
 
-        // เปลี่ยนข้อความใน div เป็น "Please Verification your email !"
-        const container = document.getElementById("verificationContainer");
-        container.innerHTML = `
-        <div class="p-4 md:p-5 text-center">
-                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                                    Verify New Email Address
-                                                </h3>
-               <div class="p-4 ">
-                                               <label class="label-text" for="">We have sent a verification link to ${email} Please check your inbox .</label>
-                                            </div>
-            </div>
-                 
-                                               
-                                   
-           
-        `;
+    document.addEventListener("DOMContentLoaded", function () {
+        const changeEmailBtn = document.getElementById("emailBtn");
+        const chagnePwdBtn = document.getElementById("chagne_pwd_Btn");
 
-         // // ยิง API หลังจากเปลี่ยนข้อความ
-        // try {
-        //     const response = await fetch("https://example.com/api/send-email", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({ email }),
-        //     });
+        // phone
+        const chagnePhoneBtn= document.getElementById("phoneBtn");
+        const phonePrefix = document.getElementById("phonePrefix");
+        const currentPhone = document.getElementById("current_phone");
 
-        //     if (!response.ok) {
-        //         console.error("API Error:", await response.json());
-        //     }
-        // } catch (error) {
-        //     console.error("Network Error:", error.message);
-        // }
-    });
-    chagnePwdBtn.addEventListener("click", async() => {
-        const currentInput = document.getElementById("current_password").value;
-const newInput = document.getElementById("new_password").value;
 
-if (!currentInput || !newInput) {
-    alert("Please enter your password.");
-    return;
-}
+        changeEmailBtn.addEventListener("click", () => {
+            const emailInput = document.getElementById("change_email");
+            const email = emailInput.value;
+            console.log("Email:", email);  // ตรวจสอบค่า email
 
-        try {
-            const response = await fetch("profile/change-password", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ currentInput,newInput }),
-            });
-            if (!response.ok) {
-                document.getElementById("invalid_password").classList.remove("hidden");
+            if (!email) {
+                alert("Please enter your email.");
                 return;
             }
-            alert("reset password success")
-            window.location.reload()
 
-        } catch (error) {
-            console.error("Network Error:", error.message);
+            // เปลี่ยนข้อความใน div เป็น "Please Verification your email !"
+            const container = document.getElementById("verificationContainer");
+            container.innerHTML = `
+                <div class="p-4 md:p-5 text-center">
+                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                Verify New Email Address
+                </h3>
+               <div class="p-4 ">
+               <label class="label-text" for="">We have sent a verification link to ${email} Please check your inbox .</label>
+                </div>
+                </div>`;
+
+            // // ยิง API หลังจากเปลี่ยนข้อความ
+            // try {
+            //     const response = await fetch("https://example.com/api/send-email", {
+            //         method: "POST",
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //         },
+            //         body: JSON.stringify({ email }),
+            //     });
+
+            //     if (!response.ok) {
+            //         console.error("API Error:", await response.json());
+            //     }
+            // } catch (error) {
+            //     console.error("Network Error:", error.message);
+            // }
+        });
+        chagnePwdBtn.addEventListener("click", async () => {
+            const currentInput = document.getElementById("current_password").value;
+            const newInput = document.getElementById("new_password").value;
+
+            if (!currentInput || !newInput) {
+                alert("Please enter your password.");
+                return;
+            }
+
+            try {
+                const response = await fetch("profile/change-password", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ currentInput, newInput }),
+                });
+                if (!response.ok) {
+                    document.getElementById("invalid_password").classList.remove("hidden");
+                    return;
+                }
+                alert("reset password success")
+                window.location.reload()
+
+            } catch (error) {
+                console.error("Network Error:", error.message);
+            }
+        });
+
+        chagnePhoneBtn.addEventListener("click",async()=>{
+            const phoneNumber = currentPhone.value;
+            const prefix = phonePrefix.value;
+            const phoneLen = currentPhone.getAttribute('length')
+
+             if(phoneNumber.length != phoneLen){
+                document.getElementById('invalid-phone').classList.remove('hidden');
+                return
+             }
+            try {
+                const response = await fetch("profile/change-phone", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ prefix, phoneNumber }),
+                });
+                if (!response.ok) {
+                    document.getElementById("invalid_password").classList.remove("hidden");
+                    return;
+                }
+                window.location.reload()
+
+            } catch (error) {
+                console.error("Network Error:", error.message);
+            }
+
+        })
+
+
+        function updateMaxLength() {
+            const prefix = phonePrefix.value;
+            let len = 9; // ค่า default
+
+            if (prefix === "+86") {
+                len = 10;
+            }
+
+            currentPhone.setAttribute("length", len);
         }
+
+        updateMaxLength();
+        phonePrefix.addEventListener("change", updateMaxLength);
+
     });
 
-    
-});
-
-document.getElementById('resetPassword').addEventListener('click', function(e) {
-  e.preventDefault();
-  // Here you would typically send a request to the server to initiate the password reset process
-  alert('Password reset functionality will be implemented here.');
-});
-
-// <% if (user.businessNumber === 'N/A') { %>
-// document.getElementById('kycRequest').addEventListener('click', function(e) {
-//   e.preventDefault();
-//   // Here you would typically send a request to the server to initiate the KYC request process
-//   alert('KYC request functionality will be implemented here.');
-// });
-// <% } %>
+   
 
 
 </script>

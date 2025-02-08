@@ -5,8 +5,8 @@ const crypto = require('crypto'); // 토큰 생성을 위해 추가
 const userSchema = new mongoose.Schema({
   companyName: { type: String, required: false },
   contactPerson: { type: String, required: false },
-  contactNumber: { type: String, required: false },
-  businessNumber: { type: String, required: false },
+  contactNumber: {  type: [String], required: false },
+  businessNumber: {type: String, required: false },
   companyAddress: { type: String, required: false },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: false },
