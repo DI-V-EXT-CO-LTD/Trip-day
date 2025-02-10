@@ -17,55 +17,34 @@
           <!-- Logo -->
           <div class="text-center">
             <img
-              src="/images/Trip-day.png"
+              src="/images/logo2.png"
               alt="Logo"
               class="w-32 mx-auto mb-4"
+              style="width:200px;"
             />
+            <h1 class="mt-4 text-3xl font-bold underline">Receipt</h1><br>
           </div>
           <!-- Company Info -->
-          <div class="mt-6 text-center">
-            <p class="text-lg font-bold">DiveXT Co.,Ltd.</p>
-            <p>340/96 Moo9 Nongprue Banglamung Chonburi 20150 Thailand</p>
-            <p>Contact Number: +66 6 3329 7811</p>
+          <div class="mt-6 " >
+            
 
-            <h1 class="mt-4 text-3xl font-bold underline">Receipt</h1>
+            <p class="">DiveXT Co.,Ltd. <span style="margin:0 30px;">340/96 Moo9 Nongprue Banglamung Chonburi 20150 Thailand</span> +66 6 3329 7811</p>
+ 
+            
             <div class="mt-4 text-sm text-gray-600">
               <p>
                 <span class="font-medium">Date:</span> <%= receiptHeader.createdAt.toDateString() %>
+                <span class="font-medium"  style="margin:0 30px;">Receipt #:</span>
+                <%= receiptHeader.purchaseId %>
               </p>
               <p>
-                <span class="font-medium">Receipt #:</span>
-                <%= receiptHeader.purchaseId %>
+              
               </p>
             </div>
           </div>
 
           <!-- Receipt Details -->
-          <div class="mt-6">
-            <div class="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <p>
-                  <span class="font-medium text-gray-600">Company Name:</span>
-                  <strong><%= user.companyName %></strong>
-                </p>
-                <p>
-                  <span class="font-medium text-gray-600">Business Number:</span>
-                  <strong><%= user.businessNumber %></strong>
-                </p>
-                <p>
-                  <span class="font-medium text-gray-600">Address:</span>
-                  <strong><%= user.companyAddress %></strong>
-                </p>
-              </div>
-              <div class="text-right">
-                <p>
-                  <strong><%= user._id %></strong>
-                </p>
-              </div>
-            </div>
-           
-          </div>
-
+    
           <!-- receipt Details -->
           <div class="mt-6 border-t border-gray-200 pt-4">
             <table class="w-full text-left text-sm">
@@ -73,88 +52,72 @@
                 <tr>
                   <th class="px-4 py-2 font-bold">Description</th>
                   <th class="px-4 py-2 font-bold">Details</th>
+                  <th class="px-4 py-2 font-bold text-right">Available valid time</th>
                 </tr>
               </thead>
               <tbody>
                 <% if (receipts.some(receipt => receipt.type === "Hotel")) { %>
                   <tr class="border-b bg-gray-50 font-bold">
-                    <td class="px-4 py-2">Hotel</td>
-                    <td class="px-4 py-2"></td>
+                    <td class="px-4 py-2" colspan="3">Hotel</td>
+                   
                   </tr>
                   <% receipts.forEach(receipt => { %>
                     <% if (receipt.type === "Hotel") { %>
                       <tr class="border-b">
                         <td class="px-4 py-2"><%= receipt.hotelName %></td>
-                        <td class="px-4 py-2">Amount : <%= receipt.quantity %> Time : <%= receipt.period_start %> ~ <%= receipt.period_end %></td>
+                        <td class="px-4 py-2"> <%= receipt.quantity %> </td>
+                        <td class="px-4 py-2 text-right"> <%= receipt.period_start %> ~ <%= receipt.period_end %></span></td>
+                      </tr>
+                      </tr>
                       </tr>
                     <% } %>
                   <% }) %>
                 <% } %>
                 <% if (receipts.some(receipt => receipt.type === "Golf")) { %>
                 <tr class="border-b bg-gray-50 font-bold">
-                  <td class="px-4 py-2">Golf</td>
-                  <td class="px-4 py-2"></td>
+                  <td class="px-4 py-2"  colspan="3">Golf</td>
                 </tr>
                 <% receipts.forEach(receipt => { %>
                   <% if (receipt.type ==="Golf") { %>
                     <tr class="border-b">
                       <td class="px-4 py-2"><%= receipt.golfName %></td>
-                      <td class="px-4 py-2">Amount : <%= receipt.quantity %>     Time : <%= receipt.period_start %> ~ <%= receipt.period_end %></td>
+                      <td class="px-4 py-2"><%= receipt.quantity %>    </td>
+                      <td class="px-4 py-2 text-right"> <%= receipt.period_start %> ~ <%= receipt.period_end %></td>
                     </tr>
                   <% } %>
                 <% }) %>
                 <% } %>
                 <% if (receipts.some(receipt => receipt.type === "Package")) { %>
                 <tr class="border-b bg-gray-50 font-bold">
-                  <td class="px-4 py-2">Package</td>
-                  <td class="px-4 py-2"></td>
+                  <td class="px-4 py-2" colspan="3">Package</td>
                 </tr>
                 <% receipts.forEach(receipt => { %>
                   <% if (receipt.type ==="Package") { %>
                     <tr class="border-b">
                       <td class="px-4 py-2"><%= receipt.packageName %></td>
-                      <td class="px-4 py-2">Amount : <%= receipt.quantity %>     Time : <%= receipt.period_start %> ~ <%= receipt.period_end %> <%= receipt.detail %> </td>
+                      <td class="px-4 py-2 text-right"> <%= receipt.quantity %>    </td>
+                      <td class="px-4 py-2"><%= receipt.period_start %> ~ <%= receipt.period_end %> <%= receipt.detail %> </td>
+                    </tr>
+                    </tr>
                     </tr>
                   <% } %>
                 <% }) %>
                 <% } %>
                 <tr>
-                  <td class="px-4 py-2 font-bold text-lg">Total</td>
-                  <td class="px-4 py-2 font-bold text-right text-xl">
+                  <td class="px-4 py-2 font-bold text-lg" colspan="2">Total</td>
+                  <td class="px-4 py-2 font-bold text-right text-xl"colspan="2">
                     ฿<%= receiptHeader.total.toLocaleString() %>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="flex justify-between items-center">
+          <div class="flex justify-between items-center" style="padding:10px;">
                       <!-- Bank Information -->
+                      Payment has been completed. Thank you for using Trip-Day.com. Have a nice trip. Please use us again next time.
           <div >
-            <h2 class="text-xl font-semibold text-center mb-4">
-              Bank Information
-            </h2>
-            <div class="text-sm text-gray-700">
-              <p>
-                <strong>Collection Company Name:</strong> DI V-EXT COMPANY
-                LIMITED
-              </p>
-              <p>
-                <strong>Collection Account Number:</strong> 669 267 6768
-              </p>
-              <p>
-                <strong>Bank Name:</strong> THE SIAM COMMERCIAL BANK PUBLIC
-                COMPANY LIMITED
-              </p>
-              <p>
-                <strong>Branch:</strong> PATTAYA SAI 2
-              </p>
-              <p>
-                <strong>Bank Address:</strong> 116/19 MOO9 NONGPRUE BANGLAMUNG
-                CHONBURI 20150 THAILAND
-              </p>
-              <p><strong>Swift Code:</strong> SICOTHBK</p>
-              <p><strong>Bank Code:</strong> 0669</p>
-            </div>
+          
+     
           </div>
                     <!-- Stamp -->
                     <div class="text-center">
