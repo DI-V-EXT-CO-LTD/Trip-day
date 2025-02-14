@@ -1,3 +1,9 @@
+node_modules
+public/demo
+public/uploads
+src/assets
+public/images
+
 # Logs
 logs
 *.log
