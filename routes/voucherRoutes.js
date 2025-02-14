@@ -5,8 +5,9 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const { ensureAuthenticated } = require('../config/auth');
 
-router.get('/', ensureAuthenticated, voucherController.renderVouchersPage);
+// router.get('/', ensureAuthenticated, voucherController.renderVouchersPage);
 router.get('/api', ensureAuthenticated, voucherController.getVouchers);
-router.post('/submit-voucher', ensureAuthenticated, voucherController.submitVoucher);
+// router.post('/submit-voucher', ensureAuthenticated, voucherController.submitVoucher);
+router.post('/use-vochers', ensureAuthenticated, voucherController.submitVoucher);
 
 module.exports = router;

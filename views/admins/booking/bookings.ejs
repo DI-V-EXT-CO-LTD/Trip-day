@@ -1,0 +1,118 @@
+<section class="grid gap-5">
+    <%- include('../../partials/ui/headerTable.ejs',{ searchHandler: `search('bookings', ${currentPage})`, searchQuery: searchQuery }) %>
+  
+    <div class="relative max-h-[33rem] overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-gray-700 text-center uppercase bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left">Voucher</th>
+            <th scope="col" class="px-6 py-3">User</th>
+            <th scope="col" class="px-6 py-3">email</th>
+            <th scope="col" class="px-6 py-3">amount</th>
+            <th scope="col" class="px-6 py-3">createdAt</th>
+            <th scope="col" class="px-6 py-3">
+              <span class="sr-only"></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <% bookings.forEach(book => { %>
+          <tr class="bg-white border-b">
+            <th scope="row" class="px-6 py-4 text-left font-medium text-gray-900">
+              <%= book.voucher.voucherCode %>
+            </th>
+            <td class="px-6 py-4">
+              <div class="text-center overflow-hidden max-h-20"><%= book.user.contactPerson %></div>
+            </td>
+            <td class="px-6 py-4">
+              <div class="text-center overflow-hidden max-h-20"><%= book.user.email %></div>
+            </td>
+            <td class="px-6 py-4"><%= book.usedList.length %></td>
+            <td class="px-6 py-4" ><%= book.createdAt.toLocaleDateString() %></td>
+            <td class="px-6 py-4">
+              <div class="flex justify-end items-center gap-2">
+                <button data-voucher-id="<%= book._id %>" class="detail-btn block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                  Detail
+                </button>                
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="select-modal" tabindex="-1" aria-hidden="true" class="hidden flex items-center justify-center bg-gray-500/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full">
+      <div class="relative p-4 w-full max-w-md max-h-full">
+        <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+            <h3 id="modal-title" class="text-lg font-semibold text-gray-900 dark:text-white">
+              Voucher Details
+            </h3>
+            <button id="close-modal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-4 md:p-5">
+            <p class="text-gray-500 dark:text-gray-400 mb-4">Usage Voucher</p>
+            <ul id="modal-usedList" class="space-y-4 mb-4"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <%- include('../../partials/ui/TablePagination.ejs', { 
+      currentPage: currentPage, 
+      totalPages: totalPages, 
+      totalDocument: totalDocument,
+      route: 'bookings' 
+    }) %>
+  </section>
+  
+  <script>
+      const bookings = <%- JSON.stringify(bookings) %>;
+$(document).ready(function () {
+  $(".detail-btn").click(function () {
+    const voucherId = $(this).data("voucher-id"); // ดึง voucherId จากปุ่มที่กด
+    
+    // ค้นหา booking ที่ตรงกับ voucherId
+    const booking = bookings.find(book => book._id == voucherId);
+
+    if (booking && booking.usedList.length > 0) {
+      $("#modal-title").text(`Company Name: ${booking.user.companyName}`);
+      
+      const usedListHtml = booking.usedList.map(voucher => `
+        <li>
+          <input type="radio" id="voucher-${voucher.no}" name="voucher" value="${voucher.no}" class="hidden peer" required />
+          <label for="voucher-${voucher.no}" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 dark:peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+            <div class="block">
+              <div class="w-full text-lg font-semibold">${booking.voucher.voucherCode}</div>
+              <div class="w-full text-gray-500 dark:text-gray-400">No: ${voucher.no}</div>
+            </div>
+            
+          </label>
+        </li>
+      `).join("");
+
+      $("#modal-usedList").html(usedListHtml);
+      
+      // แสดง modal
+      $("#select-modal").removeClass("hidden");
+    } else {
+      alert("No used list available for this voucher.");
+    }
+  });
+
+  // ปิด modal
+  $("#close-modal").click(function () {
+    $("#select-modal").addClass("hidden");
+  });
+});
+
+  </script>

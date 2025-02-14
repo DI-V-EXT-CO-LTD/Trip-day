@@ -91,12 +91,13 @@
             <td class="px-6 py-3"><%= voucher.validUntil.toDateString() %></td>
             <td class="px-6 py-3">
               <button 
+              <%= voucher?.remainingQuantity<1 && "disabled" %>
               data-voucher-id="<%= voucher._id %>" 
               data-voucher-remaining= <%= voucher.remainingQuantity.toLocaleString() %>
               data-voucher-email="<%= user.email %>" 
               data-modal-target="crud-modal" 
               data-modal-toggle="crud-modal" 
-              class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+              class="block text-white   focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center <%= voucher?.remainingQuantity<1 ? "bg-gray-500" :"bg-blue-700 hover:bg-blue-800" %>" 
               type="button">
               Get
            </button>
@@ -116,7 +117,7 @@
                   <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                       Get your Vouchers
                   </h3>
-                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
+                  <button id="btn-close-modal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
                       <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                       </svg>
@@ -124,8 +125,8 @@
                   </button>
               </div>
               <!-- Modal body -->
-              <form class="p-4 md:p-5" method="post" action="">
-                <input type="text" name="vocher_id" id="vocher_id" value="" class="hidden"  required="">
+              <form class="p-4 md:p-5" >
+                <input type="text" name="voucher_id" id="voucher_id" value="" class="hidden"  required="">
                   <div class="grid gap-4 mb-4 grid-cols-2">
                       <div class="col-span-2">
                           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Send to Email</label>
@@ -136,14 +137,15 @@
                           <input type="number" name="amount" min="0" value="1" id="voucher_amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                       </div>
                   </div>
-                  <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                
-                      <svg class="me-2 -ms-1 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                        <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                        <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                      </svg>
-                      Send
+                  <button id="submit-voucher" type="button" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <svg class="me-2 -ms-1 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                      <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+                      <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+                    </svg>
+                    Send
                   </button>
+                  
+                  
               </form>
           </div>
       </div>
@@ -162,8 +164,48 @@ $(document).on("click", "button[data-modal-toggle='crud-modal']", function() {
   const remaining = $(this).data("voucher-remaining");
   const email = $(this).data("voucher-email");
   // ใส่ข้อมูลลงใน input ของ modal
-  $("#vocher_id").val(id);
+  $("#voucher_id").val(id);
   $("#voucher_email").val(email);
   $("#voucher_amount").attr("max", remaining);
 });
+
+$("#submit-voucher").click(function () {
+    const voucherId = $("#voucher_id").val();
+    const email = $("#voucher_email").val();
+    const amount = parseInt($("#voucher_amount").val());
+
+    if (!voucherId || !email || amount <= 0) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    $.ajax({
+  url: "/voucher/use-vochers",
+  type: "POST",
+  contentType: "application/json",
+  data: JSON.stringify({ voucher_id: voucherId, email: email, amount: amount }),
+  success: function (data) {
+
+    // ค้นหาแถวของ voucher และอัปเดต remainingQuantity
+    const row = $(`[data-voucher-id="${voucherId}"]`).closest("tr");
+    if (row.length) {
+      const remainingCell = row.find("td:nth-child(3)"); // คอลัมน์ remainingQuantity
+      const currentRemaining = parseInt(remainingCell.text().replace(/,/g, ""));
+      const newRemaining = currentRemaining - amount;
+
+      remainingCell.text(newRemaining.toLocaleString());
+
+      // ค้นหาและปิดปุ่มถ้า remainingQuantity = 0
+      const button = row.find("button[data-voucher-id]");
+      if (newRemaining < 1) {
+        button.prop("disabled", true).addClass("bg-gray-500").removeClass("bg-blue-700 hover:bg-blue-800");
+      }
+    }
+  },
+  error: function (xhr, status, error) {
+  alert("Error: " + xhr.responseText || "Can't use voucher, please contact us");
+}
+});
+$('#btn-close-modal').click();
+  });
 </script>

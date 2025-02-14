@@ -23,7 +23,7 @@ exports.getIndex = async (req, res) => {
     const purchases = await Purchase.find();
     const invoices = await Invoice.find({ userId: { $ne: "" } });
     const hotels = await Hotel.find();
-    const bookings = await Booking.find(); // Booking 데이터를 조회하는 코드
+    const bookings = await Booking.find(); // Bookinging 데이터를 조회하는 코드
     const userCount = await User.countDocuments();
 
     // Fetch current purchases (with "Paid" status)
@@ -73,7 +73,7 @@ exports.getDashboard = async (req, res) => {
     const purchases = await Purchase.find();
     const invoices = await Invoice.find({ userId: { $ne: "" } });
     const hotels = await Hotel.find();
-    const bookings = await Booking.find(); // Booking 데이터를 조회하는 코드
+    const bookings = await Bookinging.find(); // Bookinging 데이터를 조회하는 코드
     const userCount = await User.countDocuments();
 
     // Fetch current purchases (with "Paid" status)
@@ -558,6 +558,95 @@ exports.getVouchers = async (req, res)=>{
     res.render("../views/errors/500", { layout: false });
   }
 }
+
+exports.getBookings = async (req, res) => {
+  try {
+    const limit = 10;
+    const currentPage = parseInt(req.query.page) || 1;
+    const searchQuery = req.query.search || "";
+    const skip = (currentPage - 1) * limit;
+
+    // สร้าง filter เงื่อนไขการค้นหา
+    const matchStage = {};
+
+    if (searchQuery) {
+      matchStage.$or = [
+        { "voucher.voucherCode": { $regex: searchQuery, $options: "i" } },
+        { "voucher.validFrom": { $regex: searchQuery, $options: "i" } },
+        { "voucher.validUntil": { $regex: searchQuery, $options: "i" } },
+        { "user.email": { $regex: searchQuery, $options: "i" } },
+      ];
+    }
+
+    // Query ด้วย Aggregate
+    const [bookings, totalDocument] = await Promise.all([
+      Booking.aggregate([
+        // เชื่อม `User`
+        {
+          $lookup: {
+            from: "users",
+            localField: "userId",
+            foreignField: "_id",
+            as: "user",
+          },
+        },
+        { $unwind: "$user" },
+
+        // เชื่อม `Voucher` (หรือเปลี่ยนเป็น `Invoice` ถ้าข้อมูลอยู่ที่นั่น)
+        {
+          $lookup: {
+            from: "vouchers",
+            localField: "voucherId",
+            foreignField: "_id",
+            as: "voucher",
+          },
+        },
+        { $unwind: { path: "$voucher", preserveNullAndEmptyArrays: true } },
+
+        { $match: matchStage }, // กรองตามเงื่อนไข
+        { $skip: skip }, // ข้ามตาม pagination
+        { $limit: limit }, // จำกัดจำนวนข้อมูล
+      ]),
+      Booking.aggregate([
+        {
+          $lookup: {
+            from: "users",
+            localField: "userId",
+            foreignField: "_id",
+            as: "user",
+          },
+        },
+        { $unwind: "$user" },
+        {
+          $lookup: {
+            from: "vouchers",
+            localField: "voucherId",
+            foreignField: "_id",
+            as: "voucher",
+          },
+        },
+        { $unwind: { path: "$voucher", preserveNullAndEmptyArrays: true } },
+        { $match: matchStage },
+        { $count: "total" },
+      ]),
+    ]);
+
+    const totalPages = Math.ceil((totalDocument[0]?.total || 0) / limit);
+
+    res.render("admins/booking/bookings", {
+      admin: req.user,
+      bookings,
+      currentPage,
+      totalDocument: totalDocument[0]?.total || 0,
+      totalPages,
+      title: "Bookings",
+      searchQuery,
+    });
+  } catch (error) {
+    console.error("Error in getBookings:", error);
+    res.render("../views/errors/500", { layout: false });
+  }
+};
 
 // post
 
@@ -1418,6 +1507,11 @@ exports.putPurchaseStatus = async (req, res)=>{
         hotelId: item.hotel ? item.hotel : null, // ID โรงแรม (ถ้ามี)
         golfId: item.golf ? item.golf : null, // ID แพ็กเกจ (ถ้ามี)
         packageId: item.package ? item.package : null, // ID แพ็กเกจ (ถ้ามี)
+        list:Array.from({ length: item.quantity }, (_, i) => ({
+          no: i + 1, // สร้างหมายเลข 1, 2, 3, ... ตามจำนวน quantity
+          status: "unused", // ค่าเริ่มต้นเป็น unused
+          usedAt: null, // ยังไม่ถูกใช้
+        })),
       };
     });
     

@@ -1,15 +1,17 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  APISCODE: String,
-  userId: String,
-  Hotel: String,
-  Amount: Number,
-  useDate: Date,
-  createAt: { type: Date, default: Date.now },
-  CustomerInfo: []
+  voucherId: { type: mongoose.Schema.ObjectId, ref: "Voucher", required: true },
+  userId: { type: mongoose.Schema.ObjectId, ref: "user", required: true },
+  email: { type: String, required: true },
+  usedList: [
+    {
+      no: Number,
+      usedAt: Date,
+    },
+  ],
+  createdAt: { type: Date, default: Date.now },
 });
-
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
