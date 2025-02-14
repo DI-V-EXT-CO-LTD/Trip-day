@@ -73,7 +73,7 @@ exports.getDashboard = async (req, res) => {
     const purchases = await Purchase.find();
     const invoices = await Invoice.find({ userId: { $ne: "" } });
     const hotels = await Hotel.find();
-    const bookings = await Bookinging.find(); // Bookinging 데이터를 조회하는 코드
+    const bookings = await Booking.find(); // Bookinging 데이터를 조회하는 코드
     const userCount = await User.countDocuments();
 
     // Fetch current purchases (with "Paid" status)
