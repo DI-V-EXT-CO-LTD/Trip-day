@@ -50,6 +50,7 @@ const searchRoutes = require("./routes/searchRoutes");
 const PaymentDetails = require("./models/paymentMethod");
 const flightRoutes = require("./routes/flightRoutes");
 const receiptRouter = require("./routes/receiptRoutes");
+const apiRouter = require("./routes/apiRoutes");
 
 const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
@@ -61,6 +62,7 @@ require("./models/hotel");
 require("./models/golf");
 require("./models/package");
 require("./models/locationCategories");
+require("./models/airport");
 
 // MongoDB connection setup
 mongoose
@@ -88,6 +90,9 @@ app.use(flash());
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(cookieParser());
 
+
+//////////
+app.use("/api",apiRouter);
 // Template engine setup
 app.set("view engine", "ejs");
 

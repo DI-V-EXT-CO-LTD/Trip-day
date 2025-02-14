@@ -989,22 +989,26 @@
                     </div>
 
                     <div style="display: flex; align-items: center; ">
+                      <div class="relative h-full group hover:border-b-2 border-blue-500" >
                       <div
                         style="display: flex; align-items: center; width: 100%; gap: 0.5rem; font-size: large; margin-right: 0.5rem;">
                         <div style="padding: 1rem; border:1px solid #dadfe6;
                                                   border-radius:4px;
                                                   box-sizing:border-box; width: 100%; height: 56px; ">
-                          <input id="rd-navbar-search-form-input-NaN" type="text" name="from" autocomplete="off"
-                            type="text" autocomplete="off" placeholder="City, region" value="GMP">
+                          <input id="airport-dep" type="text" name="from" autocomplete="off"
+                            type="text" autocomplete="off" placeholder="City, region" value="">
                         </div>
                         <div style="padding: 1rem; border:1px solid #dadfe6;
                                                   border-radius:4px;
                                                   box-sizing:border-box; width: 100%; height:  56px;">
-                          <input id="rd-navbar-search-form-input-NaN" type="text" name="to" autocomplete="off"
-                            type="text" autocomplete="off" placeholder="City, region" value="BKK">
+                          <input id="airport-arv" type="text" name="to" autocomplete="off"
+                            type="text" autocomplete="off" placeholder="City, region" >
                         </div>
-
                       </div>
+                      <div  class="absolute top-full w-[140px] hidden z-50 group-hover:block">
+                        <div id="airportList" class="bg-white border border-gray-300 rounded-md shadow-lg  mt-2">
+        </div></div>
+                    </div>
                       <div class="xYMCg_QqPorbG5WNg6Ms">
                         <div class="ziv0jEjaxcgWq6iiTrEQ"><label class="jveskUk1O3jO0s1QGao3"
                             for="checkInInput">Depart</label>
@@ -1152,7 +1156,7 @@
       </div>
     </div>
 
-    <div class="home-trustpilot" style="margin-top: 10px;"></div>
+    <div class="home-trustpilot" style="margin-top: 10px; "></div>
   </div>
 </div>
 <script>
@@ -1244,6 +1248,54 @@
   function scrollToPolicies() {
     // Implement this function to scroll to the Policies section
   }
+
+//  airport search input autocomplete
+  const airportSearchDep = document.getElementById("airport-dep");
+  const airportSearchArv = document.getElementById("airport-arv");
+const airportList = document.getElementById("airportList");
+
+  const outputHtml = (fits,inputId) => {
+  if (fits.length > 0) {
+    const airportFits = fits
+      .map(
+        (fit) =>
+          `<div class="flex items-center cursor-pointer hover:bg-gray-200" data-iata="${fit.iata_code}" style="padding-left:1rem; padding-top:10px; padding-buttom:10px">
+            <div style="margin-right: 15px; 
+  background-color: #5dade2; 
+  color: white; 
+  width: 40px; 
+  height: 40px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 10%;
+  font-weight: bold;">${fit.iata_code}</div>
+            <div class="airport__id">
+              <h3 class="airport__name">${fit.name}</h3>
+              <div class="flex">
+                <p class="airport__city">${fit.city}, </p> 
+                <p class="airport__country">${fit.country}</p>
+              </div>
+            </div>
+          </div>`
+      )
+      .join("");
+
+    airportList.innerHTML = airportFits;
+
+    // เพิ่ม Event Listener ให้กับแต่ละตัวเลือก
+    document.querySelectorAll("#airportList div").forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const selectedIata = e.currentTarget.getAttribute("data-iata");
+        inputId.value = selectedIata; // ใส่ค่าใน input
+        airportList.innerHTML = ""; // ล้างผลลัพธ์ที่แสดง
+      });
+    });
+  } else { 
+    airportList.innerHTML = ""; // ล้างผลลัพธ์ถ้าไม่มีข้อมูล
+  }
+};
+
   document.addEventListener("DOMContentLoaded", function () {
     let showPassengerValue = 2;
     const elements = [
@@ -1276,6 +1328,11 @@
       document.getElementById(element.increase).addEventListener('click', () => updateValue(element.input, element.value, 'increase'));
       document.getElementById(element.decrease).addEventListener('click', () => updateValue(element.input, element.value, 'decrease'));
     });
+
+
+
+    airportSearchDep.addEventListener("input", () => searchairport(airportSearchDep.value,airportSearchDep));
+    airportSearchArv.addEventListener("input", () => searchairport(airportSearchArv.value,airportSearchArv));
   });
 
   const today = new Date();
@@ -1371,4 +1428,28 @@
       returnDiv.style.display = 'none';
     }
   }
+
+  async function  searchairport (searchBox,inputId) {
+  // get json
+  const res = await fetch("https://raw.githubusercontent.com/algolia/datasets/master/airports/airports.json");
+  const airports = await res.json();
+
+  // get data
+  let fits = airports.filter((airport) => {
+    const regex = new RegExp(`^${searchBox}`, "gi");
+    return (
+      airport.country.match(regex) ||
+      airport.name.match(regex) ||
+      airport.city.match(regex) ||
+     airport.iata_code.match(regex)
+    );
+  });
+
+  if (searchBox.length === 0) {
+    fits = [];
+    airportList.innerHTML = "";
+  }
+  outputHtml(fits,inputId);
+};
+
 </script>

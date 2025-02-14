@@ -73,7 +73,7 @@ exports.getDashboard = async (req, res) => {
     const purchases = await Purchase.find();
     const invoices = await Invoice.find({ userId: { $ne: "" } });
     const hotels = await Hotel.find();
-    const bookings = await Bookinging.find(); // Bookinging 데이터를 조회하는 코드
+    const bookings = await Booking.find(); // Bookinging 데이터를 조회하는 코드
     const userCount = await User.countDocuments();
 
     // Fetch current purchases (with "Paid" status)
@@ -529,19 +529,47 @@ exports.getVouchers = async (req, res)=>{
     const filter = searchQuery
       ? {
           $or: [
-            { voucherCode: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ title
-            { purchaseId: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
-            { title: { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+            { "voucher.voucherCode": { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ title
+            { "purchase.purchaseId": { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
+            { "voucher.title": { $regex: searchQuery, $options: "i" } }, // ค้นหาในฟิลด์ description
           ],
         }
       : {};
 
     // ดึงข้อมูลโรงแรมและคำนวณจำนวนหน้าทั้งหมด
     const [vouchers, totalDocument] = await Promise.all([
-      Voucher.find(filter).skip(skip).limit(limit),
-      Voucher.countDocuments(filter),
+      Voucher.aggregate([
+        // เชื่อม `User`
+        {
+          $lookup: {
+            from: "purchases",
+            localField: "purchaseId",
+            foreignField: "_id",
+            as: "purchase",
+          },
+        },
+        { $unwind: "$purchase" },
+        { $match: filter }, // กรองตามเงื่อนไข
+        { $skip: skip }, // ข้ามตาม pagination
+        { $limit: limit }, // จำกัดจำนวนข้อมูล
+      ]),
+      Voucher.aggregate([
+        // เชื่อม `User`
+        {
+          $lookup: {
+            from: "purchases",
+            localField: "purchaseId",
+            foreignField: "_id",
+            as: "purchase",
+          },
+        },
+        { $unwind: { path: "$purchase", preserveNullAndEmptyArrays: true } },
+        { $match: filter },
+        { $count: "total" },
+      ])
     ]);
 
+    console.log(vouchers)
     const totalPages = Math.ceil(totalDocument / limit); // คำนวณจำนวนหน้าทั้งห
     // dashboard.ejs로 데이터 전달
     res.render("admins/voucher/vouchers", {
